@@ -1,0 +1,83 @@
+/*========== RESET */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, div, span, applet, object, iframe, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  vertical-align: baseline;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, img {
+  display: block;
+}
+
+figure {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+ul, li {
+  list-style: none;
+  font-size: 20px;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
+/*========== HR */
+hr {
+  border: none;
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+/*========== A / LINK */
+a {
+  text-decoration: none;
+  /* color: var(--color-main); */
+}
+
+a:hover {
+  color: var(--color-main);
+}
+
+/*========== SELECTION */
+::selection {
+  background-color: var(--color-soft-7);
+  color: var(--color-black);
+}
+
+/*========== SCROLLBAR */
+::-webkit-scrollbar {
+  height: 3px;
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dddddd;
+  border-radius: 7px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-dark-main);
+}
