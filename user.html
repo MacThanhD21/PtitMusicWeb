@@ -14,27 +14,27 @@
         <link rel="stylesheet" href="./assets/css/style.css">
 
         <!-- IMPORT FONT AWESOME -->
-        <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome.min.css">
-        <link rel="stylesheet" type="text/css" href="fonts/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="/assets/fonts/css/fontawesome.min.css">
+        <link rel="stylesheet" type="text/css" href="./assets/fonts/css/all.min.css">
         <!-- IMPORT FAVICON -->
         <link rel="shortcut icon" href="images/logo/SVG/Audiospark_Logo_Icon.svg" type="image/x-icon">
         
         <!-- TITLE -->
-        <title>USER: Hans Zimmer — Audiospark</title>
+        <title>User</title>
     </head>
     <body id="Top" class="page-01 page-02">
 
         <!-- LOADER -->
-        <div class="loader-warpper" id="loader">
+        <!-- <div class="loader-warpper" id="loader">
             <div class="loader"></div>
-        </div>
+        </div> -->
 
 
         <!-- NAVBAR -->
         <nav id="navbarFixed">
             <ul>
                 <a href="javascript:void(0)" onclick="navbarMobileToggle()" title="Menu" aria-label="Menu" class="fa-bars-mobile"><span class="far fa-bars"></span></a>
-                <a href="index.html"><img src="images/logo/SVG/Audiospark_Logo_Icon.svg" alt="" title="Audiospark"></a>
+                <a href="index.html"><img src="./assets/images/logo/SVG/Audiospark_Logo_Icon.svg" alt="" title="Audiospark"></a>
                 <ul id="navbarMobileToggle">
                     <a href="javascript:void(0)" onclick="navbarMobileToggle()" title="Close Menu" aria-label="Close Menu" class="fa-close-mobile"><span class="far fa-close"></span></a>
                     
@@ -49,8 +49,10 @@
                 <a href="javascript:void(0)" onclick="switchMode()" id="switchModeBtnDark" title="Switch Dark Mode" aria-label="Switch Dark Mode"><span class="far fa-moon"></span></a>
                 <a href="javascript:void(0)" onclick="switchMode()" id="switchModeBtnLight" title="Switch Light Mode" aria-label="Switch Light Mode"><span class="far fa-sun"></span></a>
                 <a href="javascript:void(0)" onclick="searchMode()" title="Search" aria-label="Search"><span class="far fa-search"></span></a>
-                <a href="javascript:void(0)" onclick="avatarDropdown()"><img src="images/avatar/avatar-1.png" alt=""></a>
-
+                <!-- <a href="javascript:void(0)" onclick="avatarDropdown()"><img src="./assets/images/avatar/avatar-1.png" alt=""></a> -->
+                <a href="javascript:void(0)" id="avatar">
+                    <i class="fa-solid fa-user"></i>
+                </a>
                 <!-- AVATAR DORPDOWN -->
                 <div class="avatar-dropdown" id="avatarDropdown">
                     <a href=""><li><span class="far fa-user"></span> Profile</li></a>
@@ -85,29 +87,29 @@
             <div class="support-chat-mode">
                 <!-- CHAT HEADER -->
                 <div class="support-chat-mode-header">
-                    <h4>Support <img src="images/logo/PNG/Audiospark_Logo_Icon/Audiospark_Logo_Icon@2400.png" alt="" title="Audiospark Bot"></h4>
+                    <h4>Support <img src="./assets/images/logo/PNG/Audiospark_Logo_Icon/Audiospark_Logo_Icon@2400.png" alt="" title="Audiospark Bot"></h4>
                     <a href="javascript:void(0)" onclick="supportChatMode()"><span class="far fa-close"></span></a>
                 </div>
                 <!-- CHAT BODY -->
                 <div class="support-chat-mode-body">
                     <div class="chat-date">Today, September 26, 2023</div>
                     <div class="section-message-bot">
-                        <img src="images/logo/PNG/Audiospark_Logo_Icon/Audiospark_Logo_Icon@2400.png" alt="">
+                        <img src="./assets/images/logo/PNG/Audiospark_Logo_Icon/Audiospark_Logo_Icon@2400.png" alt="">
                         <p>Hello! How can I assist you today?</p>
                     </div>
                     <div class="section-message-user">
-                        <img src="images/avatar/avatar-1.png" alt="">
+                        <img src="./assets/images/avatar/avatar-1.png" alt="">
                         <p>Hi</p>
                         <p>How to download as musics ZIP ???</p>
                     </div>
                     <div class="section-message-bot">
-                        <img src="images/logo/PNG/Audiospark_Logo_Icon/Audiospark_Logo_Icon@2400.png" alt="">
+                        <img src="./assets/images/logo/PNG/Audiospark_Logo_Icon/Audiospark_Logo_Icon@2400.png" alt="">
                         <p>You most first click on the 'DOWNLOAD' button to automatically download ZIP file after a few seconds.
                         <br><br>
                         If you have a problem, are you ready to be responsive to you.</p>
                     </div>
                     <div class="section-message-user">
-                        <img src="images/avatar/avatar-1.png" alt="">
+                        <img src="./assets/images/avatar/avatar-1.png" alt="">
                         <p>Thank you very much for your problem.</p>
                         <p>🙏🙏🙏</p>
                     </div>
@@ -129,7 +131,7 @@
         <header class="hero hero-page">
             <div>
                 <figure>
-                    <a href="images/avatar-artists/Hans-Zimmer-400x400.jpg"><img src="images/avatar-artists/Hans-Zimmer-400x400.jpg" alt=""></a>
+                    <a href="images/avatar-artists/Hans-Zimmer-400x400.jpg"><img src="./assets/images/avatar-artists/Hans-Zimmer-400x400.jpg" alt=""></a>
                 </figure>
                 <div>
                     <h1>Hans Zimmer</h1>
@@ -155,7 +157,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Acceleration-Amadea-Music-Productions-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Acceleration-Amadea-Music-Productions-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Acceleration</h3>
                             </a>
@@ -164,7 +166,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Charged-400x400.jpg" alt="">
+                                    <img src="./assets/images/covers/Charged-400x400.jpg" alt="">
                                 </figure>
                                 <h3>Charged</h3>
                             </a>
@@ -173,7 +175,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Deflector-3-Complexities-of-Sound-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Deflector-3-Complexities-of-Sound-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Deflector 3</h3>
                             </a>
@@ -182,7 +184,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Divergent-Hybrid-Orchestra-Political-Drama-Themes-Lucas-Napoleone-Philippe-Briand-Salvador-Casais-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Divergent-Hybrid-Orchestra-Political-Drama-Themes-Lucas-Napoleone-Philippe-Briand-Salvador-Casais-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Divergent</h3>
                             </a>
@@ -191,7 +193,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Driver-Vol.-2-Imagine-Music-400x400.jpg" alt="">
+                                    <img src="./assets/images/covers/Driver-Vol.-2-Imagine-Music-400x400.jpg" alt="">
                                 </figure>
                                 <h3>Driver Vol. 2</h3>
                             </a>
@@ -200,7 +202,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Drowning-Abyss-2-Colossal-Trailer-Music-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Drowning-Abyss-2-Colossal-Trailer-Music-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Drowning Abyss 2</h3>
                             </a>
@@ -209,7 +211,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Epic-Reimagined-Cover-Frostudio-Chambersonic-400x400.jpg" alt="">
+                                    <img src="./assets/images/covers/Epic-Reimagined-Cover-Frostudio-Chambersonic-400x400.jpg" alt="">
                                 </figure>
                                 <h3>Epic Reimagined</h3>
                             </a>
@@ -218,7 +220,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Feed-The-Thrill-Songs-To-Your-Eyes-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Feed-The-Thrill-Songs-To-Your-Eyes-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Feed The Thrill</h3>
                             </a>
@@ -227,7 +229,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Fight-Or-Flight-Tetra-400x400.jpg" alt="">
+                                    <img src="./assets/images/covers/Fight-Or-Flight-Tetra-400x400.jpg" alt="">
                                 </figure>
                                 <h3>Fight Or Flight</h3>
                             </a>
@@ -236,7 +238,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Future-Technology-Background-Music-Lab-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Future-Technology-Background-Music-Lab-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Future Technology Background</h3>
                             </a>
@@ -245,7 +247,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Acceleration-Amadea-Music-Productions-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Acceleration-Amadea-Music-Productions-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Acceleration</h3>
                             </a>
@@ -254,7 +256,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Charged-400x400.jpg" alt="">
+                                    <img src="./assets/images/covers/Charged-400x400.jpg" alt="">
                                 </figure>
                                 <h3>Charged</h3>
                             </a>
@@ -263,7 +265,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Deflector-3-Complexities-of-Sound-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Deflector-3-Complexities-of-Sound-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Deflector 3</h3>
                             </a>
@@ -272,7 +274,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Divergent-Hybrid-Orchestra-Political-Drama-Themes-Lucas-Napoleone-Philippe-Briand-Salvador-Casais-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Divergent-Hybrid-Orchestra-Political-Drama-Themes-Lucas-Napoleone-Philippe-Briand-Salvador-Casais-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Divergent</h3>
                             </a>
@@ -281,7 +283,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Epic-Reimagined-Cover-Frostudio-Chambersonic-400x400.jpg" alt="">
+                                    <img src="./assets/images/covers/Epic-Reimagined-Cover-Frostudio-Chambersonic-400x400.jpg" alt="">
                                 </figure>
                                 <h3>Epic Reimagined</h3>
                             </a>
@@ -290,7 +292,7 @@
                         <div class="card-simple">
                             <a href="post.html">
                                 <figure>
-                                    <img src="images/covers/Feed-The-Thrill-Songs-To-Your-Eyes-400x400.jpeg" alt="">
+                                    <img src="./assets/images/covers/Feed-The-Thrill-Songs-To-Your-Eyes-400x400.jpeg" alt="">
                                 </figure>
                                 <h3>Feed The Thrill</h3>
                             </a>
@@ -307,8 +309,8 @@
             <div class="footer-grid">
                 <ul>
                     <div>
-                        <img src="images/logo/SVG/Audiospark_Logo.svg" alt="" width="150px" id="logoFooterModeLight">
-                        <img src="images/logo/SVG/Audiospark_Logo_White.svg" alt="" width="150px" id="logoFooterModeDark">
+                        <img src="./assets/images/logo/SVG/Audiospark_Logo.svg" alt="" width="150px" id="logoFooterModeLight">
+                        <img src="./assets/images/logo/SVG/Audiospark_Logo_White.svg" alt="" width="150px" id="logoFooterModeDark">
                         <p>An unparalleled experience of sound magic, Audiospark</p>
 
                         <!-- SOCIAL MEDIA -->
@@ -320,8 +322,8 @@
 
                         <!-- FOOTER ICON -->
                         <ul class="footer-icon">
-                            <a href=""><img src="images/elements/apple_download.svg" alt="" width="100"></a>
-                            <a href=""><img src="images/elements/google_download.svg" alt="" width="100"></a>
+                            <a href=""><img src="./assets/images/elements/apple_download.svg" alt="" width="100"></a>
+                            <a href=""><img src="./assets/images/elements/google_download.svg" alt="" width="100"></a>
                         </ul>
                     </div>
                 </ul>
