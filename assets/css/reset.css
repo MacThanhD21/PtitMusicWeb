@@ -58,7 +58,7 @@ a:hover {
 
 /*========== SELECTION */
 ::selection {
-  background-color: var(--color-soft-7);
+  background-color: #FFECBC;
   color: var(--color-black);
 }
 

@@ -4,8 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upgrade Plan</title>
-    <link rel="stylesheet" href="./assets/css/base.css" />
+
+    <!-- Font-awesome -->
+    <!-- IMPORT FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/fonts/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/fonts/css/fontawesome.min.css"
+    />
+    <!-- IMPORT FAVICON -->
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo/JPEG/main-logo.jpeg"
+      type="image/x-icon"
+    />
+    <!-- Main CSS -->
     <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/premium.css" />
   </head>
   <body>
@@ -36,45 +57,36 @@
             class="fa-close-mobile"
             ><span class="far fa-close"></span
           ></a>
-
-          <a href="#explore"><li class="tranparent_text">Explore</li></a>
-          <a href="#featured_creators"
-            ><li class="tranparent_text">Featured Creators</li></a
-          >
-          <a href="#trending"><li class="tranparent_text">Trending</li></a>
-          <a href="#category"><li class="tranparent_text">Category</li></a>
-          <a href="#popular_artists"
-            ><li class="tranparent_text">Popular Artists</li></a
           >
         </ul>
       </ul>
       <ul>
-        <a
+        <!-- <a
           href="javascript:void(0)"
           onclick="switchMode()"
           id="switchModeBtnDark"
           title="Switch Dark Mode"
           aria-label="Switch Dark Mode"
           ><span class="far fa-moon"></span
-        ></a>
-        <a
+        ></a> -->
+        <!-- <a
           href="javascript:void(0)"
           onclick="switchMode()"
           id="switchModeBtnLight"
           title="Switch Light Mode"
           aria-label="Switch Light Mode"
           ><span class="far fa-sun"></span
-        ></a>
-        <a
+        ></a> -->
+        <!-- <a
           href="javascript:void(0)"
           onclick="searchMode()"
           title="Search"
           aria-label="Search"
           ><span class="far fa-search"></span
-        ></a>
-        <a href="javascript:void(0)" id="avatar">
+        ></a> -->
+        <!-- <a href="javascript:void(0)" id="avatar">
           <i class="fa-solid fa-user"></i>
-        </a>
+        </a> -->
 
         <!-- AVATAR DORPDOWN -->
         <div class="avatar-dropdown" id="avatarDropdown">
@@ -114,21 +126,24 @@
         <div class="cards__inner">
           <div class="cards__card card">
             <h2 class="card__heading">Basic</h2>
-            <p class="card__price">$9.99</p>
+            <p class="card__price">$0</p>
             <ul role="list" class="card__bullets flow">
-              <li>Access to standard workouts and nutrition plans</li>
-              <li>Email support</li>
+              <li>Basic access to a limited collection of songs.</li>
+              <li>Limited skips per hour.</li>
+              <li>Ad-supported.</li>
             </ul>
-            <a href="#basic" class="card__cta cta">Get Started</a>
+            <a href="#basic" class="card__cta cta">Free</a>
           </div>
 
           <div class="cards__card card">
             <h2 class="card__heading">Pro</h2>
             <p class="card__price">$19.99</p>
             <ul role="list" class="card__bullets flow">
-              <li>Access to advanced workouts and nutrition plans</li>
-              <li>Priority Email support</li>
-              <li>Exclusive access to live Q&A sessions</li>
+              <li>Ad-free listening experience.</li>
+              <li>High-quality audio streaming.</li>
+              <li>Unlimited skips.</li>
+              <li>Access to curated playlists.</li>
+              <li>Priority customer support via email.</li>
             </ul>
             <a href="#pro" class="card__cta cta">Upgrade to Pro</a>
           </div>
@@ -137,10 +152,11 @@
             <h2 class="card__heading">Ultimate</h2>
             <p class="card__price">$29.99</p>
             <ul role="list" class="card__bullets flow">
-              <li>Access to all premium workouts and nutrition plans</li>
-              <li>24/7 Priority support</li>
-              <li>1-on-1 virtual coaching session every month</li>
-              <li>Exclusive content and early access to new features</li>
+              <li>All features from the Pro Edition.</li>
+              <li>Offline listening mode.</li>
+              <li>Access to exclusive unreleased tracks.</li>
+              <li>Early access to new album releases.</li>
+              <li>24/7 priority customer support.</li>
             </ul>
             <a href="#ultimate" class="card__cta cta">Go Ultimate</a>
           </div>
@@ -150,6 +166,7 @@
       </div>
     </main>
     <!-- End Main Pricing -->
+    <script src="./assets/js/app.js"></script>
     <script src="./assets/js/premium.js"></script>
   </body>
 </html>

@@ -4,17 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <meta
-      name="description"
-      content="An unparalleled experience of sound magic, Audiospark"
-    />
-    <meta name="keywords" content="Audiospark" />
-    <meta name="theme-color" content="#0000FF" /> -->
-
-    <!-- IMPORT CSS MAIN -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/base.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
 
     <!-- IMPORT FONT AWESOME -->
     <link
@@ -34,14 +23,38 @@
       type="image/x-icon"
     />
 
+    <!-- IMPORT CSS MAIN -->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
     <!-- TITLE -->
     <title>Ptit Music</title>
   </head>
   <body id="Top">
     <!-- LOADER -->
-    <!-- <div class="loader-warpper" id="loader">
-      <div class="loader"></div>
-    </div> -->
+    <div class="loader-warpper" id="loader">
+      <div class="loader">
+        <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+          <div class="wheel"></div>
+          <div class="hamster">
+            <div class="hamster__body">
+              <div class="hamster__head">
+                <div class="hamster__ear"></div>
+                <div class="hamster__eye"></div>
+                <div class="hamster__nose"></div>
+              </div>
+              <div class="hamster__limb hamster__limb--fr"></div>
+              <div class="hamster__limb hamster__limb--fl"></div>
+              <div class="hamster__limb hamster__limb--br"></div>
+              <div class="hamster__limb hamster__limb--bl"></div>
+              <div class="hamster__tail"></div>
+            </div>
+          </div>
+          <div class="spoke"></div>
+        </div>
+      </div>
+    </div>
 
     <!-- NAVBAR -->
     <nav id="navbarFixed">
@@ -54,12 +67,16 @@
           class="fa-bars-mobile"
           ><span class="far fa-bars"></span
         ></a>
-        <a href="index.html"
-          ><img
-            src="./assets/images/logo/JPEG/main-logo.jpeg"
-            alt=""
-            title="ptit_music"
-        /></a>
+        <div class="inner-logo">
+          <a href="index.html"
+            ><img
+              src="./assets/images/logo/JPEG/main-logo.jpeg"
+              alt=""
+              title="ptit_music"
+            />
+          </a>
+          <span>𝓟𝓽𝓲𝓽 𝓜𝓾𝓼𝓲𝓬</span>
+        </div>
         <ul id="navbarMobileToggle">
           <a
             href="javascript:void(0)"
@@ -70,40 +87,68 @@
             ><span class="far fa-close"></span
           ></a>
 
-          <a href="#explore"><li class="tranparent_text">Explore</li></a>
-          <a href="#featured_creators"><li class="tranparent_text">Featured Creators</li></a>
-          <a href="#trending"><li class="tranparent_text">Trending</li></a>
-          <a href="#category"><li class="tranparent_text">Category</li></a>
-          <a href="#popular_artists"><li class="tranparent_text">Popular Artists</li></a>
+          <a href="#explore"><li class="box--radius">Explore</li></a>
+          <a href="#featured_creators"
+            ><li class="box--radius">Featured Creators</li></a
+          >
+          <a href="#trending"><li class="box--radius">Trending</li></a>
+          <a href="#category"><li class="box--radius">Category</li></a>
+          <a href="#popular_artists"
+            ><li class="box--radius">Popular Artists</li></a
+          >
         </ul>
       </ul>
       <ul>
-        <a
-          href="javascript:void(0)"
-          onclick="switchMode()"
-          id="switchModeBtnDark"
-          title="Switch Dark Mode"
-          aria-label="Switch Dark Mode"
-          ><span class="far fa-moon"></span
-        ></a>
-        <a
+        <a>
+          <label class="bb8-toggle">
+            <input href="javascript:void(0)"
+            onclick="switchMode()"
+            id="switchModeBtnDark"
+            title="Switch Dark Mode"
+            aria-label="Switch Dark Mode" class="bb8-toggle__checkbox" type="checkbox">
+            <div class="bb8-toggle__container">
+              <div class="bb8-toggle__scenery">
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="tatto-1"></div>
+                <div class="tatto-2"></div>
+                <div class="gomrassen"></div>
+                <div class="hermes"></div>
+                <div class="chenini"></div>
+                <div class="bb8-toggle__cloud"></div>
+                <div class="bb8-toggle__cloud"></div>
+                <div class="bb8-toggle__cloud"></div>
+              </div>
+              <div class="bb8">
+                <div class="bb8__head-container">
+                  <div class="bb8__antenna"></div>
+                  <div class="bb8__antenna"></div>
+                  <div class="bb8__head"></div>
+                </div>
+                <div class="bb8__body"></div>
+              </div>
+              <div class="artificial__hidden">
+                <div class="bb8__shadow"></div>
+              </div>
+            </div>
+          </label>
+        </a>  
+        <!-- <a
           href="javascript:void(0)"
           onclick="switchMode()"
           id="switchModeBtnLight"
           title="Switch Light Mode"
           aria-label="Switch Light Mode"
           ><span class="far fa-sun"></span
-        ></a>
-        <a
-          href="javascript:void(0)"
-          onclick="searchMode()"
-          title="Search"
-          aria-label="Search"
-          ><span class="far fa-search"></span></a>
+        ></a> -->
         <a href="javascript:void(0)" id="avatar">
           <i class="fa-solid fa-user"></i>
         </a>
-        
 
         <!-- AVATAR DORPDOWN -->
         <div class="avatar-dropdown" id="avatarDropdown">
@@ -116,39 +161,18 @@
           <a href="javascript:void(0)" onclick="supportChatMode()"
             ><li><span class="far fa-comment"></span> Support</li></a
           >
-          <a href="premium.html"
+          <a href="premium.html" target="_blank"
             ><li><span class="far fa-star"></span> Upgrade Plan</li></a
           >
 
           <hr />
 
           <a href=""
-            ><li><span class="far fa-history"></span> Recent</li></a
-          >
-          <a href=""
-            ><li><span class="far fa-play-circle"></span> Playlist</li></a
-          >
-          <a href=""
-            ><li><span class="far fa-heart"></span> likes</li></a
-          >
-          <a href=""
-            ><li><span class="far fa-download"></span> Downloads</li></a
+            ><li><span class="far fa-history"></span> Log out</li></a
           >
         </div>
       </ul>
     </nav>
-
-    <!-- SEARCH MODE -->
-    <div class="overlay-search-mode" id="overlaySearchMode">
-      <div class="search-mode" id="searchMode">
-        <a href="javascript:void(0)" onclick="searchMode()"></a>
-        <!-- FORM: SEARCH -->
-        <form action="" method="post">
-          <span class="far fa-search"></span>
-          <input type="search" placeholder="Search" aria-placeholder="Search" />
-        </form>
-      </div>
-    </div>
 
     <!-- SUPPORT & CHAT MODE -->
     <div class="overlay-support-chat-mode" id="supportChatMode">
@@ -158,7 +182,7 @@
           <h4>
             Support
             <img
-              src="./assets/images/logo/PNG/Audiospark_Logo_Icon/Audiospark_Logo_Icon@2400.png"
+              src="./assets/images/logo/JPEG/main4-logo.jpeg"
               alt=""
               title="Audiospark Bot"
             />
@@ -171,10 +195,7 @@
         <div class="support-chat-mode-body">
           <div class="chat-date">Today, September 26, 2023</div>
           <div class="section-message-bot">
-            <img
-              src="./assets/images/logo/PNG/Audiospark_Logo_Icon/Audiospark_Logo_Icon@2400.png"
-              alt=""
-            />
+            <img src="./assets/images/logo/JPEG/main1-logo.jpeg" alt="" />
             <p>Hello! How can I assist you today?</p>
           </div>
           <div class="section-message-user">
@@ -183,10 +204,7 @@
             <p>How to download as musics ZIP ???</p>
           </div>
           <div class="section-message-bot">
-            <img
-              src="./assets/images/logo/PNG/Audiospark_Logo_Icon/Audiospark_Logo_Icon@2400.png"
-              alt=""
-            />
+            <img src="./assets/images/logo/JPEG/main1-logo.jpeg" alt="" />
             <p>
               You most first click on the 'DOWNLOAD' button to automatically
               download ZIP file after a few seconds. <br /><br />
@@ -212,9 +230,7 @@
               aria-placeholder="Write a msssage..."
             ></textarea>
             <span class="far fa-smile" onclick=""></span>
-            <button type="submit" aria-label="Send">
-              Send
-            </button>
+            <button type="submit" aria-label="Send">Send</button>
           </form>
         </div>
       </div>
@@ -222,10 +238,11 @@
 
     <!-- HEADER/HERO -->
     <header class="hero">
+      <!-- <video autoplay loop>
+        <source src="assets/videos/back-ground-video-1.mp4" type="video/mp4">
+      </video> -->
+
       <!-- TITLE HEADER -->
-      <h1>
-        Lyrics of Resilience, Melodies of Motivation: Your Life's Soundtrack
-      </h1>
 
       <!-- FORM: SEARCH -->
       <form action="" method="post">
@@ -246,8 +263,8 @@
         <div class="section-explore-menu">
           <a href="#" class="section-explore-menu-item-active">Top Musics</a>
           <a href="#">Recently Played</a>
-          <a href="#">New Musics</a>
-          <a href="#">Bestsellers</a>
+          <a href="#">Liked Songs</a>
+          <a href="#">Downloaded</a>
         </div>
 
         <!-- EXPLORE SLIDER -->
@@ -268,7 +285,10 @@
             <div class="card-simple">
               <a href="post.html">
                 <figure>
-                  <img src="./assets/images/covers/Charged-400x400.jpg" alt="" />
+                  <img
+                    src="./assets/images/covers/Charged-400x400.jpg"
+                    alt=""
+                  />
                 </figure>
                 <h3>Charged</h3>
               </a>
@@ -399,7 +419,10 @@
             <div class="card-simple">
               <a href="post.html">
                 <figure>
-                  <img src="./assets/images/covers/Charged-400x400.jpg" alt="" />
+                  <img
+                    src="./assets/images/covers/Charged-400x400.jpg"
+                    alt=""
+                  />
                 </figure>
                 <h3>Charged</h3>
               </a>
@@ -526,7 +549,10 @@
             <div class="card-simple">
               <a href="post.html">
                 <figure>
-                  <img src="./assets/images/covers/Charged-400x400.jpg" alt="" />
+                  <img
+                    src="./assets/images/covers/Charged-400x400.jpg"
+                    alt=""
+                  />
                 </figure>
                 <h3>Charged</h3>
               </a>
@@ -767,7 +793,9 @@
                   <span class="far fa-play" onclick=""></span>
                 </div>
                 <a href="post.html"
-                  ><img src="./assets/images/covers/Summer-LiQWYD-1-400x400.jpeg" alt=""
+                  ><img
+                    src="./assets/images/covers/Summer-LiQWYD-1-400x400.jpeg"
+                    alt=""
                 /></a>
               </figure>
               <div class="card-playing-horizontal-body">
@@ -1348,7 +1376,9 @@
           </div>
           <div class="section-download-body">
             <a href="user.html"
-              ><img src="./assets/images/avatar-artists/Hans-Zimmer-400x400.jpg" alt=""
+              ><img
+                src="./assets/images/avatar-artists/Hans-Zimmer-400x400.jpg"
+                alt=""
             /></a>
             <h3>Say thanks to Ultima Trailer Music</h3>
             <p>By downloading, you agree to our <a href="">License</a></p>
@@ -1366,24 +1396,22 @@
         <ul>
           <div>
             <img
-              src="./assets/images/logo/JPEG/main4-logo.jpeg"
-              alt=""
-              width="150px"
-              id="logoFooterModeLight"
-            />
-            <img
               src="./assets/images/logo/SVG/Audiospark_Logo_White.svg"
               alt=""
               width="150px"
               id="logoFooterModeDark"
             />
-
+            <p>
+              𝘾𝙤𝙣𝙣𝙚𝙘𝙩 𝙬𝙞𝙩𝙝 𝙪𝙨
+            </p>
             <!-- SOCIAL MEDIA -->
             <ul class="footer-social-media">
               <a href="https://github.com/zzmitzz" title="Github"
                 ><span class="fab fa-github"></span
               ></a>
-              <a href="https://web.facebook.com/thanh.macvan.31586" title="FaceBook"
+              <a
+                href="https://web.facebook.com/thanh.macvan.31586"
+                title="FaceBook"
                 ><span class="fab fa-facebook"></span
               ></a>
               <a
@@ -1411,26 +1439,11 @@
           </div>
         </ul>
         <ul>
-          <h4>Audiospark</h4>
           <li><a href="index.html#explore">Explore</a></li>
           <li><a href="index.html#featured_creators">Featured Creators</a></li>
           <li><a href="index.html#trending">Trending</a></li>
           <li><a href="index.html#category">Category</a></li>
           <li><a href="index.html#popular_artists">Popular Artists</a></li>
-        </ul>
-        <ul>
-          <h4>Company</h4>
-          <li><a href="">About</a></li>
-          <li><a href="javascript:supportChatMode()">Support</a></li>
-          <li><a href="">API</a></li>
-          <li><a href="">Terms of Service</a></li>
-          <li><a href="">Privacy Policy</a></li>
-          <li><a href="">Cookie Policy</a></li>
-        </ul>
-        <ul>
-          <h4>Community</h4>
-          <li><a href="">Blog</a></li>
-          <li><a href="">Forum</a></li>
         </ul>
       </div>
 
@@ -1440,6 +1453,8 @@
       </div>
     </footer>
 
+    <!-- Chat Bot -->
+    
     <!-- BACK TOP -->
     <a href="#Top">
       <div class="back-top" id="backTop">

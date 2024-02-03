@@ -1,11 +1,10 @@
-
 // ## LOADER
 window.addEventListener("load", () => {
   setTimeout(() => {
     document
       .querySelector(".loader-warpper")
       .classList.toggle("loader-warpper-hide");
-  }, 2000);
+  }, 1000);
 });
 
 // ## NAVBAR MOBILE
@@ -16,8 +15,19 @@ function navbarMobileToggle() {
 }
 
 // DROPDOWN MENU
+document.addEventListener("click", function (event) {
+  const dropdown = document.getElementById("dropdownMenu");
+  const dropdownBtn = document.getElementById("dropdownBtn");
 
+  // Check if the click is inside the dropdown or the dropdown button
+  const isClickInside =
+    dropdown.contains(event.target) || dropdownBtn.contains(event.target);
 
+  // Close the dropdown only if clicking outside the dropdown and dropdown button
+  if (!isClickInside) {
+    dropdown.classList.remove("dropdownMenu");
+  }
+});
 
 // SWITCH MODE
 function switchMode() {
@@ -37,13 +47,6 @@ function switchMode() {
     .classList.toggle("logoFooterModeDarkToggle");
 }
 
-// SEARCH MODE
-function searchMode() {
-  document.getElementById("searchMode").classList.toggle("searchMode");
-  document
-    .getElementById("overlaySearchMode")
-    .classList.toggle("overlaySearchMode");
-}
 
 // AVATAR DROPDOWN
 document.addEventListener("click", function (event) {
@@ -51,7 +54,8 @@ document.addEventListener("click", function (event) {
   const avatar = document.getElementById("avatar");
 
   // Check if the click is inside the avatar or the dropdown
-  const isClickInside = avatar.contains(event.target) || dropdown.contains(event.target);
+  const isClickInside =
+    avatar.contains(event.target) || dropdown.contains(event.target);
 
   // Close the dropdown only if clicking outside the avatar and dropdown
   if (!isClickInside) {
@@ -67,12 +71,11 @@ document.getElementById("avatar").addEventListener("click", function (event) {
 });
 
 // Prevent the dropdown from closing when clicking inside the dropdown
-document.getElementById("avatarDropdown").addEventListener("click", function (event) {
-  event.stopPropagation();
-});
-
-
-
+document
+  .getElementById("avatarDropdown")
+  .addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
 
 // SUPPORT & CHAT MODE
 function supportChatMode() {
