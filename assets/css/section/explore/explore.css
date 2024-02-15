@@ -1,0 +1,130 @@
+/*========== SECTION EXPLORE */
+.section-explore {
+  margin: 20px 0 0 0;
+}
+
+.section-explore .section-explore-menu {
+  display: flex;
+  padding: 10px 0;
+  margin-top: 10px;
+  overflow-x: auto;
+  align-items: center;
+}
+
+.section-explore .section-explore-menu a {
+  border-radius: var(--border-radius-full);
+  white-space: nowrap;
+  margin-right: 3px;
+  padding: 5px 15px;
+  font-size: 15px;
+}
+
+.section-explore .section-explore-menu a:first-child {
+  padding: 0px;
+}
+
+.section-explore .section-explore-menu a:first-child:hover,
+.section-explore .section-explore-menu .section-explore-menu-item-active:first-child {
+  padding: 5px 15px;
+}
+
+.section-explore .section-explore-menu a:hover {
+  color: #0000FF;
+}
+
+.section-explore .section-explore-menu .section-explore-menu-item-active {
+  background-color: var(--background-secondary-main);
+  color: #0000FF;
+}
+
+.section-explore .section-explore-menu a:active {
+  background-color: var(--background-primary-main);
+}
+
+/* CARD GRID SLIDER */
+.card-grid-slider {
+  display: flex;
+  padding: 10px 0;
+  overflow-x: auto;
+  align-items: center;
+  scroll-snap-type: x mandatory;
+  max-width: 1600px;
+}
+
+/* WebKit (Chrome, Safari) */
+.card-grid-slider::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+  height: 5px; /* Set the height of the scrollbar */
+}
+
+.card-grid-slider::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the thumb */
+  border-radius: 5px; /* Rounded corners of the thumb */
+}
+
+.card-grid-slider::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the track */
+}
+
+/* Firefox */
+.card-grid-slider {
+  scrollbar-color: #888 #f1f1f1; /* thumb color track color */
+  scrollbar-width: thin; /* width of the scrollbar */
+}
+
+/* CARD SIMPLE */
+.card-simple {
+  background-color: var(--background-thirdly-main);
+  border-radius: var(--border-radius-mmmd);
+  transition: var(--transition-2s-ease);
+  scroll-snap-align: start;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.card-simple figure {
+  border-radius: var(--border-radius-mmmd);
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+}
+
+.card-simple:hover img {
+  transform: scale(1.1) rotate(1deg);
+  transition: var(--transition-3s-ease);
+}
+
+.card-simple img {
+  transition: var(--transition-3s-ease);
+  border-radius: var(--border-radius-mmmd);
+  height: 100%;
+  width: 100%;
+}
+
+.card-simple h3 {
+  transition: var(--transition-3s-ease);
+  margin-top: 6px;
+  font-size: 0.980rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  line-clamp: 1;
+  width: 200px;
+}
+
+.card-simple:hover h3 {
+  color: #0000FF;
+}
+
+.card-simple p a {
+  font-size: var(--font-size-12);
+  color: var(--color-silver);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  line-clamp: 1;
+  width: 200px;
+}
+/* End Section Explore */

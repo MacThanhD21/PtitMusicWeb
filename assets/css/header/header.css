@@ -1,0 +1,90 @@
+
+/*========== HEADER/HERO */
+header,
+.hero {
+  background: linear-gradient(0deg, rgba(25, 27, 38, .32), rgba(25, 27, 38, .72)), url("../../images/elements/bg_header.jpg");
+  color: var(--color-white);
+  text-align: center;
+  height: 400px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header h1,
+.hero h1 {
+  transition: var(--transition-3s-ease);
+  font-family: 'Open Sans';
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+header p,
+.hero p {
+  color: var(--color-dark-main);
+  font-size: var(--font-size-12);
+  margin-top: 20px;
+}
+
+header p a,
+.hero p a {
+  text-decoration: underline;
+  color: var(--color-white);
+}
+
+header p a:hover,
+.hero p a:hover {
+  color: var(--color-silver);
+}
+
+header form,
+.hero form,
+.search-mode form {
+  width: 60%;
+  display: flex;
+  margin-top: 30px;
+  padding: 7px 25px;
+  align-items: center;
+  border-radius: var(--border-radius-full);
+  background-color: var(--el-overlay-color-lighter);
+  border: 2px solid var(--color-soft-10);
+}
+
+header form:focus-within {
+  transition: var(--transition-3s-ease);
+  outline: 4px solid rgba(0, 89, 255, 0.250);
+}
+
+header form:active {
+  transition: var(--transition-3s-ease);
+  outline: 4px solid transparent;
+}
+
+header form input,
+.hero form input {
+  transition: var(--transition-3s-ease);
+  color: var(--color-white);
+}
+
+header form input:focus,
+.hero form input:focus {
+  transition: var(--transition-3s-ease);
+  color: var(--color-white);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+
+header form:focus-within .fa-search {
+  transition: var(--transition-3s-ease);
+  color: #0000FF;
+}
+
+header form .far,
+.hero form .far {
+  transition: var(--transition-3s-ease);
+  color: var(--color-soft-11);
+  font-size: 20px;
+}

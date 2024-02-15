@@ -1,0 +1,65 @@
+
+/*========== SECTION POPULAR ARTISTS */
+.section-popular-artists {
+  margin-top: 40px;
+}
+
+.section-popular-artists div {
+  margin-bottom: 10px;
+}
+
+/* CARD POPULAR ARTISTS VERTICAL */
+.card-artists-vertical {
+  background-color: var(--background-thirdly-main);
+  border-radius: var(--border-radius-mmmd);
+  transition: var(--transition-3s-ease);
+  margin-bottom: 10px;
+  text-align: center;
+  margin-right: 10px;
+  padding: 10px;
+  width: 140px;
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+}
+
+.card-artists-vertical:hover {
+  background-color: var(--color-soft-5);
+}
+
+.card-artists-vertical figure {
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+}
+
+.card-artists-vertical img {
+  border-radius: var(--border-radius-full);
+  transition: var(--transition-3s-ease);
+  object-fit: cover;
+  height: 80px;
+  width: 80px;
+}
+
+.card-artists-vertical:hover img {
+  transform: scale(1.2) rotate(3deg);
+  transition: var(--transition-3s-ease);
+}
+
+.card-artists-vertical h4 {
+  transition: var(--transition-3s-ease);
+  margin-top: 10px;
+  font-size: var(--font-size-14);
+  color: #323232;
+  line-clamp: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.card-artists-vertical:hover h4 {
+  transition: var(--transition-3s-ease);
+  color: var(--color-silver);
+}

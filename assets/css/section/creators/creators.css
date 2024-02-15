@@ -1,0 +1,20 @@
+
+/*========== SECTION FEATURED CREATORS */
+.section-featured-creators {
+  margin-top: 40px;
+}
+
+.section-featured-creators .card-simple {
+  margin-bottom: 10px;
+  width: 180px;
+}
+
+.section-featured-creators .card-simple figure {
+  height: 100%;
+  width: 100%;
+}
+
+.section-featured-creators .card-simple h3,
+.section-featured-creators .card-simple p a {
+  width: 150px;
+}

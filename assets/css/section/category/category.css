@@ -1,0 +1,105 @@
+
+/*========== SECTION CATEGORY */
+.section-category {
+  margin-top: 40px;
+}
+
+/* CARD CATEGORY VERTICAL */
+.card-category-vertical {
+  border-radius: var(--border-radius-mmmd);
+  transition: var(--transition-3s-ease);
+  scroll-snap-align: start;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  width: 180px;
+  color: var(--background-dark-secondary-main);
+}
+
+.card-category-vertical:hover {
+  background-color: var(--color-soft-9);
+  transition: var(--transition-3s-ease);
+  color: var(--el-color-error-light-9);
+}
+
+.card-category-vertical-soft-1 {
+  background-color: var(--color-soft-1);
+}
+
+.card-category-vertical-soft-2 {
+  background-color: var(--color-soft-3);
+}
+
+.card-category-vertical-soft-3 {
+  background-color: var(--color-soft-4);
+}
+
+.card-category-vertical-soft-4 {
+  background-color: var(--color-soft-5);
+}
+
+.card-category-vertical-soft-5 {
+  background-color: var(--color-soft-6);
+}
+
+.card-category-vertical-soft-6 {
+  background-color: var(--color-soft-7);
+}
+
+.card-category-vertical-soft-7 {
+  background-color: var(--color-soft-2);
+}
+
+.card-category-vertical-soft-8 {
+  background-color: var(--color-soft-4);
+}
+
+.card-category-vertical-soft-9 {
+  background-color: var(--color-soft-3);
+}
+
+.card-category-vertical-soft-10 {
+  background-color: var(--color-soft-11);
+}
+
+.card-category-vertical-soft-11 {
+  background-color: var(--color-soft-12);
+}
+
+.card-category-vertical-soft-12 {
+  background-color: var(--color-dark-main);
+}
+
+.card-category-vertical-soft-13 {
+  background-color: var(--color-soft-13);
+}
+
+.card-category-vertical-soft-14 {
+  background-color: var(--color-soft-14);
+}
+
+.card-category-vertical h4 {
+  font-size: 0.950rem;
+}
+
+.card-category-vertical span {
+  background-color: rgba(255, 255, 255, 0.850);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--border-radius-full);
+  transition: var(--transition-3s-ease);
+  backdrop-filter: blur(16px);
+  margin-top: 5px;
+  padding: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-category-vertical span:hover {
+  background-color: var(--background-secondary-main);
+  transition: var(--transition-3s-ease);
+}
+
+.card-category-vertical span:active {
+  background-color: var(--background-primary-main);
+}
