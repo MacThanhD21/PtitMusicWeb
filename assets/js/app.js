@@ -118,10 +118,11 @@ function likeMusicPlay() {
 }
 
 // ## PLAY SOUND/MUSIC PLAYER
-var audio1 = new Audio("/musics/1.mp3");
+var audio1 = new Audio("../musics/1.mp3");
 // PLAY SOUND
 function playSound() {
   audio1.play();
+  // const playBtnPlayCard = document.querySelectorAll("");
   document
     .getElementById("pauseBtnPlayCard")
     .classList.toggle("pauseBtnPlayCardToggle");

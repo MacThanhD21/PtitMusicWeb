@@ -24,7 +24,7 @@
     <!-- IMPORT FAVICON -->
     <link
       rel="shortcut icon"
-      href="./assets/images/logo/SVG/Audiospark_Logo_Icon.svg"
+      href="./assets/images/logo/JPEG/main-logo.jpeg"
       type="image/x-icon"
     />
 
@@ -50,9 +50,8 @@
         ></a>
         <a href="index.html"
           ><img
-            src="./assets/images/logo/SVG/Audiospark_Logo_Icon.svg"
+            src="./assets/images/logo/JPEG/main-logo.jpeg"
             alt=""
-            title="Audiospark"
         /></a>
         <ul id="navbarMobileToggle">
           <a
@@ -276,8 +275,9 @@
                 title="Pause"
                 aria-label="Pause"
               ></span>
-              <h4>Helix Angle</h4>
+              <h4 onclick="fullPlayer()">Helix Angle</h4>
             </div>
+            
             <div>
               <div>
                 <span
@@ -301,12 +301,19 @@
             <div>
               <span
                 class="far fa-play"
-                id="playBtnPlayCard2"
-                onclick=""
+                id="playBtnPlayCard"
+                onclick="playSound()"
                 title="Play"
                 aria-label="Play"
               ></span>
-              <h4>Enforcement</h4>
+              <span
+                class="far fa-pause"
+                id="pauseBtnPlayCard"
+                onclick="pauseSound()"
+                title="Pause"
+                aria-label="Pause"
+              ></span>
+              <h4 onclick="fullPlayer()">Enforcement</h4>
             </div>
             <div>
               <div>
@@ -335,7 +342,7 @@
                 title="Play"
                 aria-label="Play"
               ></span>
-              <h4>Artifact</h4>
+              <h4 onclick="fullPlayer()">Artifact</h4>
             </div>
             <div>
               <div>
@@ -364,7 +371,7 @@
                 title="Play"
                 aria-label="Play"
               ></span>
-              <h4>Exterminator</h4>
+              <h4 onclick="fullPlayer()">Exterminator</h4>
             </div>
             <div>
               <div>
@@ -393,7 +400,7 @@
                 title="Play"
                 aria-label="Play"
               ></span>
-              <h4>Endicated</h4>
+              <h4 onclick="fullPlayer()">Endicated</h4>
             </div>
             <div>
               <div>
@@ -422,7 +429,7 @@
                 title="Play"
                 aria-label="Play"
               ></span>
-              <h4>Autotimer</h4>
+              <h4 onclick="fullPlayer()">Autotimer</h4>
             </div>
             <div>
               <div>
@@ -451,7 +458,7 @@
                 title="Play"
                 aria-label="Play"
               ></span>
-              <h4>Circulation</h4>
+              <h4 onclick="fullPlayer()">Circulation</h4>
             </div>
             <div>
               <div>
@@ -472,7 +479,7 @@
             </div>
           </div>
           <div class="section-playlist-post-play-card">
-            <div>
+            <div onclick="fullPlayer()">
               <span
                 class="far fa-play"
                 id="playBtnPlayCard2"
@@ -480,7 +487,7 @@
                 title="Play"
                 aria-label="Play"
               ></span>
-              <h4>Bazooka</h4>
+              <h4 onclick="fullPlayer()">Bazooka</h4>
             </div>
             <div>
               <div>
@@ -501,7 +508,7 @@
             </div>
           </div>
           <div class="section-playlist-post-play-card">
-            <div>
+            <div onclick="fullPlayer()">
               <span
                 class="far fa-play"
                 id="playBtnPlayCard2"
@@ -509,7 +516,7 @@
                 title="Play"
                 aria-label="Play"
               ></span>
-              <h4>Substrarte</h4>
+              <h4 onclick="fullPlayer()">Substrarte</h4>
             </div>
             <div>
               <div>
@@ -530,7 +537,7 @@
             </div>
           </div>
           <div class="section-playlist-post-play-card">
-            <div>
+            <div onclick="fullPlayer()">
               <span
                 class="far fa-play"
                 id="playBtnPlayCard2"
@@ -538,7 +545,7 @@
                 title="Play"
                 aria-label="Play"
               ></span>
-              <h4>Broken Down</h4>
+              <h4 onclick="fullPlayer()">Broken Down</h4>
             </div>
             <div>
               <div>
@@ -1385,19 +1392,6 @@
       <div class="footer-grid">
         <ul>
           <div>
-            <img
-              src="./assets/images/logo/SVG/Audiospark_Logo.svg"
-              alt=""
-              width="150px"
-              id="logoFooterModeLight"
-            />
-            <img
-              src="./assets/images/logo/SVG/Audiospark_Logo_White.svg"
-              alt=""
-              width="150px"
-              id="logoFooterModeDark"
-            />
-            <p>An unparalleled experience of sound magic, Audiospark</p>
 
             <!-- SOCIAL MEDIA -->
             <ul class="footer-social-media">
@@ -1438,20 +1432,6 @@
           <li><a href="index.html#trending">Trending</a></li>
           <li><a href="index.html#category">Category</a></li>
           <li><a href="index.html#popular_artists">Popular Artists</a></li>
-        </ul>
-        <ul>
-          <h4>Company</h4>
-          <li><a href="">About</a></li>
-          <li><a href="javascript:supportChatMode()">Support</a></li>
-          <li><a href="">API</a></li>
-          <li><a href="">Terms of Service</a></li>
-          <li><a href="">Privacy Policy</a></li>
-          <li><a href="">Cookie Policy</a></li>
-        </ul>
-        <ul>
-          <h4>Community</h4>
-          <li><a href="">Blog</a></li>
-          <li><a href="">Forum</a></li>
         </ul>
       </div>
 

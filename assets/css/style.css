@@ -2030,6 +2030,7 @@ main {
 }
 
 .page-01 .section-playlist-post-body .section-playlist-post-play-card {
+  position: relative;
   background-color: var(--background-thirdly-main);
   border-radius: var(--border-radius-mmmd);
   transition: var(--transition-3s-ease);
@@ -2071,14 +2072,18 @@ main {
 }
 
 .page-01 .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) h4 {
-  line-clamp: 1;
+  position: absolute;
+  left: 10%;
   overflow: hidden;
   margin-right: 10px;
   font-size: 0.950rem;
-  display: -webkit-box;
+  /* display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: vertical; */
   transition: var(--transition-3s-ease);
+  /* border: 1px solid red; */
+  width: 65%;
+  padding: 10px 0;
 }
 
 .page-01 .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far {
