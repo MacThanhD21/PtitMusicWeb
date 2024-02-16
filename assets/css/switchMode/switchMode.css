@@ -1,0 +1,329 @@
+/*========== SWITCH MODE */
+#switchModeBtnLight {
+  display: none;
+}
+
+.switchModeBtnLightToggle {
+  display: flex !important;
+}
+
+.switchModeBtnDarkToggle {
+  display: none;
+}
+
+.switchMode::-webkit-scrollbar-thumb,
+.switchMode *::-webkit-scrollbar-thumb {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode::-webkit-scrollbar-thumb:hover,
+.switchMode::-webkit-scrollbar-thumb:active,
+.switchMode *::-webkit-scrollbar-thumb:hover,
+.switchMode *::-webkit-scrollbar-thumb:active {
+  background-color: var(--background-dark-secondary-main);
+}
+
+.switchMode {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.switchMode .loader-warpper {
+  background-color: var(--color-black);
+}
+
+.switchMode .loader-warpper .loader {
+  border: 3px solid var(--color-white);
+  border-top: 3px solid var(--color-black);
+  border-right: 3px solid var(--color-black);
+  border-bottom: 3px solid var(--color-black);
+}
+
+.switchMode .nav-fixed-active {
+  border-bottom: 1px solid var(--background-dark-primary-main);
+}
+
+.switchMode nav {
+  background-color: rgba(0, 0, 0, 0.92);
+}
+
+.switchMode nav ul:nth-child(1) a {
+  color: var(--color-dark-main);
+}
+
+.switchMode nav ul:nth-child(1) a:hover {
+  color: var(--color-white);
+}
+
+.switchMode nav ul:nth-child(2) .far {
+  background-color: var(--background-dark-main);
+  color: var(--color-white);
+}
+
+.switchMode nav ul:nth-child(2) .far:hover {
+  background-color: var(--background-dark-secondary-main);
+}
+
+.switchMode nav ul:nth-child(2) .far:active {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode .navbarMobileToggle {
+  background-color: var(--color-black);
+  border-color: var(--background-dark-primary-main);
+}
+
+.switchMode .navbarMobileToggle .fa-close-mobile {
+  background-color: var(--background-dark-main);
+}
+
+.switchMode .navbarMobileToggle .fa-close-mobile:hover {
+  background-color: var(--background-dark-secondary-main);
+}
+
+.switchMode .navbarMobileToggle .fa-close-mobile:active {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode .overlay-search-mode,
+.switchMode .overlay-support-chat-mode {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.switchMode .overlay-search-mode form {
+  background-color: var(--color-black);
+}
+
+.switchMode .overlay-search-mode form input {
+  color: var(--color-white);
+}
+
+.switchMode .avatar-dropdown {
+  box-shadow: var(--box-shadow-dark-xlg);
+  background-color: var(--color-black);
+}
+
+.switchMode .avatar-dropdown hr {
+  border-color: var(--background-dark-primary-main);
+}
+
+.switchMode .avatar-dropdown a li {
+  color: var(--color-dark-main);
+}
+
+.switchMode .avatar-dropdown a li:hover {
+  background-color: var(--background-dark-main);
+}
+
+.switchMode .avatar-dropdown a li:active {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode .support-chat-mode {
+  box-shadow: var(--box-shadow-dark-xlg);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.switchMode .support-chat-mode .support-chat-mode-header {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: var(--background-dark-primary-main);
+}
+
+.switchMode .support-chat-mode .support-chat-mode-header a {
+  background-color: var(--background-dark-main);
+  color: var(--color-white);
+}
+
+.switchMode .support-chat-mode .support-chat-mode-header a:hover {
+  background-color: var(--background-dark-secondary-main);
+}
+
+.switchMode .support-chat-mode .support-chat-mode-header a:focus {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode .support-chat-mode-body .section-message-bot p {
+  background-color: var(--background-dark-main);
+}
+
+.switchMode .support-chat-mode .support-chat-mode-footer form {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode .support-chat-mode .support-chat-mode-footer form textarea {
+  color: var(--color-white);
+}
+
+.switchMode header form, .switchMode .hero form {
+  background-color: var(--el-overlay-color-lighter);
+  border: 2px solid blueviolet;
+}
+
+.switchMode header form, .switchMode .hero form input:focus {
+  color: var(--color-white);
+  font-size: 20px;
+}
+
+.switchMode .section-explore .section-explore-menu a {
+  color: var(--color-dark-main);
+}
+
+.switchMode .section-explore .section-explore-menu .section-explore-menu-item-active {
+  background-color: var(--background-dark-main);
+}
+
+.switchMode .section-explore .section-explore-menu a:active {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode .card-simple,
+.switchMode .card-playing-horizontal {
+  background-color: var(--background-dark-main);
+}
+
+.switchMode .card-simple h3,
+.switchMode .card-playing-horizontal h4 a {
+  color: var(--color-dark-main) !important;
+}
+
+.switchMode .card-playing-horizontal .card-playing-horizontal-footer a {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.switchMode .card-playing-horizontal .card-playing-horizontal-footer a:hover {
+  background-color: var(--background-dark-primary-main);
+  color: var(--color-white);
+}
+
+.switchMode .card-playing-horizontal .card-playing-horizontal-footer a:active {
+  background-color: var(--background-dark-secondary-main);
+  color: var(--color-white);
+}
+
+.switchMode .card-playing-horizontal p a {
+  color: var(--color-silver) !important;
+}
+
+.switchMode .card-playing-horizontal figure div span {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.switchMode .card-category-vertical:hover {
+  background-color: var(--background-dark-main);
+}
+
+.switchMode .card-category-vertical span {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+}
+
+.switchMode .card-artists-vertical {
+  background-color: var(--background-dark-main);
+}
+
+.switchMode .card-artists-vertical h4 {
+  color: var(--color-white);
+}
+
+.switchMode .card-artists-vertical:hover h4 {
+  color: #ffff00;
+}
+
+.switchMode .hero-page {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.95)), url(../images/elements/hero-dark@90.dba36cdf.jpg);
+  background-position: center;
+  background-size: cover;
+  color: var(--color-dark-main);
+}
+
+.switchMode .hero-page>div>div a:hover {
+  color: var(--color-white);
+}
+
+.switchMode .hero-page .btn-post-default {
+  background-color: var(--color-black);
+  border-color: var(--background-dark-primary-main);
+  color: var(--color-white);
+}
+
+.switchMode .hero-page .btn-post-default:hover {
+  background-color: var(--background-dark-main);
+}
+
+.switchMode .hero-page .btn-post-default:active {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode .section-playlist-post-body .section-playlist-post-play-card {
+  background-color: var(--background-dark-main);
+  color: var(--color-black);
+}
+
+.switchMode .section-playlist-post-body .section-playlist-post-play-card:hover {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode .section-playlist-post-body .section-playlist-post-play-card:active {
+  background-color: var(--background-dark-secondary-main);
+}
+
+.switchMode .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far,
+.switchMode .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far {
+  background-color: var(--color-black);
+}
+
+.switchMode .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far:hover,
+.switchMode .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far:hover {
+  background-color: var(--background-dark-main) !important;
+  color: var(--color-white);
+}
+
+.switchMode .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far:active,
+.switchMode .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far:active {
+  background-color: var(--background-dark-primary-main) !important;
+}
+
+.switchMode .section-music-player {
+  background-color: var(--color-black);
+  box-shadow: var(--box-shadow-dark-xlg);
+  border-color: var(--background-dark-primary-main);
+}
+
+.switchMode .section-music-player div:nth-child(1) .far,
+.switchMode .section-music-player>div:nth-child(3) .far {
+  color: var(--color-black);
+}
+
+.switchMode .section-music-player>div:nth-child(3) .far:hover {
+  background-color: var(--background-dark-primary-main) !important;
+}
+
+.switchMode .section-music-player>div:nth-child(3) .far:active {
+  background-color: var(--background-dark-secondary-main) !important;
+}
+
+.switchMode .section-music-player .section-music-player-timeline {
+  background-color: var(--background-dark-main);
+}
+
+.switchMode .overlay-section-download {
+  background-color: rgba(0, 0, 0, 0.800);
+}
+
+.switchMode .section-download {
+  background-color: var(--color-black);
+}
+
+.switchMode .section-download .section-download-header .far {
+  color: var(--color-white);
+}
+
+.switchMode .section-download .section-download-header .far:hover {
+  background-color: var(--background-dark-primary-main);
+}
+
+.switchMode .section-download .section-download-header .far:active {
+  background-color: var(--background-dark-secondary-main);
+}

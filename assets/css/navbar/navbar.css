@@ -41,8 +41,8 @@ nav ul {
 
 .box--radius {
   list-style: none;
-  border-radius: 20px;
-  padding: 5px;
+  border-radius: 10px;
+  padding: 0px;
 }
 
 .box--radius:hover {
@@ -70,8 +70,15 @@ nav ul {
 
 .inner-logo span {
   display: block;
-  margin-right: 20px;
-  color: deeppink;
+  margin-top: 5px;
+  color: var(--color-silver);
+  font-family: var(--font-family-1);
+  font-style:oblique;
+  font-size: 24px;
+}
+.inner-logo span:hover {
+  color: var(--color-orange);
+  transition: var(--transition-3s-ease);
 }
 
 nav ul:nth-child(1) a {

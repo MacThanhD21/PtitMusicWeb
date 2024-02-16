@@ -9,13 +9,14 @@
 @import url("../css/section/trending/trending.css");
 @import url("../css/section/category/category.css");
 @import url("../css/section/artists/artists.css");
+@import url("../css/switchMode/switchMode.css");
+@import url("../css/responsive/responsive.css");
 
 
 /*========== MAIN */
 main {
   padding: 20px;
 }
-
 
 /*====================
 #01. PAGE: POST
@@ -138,8 +139,9 @@ main {
 .page-01 .section-playlist-post-body {
   max-height: 500px;
   overflow-y: auto;
-  border: 2px solid red;
+  border: 12px solid var(--color-soft-4);
   padding: 10px;
+  border-radius: 10px;
 }
 
 .page-01 .section-playlist-post-body .section-playlist-post-play-card {
@@ -157,7 +159,7 @@ main {
 
 .page-01 .section-playlist-post-body .section-playlist-post-play-card:hover {
   transition: var(--transition-3s-ease);
-  background-color: var(--background-secondary-main);
+  background-color: var(--color-soft-9);
 }
 
 .page-01 .section-playlist-post-body .section-playlist-post-play-card:active {
@@ -171,7 +173,7 @@ main {
   align-items: center;
 }
 
-.page-01 .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far {
+.page-01 .section-playlist-post-body .section-playlist-post-play-card > div:nth-child(1) .far {
   transition: var(--transition-3s-ease);
   background-color: var(--color-white);
   border-radius: var(--border-radius-mmmd);
@@ -190,12 +192,7 @@ main {
   overflow: hidden;
   margin-right: 10px;
   font-size: 0.950rem;
-  color: 
-  /* display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical; */
   transition: var(--transition-3s-ease);
-  /* border: 1px solid red; */
   width: 65%;
   padding: 10px 0;
 }
@@ -449,7 +446,7 @@ main {
 }
 
 .page-01 .section-full-player {
-  background: linear-gradient(transparent, rgba(255, 255, 255, 0.950)), url(../images/elements/hero@75.b2469a49.jpg);
+  background: #fff;
   background-position: center;
   transition: var(--transition-3s-ease);
   background-size: cover;
@@ -746,111 +743,6 @@ main {
   object-fit: cover;
 }
 
-/*========== FOOTER */
-footer {
-  background-color: var(--background-secondary-main);
-  padding: 70px 20px 0 20px;
-  font-size: var(--font-size-14);
-}
-
-footer .footer-grid {
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  transition: var(--transition-3s-ease);
-  display: grid;
-  gap: 4rem;
-}
-
-footer ul {
-  display: flex;
-  flex-direction: column;
-}
-
-footer ul h4 {
-  padding-bottom: 5px;
-  color: var(--color-black);
-}
-
-footer ul li {
-  margin: 5px 0;
-}
-
-footer ul li a {
-  transition: var(--transition-3s-ease);
-  color: #363636;
-}
-
-footer ul:first-child {
-  margin-left: 80px;
-  grid-column: span 2 / span 2;
-}
-
-footer ul:first-child .image_logo {
-  margin-bottom: 10px;
-  object-fit: cover;
-  width: 80px;
-  border-radius: 50%;
-}
-
-footer ul:first-child .footer-social-media {
-  display: flex;
-  margin-top: 20px;
-  align-items: center;
-  flex-direction: row;
-}
-
-footer ul:first-child .footer-social-media a {
-  background-color: var(--background-main);
-  border-radius: var(--border-radius-mmmd);
-  transition: var(--transition-2s-ease);
-  font-size: var(--font-size-18);
-  margin-right: 10px;
-  color: #202020;
-  padding: 10px;
-  height: 40px;
-  width: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-footer ul:first-child .footer-social-media a:hover {
-  transition: var(--transition-2s-ease);
-  background-color: #0000FF;
-  color: var(--color-white);
-}
-
-footer .footer-copyright {
-  display: flex;
-  padding: 15px 0;
-  margin-top: 60px;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid var(--background-primary-main);
-}
-
-footer .footer-icon {
-  display: flex;
-  margin-top: 30px;
-  align-items: center;
-  flex-direction: row;
-}
-
-footer .footer-icon a {
-  margin: 0 5px;
-}
-
-#logoFooterModeDark {
-  display: none;
-}
-
-.logoFooterModeDarkToggle {
-  display: flex !important;
-}
-
-.logoFooterModeLightToggle {
-  display: none !important;
-}
-
 /*========== BACK TOP */
 .back-top {
   width: 45px;
@@ -863,429 +755,15 @@ footer .footer-icon a {
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-lg);
-  background-color: #0000FF;
+  background-color: var(--color-soft-10);
   color: var(--color-white);
 }
-
+.back-top:hover{
+  background-color: var(--color-blue);
+  transition: var(--transition-3s-ease);
+}
 .back-top-active {
   display: flex;
-}
-
-/*========== SWITCH MODE */
-#switchModeBtnLight {
-  display: none;
-}
-
-.switchModeBtnLightToggle {
-  display: flex !important;
-}
-
-.switchModeBtnDarkToggle {
-  display: none;
-}
-
-.switchMode::-webkit-scrollbar-thumb,
-.switchMode *::-webkit-scrollbar-thumb {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode::-webkit-scrollbar-thumb:hover,
-.switchMode::-webkit-scrollbar-thumb:active,
-.switchMode *::-webkit-scrollbar-thumb:hover,
-.switchMode *::-webkit-scrollbar-thumb:active {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode {
-  background-color: var(--color-black);
-  color: var(--color-white);
-}
-
-.switchMode .loader-warpper {
-  background-color: var(--color-black);
-}
-
-.switchMode .loader-warpper .loader {
-  border: 3px solid var(--color-white);
-  border-top: 3px solid var(--color-black);
-  border-right: 3px solid var(--color-black);
-  border-bottom: 3px solid var(--color-black);
-}
-
-.switchMode .nav-fixed-active {
-  border-bottom: 1px solid var(--background-dark-primary-main);
-}
-
-.switchMode nav {
-  background-color: rgba(0, 0, 0, 0.92);
-}
-
-.switchMode nav ul:nth-child(1) a {
-  color: var(--color-dark-main);
-}
-
-.switchMode nav ul:nth-child(1) a:hover {
-  color: var(--color-white);
-}
-
-.switchMode nav ul:nth-child(2) .far {
-  background-color: var(--background-dark-main);
-  color: var(--color-white);
-}
-
-.switchMode nav ul:nth-child(2) .far:hover {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode nav ul:nth-child(2) .far:active {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .navbarMobileToggle {
-  background-color: var(--color-black);
-  border-color: var(--background-dark-primary-main);
-}
-
-.switchMode .navbarMobileToggle .fa-close-mobile {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .navbarMobileToggle .fa-close-mobile:hover {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode .navbarMobileToggle .fa-close-mobile:active {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .overlay-search-mode,
-.switchMode .overlay-support-chat-mode {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.switchMode .overlay-search-mode form {
-  background-color: var(--color-black);
-}
-
-.switchMode .overlay-search-mode form input {
-  color: var(--color-white);
-}
-
-.switchMode .avatar-dropdown {
-  box-shadow: var(--box-shadow-dark-xlg);
-  background-color: var(--color-black);
-}
-
-.switchMode .avatar-dropdown hr {
-  border-color: var(--background-dark-primary-main);
-}
-
-.switchMode .avatar-dropdown a li {
-  color: var(--color-dark-main);
-}
-
-.switchMode .avatar-dropdown a li:hover {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .avatar-dropdown a li:active {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .support-chat-mode {
-  box-shadow: var(--box-shadow-dark-xlg);
-  background-color: var(--color-black);
-  color: var(--color-white);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-header {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-color: var(--background-dark-primary-main);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-header a {
-  background-color: var(--background-dark-main);
-  color: var(--color-white);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-header a:hover {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-header a:focus {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .support-chat-mode-body .section-message-bot p {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-footer form {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-footer form textarea {
-  color: var(--color-white);
-}
-
-.switchMode header form, .switchMode .hero form {
-  background-color: var(--el-overlay-color-lighter);
-  border: 2px solid blueviolet;
-}
-
-.switchMode header form, .switchMode .hero form input:focus {
-  color: var(--color-white);
-  font-size: 20px;
-}
-
-.switchMode .section-explore .section-explore-menu a {
-  color: var(--color-dark-main);
-}
-
-.switchMode .section-explore .section-explore-menu .section-explore-menu-item-active {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .section-explore .section-explore-menu a:active {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .card-simple,
-.switchMode .card-playing-horizontal {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .card-simple h3,
-.switchMode .card-playing-horizontal h4 a {
-  color: var(--color-dark-main) !important;
-}
-
-.switchMode .card-playing-horizontal .card-playing-horizontal-footer a {
-  background-color: var(--color-black);
-  color: var(--color-white);
-}
-
-.switchMode .card-playing-horizontal .card-playing-horizontal-footer a:hover {
-  background-color: var(--background-dark-primary-main);
-  color: var(--color-white);
-}
-
-.switchMode .card-playing-horizontal .card-playing-horizontal-footer a:active {
-  background-color: var(--background-dark-secondary-main);
-  color: var(--color-white);
-}
-
-.switchMode .card-playing-horizontal p a {
-  color: var(--color-silver) !important;
-}
-
-.switchMode .card-playing-horizontal figure div span {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.switchMode .card-category-vertical:hover {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .card-category-vertical span {
-  background-color: rgba(0, 0, 0, 0.85);
-  color: #ffffff;
-}
-
-.switchMode .card-artists-vertical {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .card-artists-vertical h4 {
-  color: var(--color-white);
-}
-
-.switchMode .card-artists-vertical:hover h4 {
-  color: #ffff00;
-}
-
-.switchMode .hero-page {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.95)), url(../images/elements/hero-dark@90.dba36cdf.jpg);
-  background-position: center;
-  background-size: cover;
-  color: var(--color-dark-main);
-}
-
-.switchMode .hero-page>div>div a:hover {
-  color: var(--color-white);
-}
-
-.switchMode .hero-page .btn-post-default {
-  background-color: var(--color-black);
-  border-color: var(--background-dark-primary-main);
-  color: var(--color-white);
-}
-
-.switchMode .hero-page .btn-post-default:hover {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .hero-page .btn-post-default:active {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card:hover {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card:active {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far,
-.switchMode .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far {
-  background-color: var(--color-black);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far:hover,
-.switchMode .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far:hover {
-  background-color: var(--background-dark-main) !important;
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far:active,
-.switchMode .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far:active {
-  background-color: var(--background-dark-primary-main) !important;
-}
-
-.switchMode .section-music-player {
-  background-color: var(--color-black);
-  box-shadow: var(--box-shadow-dark-xlg);
-  border-color: var(--background-dark-primary-main);
-}
-
-.switchMode .section-music-player div:nth-child(1) .far,
-.switchMode .section-music-player>div:nth-child(3) .far {
-  background-color: var(--background-dark-main);
-  color: var(--color-white);
-}
-
-.switchMode .section-music-player>div:nth-child(3) .far:hover {
-  background-color: var(--background-dark-primary-main) !important;
-}
-
-.switchMode .section-music-player>div:nth-child(3) .far:active {
-  background-color: var(--background-dark-secondary-main) !important;
-}
-
-.switchMode .section-music-player .section-music-player-timeline {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .section-full-player {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.95)), url(../images/elements/hero-dark@90.dba36cdf.jpg);
-  background-position: center;
-  background-size: cover;
-}
-
-.switchMode .section-full-player .section-full-player-header .section-full-player-header-dropdown {
-  box-shadow: var(--box-shadow-dark-xlg);
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .section-full-player .section-full-player-header .section-full-player-header-dropdown a {
-  color: var(--color-white) !important;
-}
-
-.switchMode .section-full-player .section-full-player-header .section-full-player-header-dropdown a:hover {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .section-full-player .section-full-player-header .section-full-player-header-dropdown a:active {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode .section-full-player .section-full-player-header .far {
-  color: var(--color-white) !important;
-}
-
-.switchMode .section-full-player .section-full-player-header .far:hover {
-  background-color: var(--color-black);
-}
-
-.switchMode .section-full-player .section-full-player-header .far:active {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .section-full-player .section-full-player-body img {
-  box-shadow: var(--box-shadow-dark-xlg);
-}
-
-.switchMode .section-full-player .section-full-player-body div a {
-  color: var(--color-silver);
-}
-
-.switchMode .section-full-player .section-full-player-footer .far {
-  color: var(--color-white) !important;
-}
-
-.switchMode .section-full-player .section-full-player-footer .far:hover {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .section-full-player .section-full-player-footer .far:active {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .overlay-section-download {
-  background-color: rgba(0, 0, 0, 0.800);
-}
-
-.switchMode .section-download {
-  background-color: var(--color-black);
-}
-
-.switchMode .section-download .section-download-header .far {
-  color: var(--color-white);
-}
-
-.switchMode .section-download .section-download-header .far:hover {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .section-download .section-download-header .far:active {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode footer {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode footer ul:first-child .footer-social-media a {
-  background-color: var(--background-dark-primary-main);
-  color: var(--color-dark-main);
-}
-
-.switchMode footer ul:first-child .footer-social-media a:hover {
-  background-color: #0000FF;
-  color: var(--color-white);
-}
-
-.switchMode footer ul h4 {
-  color: var(--color-white);
-}
-
-.switchMode footer ul li a {
-  transition: var(--transition-3s-ease);
-  color: var(--color-silver);
-}
-
-.switchMode footer ul li a:hover {
-  transition: var(--transition-3s-ease);
-  color: var(--color-white);
-}
-
-.switchMode footer .footer-copyright {
-  border-color: var(--background-dark-primary-main);
-  color: var(--color-silver);
 }
 
 
@@ -1453,230 +931,8 @@ button[type="submit"] {
   100% {}
 }
 
-
-/*========== MEDIA QUERIES */
-/* MOBILE */
-@media (max-width: 430px) {
-  .card-playing-horizontal {
-    scroll-snap-align: none;
-  }
-}
-
-@media (max-width: 460px) {
-  footer .footer-grid {
-    gap: 2rem;
-    display: flex;
-    flex-direction: column;
-    transition: var(--transition-3s-ease);
-  }
-}
-
-/* TABLET */
-@media (max-width: 810px) {
-
-  nav,
-  .search-mode,
-  main,
-  header,
-  .hero,
-  .call-to-action,
-  footer {
-    transition: var(--transition-3s-ease);
-    padding: 20px 16px;
-  }
-
-  .fa-bars-mobile,
-  .fa-close-mobile {
-    transition: var(--transition-3s-ease);
-    display: block;
-  }
-
-  .fa-close-mobile {
-    background-color: var(--background-main);
-    border-radius: var(--border-radius-mmmd);
-    position: relative;
-    padding: 3px 10px;
-    display: inline;
-    left: 230px;
-  }
-
-  .fa-close-mobile:hover {
-    background-color: var(--background-secondary-main);
-    transition: var(--transition-3s-ease);
-  }
-
-  .fa-close-mobile:active {
-    background-color: var(--background-primary-main);
-    transition: var(--transition-3s-ease);
-  }
-
-  .navbarMobileToggle {
-    display: block !important;
-  }
-
-  nav ul:nth-child(1) ul {
-    border-right: 1px solid var(--background-secondary-main);
-    transition: var(--transition-3s-ease);
-    background-color: var(--color-white);
-    align-items: flex-start;
-    flex-direction: column;
-    position: fixed;
-    display: none;
-    padding: 20px;
-    height: 100vh;
-    width: 300px;
-    z-index: 99;
-    bottom: 0;
-    left: 0;
-    top: 0;
-  }
-
-  nav ul:nth-child(1) ul a {
-    margin: 2px 0;
-    width: 100%;
-  }
-
-  nav ul:nth-child(1) ul li:first-child {
-    margin-top: 10px;
-  }
-
-  nav ul:nth-child(1) ul li {
-    border-radius: var(--border-radius-mmmd);
-    padding: 8px 10px;
-  }
-
-  nav ul:nth-child(1) ul li:hover {
-    background-color: var(--background-secondary-main);
-    transition: var(--transition-1s-ease);
-  }
-
-  nav ul:nth-child(1) ul li:active {
-    background-color: var(--background-primary-main);
-    transition: var(--transition-1s-ease);
-  }
-
-  .switchMode nav ul:nth-child(1) ul li:hover {
-    background-color: var(--background-dark-secondary-main);
-  }
-
-  .switchMode nav ul:nth-child(1) ul li:active {
-    background-color: var(--background-dark-primary-main);
-  }
-
-  .search-mode form {
-    transition: var(--transition-3s-ease);
-    width: 100% !important;
-  }
-
-  .avatar-dropdown,
-  .support-chat-mode {
-    transition: var(--transition-3s-ease);
-    margin: auto;
-    width: 97%;
-    right: 0;
-    left: 0;
-  }
-
-  .support-chat-mode {
-    transition: var(--transition-3s-ease);
-    height: 97%;
-  }
-
-  .avatar-dropdown a li {
-    transition: var(--transition-3s-ease);
-    font-size: var(--font-size-16);
-  }
-
-  header form,
-  .hero form,
-  .page-01 .section-playlist-post {
-    transition: var(--transition-3s-ease);
-    width: 100%;
-  }
-
-  header h1,
-  .hero h1 {
-    transition: var(--transition-3s-ease);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  .card-simple h3,
-  .card-playing-horizontal div h4 {
-    transition: var(--transition-3s-ease);
-    font-size: 0.940rem;
-  }
-
-  .section-trending>div:first-child h2,
-  .section-category>div:first-child h2,
-  .section-popular-artists>div:first-child h2,
-  .section-featured-creators>div:first-child h2,
-  .page-01 .section-playlist-post-header h2 {
-    transition: var(--transition-3s-ease);
-    font-size: 1.1rem;
-  }
-
-  .page-01 header>div,
-  .page-01 header>div>div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: var(--transition-3s-ease);
-  }
-
-  .page-01 header>div figure {
-    transition: var(--transition-3s-ease);
-    margin: 10px 0;
-  }
-
-  .page-01 .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far {
-    transition: var(--transition-3s-ease);
-    margin-right: 10px;
-  }
-
-  .page-01 .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) h4 {
-    transition: var(--transition-3s-ease);
-    font-size: 0.850rem;
-  }
-
-  .page-01 .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far {
-    transition: var(--transition-3s-ease);
-    margin-right: 5px;
-  }
-
-  .page-01 .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) p {
-    transition: var(--transition-3s-ease);
-    padding-right: 0px;
-    margin-left: 5px;
-  }
-
-  .page-01 .section-music-player {
-    justify-content: space-between;
-    transition: var(--transition-3s-ease);
-  }
-
-  .page-01 .section-music-player .section-music-player-timeline {
-    transition: var(--transition-3s-ease);
-    display: none;
-  }
-
-  footer {
-    padding-top: 50px;
-    padding-bottom: 0;
-  }
-
-  footer .footer-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-
-  footer ul:first-child .footer-social-media a {
-    transition: var(--transition-3s-ease);
-    height: 35px;
-    width: 35px;
-  }
-}
-
 .footer-copyright {
+  transition: var(--transition-3s-ease);
   display: flex;
   padding: 15px 0;
   margin-top: 60px;
