@@ -1407,13 +1407,131 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-      
-    </footer>
+    <!-- #SECTION: MUSIC PLAYER -->
+    <section class="section-music-player" id="sectionMusicPlayer">
+      <div>
+        <span
+          class="far fa-angle-down"
+          id="collapseMusicPlayerBtn"
+          onclick="collapseMusicPlayer()"
+        ></span>
+        <span
+          class="far fa-angle-up"
+          id="expandMusicPlayerBtn"
+          onclick="collapseMusicPlayer()"
+        ></span>
+        <img
+          src="./assets/images/covers/Speed-Runner-Ultima-Trailer-Music-400x400.jpeg"
+          alt=""
+        />
+        <div>
+          <h4>Helix Angle</h4>
+          <a href="user.html">Ultima Trailer Music</a>
+        </div>
+      </div>
+      <div class="section-music-player-timeline">
+        <div class="section-music-player-timeline-linepoint"></div>
+      </div>
+      <div>
+        <a
+          href="javascript:void(0)"
+          onclick="likeMusicPlayer()"
+          title="Like"
+          aria-label="Like"
+          ><span class="far fa-heart" id="likeMusicPlayer"></span
+        ></a>
+        <a href="javascript:void(0)" onclick="" title="Play" aria-label="Play"
+          ><span class="far fa-play"></span
+        ></a>
+        <a
+          href="javascript:void(0)"
+          onclick="fullPlayer()"
+          title="Show Full Player"
+          aria-label="Show Full Player"
+          ><span class="far fa-expand"></span
+        ></a>
+      </div>
+    </section>
 
+    <!-- #SECTION: FULL PLAYER -->
+    <section class="section-full-player" id="fullPlayer">
+      <div class="section-full-player-header">
+        <span
+          class="far fa-angle-left"
+          title="Back"
+          aria-label="Back"
+          onclick="fullPlayer()"
+        ></span>
+        <h4>Now Playing</h4>
+        <span
+          class="far fa-ellipsis-h"
+          title="More Option"
+          aria-label="More Option"
+          onclick="fullPlayerHeaderDropdown()"
+        ></span>
+
+        <!-- FULL PLAYER HEADER DROPDOWN -->
+        <div
+          class="section-full-player-header-dropdown"
+          id="fullPlayerHeaderDropdown"
+        >
+          <a href=""
+            ><span class="far fa-play-circle"></span> Add To Playlist</a
+          >
+          <a href=""><span class="far fa-info-circle"></span> Help</a>
+        </div>
+      </div>
+      <div class="section-full-player-body">
+        <figure>
+          <img
+            src="./assets/images/covers/Speed-Runner-Ultima-Trailer-Music-400x400.jpeg"
+            alt=""
+          />
+        </figure>
+        <div>
+          <div>
+            <span class="far fa-heart" title="Like" aria-label="Like"></span>
+          </div>
+          <div>
+            <h3>Helix Angle</h3>
+            <a href="user.html">Ultima Trailer Music</a>
+          </div>
+          <div>
+            <span
+              class="far fa-ellipsis-h"
+              title="More Option"
+              aria-label="More Option"
+            ></span>
+          </div>
+        </div>
+      </div>
+      <div class="section-full-player-footer">
+        <span
+          class="far fa-random"
+          title="Shuffle"
+          aria-label="Shuffle"
+        ></span>
+        <span
+          class="far fa-step-backward"
+          title="Backward"
+          aria-label="Backward"
+        ></span>
+        <span class="far fa-play" title="Play" aria-label="Play"></span>
+        <span
+          class="far fa-step-forward"
+          title="Forward"
+          aria-label="Forward"
+        ></span>
+        <span
+          class="far fa-refresh"
+          title="Repeat"
+          aria-label="Repeat"
+        ></span>
+      </div>
+    </section>
     <!-- Chat Bot -->
 
+    <!-- End Chat Bot -->
     <!-- BACK TOP -->
     <a href="#Top">
       <div class="back-top" id="backTop">
