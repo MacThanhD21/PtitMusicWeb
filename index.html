@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Slick JS -->
+    <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick-theme.css.css"/>
+    
     <!-- IMPORT FONT AWESOME -->
     <link
       rel="stylesheet"
@@ -1506,11 +1510,7 @@
         </div>
       </div>
       <div class="section-full-player-footer">
-        <span
-          class="far fa-random"
-          title="Shuffle"
-          aria-label="Shuffle"
-        ></span>
+        <span class="far fa-random" title="Shuffle" aria-label="Shuffle"></span>
         <span
           class="far fa-step-backward"
           title="Backward"
@@ -1522,11 +1522,7 @@
           title="Forward"
           aria-label="Forward"
         ></span>
-        <span
-          class="far fa-refresh"
-          title="Repeat"
-          aria-label="Repeat"
-        ></span>
+        <span class="far fa-refresh" title="Repeat" aria-label="Repeat"></span>
       </div>
     </section>
     <!-- Chat Bot -->
@@ -1539,7 +1535,31 @@
       </div>
     </a>
 
+    <!-- Slick Js -->
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script type="text/javascript" src="./assets/animation/slick/slick.min.js"></script>
+
     <!-- IMPORT JS -->
     <script src="./assets/js/app.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $(".card-grid-slider").slick({
+          infinite: true,
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          arrows: false,
+        });
+      });
+    </script>
   </body>
 </html>
