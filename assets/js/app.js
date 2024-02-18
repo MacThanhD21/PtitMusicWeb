@@ -9,9 +9,9 @@ window.addEventListener("load", () => {
 
 // Login page occurs default
 
-if (!localStorage.getItem("userLoggedIn")) {
-  window.location.href = "login.html"; // Replace 'login.html' with your actual login page URL
-}
+// if (!localStorage.getItem("userLoggedIn")) {
+//   window.location.href = "login.html"; // Replace 'login.html' with your actual login page URL
+// }
 
 // ## NAVBAR MOBILE
 function navbarMobileToggle() {
