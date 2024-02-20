@@ -2,7 +2,6 @@ import { songs } from "../data/songs.js";
 
 console.log(songs);
 
-
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -20,7 +19,7 @@ const prevBtn = $(".btn-prev");
 const nextBtn = $(".btn-next");
 const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
-const playlist = $(".section-playlist-post-body");
+const playlist = $(".playlist");
 console.log(playlist);
 
 // object app
@@ -44,45 +43,21 @@ const app = {
   render: function () {
     const htmls = this.songs.map((song, index) => {
       return `
-      <div class="section-playlist-post-play-card${
-        index === this.currentIndex ? "active" : ""
-      }" data-index="${index}">
-        <div>
-          <span
-            class="far fa-play"
-            id="playBtnPlayCard"
-            onclick="playSound()"
-            title="Play"
-            aria-label="Play"
-          ></span>
-          <span
-            class="far fa-pause"
-            id="pauseBtnPlayCard"
-            onclick="pauseSound()"
-            title="Pause"
-            aria-label="Pause"
-          ></span>
-          <h4 onclick="fullPlayer()">${song.title}</h4>
-        </div>
-        <div>
-          <div>
-            <span
-              class="far fa-download"
-              onclick="download()"
-              title="Download"
-              aria-label="Download"
-            ></span>
-            <span
-              class="far fa-heart"
-              id="likeMusicPlay"
-              onclick="likeMusicPlay()"
-              title="Like"
-              aria-label="Like"
-            ></span>
-          </div>
-          <p>1:39</p>
-        </div>
-      </div>`;
+              <div class="song ${
+                index === this.currentIndex ? "active" : ""
+              }" data-index="${index}">
+                  <div class="thumb"
+                      style="background-image: url('${song.imagecover}')">
+                  </div>
+                  <div class="body">
+                      <h3 class="title">${song.title}</h3>
+                      <p class="author">${song.artist}</p>
+                  </div>
+                  <div class="option">
+                      <i class="fas fa-ellipsis-h"></i>
+                  </div>
+              </div>
+          `;
     });
     playlist.innerHTML = htmls.join("");
   },

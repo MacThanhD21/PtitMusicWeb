@@ -1,5 +1,6 @@
 import { songs } from "./data/songs.js";
 
+console.log(songs);
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -18,7 +19,7 @@ const nextBtn = $(".btn-next");
 const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
-
+console.log(playlist);
 // object app
 const app = {
   currentIndex: 0,

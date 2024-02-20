@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- IMPORT CSS MAIN -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/base.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    
 
     <!-- IMPORT FONT AWESOME -->
     <link
@@ -27,7 +24,11 @@
       href="./assets/images/logo/JPEG/main-logo.jpeg"
       type="image/x-icon"
     />
-
+<!-- IMPORT CSS MAIN -->
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- <link rel="stylesheet" href="./assets/css/playmusic/playmusic.css" /> -->
     <!-- TITLE -->
     <title>Play Music</title>
   </head>
@@ -60,17 +61,6 @@
             <span>Ptit Music</span>
           </a>
         </div>
-        <ul id="navbarMobileToggle">
-          <a
-            href="javascript:void(0)"
-            onclick="navbarMobileToggle()"
-            title="Close Menu"
-            aria-label="Close Menu"
-            class="fa-close-mobile"
-          >
-            <span class="far fa-close"></span>
-          </a>
-        </ul>
       </ul>
       <ul>
         <a>
@@ -202,59 +192,58 @@
       </div>
     </div>
 
-    <!-- HEADER/HERO -->
-    <header class="hero hero-page">
-      <div>
-        <figure>
-          <a href="images/covers/Speed-Runner-Ultima-Trailer-Music-400x400.jpeg"
-            ><img
-              src="./assets/images/covers/Speed-Runner-Ultima-Trailer-Music-400x400.jpeg"
-              alt=""
-          /></a>
-        </figure>
-        <div>
-          <h1>Speed Runner</h1>
-          <a href="user.html">Ultima Trailer Music</a>
+    <!-- main player -->
+    <div class="player">
+      <!-- Dashboard -->
+      <div class="dashboard">
+        <!-- Header -->
+        <div class="header"> 
+          <h4>Now playing:</h4>
+          <h2>String 57th & 9th</h2>
+        </div>
 
-          <div>
-            <a
-              href="javascript:void(0)"
-              onclick="likeMusicHeader()"
-              title="Like"
-              aria-label="Like"
-              ><button type="button" class="btn-post-default">
-                4.6
-                <span class="far fa-heart" id="likeMusicHeader"></span></button
-            ></a>
-            <a
-              href="javascript:download()"
-              title="Download"
-              aria-label="Download"
-              ><button type="button" class="btn-post-default">
-                <span class="far fa-download"></span></button
-            ></a>
+        <!-- CD -->
+        <div class="cd">
+          <div class="cd-thumb"></div>
+        </div>
+
+        <!-- Control -->
+        <div class="control">
+          <div class="btn btn-repeat">
+            <i class="fas fa-redo"></i>
+          </div>
+          <div class="btn btn-prev">
+            <i class="fas fa-step-backward"></i>
+          </div>
+          <div class="btn btn-toggle-play">
+            <i class="fas fa-pause icon-pause"></i>
+            <i class="fas fa-play icon-play"></i>
+          </div>
+          <div class="btn btn-next">
+            <i class="fas fa-step-forward"></i>
+          </div>
+          <div class="btn btn-random">
+            <i class="fas fa-random"></i>
           </div>
         </div>
+
+        <input
+          id="progress"
+          class="progress"
+          type="range"
+          value="0"
+          step="1"
+          min="0"
+          max="100"
+        />
+
+        <audio id="audio" src="" autoplay></audio>
       </div>
-    </header>
 
-    <!-- MAIN -->
-    <main class="main-page-01">
-      <!-- #SECTION: PLAYLIST POST -->
-      <section class="section-playlist-post">
-        <div class="section-playlist-post-header">
-          <h2>Playlist</h2>
-          <p>Ultima Trailer Music • 2021 • ... Songs</p>
-        </div>
-        <div class="section-playlist-post-body">
-
-        </div>
-        
-        <!-- footer-body -->
-        <div class="section-playlist-post-footer">
-          <p>&copy; Ultima Trailer Music</p>
-        </div>
-      </section>
+      <!-- Playlist -->
+      <div class="playlist"></div>
+    </div>
+    <!-- End  main player -->
 
       <!-- #SECTION: RELATED MUSIC -->
       <section class="section-trending">
@@ -1080,7 +1069,7 @@
     </a>
 
     <!-- IMPORT JS -->
-    <script type="module" src="./assets/js/helpers/api_post_page.js"></script>
-    <script src="./assets/js/app.js"></script>
+    <!-- <script src="./assets/js/app.js"></script> -->
+    <script type="module" src="./assets/js/playmusic.js"></script>
   </body>
 </html>
