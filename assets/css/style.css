@@ -257,6 +257,34 @@ main {
   color: var(--color-silver);
 }
 
+/* active */
+.page-01 .section-playlist-post-body .section-playlist-post-play-card  {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  background-color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.page-01 .section-playlist-post-body .section-playlist-post-play-card .active {
+  background-color: var(--primary-color);
+}
+
+.page-01 .section-playlist-post-body .section-playlist-post-play-card:hover {
+  cursor: pointer;
+}
+.page-01 .section-playlist-post-body .section-playlist-post-play-card:active {
+  opacity: 0.8;
+}
+
+.page-01 .section-playlist-post-body .section-playlist-post-play-card .active .option,
+.page-01 .section-playlist-post-body .section-playlist-post-play-card .active .author,
+.page-01 .section-playlist-post-body .section-playlist-post-play-card .active .title {
+  color: #fff;
+}
+/* end active */
 /*========== SECTION: MUSIC PLAYER */
 .section-music-player {
   box-shadow: var(--box-shadow-xlg);

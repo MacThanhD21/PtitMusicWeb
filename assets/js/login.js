@@ -1,8 +1,5 @@
 function redirectToIndex() {
-  // Assuming you set a userLoggedIn indicator in the local storage upon successful login
   localStorage.setItem('userLoggedIn', 'true');
-  
-  // Redirect to the index.html page
   window.location.href = 'index.html'; // Replace 'index.html' with your actual index page URL
 }
 
