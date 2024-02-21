@@ -7,17 +7,14 @@
 }
 
 @media (max-width: 460px) {
-  footer .footer-grid {
-    gap: 2rem;
-    display: flex;
-    flex-direction: column;
-    transition: var(--transition-3s-ease);
+  #navbarFixed .name__website {
+    font-size: 20px;
   }
 }
 
 /* TABLET */
 @media (max-width: 810px) {
-
+  
   nav,
   .search-mode,
   main,
