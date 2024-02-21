@@ -134,7 +134,6 @@ header h2 {
 
 .progress {
   width: 100%;
-  -webkit-appearance: none;
   height: 6px;
   background: #d3d3d3;
   outline: none;

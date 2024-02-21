@@ -16,12 +16,6 @@
   display: none;
 }
 
-.player .btn {
-  color: #ec1f55;
-  padding: 18px;
-  font-size: 18px;
-}
-
 .player.playing .icon-pause {
   display: inline-block;
 }
@@ -107,7 +101,6 @@ header h2 {
 
 .progress {
   width: 100%;
-  -webkit-appearance: none;
   height: 6px;
   background: #d3d3d3;
   outline: none;

@@ -249,7 +249,7 @@
     <!-- HEADER/HERO -->
     <header class="hero">
       <!-- FORM: SEARCH -->
-      <form action="" method="post">
+      <!-- <form action="" method="post">
         <span class="far fa-search"></span>
         <input
           type="search"
@@ -257,7 +257,7 @@
           aria-placeholder="Search for music"
           autofocus="true"
         />
-      </form>
+      </form> -->
     </header>
 
     <!-- MAIN -->
@@ -646,7 +646,7 @@
               <div class="card-playing-horizontal-footer">
                 <a
                   href="javascript:void(0)"
-                  onclick=""
+                  onclick="likeMusicPlay()"
                   title="Like"
                   aria-label="Like"
                   ><span class="far fa-heart"></span
@@ -1412,7 +1412,7 @@
     </main>
 
     <!-- #SECTION: MUSIC PLAYER -->
-    <section class="section-music-player" id="sectionMusicPlayer">
+    <!-- <section class="section-music-player" id="sectionMusicPlayer">
       <div>
         <span
           class="far fa-angle-down"
@@ -1434,7 +1434,15 @@
         </div>
       </div>
       <div class="section-music-player-timeline">
-        <div class="section-music-player-timeline-linepoint"></div>
+        <input
+          id="progress"
+          class="progress"
+          type="range"
+          value="0"
+          step="1"
+          min="0"
+          max="100"
+        />
       </div>
       <div>
         <a
@@ -1455,7 +1463,7 @@
           ><span class="far fa-expand"></span
         ></a>
       </div>
-    </section>
+    </section> -->
 
     <!-- #SECTION: FULL PLAYER -->
     <section class="section-full-player" id="fullPlayer">
