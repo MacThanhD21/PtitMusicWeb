@@ -212,6 +212,7 @@
 
 .switchMode .card-category-vertical:hover {
   background-color: var(--background-dark-main);
+  color: #ffffff;
 }
 
 .switchMode .card-category-vertical span {
@@ -327,3 +328,24 @@
 .switchMode .section-download .section-download-header .far:active {
   background-color: var(--background-dark-secondary-main);
 }
+
+
+/* playmusic */
+.switchMode .dashboard {
+  background-color: var(--color-silver);
+  color: var(--color-white);
+}
+.switchMode .dashboard h2 {
+  color: var(--color-white);
+}
+
+
+.switchMode .playlist .song {
+  background-color: var(--color-silver);
+  color: var(--color-white);
+}
+.switchMode .playlist  .active{
+  background-color: var(--color-soft-10);
+  color: var(--color-black);
+}
+/* end playmusic */
