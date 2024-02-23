@@ -1,0 +1,46 @@
+mixin table-tree(items, level = 1)
+    - const prefix = Array(level+1).join("-- ")
+    each item in items
+        tr
+            td
+                input(type="checkbox" name= "check-item" value=item.id)
+            td #{item.index}
+            td
+                img(
+                    src= item.thumbnail 
+                    alt= item.tile
+                    width= "100px"
+                    height= "auto"
+                )
+            td #{prefix}#{item.title}
+            td
+                input(type="number" value=item.position style="width: 60px" min="1" name="position")
+            td 
+                if (role.permissions.includes("products-category_edit")) 
+                    if (item.status == "active")
+                        a(href="javascript:;" class= "btn btn-success" button-change-status item-id= item.id item-status= item.status) Hoạt động
+                    else
+                        a(href="javascript:;" class= "btn btn-danger" button-change-status item-id = item.id item-status= item.status) Dừng hoạt động
+                else 
+                    if (item.status == "active")
+                        span(class= "btn btn-success") Hoạt động
+                    else
+                        span(class= "btn btn-danger") Dừng hoạt động
+            td
+                if (item.createdBy.fullName)
+                    p #{item.createdBy.fullName}
+                    p #{moment(item.createdBy.createdAt).format("DD/MM/YYYY hh:mm:ss")}
+            td 
+                - const updatedBy = item.updatedBy.slice(-1)[0];
+                if (updatedBy)
+                    p #{updatedBy.fullName}
+                    p #{moment(updatedBy.updatedAt).format("DD/MM/YYYY hh:mm:ss")}
+            td 
+                if (role.permissions.includes("products-category_edit")) 
+                    a(href=`${prefixAdmin}/products-category/edit/${item.id}` class= "btn btn-warning btn-sm") Sửa
+                if (role.permissions.includes("products-category_delete")) 
+                    button(class= "btn btn-danger btn-sm ms-1" data-id=item.id delete-item-button) Xóa
+        if item.children && item.children.length > 0
+            +table-tree(item.children, level + 1)
+        
+        

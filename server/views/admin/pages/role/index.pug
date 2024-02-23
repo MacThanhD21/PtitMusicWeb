@@ -1,0 +1,54 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+block main
+    if (role.permissions.includes("roles_view"))
+        +alert-error("5000")
+        +alert-success("5000")
+        h1 Danh sách nhóm quyền
+        .card.mb-3 
+            .card-header Danh sách 
+                .card-bodyz
+                    .row 
+                        .col-8 
+                        .col-4.text-end
+                            if (role.permissions.includes("roles_create"))
+                                a(
+                                    href= `${prefixAdmin}/roles/create`
+                                    class= "btn btn-outline-success"
+                                ) + Thêm mới
+                    table(class= "table table-hover table-sm" checkbox-multi)
+                        thead 
+                            tr
+                                th 
+                                    input(type= "checkbox" name= "check-all")
+                                th STT 
+                                th Tiêu đề
+                                th Mô tả
+                                th Người tạo
+                                th Người cập nhật
+                                if (role.permissions.includes("roles_delete") || role.permissions.includes("roles_edit"))
+                                    th Hành động
+                        tbody
+                            each item, index in listData
+                                tr
+                                    td
+                                        input(type="checkbox" name= "check-item" value=item.id)
+                                    td #{index + 1}
+                                    td #{item.title}
+                                    td !{item.description}
+                                    td
+                                        if (item.createdBy.fullName)
+                                            p #{item.createdBy.fullName}
+                                            p #{moment(item.createdBy.createdAt).format("DD/MM/YYYY hh:mm:ss")}
+                                    td 
+                                        - const updatedBy = item.updatedBy.slice(-1)[0];
+                                        if (updatedBy)
+                                            p #{updatedBy.fullName}
+                                            p #{moment(updatedBy.updatedAt).format("DD/MM/YYYY hh:mm:ss")}
+                                    td 
+                                        if (role.permissions.includes("roles_edit"))
+                                            a(href=`${prefixAdmin}/roles/edit/${item.id}` class= "btn btn-warning btn-sm") Sửa
+                                        if (role.permissions.includes("roles_delete"))
+                                            button(class= "btn btn-danger btn-sm ms-1" data-id=item.id delete-item-button) Xóa
+        if (role.permissions.includes("roles_delete"))
+            form(action="", method="POST" id= "form-delete-item" data-path= `${prefixAdmin}/roles/delete`)

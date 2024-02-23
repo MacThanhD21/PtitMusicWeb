@@ -5,6 +5,7 @@ const backTop = document.getElementById("backTop");
 const navbarFixed = document.getElementById("navbarFixed");
 const playlists = document.getElementById("playlist");
 console.log(playlists);
+
 window.addEventListener("scroll", () => {
   if (window.scrollY > 150) {
     backTop.classList.add("back-top-active");
@@ -17,7 +18,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-console.log(songs);
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 

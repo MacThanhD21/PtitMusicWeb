@@ -1,0 +1,24 @@
+mixin formChangeMulti(path)
+    form(
+        action= path
+        method="POST"
+        form-change-multi
+        )
+        .d-flex.align-item-start 
+            .form-group 
+                select(name="type" class="form-control" select-action)
+                    option(disable selected) --Chọn hành động-- 
+                    if (role.permissions.includes("products_edit"))
+                        option(value="active") Hoạt động
+                        option(value="inactive") Dừng hoạt động
+                        option(value="change-position") Thay đổi vị trí
+                    if (role.permissions.includes("products_delete"))
+                        option(value="delete-all") Xóa tất cả
+            .form-group 
+                input(
+                    type= "text"
+                    name= "ids"
+                    value= ""
+                    class= "form-control d-none" 
+                    )
+            button(type="submit" class= "btn btn-primary" change-multi-submit) Áp dụng
