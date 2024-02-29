@@ -48,7 +48,7 @@ cardGroupGrids.forEach((cardGroupGrid, index) => {
 
   const html = `
     <div class="card-simple">
-      <a href="playmusic.html">
+      <a href="post.html">
         <figure>
           <img src="${album_1.image}" alt="${album_1.name_Album}" />
         </figure>
@@ -57,7 +57,7 @@ cardGroupGrids.forEach((cardGroupGrid, index) => {
       <p><a href="user.html">${album_1.name_Album}</a></p>
     </div>
     <div class="card-simple">
-      <a href="playmusic.html">
+      <a href="post.html">
         <figure>
           <img src="${album_2.image}" alt="${album_2.name_Album}" />
         </figure>
@@ -96,7 +96,7 @@ trendingContainer.forEach((trending, index) => {
                   <span class="far fa-play" onclick=""></span>
                   <span class="far fa-pause" onclick=""></span>
                 </div>
-                <a href="playmusic.html"
+                <a href="post.html"
                   ><img
                     src="${song_1.imagecover}"
                     alt=""
@@ -104,7 +104,7 @@ trendingContainer.forEach((trending, index) => {
               </figure>
               <div class="card-playing-horizontal-body">
                 <h4>
-                  <a href="playmusic.html">${song_1.title}</a>
+                  <a href="post.html">${song_1.title}</a>
                 </h4>
                 <p><a href="user.html">${song_1.artist}</a></p>
               </div>
@@ -130,7 +130,7 @@ trendingContainer.forEach((trending, index) => {
                 <div>
                   <span class="far fa-play" onclick=""></span>
                 </div>
-                <a href="playmusic.html"
+                <a href="post.html"
                   ><img
                     src="${song_2.imagecover}"
                     alt=""
@@ -138,7 +138,7 @@ trendingContainer.forEach((trending, index) => {
               </figure>
               <div class="card-playing-horizontal-body">
                 <h4>
-                  <a href="playmusic.html">${song_2.title}</a>
+                  <a href="post.html">${song_2.title}</a>
                 </h4>
                 <p><a href="user.html">${song_2.artist}</a></p>
               </div>
@@ -164,7 +164,7 @@ trendingContainer.forEach((trending, index) => {
                 <div>
                   <span class="far fa-play" onclick=""></span>
                 </div>
-                <a href="playmusic.html"
+                <a href="post.html"
                   ><img
                     src="${song_3.imagecover}"
                     alt=""
@@ -172,7 +172,7 @@ trendingContainer.forEach((trending, index) => {
               </figure>
               <div class="card-playing-horizontal-body">
                 <h4>
-                  <a href="playmusic.html">${song_3.title}</a>
+                  <a href="post.html">${song_3.title}</a>
                 </h4>
                 <p><a href="user.html">${song_3.artist}</a></p>
               </div>
