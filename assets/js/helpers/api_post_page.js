@@ -1,6 +1,8 @@
 import { songs } from "../data/songs.js";
+import { albums } from "../data/albums.js";
 
 console.log(songs);
+console.log(albums);
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -9,7 +11,7 @@ const PlAYER_STORAGE_KEY = "F8_PLAYER";
 
 const player = $(".player");
 const cd = $(".cd");
-const heading = $("header h2");
+const heading = $(".header h2");
 const cdThumb = $(".cd-thumb");
 const audio = $("#audio");
 const playBtn = $(".btn-toggle-play");
@@ -20,8 +22,8 @@ const nextBtn = $(".btn-next");
 const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
-console.log(playlist);
-
+const songss = $(".playlist .song");
+console.log(songss);
 // object app
 const app = {
   currentIndex: 0,
@@ -38,8 +40,6 @@ const app = {
     // localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
   },
   songs: songs,
-
-  // render giao diện
   render: function () {
     const htmls = this.songs.map((song, index) => {
       return `
@@ -232,9 +232,15 @@ const app = {
     }, 300);
   },
   loadCurrentSong: function () {
-    heading.textContent = this.currentSong.title;
-    cdThumb.style.backgroundImage = `url('${this.currentSong.imagecover}')`;
-    audio.src = this.currentSong.link;
+    if (this.currentSong) {
+      heading.textContent = this.currentSong.title;
+      cdThumb.style.backgroundImage = `url('${this.currentSong.imagecover}')`;
+      audio.src = this.currentSong.link;
+    } else {
+      console.error(
+        "Current song is undefined or does not have a title property."
+      );
+    }
   },
   loadConfig: function () {
     this.isRandom = this.config.isRandom;
@@ -272,52 +278,82 @@ const app = {
     // Defines properties for the object
     this.defineProperties();
 
-    // Lắng nghe / xử lý các sự kiện (DOM events)
-    // Listening / handling events (DOM events)
-    this.handleEvents();
-
     // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
     // Load the first song information into the UI when running the app
     this.loadCurrentSong();
+
+    // Lắng nghe / xử lý các sự kiện (DOM events)
+    // Listening / handling events (DOM events)
+    this.handleEvents();
 
     // Render playlist
     this.render();
 
     // Hiển thị trạng thái ban đầu của button repeat & random
     // Display the initial state of the repeat & random button
-    // randomBtn.classList.toggle("active", this.isRandom);
-    // repeatBtn.classList.toggle("active", this.isRepeat);
+    randomBtn.classList.toggle("active", this.isRandom);
+    repeatBtn.classList.toggle("active", this.isRepeat);
   },
 };
 
 app.start();
 
-// // Function to call an API and convert the response to an object
-// async function fetchData(apiUrl) {
-//   try {
-//     const response = await fetch(apiUrl);
+// Handle Events for the player
 
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! Status: ${response.status}`);
-//     }
+const _playlist = document.querySelector(".playlist");
+const trending = document.querySelector("#section__trending");
+const _player = document.querySelector(".player .playing");
+let isScrolling = false;
 
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//     return null;
-//   }
-// }
+window.addEventListener("scroll", () => {
+  if (!isScrolling) {
+    // Nếu không có scroll đang diễn ra, thì lên lịch thực hiện việc xử lý
+    window.requestAnimationFrame(() => {
+      handleScroll();
+      isScrolling = false;
+    });
 
-// // Example usage
-// const apiUrl =
-//   "https://ap-southeast-1.aws.data.mongodb-api.com/app/data-pkcss/endpoint/getsong?fbclid=IwAR1qb108B1bhulsP2OMSY4ZtbPa75geFt4mpRl464_rgudnvacDRbxYe21I";
+    isScrolling = true;
+  }
+});
 
-// fetchData(apiUrl).then((data) => {
-//   if (data) {
-//     console.log("API response:", data);
-//     // Now you can use the 'data' object in your code
-//   } else {
-//     console.log("Failed to fetch data.");
-//   }
-// });
+function handleScroll() {
+  const trendingRect = trending.getBoundingClientRect();
+  const newMaxHeight = window.innerHeight - trendingRect.bottom + 230;
+
+  // Sử dụng transition để tạo hiệu ứng giảm dần mượt mà
+  setTimeout(() => {
+    _playlist.style.transition = "max-height 0.3s ease-in-out";
+  }, 0);
+  _playlist.style.maxHeight = newMaxHeight > 10 ? `${newMaxHeight}px` : "55vh";
+}
+
+// handle title running
+
+function updateMarqueeAnimation() {
+  const titleElement = document.querySelector(".song.active .title");
+  console.log(titleElement);
+  const parentElement = titleElement.parentElement;
+
+  if (titleElement.offsetWidth > parentElement.offsetWidth) {
+    // Bắt đầu chạy animation
+    titleElement.style.animationPlayState = "paused";
+  } else {
+    // Không chạy animation
+    titleElement.style.animationPlayState = "running";
+  }
+}
+
+playlist.addEventListener('click', function(event) {
+  // Kiểm tra xem phần tử được click có phải là một bài hát không
+  const songElement = event.target.closest('.song');
+  if (songElement) {
+    // Lấy index từ thuộc tính data-index của bài hát
+    const index = parseInt(songElement.getAttribute('data-index'), 10);
+
+    // Sau khi xử lý, cập nhật animation
+    updateMarqueeAnimation();
+  }
+});
+
+

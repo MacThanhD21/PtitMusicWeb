@@ -1,23 +1,6 @@
 import { songs } from "./data/songs.js";
 
 
-const backTop = document.getElementById("backTop");
-const navbarFixed = document.getElementById("navbarFixed");
-const playlists = document.getElementById("playlist");
-console.log(playlists);
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 150) {
-    backTop.classList.add("back-top-active");
-  } else if (window.scrollY > 50) {
-    navbarFixed.classList.add("nav-fixed-active");
-    playlists.classList.add("active");
-  } else {
-    backTop.classList.remove("back-top-active");
-    navbarFixed.classList.remove("nav-fixed-active");
-  }
-});
-
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -36,7 +19,7 @@ const nextBtn = $(".btn-next");
 const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
-console.log(playlist);
+
 // object app
 const app = {
   currentIndex: 0,

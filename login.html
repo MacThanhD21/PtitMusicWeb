@@ -5,70 +5,59 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./assets/css/login.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./assets/images/logo/JPEG/main_logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/logo/JPEG/main_logo.png" type="image/png">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
   <body>
 
-    <!-- Main -->
+    <!-- Main Login -->
     <div class="wrapper">
-      <div class="title-text">
-        <div class="title login">Login</div>
-        <div class="title signup">Signup</div>
-      </div>
-      <div class="form-container">
-        <div class="slide-controls">
-          <input type="radio" name="slide" id="login" checked />
-          <input type="radio" name="slide" id="signup" />
-          <label for="login" class="slide login">Login</label>
-          <label for="signup" class="slide signup">Signup</label>
-          <div class="slider-tab"></div>
+      <form action="" id="Sign__in">
+        <h1>Login</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Username" required />
+          <i class='bx bxs-user'></i>
         </div>
-        <div class="form-inner">
-          <form action="#" class="login" onsubmit="redirectToIndex(); return false;">
-            <div class="field">
-              <input type="text" placeholder="Email Address" required />
-            </div>
-            <div class="field">
-              <input type="password" placeholder="Password" required />
-            </div>
-            <div class="pass-link">
-              <a href="#">Forgot password?</a>
-            </div>
-            <!-- LoginBtn -->
-            <div class="field btn">
-              <div class="btn-layer"></div>
-              <input type="submit" value="Login" />
-            </div>
-            <div class="signup-link">
-              Not a member? <a href="">Signup now</a>
-            </div>
-          </form>
-          <form action="#" class="signup">
-            <div class="field">
-              <input type="text" placeholder="Email Address" required />
-            </div>
-            <div class="field">
-              <input type="password" placeholder="Password" required />
-            </div>
-            <div class="field">
-              <input type="password" placeholder="Confirm password" required />
-            </div>
-            <!-- SignupBtn -->
-            <div class="field btn">
-              <div class="btn-layer"></div>
-              <input type="submit" value="Signup" />
-            </div>
-          </form>
+        <div class="input-box">
+          <input type="password" placeholder="Password" required />
+          <i class='bx bxs-lock-alt'></i>
         </div>
-      </div>
+        <div class="remember-forgot">
+          <label>
+            <input type="checkbox">
+            Remember me
+          </label>
+          <a href="#"> Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="register-link">
+          <p>Don't have an account? <a href="#">Register</a></p>
+        </div>
+      </form>
+      <form action="" id="Sign__up">
+        <h1>Sign up</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Username" required />
+          <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Password" required />
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Confirm Password" required />
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+        
+        <button type="submit" class="btn">Sign up</button>
+        <button type="button" class="back-btn">
+          <span>Back to Login</span>
+        </button>
+      </form>
     </div>
-
-    <!-- End Main -->
-
-    <!-- Main JS -->
-    <script src="./assets/js/app.js"></script>
+    <!-- End main Login -->
     <script src="./assets/js/login.js"></script>
-    <!-- End Main JS -->
   </body>
 </html>

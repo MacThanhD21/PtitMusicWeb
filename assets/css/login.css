@@ -1,186 +1,163 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-html,body{
-  display: grid;
-  height: 100%;
-  width: 100%;
-  place-items: center;
-  background: -webkit-linear-gradient(left,#48c6ef, #6f86d6);
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("https://images.alphacoders.com/135/1350899.png") no-repeat;
+
+  background-position: center;
+  background-size: cover;
 }
-::selection{
-  background: #fa4299;
+
+.wrapper {
+  width: 420px;
+  background-color: transparent;
   color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.wrapper{
-  position: relative;
-  bottom: 50px;
-  overflow: hidden;
-  max-width: 390px;
-  background: #fff;
-  padding: 30px;
-  border-radius: 35px;
-  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
-}
-.wrapper .title-text{
-  display: flex;
-  width: 200%;
-}
-.wrapper .title{
-  width: 50%;
-  font-size: 35px;
-  font-weight: 600;
+
+.wrapper h1 {
+  font-size: 36px;
   text-align: center;
-  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
 }
-.wrapper .slide-controls{
+
+.wrapper .input-box {
   position: relative;
-  display: flex;
+  width: 100%;
   height: 50px;
-  width: 100%;
-  overflow: hidden;
-  margin: 30px 0 10px 0;
-  justify-content: space-between;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
+  margin: 30px 0;
 }
-.slide-controls .slide{
-  height: 100%;
-  width: 100%;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-  line-height: 48px;
-  cursor: pointer;
-  z-index: 1;
-  transition: all 0.6s ease;
-}
-.slide-controls label.signup{
-  color: #000;
-}
-.slide-controls .slider-tab{
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  left: 0;
-  z-index: 0;
-  border-radius: 5px;
-  /* background: -webkit-linear-gradient(left, #a445b2, #fa4299); */
-  background: -webkit-linear-gradient(left,#48c6ef, #6f86d6);
-  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
-}
-input[type="radio"]{
+
+.wrapper #Sign__up {
   display: none;
 }
-#signup:checked ~ .slider-tab{
-  left: 50%;
+
+.wrapper #Sign__up.active {
+  transition: all 0.5s ease-in-out;
+  display: block;
 }
-#signup:checked ~ label.signup{
-  color: #fff;
-  cursor: default;
-  user-select: none;
+
+.wrapper #Sign__in.active {
+  display: none;
 }
-#signup:checked ~ label.login{
-  color: #000;
+
+.wrapper #Sign__in.reactive {
+  display: block;
 }
-#login:checked ~ label.signup{
-  color: #000;
-}
-#login:checked ~ label.login{
-  cursor: default;
-  user-select: none;
-}
-.wrapper .form-container{
+
+
+.input-box input {
   width: 100%;
-  overflow: hidden;
-}
-.form-container .form-inner{
-  display: flex;
-  width: 200%;
-}
-.form-container .form-inner form{
-  width: 50%;
-  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
-}
-.form-inner form .field{
-  height: 50px;
-  width: 100%;
-  margin-top: 20px;
-}
-.form-inner form .field input{
   height: 100%;
-  width: 100%;
+  background-color: transparent;
+  border: none;
   outline: none;
-  padding-left: 15px;
-  border-radius: 5px;
-  border: 1px solid lightgrey;
-  border-bottom-width: 2px;
-  font-size: 17px;
-  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
 }
-.form-inner form .field input:focus{
-  border-color: #fc83bb;
-  /* box-shadow: inset 0 0 3px #fb6aae; */
+
+.input-box input::placeholder {
+  color: #fff;
 }
-.form-inner form .field input::placeholder{
-  color: #999;
-  transition: all 0.3s ease;
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
 }
-form .field input:focus::placeholder{
-  color: #b3b3b3;
+
+.wrapper .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: -15px 0 15px;
 }
-.form-inner form .pass-link{
-  margin-top: 5px;
+
+.remember-forgot label input {
+  accent-color: #fff;
+  margin-right: 3px;
 }
-.form-inner form .signup-link{
-  text-align: center;
-  margin-top: 30px;
-}
-.form-inner form .pass-link a,
-.form-inner form .signup-link a{
-  color: #fa4299;
+
+.remember-forgot a {
+  color: #fff;
   text-decoration: none;
 }
-.form-inner form .pass-link a:hover,
-.form-inner form .signup-link a:hover{
+
+.remember-forgot a:hover {
   text-decoration: underline;
+  color: #568b8c;
 }
-form .btn{
-  height: 50px;
+
+.wrapper .btn {
   width: 100%;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-}
-form .btn .btn-layer{
-  height: 100%;
-  width: 300%;
-  position: absolute;
-  left: -100%;
-  background: -webkit-linear-gradient(right,#48c6ef, #6f86d6, #48c6ef, #6f86d6);
-  border-radius: 5px;
-  transition: all 0.4s ease;;
-}
-form .btn:hover .btn-layer{
-  left: 0;
-}
-form .btn input[type="submit"]{
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  position: relative;
-  background: none;
+  height: 45px;
+  background-color: #fff;
   border: none;
-  color: #fff;
-  padding-left: 0;
-  border-radius: 5px;
-  font-size: 20px;
-  font-weight: 500;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  transition: all 0.8s ease-out;
+}
+
+.wrapper .btn:hover {
+  background-color: #568b8c;
+  color: #fff;
+}
+
+.wrapper .register-link {
+  font-size: 14px;
+  text-align: center;
+  margin: 20px 0 15px;
+}
+
+.register-link p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link p a:hover {
+  text-decoration: underline;
+  color: #568b8c;
+}
+
+
+#Sign__up .back-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+  background-color: #555;
 }

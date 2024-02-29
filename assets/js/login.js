@@ -1,23 +1,22 @@
-function redirectToIndex() {
-  localStorage.setItem('userLoggedIn', 'true');
-  window.location.href = 'index.html'; // Replace 'index.html' with your actual index page URL
-}
+const $ = document.querySelector.bind(document);
 
+const loginForm = $('#Sign__in');
+const signUpForm = $('#Sign__up');
+const registerLink = $('.register-link a');
+const backBtn = $('.back-btn');
 
-const loginText = document.querySelector(".title-text .login");
-const loginForm = document.querySelector("form.login");
-const loginBtn = document.querySelector("label.login");
-const signupBtn = document.querySelector("label.signup");
-const signupLink = document.querySelector("form .signup-link a");
-signupBtn.onclick = () => {
-  loginForm.style.marginLeft = "-50%";
-  loginText.style.marginLeft = "-50%";
-};
-loginBtn.onclick = () => {
-  loginForm.style.marginLeft = "0%";
-  loginText.style.marginLeft = "0%";
-};
-signupLink.onclick = () => {
-  signupBtn.click();
-  return false;
-};
+backBtn.addEventListener('click', function () {
+  // Redirect to the login page
+  signUpForm.classList.remove('active');
+	loginForm.classList.add('reactive');
+	loginForm.classList.remove('active');
+});
+
+registerLink.addEventListener('click', function (event) {
+  event.preventDefault();
+
+	loginForm.classList.remove('reactive');
+  // Toggle active class between login and sign-up forms
+  loginForm.classList.toggle('active');
+  signUpForm.classList.toggle('active');
+});

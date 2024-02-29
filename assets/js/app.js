@@ -1,11 +1,13 @@
 // ## LOADER
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
-    document
-      .querySelector(".loader-warpper")
-      .classList.toggle("loader-warpper-hide");
+    const loaderWrapper = document.querySelector(".loader-warpper");
+    if (loaderWrapper) {
+      loaderWrapper.classList.toggle("loader-warpper-hide");
+    }
   }, 1000);
 });
+
 
 // Login page occurs default
 
@@ -25,32 +27,35 @@ document.addEventListener("click", function (event) {
   const dropdown = document.getElementById("dropdownMenu");
   const dropdownBtn = document.getElementById("dropdownBtn");
 
-  // Check if the click is inside the dropdown or the dropdown button
-  const isClickInside =
-    dropdown.contains(event.target) || dropdownBtn.contains(event.target);
+  // Check if the dropdown and dropdown button exist
+  if (dropdown && dropdownBtn) {
+    // Check if the click is inside the dropdown or the dropdown button
+    const isClickInside =
+      dropdown.contains(event.target) || dropdownBtn.contains(event.target);
 
-  // Close the dropdown only if clicking outside the dropdown and dropdown button
-  if (!isClickInside) {
-    dropdown.classList.remove("dropdownMenu");
+    // Close the dropdown only if clicking outside the dropdown and dropdown button
+    if (!isClickInside) {
+      dropdown.classList.remove("dropdownMenu");
+    }
   }
 });
 
+
 // SWITCH MODE
+function toggleClass(elementId, className) {
+  const element = document.getElementById(elementId);
+  if (element) {
+    element.classList.toggle(className);
+  }
+}
+
 function switchMode() {
   document.body.classList.toggle("switchMode");
-  document
-    .getElementById("switchModeBtnDark")
-    .classList.toggle("switchModeBtnDarkToggle");
-  document
-    .getElementById("switchModeBtnLight")
-    .classList.toggle("switchModeBtnLightToggle");
 
-  document
-    .getElementById("logoFooterModeLight")
-    .classList.toggle("logoFooterModeLightToggle");
-  document
-    .getElementById("logoFooterModeDark")
-    .classList.toggle("logoFooterModeDarkToggle");
+  toggleClass("switchModeBtnDark", "switchModeBtnDarkToggle");
+  toggleClass("switchModeBtnLight", "switchModeBtnLightToggle");
+  toggleClass("logoFooterModeLight", "logoFooterModeLightToggle");
+  toggleClass("logoFooterModeDark", "logoFooterModeDarkToggle");
 }
 
 // AVATAR DROPDOWN
