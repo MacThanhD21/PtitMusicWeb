@@ -18,7 +18,7 @@ const featuredContainer = $(".featured-slider");
 albums.forEach((album) => {
   const html = `
       <div class="card-simple">
-        <a href="album.html?albumId=${album.id}">
+        <a href="post.html">
           <figure>
             <img
               src="${album.image}"
