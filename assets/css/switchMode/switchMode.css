@@ -331,13 +331,19 @@
 
 
 /* darkMode Player */
+.switchMode .player {
+  border: 2px solid #853A14;
+
+}
 .switchMode .dashboard {
   color: var(--color-white);
   backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
   -webkit-backdrop-filter: blur(5px);
+  border: 2px solid #853A14;
 }
 
 .switchMode .playlist {
+  border: 2px solid #853A14;
   backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
   -webkit-backdrop-filter: blur(5px);
 }

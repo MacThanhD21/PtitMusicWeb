@@ -35,7 +35,6 @@ main {
 }
 
 .player {
-  background: url('https://img.freepik.com/free-vector/musical-notes-frame-with-text-space_1017-32857.jpg') center/cover no-repeat; 
   background-size: cover;
   object-fit: cover;  
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -51,6 +50,8 @@ main {
 .player.playing {
   height: 65vh;
   position: sticky;
+  backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
+  -webkit-backdrop-filter: blur(5px);
 }
 .player .icon-pause {
   display: none;
@@ -72,12 +73,14 @@ main {
   border-bottom: 1px solid #ebebeb;
   position: fixed;
   left: 20px;
-  top: 120px;
+  top: 20px;
   border-radius: 30px;
 }
 
 /* HEADER */
 .header {
+  backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
+  -webkit-backdrop-filter: blur(5px);
   text-align: center;
   margin-bottom: 10px;
 }
@@ -751,11 +754,20 @@ main {
   bottom: 20px;
 }
 
+.page-02 .section-playlist-post {
+  margin: 0 auto 100px auto;
+  width: 80%;
+  
+}
+
 /* CARD GRID */
 .user-page .card-grid {
+  background: #EE8462;
   display: grid;
   gap: 10px 0;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding: 20px;
+  border-radius: var(--border-radius-mmmd);
 }
 
 .user-page .card-grid .card-simple figure {

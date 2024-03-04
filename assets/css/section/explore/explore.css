@@ -3,44 +3,6 @@
   margin: 20px 0 0 0;
 }
 
-.section-explore .section-explore-menu {
-  display: flex;
-  padding: 10px 0;
-  margin-top: 10px;
-  overflow-x: auto;
-  align-items: center;
-}
-
-.section-explore .section-explore-menu a {
-  border-radius: var(--border-radius-full);
-  white-space: nowrap;
-  margin-right: 3px;
-  padding: 5px 15px;
-  font-size: 15px;
-}
-
-.section-explore .section-explore-menu a:first-child {
-  padding: 0px;
-}
-
-.section-explore .section-explore-menu a:first-child:hover,
-.section-explore .section-explore-menu .section-explore-menu-item-active:first-child {
-  padding: 5px 15px;
-}
-
-.section-explore .section-explore-menu a:hover {
-  color: #0000FF;
-}
-
-.section-explore .section-explore-menu .section-explore-menu-item-active {
-  background-color: var(--background-secondary-main);
-  color: #0000FF;
-}
-
-.section-explore .section-explore-menu a:active {
-  background-color: var(--background-primary-main);
-}
-
 /* CARD GRID SLIDER */
 .card-grid-slider {
   display: flex;

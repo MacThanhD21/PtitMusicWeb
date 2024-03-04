@@ -1,5 +1,144 @@
 
 /*========== HEADER/HERO */
+.page-02 header {
+  background: linear-gradient(0deg, rgba(25, 27, 38, .32), rgba(68, 86, 192, 0.72));
+  color: var(--color-white);
+  text-align: center;
+  height: 400px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 10px;
+}
+
+
+.page-02 header .artist figure {
+  overflow: hidden;
+  width: 250px;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.page-02 header .artist:hover img {
+  transform: scale(1.1) rotate(1deg);
+  transition: var(--transition-3s-ease);
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+
+}
+
+.page-02 header .artist img {
+  transition: var(--transition-3s-ease);
+  height: 100%;
+  width: 100%;
+}
+
+
+.page-02 header .artist .info__artist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  transition: var(--transition-3s-ease);
+  border-radius: 0 0 10px 10px;
+}
+
+.page-02 header .artist .info__artist h1 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 5px;
+  padding: 5px;
+  color: var(--color-white);
+  transition: var(--transition-3s-ease);
+}
+
+.page-02 header .artist .info__artist button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: var(--transition-3s-ease);
+  border-radius: 10px;
+}
+
+.page-02 header h1, .hero h1 {
+  transition: var(--transition-3s-ease);
+  font-family: 'Open Sans';
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.page-02 header p, .hero p {
+  color: var(--color-dark-main);
+  font-size: var(--font-size-12);
+  margin-top: 20px;
+}
+
+.page-02 header p a,
+.hero p a {
+  text-decoration: underline;
+  color: var(--color-white);
+}
+
+.page-02 header p a:hover,
+.hero p a:hover {
+  color: var(--color-silver);
+}
+
+.page-02 header form,
+.hero form,
+.search-mode form {
+  width: 60%;
+  display: flex;
+  margin-top: 30px;
+  padding: 7px 25px;
+  align-items: center;
+  border-radius: var(--border-radius-full);
+  background-color: var(--el-overlay-color-lighter);
+  border: 2px solid var(--color-soft-10);
+}
+
+.page-02 header form:focus-within {
+  transition: var(--transition-3s-ease);
+  outline: 4px solid rgba(0, 89, 255, 0.250);
+}
+
+.page-02 header form:active {
+  transition: var(--transition-3s-ease);
+  outline: 4px solid transparent;
+}
+
+.page-02 header form input,
+.hero form input {
+  transition: var(--transition-3s-ease);
+  color: var(--color-white);
+}
+
+.page-02 header form input:focus,
+.hero form input:focus {
+  transition: var(--transition-3s-ease);
+  color: var(--color-white);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+
+.page-02 header form:focus-within .fa-search {
+  transition: var(--transition-3s-ease);
+  color: #0000FF;
+}
+
+.page-02 header form .far,
+.hero form .far {
+  transition: var(--transition-3s-ease);
+  color: var(--color-soft-11);
+  font-size: 20px;
+}
+
 header,
 .hero {
   background: linear-gradient(0deg, rgba(25, 27, 38, .32), rgba(25, 27, 38, .72)), url("../../images/elements/bg_header.jpg");
