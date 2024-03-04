@@ -2,9 +2,6 @@ import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
 import { artists } from "../data/artists.js";
 
-// console.log(albums);
-console.log(songs.length);
-console.log(songs);
 // Hàm Query Song by Id
 async function querySongById(songId) {
   // URL của API
@@ -78,7 +75,7 @@ const PlAYER_STORAGE_KEY = "F8_PLAYER";
 
 const player = $(".player");
 const cd = $(".cd");
-const heading = $(".header h2");
+const heading = $(".header h2 span");
 const cdThumb = $(".cd-thumb");
 const audio = $("#audio");
 const playBtn = $(".btn-toggle-play");
@@ -89,8 +86,11 @@ const nextBtn = $(".btn-next");
 const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
-// const songss = $(".playlist .song");
-// console.log(songss);
+
+
+// Initial Related Music
+
+const relatedMusic = $$("#section__trending .card-group-grid");
 
 // object app
 const app = {
@@ -99,6 +99,20 @@ const app = {
   isRandom: false,
   isRepeat: false,
   config: {},
+  handleTitleRun: function(){
+    const header = document.querySelector('.header');
+    const h2 = document.querySelector('.header h2');
+    const span = document.querySelector('.header h2 span');
+
+    console.log(span.offsetWidth);
+    console.log(header.offsetWidth);
+
+    if (span.offsetWidth > header.offsetWidth) {
+      h2.style.animation = 'marquee 5s linear infinite';
+    } else {
+      h2.style.animation = 'none';
+    }
+  },
   // (1/2) Uncomment the line below to use localStorage
   // config: JSON.parse(localStorage.getItem(PlAYER_STORAGE_KEY)) || {},
 
@@ -108,12 +122,13 @@ const app = {
     // localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
   },
   songs: listDataArray,
-  render: function () {
+  render__one: function () {
+    const _this = this;
     const htmls = this.songs.map((song, index) => {
       return `
               <div class="song ${
                 index === this.currentIndex ? "active" : ""
-              }" data-index="${index}">
+              }" data-index="${index}" onclick=${_this.handleTitleRun()}>
                   <div class="thumb"
                       style="background-image: url('${song.result.imagecover ? song.result.imagecover : ''}')">
                   </div>
@@ -128,6 +143,97 @@ const app = {
           `;
     });
     playlist.innerHTML = htmls.join("");
+  },
+  render__two: () => {
+    relatedMusic.forEach((trending, index) => {
+      let song_1, song_2;
+      if (index < songs.length) {
+        song_1 = songs[index];
+        song_2 = index + 1 < songs.length ? songs[index + 1] : null;
+        if (!song_1 || !song_2) {
+          return;
+        }
+      }
+      const htmls = `
+      <div class="card-playing-horizontal">
+        <figure class="card-playing-horizontal-header">
+          <div>
+            <span class="far fa-play" onclick=""></span>
+          </div>
+          <a href="post.html"
+            ><img
+              src="${song_1.imagecover}"
+              alt=""
+          /></a>
+        </figure>
+        <div class="card-playing-horizontal-body">
+          <h4>
+            <a href="post.html">
+              ${song_1.title}
+            </a>
+          </h4>
+          <p><a href="user.html">${song_1.artist}</a></p>
+        </div>
+        <div class="card-playing-horizontal-footer">
+          <a
+            href="javascript:void(0)"
+            onclick=""
+            title="Like"
+            aria-label="Like"
+            ><span class="far fa-heart"></span
+          ></a>
+          <a
+            href="javascript:void(0)"
+            onclick=""
+            title="Download"
+            aria-label="Download"
+            ><span class="far fa-download"></span
+          ></a>
+        </div>
+      </div>
+      <div class="card-playing-horizontal">
+        <figure class="card-playing-horizontal-header">
+          <div>
+            <span class="far fa-play" onclick=""></span>
+          </div>
+          <a href="post.html"
+            ><img
+              src="${song_2.imagecover}"
+              alt=""
+          /></a>
+        </figure>
+        <div class="card-playing-horizontal-body">
+          <h4>
+            <a href="post.html">
+              ${song_2.title}
+            </a>
+          </h4>
+          <p>
+            <a href="user.html">
+              ${song_2.artist}
+            </a>
+          </p>
+        </div>
+        <div class="card-playing-horizontal-footer">
+          <a
+            href="javascript:void(0)"
+            onclick=""
+            title="Like"
+            aria-label="Like"
+            ><span class="far fa-heart"></span
+          ></a>
+          <a
+            href="javascript:void(0)"
+            onclick=""
+            title="Download"
+            aria-label="Download"
+            ><span class="far fa-download"></span
+          ></a>
+        </div>
+      </div>
+      `;
+      trending.innerHTML += htmls;
+    });
   },
   defineProperties: function () {
     Object.defineProperty(this, "currentSong", {
@@ -283,7 +389,7 @@ const app = {
         if (songNode) {
           _this.currentIndex = Number(songNode.dataset.index);
           _this.loadCurrentSong();
-          _this.render();
+          _this.render__one();
           audio.play();
         }
 
@@ -343,6 +449,7 @@ const app = {
   start: function () {
     // Gán cấu hình từ config vào ứng dụng
     // Assign configuration from config to application
+    
     this.loadConfig();
 
     // Định nghĩa các thuộc tính cho object
@@ -362,12 +469,13 @@ const app = {
     this.handleEvents();
 
     // Render playlist
-    this.render();
+    this.render__one();
+    this.render__two();
 
     // Hiển thị trạng thái ban đầu của button repeat & random
+    this.handleTitleRun();
+    // Hiển thị trạng thái ban đầu của button repeat & random
     // Display the initial state of the repeat & random button
-    randomBtn.classList.toggle("active", this.isRandom);
-    repeatBtn.classList.toggle("active", this.isRepeat);
     randomBtn.classList.toggle("active", this.isRandom);
     repeatBtn.classList.toggle("active", this.isRepeat);
   },

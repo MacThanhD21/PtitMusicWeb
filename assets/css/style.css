@@ -13,14 +13,6 @@
 @import url("../css/responsive/responsive.css");
 
 
-/*========== MAIN */
-main {
-  padding: 20px;
-}
-
-/*====================
-#01. PAGE: POST
-=====================*/
 
 #section__trending {
   margin: 10px auto 0; /* Sử dụng thuộc tính margin để đặt margin-top và giữa */
@@ -39,7 +31,7 @@ main {
   -webkit-backdrop-filter: blur(5px);
   background-size: cover;
   object-fit: cover;
-  box-shadow: 0px 5px 26px rgba(70, 0, 124);
+  box-shadow: 0px 5px 26px rgba(70, 0, 1);
   height: 55vh;
   position: sticky;
   z-index: 100;
@@ -82,6 +74,8 @@ main {
   -webkit-backdrop-filter: blur(5px);
   text-align: center;
   margin-bottom: 10px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .header h4 {
@@ -89,9 +83,23 @@ main {
   font-size: 18px;
 }
 
-.header h2 {
+.header h2 span{
   color: #F2E394;
   font-size: 24px;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  width: 50%;
+  margin: auto;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%); /* Bắt đầu chạy từ phải sang trái */
+  }
+  
+  to {
+    transform: translateX(-100%); /* Di chuyển về phải để tạo hiệu ứng chạy */
+  }
 }
 
 /* CD */
@@ -464,29 +472,6 @@ main {
   transition: var(--transition-3s-ease);
 }
 
-.section-full-player {
-  background: #403A3E;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #BE5869, #403A3E);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #BE5869, #403A3E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  color: var(--color-white);
-  background-position: center;
-  transition: var(--transition-3s-ease);
-  background-size: cover;
-  position: fixed;
-  z-index: 9999;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  top: 0;
-  width: 100%;
-  display: none;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  animation: a1 0.6s ease;
-}
-
 .section-full-player .section-full-player-header {
   position: absolute;
   padding: 23px;
@@ -754,7 +739,10 @@ main {
 .page-02 .section-playlist-post {
   margin: 0 auto 100px auto;
   width: 80%;
-  
+}
+
+.page-02 .section-playlist-post-header {
+  padding: 20px;
 }
 
 /* CARD GRID */

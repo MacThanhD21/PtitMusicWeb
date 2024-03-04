@@ -331,9 +331,6 @@
 
 
 /* darkMode Player */
-.switchMode .player {
-
-}
 .switchMode .dashboard {
   color: var(--color-white);
   backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
