@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
+  background: #000;
   transition: var(--transition-3s-ease);
   border-radius: 0 0 10px 10px;
 }
