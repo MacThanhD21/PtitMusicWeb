@@ -2,12 +2,7 @@
 .nav-fixed-active {
   /* position: fixed; */
   z-index: 9999;
-  background-size: 600% 100%;
   border-radius: 15px;
-  font-weight: bolder;
-  transform: translateY(0); /* Initial position at the top */
-  height: 80px; /* Adjust the height as needed */
-  transition: all 0.2s ease-in-out;
 }
 
 nav {

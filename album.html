@@ -948,27 +948,7 @@
     <script type="module" src="./assets/js/helpers/api_post_page.js"></script>
 
     <script>
-      const player = document.querySelector('.player');
-      let playerHeight = window.innerHeight * 0.65;
-
-      // Lắng nghe sự kiện scroll
-      window.addEventListener('scroll', () => {
-        requestAnimationFrame(updatePlayerHeight);
-      });
-
-      // Lắng nghe sự kiện resize
-      window.addEventListener('resize', () => {
-        playerHeight = window.innerHeight * 0.65;
-        requestAnimationFrame(updatePlayerHeight);
-      });
-
-      // Hàm cập nhật chiều cao của player
-      function updatePlayerHeight() {
-        const newPlayerHeight = playerHeight - window.scrollY;
-        const clampedPlayerHeight = Math.min(Math.max(newPlayerHeight, 0), playerHeight);
-        player.style.height = `${clampedPlayerHeight}px`;
-      }
-
+      
     </script>
   </body>
 </html>

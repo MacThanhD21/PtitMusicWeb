@@ -139,7 +139,8 @@ const app = {
   handleEvents: function () {
     const _this = this;
     const cdWidth = cd.offsetWidth;
-
+    const cdHeight = cd.offsetHeight;
+    
     // Xử lý CD quay / dừng
     // Handle CD spins / stops
     const cdThumbAnimate = cdThumb.animate([{ transform: "rotate(360deg)" }], {
@@ -153,7 +154,9 @@ const app = {
     document.onscroll = function () {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const newCdWidth = cdWidth - scrollTop;
+      const newCdHeight = cdHeight - scrollTop;
 
+      // cd.style.height = newCdHeight > 0 ? newCdHeight + "%" : 0;
       cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
       cd.style.opacity = newCdWidth / cdWidth;
     };
