@@ -1,7 +1,7 @@
 
 /*========== HEADER/HERO */
 .page-02 header {
-  background: linear-gradient(0deg, rgba(25, 27, 38, .32), rgba(68, 86, 192, 0.72));
+  background: linear-gradient(0deg, rgba(25, 27, 38, .32), var(--darkreader-selection-text));
   color: var(--color-white);
   text-align: center;
   height: 400px;
@@ -11,7 +11,6 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 10px;
 }
 
 
@@ -40,8 +39,8 @@
 .page-02 header .artist .info__artist {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: #000;
+  justify-content: space-evenly;
+  background: var(--color-silver);
   transition: var(--transition-3s-ease);
   border-radius: 0 0 10px 10px;
 }
@@ -56,14 +55,14 @@
 }
 
 .page-02 header .artist .info__artist button {
-  background-color: var(--color-black);
+  background-color: var(--primary-color);
   color: var(--color-white);
   border: none;
   padding: 10px 20px;
   margin: 5px;
   cursor: pointer;
   transition: var(--transition-3s-ease);
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .page-02 header h1, .hero h1 {

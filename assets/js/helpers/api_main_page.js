@@ -69,7 +69,7 @@ const app = {
             </figure>
             <h3>${album.name_Album}</h3>
           </a>
-          <p><a href="user.html">${album.name_Album}</a></p>
+          <p><a href="artist.html">${album.name_Album}</a></p>
         </div>
       `;
       exploreContainer.innerHTML += html;
@@ -100,16 +100,16 @@ const app = {
             </figure>
             <h3>${album_1.name_Album}</h3>
           </a>
-          <p><a href="user.html">${album_1.name_Album}</a></p>
+          <p><a href="artist.html">${album_1.name_Album}</a></p>
         </div>
         <div class="card-simple">
-          <a href="post.html?albumId=${album_2._id}"> 
+          <a href="album.html?albumId=${album_2._id}"> 
             <figure>
               <img src="${album_2.image}" alt="${album_2.name_Album}" />
             </figure>
             <h3>${album_2.name_Album}</h3>
           </a>
-          <p><a href="user.html">${album_2.name_Album}</a></p>
+          <p><a href="artist.html">${album_2.name_Album}</a></p>
         </div>
       `;
       cardGroupGrid.innerHTML += html;
@@ -147,7 +147,7 @@ const app = {
                 <h4>
                   <a href="playmusic.html">${song_1.title}</a>
                 </h4>
-                <p><a href="user.html">${song_1.artist}</a></p>
+                <p><a href="artist.html">${song_1.artist}</a></p>
               </div>
               <div class="card-playing-horizontal-footer">
                 <a
@@ -181,7 +181,7 @@ const app = {
                 <h4>
                   <a href="playmusic.html">${song_2.title}</a>
                 </h4>
-                <p><a href="user.html">${song_2.artist}</a></p>
+                <p><a href="artist.html">${song_2.artist}</a></p>
               </div>
               <div class="card-playing-horizontal-footer">
                 <a
@@ -215,7 +215,7 @@ const app = {
                 <h4>
                   <a href="playmusic.html">${song_3.title}</a>
                 </h4>
-                <p><a href="user.html">${song_3.artist}</a></p>
+                <p><a href="artist.html">${song_3.artist}</a></p>
               </div>
               <div class="card-playing-horizontal-footer">
                 <a
