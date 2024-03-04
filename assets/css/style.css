@@ -35,16 +35,16 @@ main {
 }
 
 .player {
+  backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
+  -webkit-backdrop-filter: blur(5px);
   background-size: cover;
   object-fit: cover;  
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  height: 65vh;
   position: sticky;
   z-index: 100;
   top: 50px;
-  display: flex;
   max-width: 100%;
-  height: 65vh;
-  margin: 0 auto;
 }
 
 .player.playing {
@@ -73,7 +73,7 @@ main {
   border-bottom: 1px solid #ebebeb;
   position: fixed;
   left: 20px;
-  top: 20px;
+  top: 30px;
   border-radius: 30px;
 }
 
