@@ -140,7 +140,7 @@
 
 header,
 .hero {
-  background: linear-gradient(0deg, rgba(25, 27, 38, .32), rgba(25, 27, 38, .72)), url("../../images/elements/bg_header.jpg");
+  /* background: linear-gradient(0deg, rgba(25, 27, 38, .32), rgba(25, 27, 38, .72)), url("../../images/elements/bg_header.jpg"); */
   color: var(--color-white);
   text-align: center;
   height: 400px;

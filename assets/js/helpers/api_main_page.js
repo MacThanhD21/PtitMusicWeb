@@ -2,32 +2,7 @@ import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
 import { artists } from "../data/artists.js";
 
-console.log(albums);
 // Helper function to select elements
-
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      const targetId = this.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
-      const navHeight = document.querySelector("nav").offsetHeight;
-
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - navHeight,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-});
-
-
-console.log(songs);
-console.log(albums);
-console.log(artists);
 
 // render the albums
 
@@ -151,6 +126,7 @@ const app = {
               </div>
               <div class="card-playing-horizontal-footer">
                 <a
+                  id="likeMusicPlay"
                   href="javascript:void(0)"
                   onclick="likeMusicPlay()"
                   title="Like"
@@ -185,6 +161,7 @@ const app = {
               </div>
               <div class="card-playing-horizontal-footer">
                 <a
+                  id="likeMusicPlay"
                   href="javascript:void(0)"
                   onclick=""
                   title="Like"
@@ -219,6 +196,7 @@ const app = {
               </div>
               <div class="card-playing-horizontal-footer">
                 <a
+                  id="likeMusicPlay"
                   href="javascript:void(0)"
                   onclick=""
                   title="Like"

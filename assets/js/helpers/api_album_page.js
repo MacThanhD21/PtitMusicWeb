@@ -1,37 +1,6 @@
 import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
-import { artists } from "../data/artists.js";
 
-// Hàm Query Song by Id
-async function querySongById(songId) {
-  // URL của API
-  const apiUrl = "https://ap-southeast-1.aws.data.mongodb-api.com/app/data-pkcss/endpoint/getsongbyid";
-
-  try {
-    // Gửi yêu cầu POST đến API với id của bài hát
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ _id: songId })
-    });
-
-    // Kiểm tra nếu kết quả trả về không thành công
-    if (!response.ok) {
-      throw new Error('Failed to fetch song');
-    }
-
-    // Parse JSON từ phản hồi
-    const songData = await response.json();
-    
-    // Trả về dữ liệu bài hát
-    return songData;
-  } catch (error) {
-    console.error('Error querying song by id:', error);
-    return null; // Trả về null nếu có lỗi
-  }
-}
 
 
 // idAlbums khi click vào album sẽ lấy danh sách bài hát của album đó
@@ -46,11 +15,16 @@ let albumFinded = albums.find(album => album._id === albumIdFromMainPage);
 
 let playlistMusicAlbumFined = albumFinded.tracks; // laasy ra danh sach id cac bai hat
 
+
+async function getSongById(idAlbum) {
+  return await songs.find(song => song._id === idAlbum);
+}
+
 async function getListData() {
   let listData = [];
   for (const idMusicofTrack of playlistMusicAlbumFined) {
     try {
-      const songData = await querySongById(idMusicofTrack);
+      const songData = await getSongById(idMusicofTrack);
       if(songData) {
         listData.push(songData);
       }
@@ -67,6 +41,7 @@ async function getListData() {
 
 const listDataArray = await getListData(); // Lấy danh sách bài hát từ API
 
+console.log(listDataArray);
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -130,11 +105,11 @@ const app = {
                 index === this.currentIndex ? "active" : ""
               }" data-index="${index}" onclick=${_this.handleTitleRun()}>
                   <div class="thumb"
-                      style="background-image: url('${song.result.imagecover ? song.result.imagecover : ''}')">
+                      style="background-image: url('${song.imagecover ? song.imagecover : ''}')">
                   </div>
                   <div class="body">
-                      <h3 class="title">${song.result.title}</h3>
-                      <p class="author">${song.result.artist}</p>
+                      <h3 class="title">${song.title}</h3>
+                      <p class="author">${song.artist}</p>
                   </div>
                   <div class="option">
                       <i class="fas fa-ellipsis-h"></i>
@@ -410,9 +385,9 @@ const app = {
   },
   loadCurrentSong: function () {
     if (this.currentSong) {
-      heading.textContent = this.currentSong.result.title;
-      cdThumb.style.backgroundImage = `url('${this.currentSong.result.imagecover}')`;
-      audio.src = this.currentSong.result.link;
+      heading.textContent = this.currentSong.title;
+      cdThumb.style.backgroundImage = `url('${this.currentSong.imagecover}')`;
+      audio.src = this.currentSong.link;
     } else {
       console.error(
         "Current song is undefined or does not have a title property."

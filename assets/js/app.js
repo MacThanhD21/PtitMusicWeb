@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (loaderWrapper) {
       loaderWrapper.classList.toggle("loader-warpper-hide");
     }
-  }, 1000);
+  }, 2000);
 });
 
 
@@ -117,7 +117,7 @@ function likeMusicHeader() {
 }
 function likeMusicPlay() {
   document
-    .getElementById("likeMusicPlay")
+    .querySelector("#likeMusicPlay")
     .classList.toggle("likeMusicPlayToggle");
 }
 
@@ -181,14 +181,19 @@ function fullPlayerHeaderDropdown() {
 
 // ## DOWNLOAD
 function download() {
-  document.getElementById("download").classList.toggle("downloadToggle");
+  // Tải xuống tệp MP3
+  const downloadLink = document.createElement('a');
+  downloadLink.href = '../musics/1.mp3';
+  downloadLink.download = '1.mp3'; // Tên tệp khi tải xuống
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
 
-  setTimeout(() => {
-    window.location.href = "../musics/1.mp3";
-  }, 3000);
+  // Hiển thị thông báo hoặc chuyển hướng tới một trang web hướng dẫn
+  alert('Your download has started. Please check your downloads folder.');
 }
 
-// NUMBER ALBUMS
-var cardGridLen = document.getElementById("cardGridLen").childElementCount;
-var numAlbums = document.getElementById("numAlbums");
-numAlbums.innerHTML = cardGridLen;
+
+
+// Run current Song in Main
+

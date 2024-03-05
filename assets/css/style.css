@@ -12,10 +12,158 @@
 @import url("../css/switchMode/switchMode.css");
 @import url("../css/responsive/responsive.css");
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-main  {
-  margin: 20px;
+
+body {
+  background: url('https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/Dance%2Fbackground.jpg?alt=media&token=30fc52b8-6652-4b7a-bf09-96faf0c7b928');
+  background-size: cover;
+  background-position: center;
+
 }
+
+/* no 'active' class */
+/* CSS for side-bar */
+.side-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  background: transparent;
+  padding: 6px 14px;
+  transition: all .5s linear;
+  border-radius: 10px;
+  border-right: 2px solid rgba(255, 255, 255, .2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  z-index: 2; /* Ensure side-bar is above the main background */
+
+  /* Standard backdrop-filter */
+  backdrop-filter: blur(20px);
+
+  /* Vendor-specific prefixes for older browsers */
+  -webkit-backdrop-filter: blur(20px); /* Safari 9+, Safari on iOS 9+ */
+  -moz-backdrop-filter: blur(20px); /* Firefox 3.5-15 */
+  -ms-backdrop-filter: blur(20px); /* IE 9-11 */
+}
+
+/* have 'active' class */
+
+.side-bar.active {
+  width: 250px;
+}
+
+.side-bar .section-two {
+  margin-top: 10px;
+
+}
+.side-bar .logo-menu {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  /* background: rebeccapurple;; */
+}
+
+.side-bar .logo-menu .logo {
+  font-size: 25px;
+  color: #fff;
+  pointer-events: none;
+  opacity: 0;
+  transition: .3s;
+}
+
+.side-bar.active .logo-menu .logo {
+  opacity: 1;
+  transition-delay: .2s;
+}
+.side-bar .logo-menu .toggle-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  /* background: salmon; */
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.side-bar.active .logo-menu .toggle-btn {
+  left: 85%;
+}
+
+.side-bar .list {
+  margin-top: 10px;
+}
+
+.list .list-item {
+  list-style: none;
+  width: 100%;
+  height: 50px;
+  /* background: slateblue; */
+  margin : 5px 0;
+  line-height: 50px;
+}
+
+.list .list-item a {
+  display: flex;
+  /* justify-content: center; */
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 6px;
+}
+.list .list-item.active a,
+.list .list-item a:hover {
+  background: rgba(255, 255, 255, .2);
+
+}
+
+.list .list-item.active a,
+.list .list-item a:hover {
+  background: rgba(255, 255, 255, .2);
+}
+.list .list-item a span {
+  /* left: 10%; */
+}
+
+.list .list-item a i {
+  min-width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+
+.side-bar .link-name {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+
+.side-bar.active .link-name {
+  opacity: 1;
+  pointer-events: auto;
+  transition-delay: calc(.1s * var(--i));
+} 
+
+
+/* Main */
+
+.main {
+  z-index: 9999;
+  position: relative;
+  width: calc(100% - 82px);
+  transition: all 0.5s linear; /* Thêm transition cho width và left *;*/
+  border-radius: 40px 0 0 40px;
+  left: 82px;
+}
+
 
 #section__trending {
   margin: 10px auto 0; /* Sử dụng thuộc tính margin để đặt margin-top và giữa */
@@ -289,21 +437,21 @@ main  {
 
 /*========== SECTION: MUSIC PLAYER */
 .section-music-player {
-  box-shadow: var(--box-shadow-xlg);
+  /* box-shadow: var(--box-shadow-xlg); */
   border-top: 2px solid var(--background-thirdly-main);
   transition: var(--transition-3s-ease);
   background-color: var(--color-white);
-  position: fixed;
+  position: sticky;
   padding: 20px;
   height: 70px;
   bottom: 0;
-  right: 0;
-  left: 0;
+  /* right: 0; */
+  /* left: 80px; */
   display: flex;
   align-items: center;
   justify-content: space-around;
+  /* width: 114vh; */
 }
-
 .section-music-player div:nth-child(1) .far {
   background-color: var(--color-white);
   border-radius: var(--border-radius-mmmd);
@@ -378,14 +526,8 @@ main  {
   justify-content: center;
 }
 
-.page-01 .section-music-player>div:nth-child(3) .far:hover {
-  transition: var(--transition-3s-ease);
-  background-color: var(--background-secondary-main) !important;
-}
-
-.page-01 .section-music-player>div:nth-child(3) .far:active {
-  background-color: var(--background-primary-main) !important;
-  transition: var(--transition-3s-ease);
+.section-music-player .section-music-player-timeline #timeLineMusicPlayer {
+  width: 100%;
 }
 
 /* SECTION MUSIC PLAYER TIMELINE */
