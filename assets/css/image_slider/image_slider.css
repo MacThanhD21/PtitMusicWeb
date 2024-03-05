@@ -1,0 +1,19 @@
+/* Section Image Slider */
+.main .image__slider .image__slider__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35vh;
+  margin: 20px 0;
+  position: relative;
+  top: 30px;
+  width: 98%;
+  margin: 5px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  transition: all .5s linear;
+  z-index: 1;
+  height: 45vh;
+}
+/* End Section Image Slider */

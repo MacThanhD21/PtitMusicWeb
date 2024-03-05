@@ -21,17 +21,12 @@ nav {
 }
 
 
-
 nav ul {
   display: flex;
   align-items: center;
 }
 
-.box--radius {
-  /* list-style: none; */
-  /* border-radius: 10px; */
-  /* padding: 10px; */
-}
+
 
 .box--radius:hover {
   color: rgba(220, 20, 60, 0.8);
@@ -57,7 +52,7 @@ nav ul {
   color: var(--color-silver);
   font-family: var(--font-family-1);
   font-style:oblique;
-  font-size: 24px;
+  font-size: 30px;
 }
 .inner-logo span:hover {
   color: rgba(220, 20, 60, 0.8);
@@ -77,8 +72,8 @@ nav ul:nth-child(1) a:hover {
 nav ul:nth-child(1) img {
   border-radius: var(--border-radius-full);
   object-fit: cover;
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
 }
 
 nav ul:nth-child(2) img {

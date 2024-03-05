@@ -1,135 +1,77 @@
-/*========== MEDIA QUERIES */
-/* MOBILE */
-@media (max-width: 430px) {
-  .card-playing-horizontal {
-    scroll-snap-align: none;
+/*========== Responsive ============ */
+
+/* LapTop */
+@media (max-width: 1120px) {
+
+  nav ul:nth-child(1) img {
+    height: 40px;
+    width: 40px;
+  }  
+
+  .inner-logo span {
+    font-size: 24px;
+  }  
+  .bb8-toggle__container {
+    font-size: 5px;
+  }  
+
+  #avatar {
+    font-size: 24px;
+  }  
+  nav ul li {
+    padding: 0px;
+    font-size: 16px;
+  }  
+}  
+
+@media (max-width: 925px) {
+  .inner-logo span {
+    display: none;
+  }  
+  nav ul:nth-child(1):nth-child(1) {
+    left: 5%;
+    position: relative;
+  }
+  nav ul:nth-child(1) img {
+    height: 50px;
+    width: 50px;
   }
 }
-
-@media (max-width: 460px) {
-  #navbarFixed .name__website {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 700px) {
-  .page-01 .playlist {
-    grid-template-columns: repeat(1, 1fr); 
-  }
-}
-
 /* TABLET */
 @media (max-width: 860px) {
-
+  /* Nav Bar */
   nav,
-  main,
-  header,
-  .hero,
-  .call-to-action,
-  footer {
+  main {
     transition: var(--transition-3s-ease);
     padding: 20px 16px;
   }
-
-  .fa-bars-mobile,
-  .fa-close-mobile {
+  nav #search {
+    width: 58% ;
+  }
+  nav #search input{
     transition: var(--transition-3s-ease);
-    display: block;
+    font-size: 14px;
   }
+  nav ul:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav ul:nth-child(1) a img{
+      width: 50px;
+      height: 50px;
+  }
+  /* End Nav bar */
 
-  .fa-close-mobile {
-    background-color: var(--background-main);
-    border-radius: var(--border-radius-mmmd);
-    position: relative;
-    padding: 3px 10px;
-    display: inline;
-    left: 230px;
+  /* Image Slider */
+  .main .image__slider .image__slider__container {
+    height: 35vh;
   }
-
-  .fa-close-mobile:hover {
-    background-color: var(--background-secondary-main);
-    transition: var(--transition-3s-ease);
-  }
-
-  .fa-close-mobile:active {
-    background-color: var(--background-primary-main);
-    transition: var(--transition-3s-ease);
-  }
-
-  .navbarMobileToggle {
-    transition: all 0.5s ease;
-    display: block !important;
-    border-radius: 0 20px 20px 0;
-    height: 30%;
-  }
-  .switchMode .navbarMobileToggle {
-    background: rgba(66, 55, 55, 0.5); /* Màu nền với độ trong suốt */
-    backdrop-filter: blur(20px); /* Độ mờ của nền */
-    -webkit-backdrop-filter: blur(20px); /* Hỗ trợ cho Safari */
-    color: var(--color-white);
-  }
-
-  nav ul:nth-child(1) ul {
-    border-right: 1px solid var(--background-secondary-main);
-    transition: var(--transition-3s-ease);
-    background-color: gray;
-    align-items: flex-start;
-    flex-direction: column;
-    position: fixed;
-    display: none;
-    padding: 20px;
-    height: 100vh;
-    width: 300px;
-    z-index: 99;
-    bottom: 0;
-    left: 0;
-    top: 0;
-  }
-
-  nav ul:nth-child(1) ul a {
-    margin: 2px 0;
-    width: 100%;
-  }
-
-  nav ul:nth-child(1) ul li:first-child {
-    margin-top: 10px;
-  }
-
-  nav ul:nth-child(1) ul li {
-    border-radius: var(--border-radius-mmmd);
-    padding: 8px 10px;
-  }
-
-  nav ul:nth-child(1) ul li:hover {
-    background-color: var(--background-secondary-main);
-    transition: var(--transition-1s-ease);
-  }
-
-  nav ul:nth-child(1) ul li:active {
-    background-color: var(--background-primary-main);
-    transition: var(--transition-1s-ease);
-  }
-
-  .switchMode nav ul:nth-child(1) ul li:hover {
-    background-color: var(--background-dark-secondary-main);
-  }
-
-  .switchMode nav ul:nth-child(1) ul li:active {
-    background-color: var(--background-dark-primary-main);
-  }
-
-  .search-mode form {
-    transition: var(--transition-3s-ease);
-    width: 100% !important;
-  }
-
+  /* End Image Slider */
   .avatar-dropdown,
   .support-chat-mode {
     transition: var(--transition-3s-ease);
     margin: auto;
-    width: 97%;
-    right: 0;
-    left: 0;
   }
 
   .support-chat-mode {
@@ -142,75 +84,53 @@
     font-size: var(--font-size-16);
   }
 
-  header form,
-  .hero form,
-  .page-01 .section-playlist-post {
-    transition: var(--transition-3s-ease);
-    width: 100%;
-  }
-
-  header h1,
-  .hero h1 {
-    transition: var(--transition-3s-ease);
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  .card-simple h3,
-  .card-playing-horizontal div h4 {
-    transition: var(--transition-3s-ease);
-    font-size: 0.940rem;
-  }
-
-  .section-trending>div:first-child h2,
-  .section-category>div:first-child h2,
-  .section-popular-artists>div:first-child h2,
-  .section-featured-creators>div:first-child h2,
-  .page-01 .section-playlist-post-header h2 {
-    transition: var(--transition-3s-ease);
-    font-size: 1.1rem;
-  }
-
   /* PlayMusic page */
   .page-01 .playlist {
     grid-template-columns: repeat(1, 1fr); 
   }
 }
 
-
-@media (max-width: 1120px) {
-  nav {
-    height: 70px;
+/* Dif Size for Phone */
+@media (max-width: 650px) {
+  nav ul:nth-child(1) a img{
+      width: 40px;
+      height: 40px;
   }
-
-  .inner-logo span {
-    font-size: 20px;
-  }
-
-  nav ul:nth-child(1) img {
-    height: 30px;
-    width: 30px;
-  }
-  .bb8-toggle__container {
-    font-size: 5px;
-  }
-
-  #avatar {
-    font-size: 24px;
-  }
-  nav ul li {
-    padding: 0px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 890px) {
-  .inner-logo span {
-    font-size: 18px;
-  }
-
-  nav ul li {
-    padding: 0px;
+  nav #search {
+    width: 60%;
+  }  
+  nav #search input {
+    transition: var(--transition-3s-ease);
     font-size: 14px;
+  }  
+
+
+  /* Image Slider */
+  .main .image__slider .image__slider__container {
+    display: none;
   }
-}
+  /* End Image Slider */
+
+  /* Sections */
+  .section-explore {
+    margin: 0;
+  }
+  /* End Sections */
+  .page-01 .playlist {
+    grid-template-columns: repeat(1, 1fr); 
+  }  
+}  
+
+
+@media (max-width: 460px) {
+  nav #search {
+    display: none;
+  }  
+}  
+
+
+/* MOBILE */
+@media (max-width: 375px) {
+
+}  
+

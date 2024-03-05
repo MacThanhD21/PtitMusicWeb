@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Slick JS -->
-    <!-- <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick-theme.css.css"/> -->
+    <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick-theme.css"/>
 
     <!-- IMPORT FONT AWESOME -->
     <link
@@ -77,7 +77,7 @@
         <ul class="list">
           <li class="list-item active">
             <a href="#explore">
-              <i class="fa-brands fa-spotify"></i>
+              <i class="fa-solid fa-rocket"></i>
               <span class="link-name" style="--i: 1">Explore</span>
             </a>
           </li>
@@ -132,7 +132,7 @@
           <li class="list-item">
             <a href="#">
               <i class="fa-solid fa-robot"></i>
-              <span class="link-name" style="--i: 7"> Music Bot </span>
+              <span class="link-name" style="--i: 7"> Music GenAI </span>
             </a>
           </li>
         </ul>
@@ -167,6 +167,16 @@
             </a>
           </div>
         </ul>
+        <!-- FORM: SEARCH -->
+        <div id="search">
+          <span class="far fa-search"></span>
+          <input
+            type="search"
+            placeholder="What do you want to play?"
+            aria-placeholder="Search for music"
+            autofocus="true"
+          />
+        </div>
         <ul>
           <a>
             <label class="bb8-toggle">
@@ -306,20 +316,46 @@
         </div>
       </div>
 
-      <!-- HEADER/HERO -->
-      <header class="hero">
-        <!-- FORM: SEARCH -->
-        <form action="#" method="post">
-          <span class="far fa-search"></span>
-          <input
-            type="search"
-            placeholder="Search for music"
-            aria-placeholder="Search for music"
-            autofocus="true"
-          />
-        </form>
-      </header>
+      <!-- Section Slide Image -->
+      
+      <div class="image__slider">
+        <div class="image__slider__container">
+          <div class="image__slider__item">
+            <img
+              src="https://i.pinimg.com/564x/42/38/6f/42386fdeb955d2aee1c54738d776355f.jpg"
+              alt=""
+            />
+          </div>
+          <div class="image__slider__item">
+            <img
+              src="https://i.pinimg.com/564x/42/38/6f/42386fdeb955d2aee1c54738d776355f.jpg"
+              alt=""
+            />
+          </div>
+          <div class="image__slider__item">
+            <img
+              src="https://i.pinimg.com/564x/42/38/6f/42386fdeb955d2aee1c54738d776355f.jpg"
+              alt=""
+            />
+          </div>
+          <div class="image__slider__item">
+            <img
+              src="https://i.pinimg.com/564x/42/38/6f/42386fdeb955d2aee1c54738d776355f.jpg"
+              alt=""
+            />
+          </div>
+          <div class="image__slider__item">
+            <img
+              src="https://i.pinimg.com/564x/42/38/6f/42386fdeb955d2aee1c54738d776355f.jpg"
+              alt=""
+            />
+          </div>
+      </div>
 
+      <!-- Section Slide Image -->
+      
+      
+      
       <!-- MAIN -->
       <main>
         <!-- #SECTION: EXPLORE -->
@@ -533,7 +569,7 @@
         <!-- #SECTION: POPULAR ARTISTS -->
         <section class="section-popular-artists" id="popular_artists">
           <div>
-            <h2>Popular Singer</h2>
+            <h2>Famous Singer</h2>
             <p><a href="">See all</a></p>
           </div>
 
@@ -635,7 +671,7 @@
     <!-- End Section Main -->
 
     <!-- Slick Js -->
-    <!-- <script
+    <script
       type="text/javascript"
       src="//code.jquery.com/jquery-1.11.0.min.js"
     ></script>
@@ -643,33 +679,39 @@
       type="text/javascript"
       src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
     ></script>
-    <script type="text/javascript" src="./assets/animation/slick/slick.min.js"></script> -->
+    <script type="text/javascript" src="./assets/animation/slick/slick.min.js"></script>
 
     <!-- IMPORT JS -->
     <script src="./assets/js/app.js"></script>
     <script type="module" src="./assets/js/helpers/api_main_page.js"></script>
 
     <script>
-      const sidebar = document.querySelector('.side-bar');
-      const toggleBtn = document.querySelector('.toggle-btn');
-      
-      let sidebarExpanded = false;
-      
-      toggleBtn.addEventListener('click', () => {
-          sidebar.classList.toggle('active');
-      
-          if (!sidebarExpanded) {
-              document.querySelector('.main').style.width = 'calc(100% - 250px)';
-              document.querySelector('.main').style.left = '250px';
-              sidebarExpanded = true;
-          } else {
-              document.querySelector('.main').style.width = 'calc(100% - 82px)';
-       document.querySelector('.main').style.left = '82px';
-              sidebarExpanded = false;
-          }
-      });
-      
+      const sidebar = document.querySelector(".side-bar");
+      const toggleBtn = document.querySelector(".toggle-btn");
 
+      let sidebarExpanded = false;
+
+      toggleBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+
+        if (!sidebarExpanded) {
+          document.querySelector(".main").style.width = "calc(100% - 250px)";
+          document.querySelector(".main").style.left = "260px";
+          sidebarExpanded = true;
+        } else {
+          document.querySelector(".main").style.width = "calc(100% - 100px)";
+          document.querySelector(".main").style.left = "90px";
+          sidebarExpanded = false;
+        }
+      });
+
+
+      $('.image__slider__container').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+      });
     </script>
   </body>
 </html>
