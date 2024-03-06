@@ -1,37 +1,26 @@
 
-:root {
-  --primary-color: #ec1f55;
-  --text-color: #333;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #f5f5f5;
-}
-
-html {
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
+/* PlayMusic */
 .player {
-  position: relative;
-  top: 80px;
-  display: flex;
-  max-width: 1140px; /* Tổng chiều rộng của player container */
-  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0px 5px 26px rgba(70, 0, 1);
+  height: 55vh;
+  position: sticky;
+  z-index: 100;
+  top: 100px;
+  max-width: 100%;
+  background-size: cover;
+  object-fit: cover;
 }
 
-
+.player.playing {
+  height: 55vh;
+  position: sticky;
+  backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
+  -webkit-backdrop-filter: blur(5px);
+}
 .player .icon-pause {
   display: none;
 }
-
 .player.playing .icon-pause {
   display: inline-block;
 }
@@ -40,30 +29,49 @@ html {
   display: none;
 }
 
+
 /* Dashboard */
 .dashboard {
-  padding: 16px 16px 14px;
-  background-color: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 0 16px 0 16px;
   width: 40%;
-  border-bottom: 1px solid #ebebeb;
-  height: 430px; /* Chiều cao cố định */
-  overflow-y: auto; /* Thêm thanh cuộn nếu nội dung vượt quá chiều cao đã đặt */
+  position: absolute;
+  /* left: 20px; */
+  /* border-radius: 30px; */
+  height: 55vh;
 }
 
 /* HEADER */
-header {
+.header {
   text-align: center;
   margin-bottom: 10px;
+  overflow: hidden;
+  width: 100%;
 }
 
-header h4 {
+.header h4 {
   color: var(--primary-color);
-  font-size: 12px;
+  font-size: 18px;
 }
 
-header h2 {
-  color: var(--text-color);
-  font-size: 20px;
+.header h2 span{
+  color: #F2E394;
+  font-size: 24px;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  width: 50%;
+  margin: auto;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%); /* Bắt đầu chạy từ phải sang trái */
+  }
+  
+  to {
+    transform: translateX(-100%); /* Di chuyển về phải để tạo hiệu ứng chạy */
+  }
 }
 
 /* CD */
@@ -77,7 +85,6 @@ header h2 {
   width: 100%;
   padding-top: 100%;
   border-radius: 50%;
-  background-color: #333;
   background-size: cover;
   margin: auto;
 }
@@ -88,10 +95,11 @@ header h2 {
   align-items: center;
   justify-content: space-around;
   padding: 18px 0 8px 0;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .control .btn {
-  color: #666;
   padding: 18px;
   font-size: 18px;
 }
@@ -101,8 +109,7 @@ header h2 {
 }
 
 .control .btn-toggle-play {
-  width: 56px;
-  height: 56px;
+  width: 60px;
   border-radius: 50%;
   font-size: 24px;
   color: #fff;
@@ -113,15 +120,10 @@ header h2 {
 }
 
 .progress {
-  width: 100%;
-  height: 6px;
-  background: #d3d3d3;
-  outline: none;
-  opacity: 0.7;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
+  width: 69%;
+  position: relative;
+  left: 16%;
 }
-
 .progress::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -133,38 +135,44 @@ header h2 {
 
 /* PLAYLIST */
 .playlist {
-  padding: 0 12px;
-  width: 60%; /* Chiếm 40% chiều rộng của player container */
+  /* border-radius: 20px; */
+  /* top: 50px; */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 5px 30px;
+  width: 59.5%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 5px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-height: 55vh;
+  overflow: auto;
+  right: 10px;
+  position: absolute;
 }
-
 .song {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
-  background-color: #fff;
   padding: 8px 16px;
   border-radius: 5px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 1)
+}
+.switchMode .song {
+  background: #403A3E;
+  box-shadow: 5px 5px 3px #BCBCBC;
 }
 
 .song.active {
-  background-color: var(--primary-color);
+  background-color: var(--color-soft-11);
 }
-
+.song.active .body .h3 {
+  color: var(--color-black);
+}
 .song:hover {
   cursor: pointer;
 }
 .song:active {
+  background-color: var(--color-soft-11);
   opacity: 0.8;
-}
-
-.song.active .option,
-.song.active .author,
-.song.active .title {
-  color: #fff;
 }
 
 .song .thumb {
@@ -178,21 +186,45 @@ header h2 {
 .song .body {
   flex: 1;
   padding: 0 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.song {
+  position: relative;
+  overflow: auto;
 }
 
 .song .title {
   font-size: 18px;
-  color: var(--text-color);
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.song.active .title {
+  animation: marquee 6s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .song .author {
   font-size: 12px;
-  color: #999;
 }
 
 .song .option {
   padding: 16px 8px;
-  color: #999;
   font-size: 18px;
 }
 
+.switchMode .song {
+  background: #403A3E;
+}
+
+/* End Player */

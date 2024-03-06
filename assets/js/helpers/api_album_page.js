@@ -1,54 +1,13 @@
 import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
 
-
-
-// idAlbums khi click vào album sẽ lấy danh sách bài hát của album đó
-// Lấy tham số albumId từ URL
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const albumIdFromMainPage = urlParams.get('albumId');
-
-// Sử dụng albumId và albumName theo nhu cầu của bạn
-
-let albumFinded = albums.find(album => album._id === albumIdFromMainPage);
-
-let playlistMusicAlbumFined = albumFinded.tracks; // laasy ra danh sach id cac bai hat
-
-
-async function getSongById(idAlbum) {
-  return await songs.find(song => song._id === idAlbum);
-}
-
-async function getListData() {
-  let listData = [];
-  for (const idMusicofTrack of playlistMusicAlbumFined) {
-    try {
-      const songData = await getSongById(idMusicofTrack);
-      if(songData) {
-        listData.push(songData);
-      }
-      else {
-        console.log('Failed to fetch song data');
-      }
-    } catch (error) {
-      console.error('Error fetching song data:', error);
-    }
-  }
-  return listData; // Trả về listData khi đã hoàn thành vòng lặp
-}
-
-
-const listDataArray = await getListData(); // Lấy danh sách bài hát từ API
-
-console.log(listDataArray);
-
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const PlAYER_STORAGE_KEY = "F8_PLAYER";
 
 const player = $(".player");
+const playing= $(".player .playing");
 const cd = $(".cd");
 const heading = $(".header h2 span");
 const cdThumb = $(".cd-thumb");
@@ -64,8 +23,77 @@ const playlist = $(".playlist");
 
 
 // Initial Related Music
-
 const relatedMusic = $$("#section__trending .card-group-grid");
+
+// idAlbums khi click vào album sẽ lấy danh sách bài hát của album đó
+// Lấy tham số albumId từ URL
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const albumIdFromMainPage = urlParams.get('albumId');
+
+// Sử dụng albumId và albumName theo nhu cầu của bạn
+
+let albumFinded = albums.find(album => album._id === albumIdFromMainPage);
+
+let id_randomAlbum = Math.floor(Math.random() * albums.length); // lấy ngẫu nhiên 1 album
+
+console.log(id_randomAlbum);
+
+let playlistMusicAlbumFined;
+let listDataArray;
+if(albumFinded) {
+  playlistMusicAlbumFined = albumFinded.tracks; // laasy ra danh sach id cac bai hat
+
+  async function getSongById(idAlbum) {
+    return await songs.find(song => song._id === idAlbum);
+  }
+
+  async function getListData() {
+    let listData = [];
+    for (const idMusicofTrack of playlistMusicAlbumFined) {
+      try {
+        const songData = await getSongById(idMusicofTrack);
+        if(songData) {
+          listData.push(songData);
+        }
+        else {
+          console.log('Failed to fetch song data');
+        }
+      } catch (error) {
+        console.error('Error fetching song data:', error);
+      }
+    }
+    return listData; // Trả về listData khi đã hoàn thành vòng lặp
+  }
+
+  listDataArray = await getListData(); // Lấy danh sách bài hát từ API
+} else {
+  playlistMusicAlbumFined = albums[id_randomAlbum].tracks;
+  async function getSongById(idAlbum) {
+    return await songs.find(song => song._id === idAlbum);
+  }
+
+  async function getListData() {
+    let listData = [];
+    for (const idMusicofTrack of playlistMusicAlbumFined) {
+      try {
+        const songData = await getSongById(idMusicofTrack);
+        if(songData) {
+          listData.push(songData);
+        }
+        else {
+          console.log('Failed to fetch song data');
+        }
+      } catch (error) {
+        console.error('Error fetching song data:', error);
+      }
+    }
+    return listData; // Trả về listData khi đã hoàn thành vòng lặp
+  }
+
+  listDataArray = await getListData(); // Lấy danh sách bài hát từ API
+}
+console.log(listDataArray);
 
 // object app
 const app = {
@@ -74,14 +102,21 @@ const app = {
   isRandom: false,
   isRepeat: false,
   config: {},
-  handleTitleRun: function(){
+  handleTitleRun: function(idx, thumb) {
+    console.log(thumb);
+    console.log(idx);
+    console.log(this.currentIndex);
+    if(idx === this.currentIndex) {
+      player.style.cssText = `background: url('${thumb}') no-repeat center center; background-size: cover; object-fit: cover;`;
+    }
+
     const header = document.querySelector('.header');
     const h2 = document.querySelector('.header h2');
     const span = document.querySelector('.header h2 span');
 
     console.log(span.offsetWidth);
     console.log(header.offsetWidth);
-
+    console.log("--------------------");
     if (span.offsetWidth > header.offsetWidth) {
       h2.style.animation = 'marquee 5s linear infinite';
     } else {
@@ -97,13 +132,17 @@ const app = {
     // localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
   },
   songs: listDataArray,
+
+  render__zero: function () {
+
+  },
   render__one: function () {
     const _this = this;
     const htmls = this.songs.map((song, index) => {
       return `
               <div class="song ${
                 index === this.currentIndex ? "active" : ""
-              }" data-index="${index}" onclick=${_this.handleTitleRun()}>
+              }" data-index="${index}" onclick=${_this.handleTitleRun(index, song.imagecover)}>
                   <div class="thumb"
                       style="background-image: url('${song.imagecover ? song.imagecover : ''}')">
                   </div>
@@ -118,6 +157,7 @@ const app = {
           `;
     });
     playlist.innerHTML = htmls.join("");
+    
   },
   render__two: () => {
     relatedMusic.forEach((trending, index) => {
