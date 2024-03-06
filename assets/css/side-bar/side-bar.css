@@ -1,143 +1,146 @@
-/* no 'active' class */
-/* CSS for side-bar */
+/* CSS cho side-bar */
+/* Khi không có lớp 'active' */
 .side-bar {
-  background: #141523;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80px;
-  height: 100%;
-
-  padding: 6px 14px;
-  transition: all .5s linear;
-  border-radius: 10px;
-  border-right: 2px solid rgba(255, 255, 255, .2);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-  z-index: 2; /* Ensure side-bar is above the main background */
-
-  /* Standard backdrop-filter */
-  backdrop-filter: blur(20px);
-
-  /* Vendor-specific prefixes for older browsers */
-  -webkit-backdrop-filter: blur(20px); /* Safari 9+, Safari on iOS 9+ */
-  -moz-backdrop-filter: blur(20px); /* Firefox 3.5-15 */
-  -ms-backdrop-filter: blur(20px); /* IE 9-11 */
+  background: #141523; /* Màu nền */
+  position: fixed; /* Vị trí cố định */
+  top: 0; /* Đẩy lên trên */
+  left: 0; /* Đẩy sang trái */
+  width: 80px; /* Chiều rộng */
+  height: 100%; /* Chiều cao */
+  padding: 6px 14px; /* Khoảng cách bên trong */
+  transition: all .5s linear; /* Hiệu ứng chuyển động */
+  border-radius: 10px; /* Độ cong viền */
+  border-right: 2px solid rgba(255, 255, 255, .2); /* Viền phải */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1); /* Bóng đổ */
+  z-index: 2; /* Lớp z-index */
+  backdrop-filter: blur(20px); /* Hiệu ứng nền mờ */
+  -webkit-backdrop-filter: blur(20px); /* Hiệu ứng nền mờ cho Safari */
+  -moz-backdrop-filter: blur(20px); /* Hiệu ứng nền mờ cho Firefox */
+  -ms-backdrop-filter: blur(20px); /* Hiệu ứng nền mờ cho IE */
 }
 
+/* Khi có lớp 'switchMode' */
 .switchMode .side-bar {
-  background: #141523;
-  border-right: 2px solid rgba(0, 0, 0, .2);
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-  
+  background: #141523; /* Màu nền */
+  border-right: 2px solid rgba(0, 0, 0, .2); /* Viền phải */
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2); /* Bóng đổ */
 }
-/* have 'active' class */
 
+/* Khi có lớp 'active' */
 .side-bar.active {
-  width: 250px;
+  width: 250px; /* Chiều rộng */
 }
 
+/* Phần section-two */
 .side-bar .section-two {
-  margin-top: 10px;
-
+  margin-top: 10px; /* Khoảng cách từ trên xuống */
 }
+
+/* Menu logo */
 .side-bar .logo-menu {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 60px;
+  display: flex; /* Hiển thị dạng flex */
+  align-items: center; /* Canh chỉnh theo chiều dọc */
+  width: 100%; /* Chiều rộng */
+  height: 60px; /* Chiều cao */
 }
+
+/* Tiêu đề logo */
 .side-bar .logo-menu h2 {
-  color: #fff;
-  font-weight: 600;
-  margin-left: 13px;
-  pointer-events: none;
-  opacity: 0;
-  transition: .3s;
-
+  color: #fff; /* Màu chữ */
+  font-weight: 600; /* Độ đậm */
+  margin-left: 13px; /* Khoảng cách bên trái */
+  pointer-events: none; /* Tắt sự kiện */
+  opacity: 0; /* Mờ */
+  transition: .3s; /* Hiệu ứng chuyển động */
 }
 
+/* Logo */
 .side-bar .logo-menu .logo {
-  font-size: 25px;
-  pointer-events: none;
-  opacity: 0;
-  transition: .3s;
+  font-size: 25px; /* Kích thước chữ */
+  pointer-events: none; /* Tắt sự kiện */
+  opacity: 0; /* Mờ */
+  transition: .3s; /* Hiệu ứng chuyển động */
 }
 
+/* Logo khi có lớp 'active' */
 .side-bar.active .logo-menu .logo {
-  opacity: 1;
-  transition-delay: .2s;
+  opacity: 1; /* Hiện */
+  transition-delay: .2s; /* Độ trễ */
 }
+
+/* Nút chuyển đổi */
 .side-bar .logo-menu .toggle-btn {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 40px;
-  font-size: 22px;
-  color: #fff;
-  text-align: center;
-  line-height: 40px;
-  cursor: pointer;
-  transition: .4s;
+  position: absolute; /* Vị trí tuyệt đối */
+  left: 50%; /* Canh trái giữa */
+  transform: translateX(-50%); /* Dịch chuyển theo chiều ngang */
+  width: 40px; /* Chiều rộng */
+  height: 40px; /* Chiều cao */
+  font-size: 22px; /* Kích thước chữ */
+  color: #fff; /* Màu chữ */
+  text-align: center; /* Căn giữa */
+  line-height: 40px; /* Chiều cao dòng */
+  cursor: pointer; /* Con trỏ */
+  transition: .4s; /* Hiệu ứng chuyển động */
 }
 
+/* Nút chuyển đổi khi có lớp 'active' */
 .side-bar.active .logo-menu .toggle-btn {
-  left: 85%;
+  left: 85%; /* Canh trái */
 }
 
+/* Danh sách */
 .side-bar .list {
-  margin-top: 10px;
+  margin-top: 10px; /* Khoảng cách từ trên xuống */
 }
 
+/* Mục trong danh sách */
 .list .list-item {
-  list-style: none;
-  width: 100%;
-  height: 50px;
-  margin : 5px 0;
-  line-height: 50px;
+  list-style: none; /* Loại bỏ dấu đầu dòng */
+  width: 100%; /* Chiều rộng */
+  height: 50px; /* Chiều cao */
+  margin : 5px 0; /* Khoảng cách */
+  line-height: 50px; /* Chiều cao dòng */
 }
 
+/* Liên kết trong mục */
 .list .list-item a {
-  display: flex;
-  /* justify-content: center; */
-  font-size: 18px;
-  color: #fff;
-  text-decoration: none;
-  white-space: nowrap;
-  border-radius: 6px;
+  display: flex; /* Hiển thị dạng flex */
+  font-size: 18px; /* Kích thước chữ */
+  color: #fff; /* Màu chữ */
+  text-decoration: none; /* Loại bỏ gạch chân */
+  white-space: nowrap; /* Không xuống dòng */
+  border-radius: 6px; /* Độ cong góc */
 }
 
-
+/* Liên kết được chọn hoặc khi rê chuột qua */
 .list .list-item.active a,
 .list .list-item a:hover {
-  background: rgba(255, 255, 255, .2);
-
+  background: rgba(255, 255, 255, .2); /* Màu nền */
 }
 
-.list .list-item.active a,
-.list .list-item a:hover {
-  background: rgba(255, 255, 255, .2);
-}
+/* Văn bản trong liên kết */
 .list .list-item a span {
-  /* left: 10%; */
-  color: #fff;
+  color: #fff; /* Màu chữ */
 }
 
+/* Biểu tượng trong liên kết */
 .list .list-item a i {
-  min-width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
+  min-width: 50px; /* Chiều rộng tối thiểu */
+  height: 50px; /* Chiều cao */
+  line-height: 50px; /* Chiều cao dòng */
+  text-align: center; /* Căn giữa */
 }
 
+/* Tên liên kết */
 .side-bar .link-name {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .3s;
+  opacity: 0; /* Mờ */
+  pointer-events: none; /* Tắt sự kiện */
+  transition: opacity .3s; /* Hiệu ứng chuyển động */
 }
 
+/* Tên liên kết khi có lớp 'active' */
 .side-bar.active .link-name {
-  opacity: 1;
-  pointer-events: auto;
-  transition-delay: calc(.1s * var(--i));
-} 
+  opacity: 1; /* Hiện */
+  pointer-events: auto; /* Bật sự kiện */
+  transition-delay: calc(.1s * var(--i)); /* Độ trễ */
+}

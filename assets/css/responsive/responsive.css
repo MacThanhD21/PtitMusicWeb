@@ -125,7 +125,12 @@
 @media (max-width: 460px) {
   nav #search {
     display: none;
-  }  
+  }
+  
+  .side-bar {
+    display: none;
+    
+  }
 }  
 
 

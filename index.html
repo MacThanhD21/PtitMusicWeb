@@ -35,7 +35,8 @@
     <!-- TITLE -->
     <title>Ptit Music</title>
   </head>
-  <body id="Top">
+  
+  <body id="Top" class="switchMode">
     <!-- LOADER -->
     <div class="loader-warpper" id="loader">
       <div class="loader">
@@ -673,11 +674,11 @@
     <!-- Slick Js -->
     <script
       type="text/javascript"
-      src="//code.jquery.com/jquery-1.11.0.min.js"
+      src="./assets/animation/slick/jquery-1.11.0.min.js"
     ></script>
     <script
       type="text/javascript"
-      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+      src="./assets/animation/slick/jquery-migrate-1.2.1.min.js"
     ></script>
     <script type="text/javascript" src="./assets/animation/slick/slick.min.js"></script>
 
@@ -686,26 +687,6 @@
     <script type="module" src="./assets/js/helpers/api_main_page.js"></script>
 
     <script>
-      const sidebar = document.querySelector(".side-bar");
-      const toggleBtn = document.querySelector(".toggle-btn");
-
-      let sidebarExpanded = false;
-
-      toggleBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
-
-        if (!sidebarExpanded) {
-          document.querySelector(".main").style.width = "calc(100% - 250px)";
-          document.querySelector(".main").style.left = "260px";
-          sidebarExpanded = true;
-        } else {
-          document.querySelector(".main").style.width = "calc(100% - 100px)";
-          document.querySelector(".main").style.left = "90px";
-          sidebarExpanded = false;
-        }
-      });
-
-
       $('.image__slider__container').slick({
         slidesToShow: 3,
         slidesToScroll: 1,

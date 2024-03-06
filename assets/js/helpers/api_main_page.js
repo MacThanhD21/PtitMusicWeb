@@ -237,10 +237,31 @@ const app = {
   },
 
   // Handle Events
-  handle__events: () => {},
+  handle__BtnToggle: () => {
+    const sidebar = document.querySelector(".side-bar");
+    const toggleBtn = document.querySelector(".toggle-btn");
 
+      let sidebarExpanded = false;
+
+      toggleBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+
+        if (!sidebarExpanded) {
+          document.querySelector(".main").style.width = "calc(100% - 250px)";
+          document.querySelector(".main").style.left = "260px";
+          sidebarExpanded = true;
+        } else {
+          document.querySelector(".main").style.width = "calc(100% - 100px)";
+          document.querySelector(".main").style.left = "90px";
+          sidebarExpanded = false;
+        }
+      });
+  },
+  handle__Image__Slider: () => {
+    
+  },
   start: () => {
-    app.handle__events();
+    app.handle__BtnToggle();
     app.render__one();
     app.render__two();
     app.render__three();
