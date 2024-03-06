@@ -1,6 +1,5 @@
 /* Section Image Slider */
 .main .image__slider .image__slider__container {
-  display: flex;
   align-items: center;
   justify-content: center;
   height: 35vh;
