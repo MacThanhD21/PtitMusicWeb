@@ -7,7 +7,7 @@ const $$ = document.querySelectorAll.bind(document);
 const PlAYER_STORAGE_KEY = "F8_PLAYER";
 
 const player = $(".player");
-const playing= $(".player .playing");
+
 const cd = $(".cd");
 const heading = $(".header h2 span");
 const cdThumb = $(".cd-thumb");
@@ -102,27 +102,7 @@ const app = {
   isRandom: false,
   isRepeat: false,
   config: {},
-  handleTitleRun: function(idx, thumb) {
-    console.log(thumb);
-    console.log(idx);
-    console.log(this.currentIndex);
-    if(idx === this.currentIndex) {
-      player.style.cssText = `background: url('${thumb}') no-repeat center center; background-size: cover; object-fit: cover;`;
-    }
 
-    const header = document.querySelector('.header');
-    const h2 = document.querySelector('.header h2');
-    const span = document.querySelector('.header h2 span');
-
-    console.log(span.offsetWidth);
-    console.log(header.offsetWidth);
-    console.log("--------------------");
-    if (span.offsetWidth > header.offsetWidth) {
-      h2.style.animation = 'marquee 5s linear infinite';
-    } else {
-      h2.style.animation = 'none';
-    }
-  },
   // (1/2) Uncomment the line below to use localStorage
   // config: JSON.parse(localStorage.getItem(PlAYER_STORAGE_KEY)) || {},
 
@@ -132,17 +112,12 @@ const app = {
     // localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
   },
   songs: listDataArray,
-
-  render__zero: function () {
-
-  },
   render__one: function () {
-    const _this = this;
     const htmls = this.songs.map((song, index) => {
       return `
               <div class="song ${
                 index === this.currentIndex ? "active" : ""
-              }" data-index="${index}" onclick=${_this.handleTitleRun(index, song.imagecover)}>
+              }" data-index="${index}">
                   <div class="thumb"
                       style="background-image: url('${song.imagecover ? song.imagecover : ''}')">
                   </div>
@@ -260,7 +235,6 @@ const app = {
   handleEvents: function () {
     const _this = this;
     const cdWidth = cd.offsetWidth;
-    const cdHeight = cd.offsetHeight;
     
     // Xử lý CD quay / dừng
     // Handle CD spins / stops
@@ -275,7 +249,6 @@ const app = {
     document.onscroll = function () {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const newCdWidth = cdWidth - scrollTop;
-      const newCdHeight = cdHeight - scrollTop;
 
       // cd.style.height = newCdHeight > 0 ? newCdHeight + "%" : 0;
       cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
@@ -350,7 +323,7 @@ const app = {
         _this.nextSong();
       }
       audio.play();
-      _this.render();
+      _this.render__one();
       _this.scrollToActiveSong();
     };
 
@@ -363,7 +336,7 @@ const app = {
         _this.prevSong();
       }
       audio.play();
-      _this.render();
+      _this.render__one();
       _this.scrollToActiveSong();
     };
 
@@ -425,6 +398,38 @@ const app = {
   },
   loadCurrentSong: function () {
     if (this.currentSong) {
+      // Lấy các phần tử mà bạn muốn lấy giá trị width
+      const headerElement = document.querySelector(".header");
+      const spanElement = document.querySelector("h2#marqueeText span");
+      const h2Element = document.getElementById("marqueeText");
+
+      // Lấy giá trị width thực sự của các phần tử
+      const headerWidth = headerElement.getBoundingClientRect().width;
+      const spanWidth = spanElement.getBoundingClientRect().width;
+      const h2Width = h2Element.getBoundingClientRect().width;
+
+      console.log("Width of header:", headerWidth);
+      console.log("Width of span:", spanWidth);
+      console.log("Width of h2:", h2Width);
+
+      // Xử lý Nếu text dài quá thì cho chạy
+      const header = document.querySelector('.header');
+      const h2 = document.querySelector('.header h2');
+      const span = document.querySelector('.header h2 span');
+
+      console.log(span.offsetWidth);
+      console.log(h2.offsetWidth);
+      console.log("--------------------");
+
+      if (span.offsetWidth > h2.offsetWidth) {
+        h2.style.animation = 'marquee 5s linear infinite';
+      } else {
+        h2.style.animation = 'none';
+      }
+
+      // Xử lý hiển thị ảnh cho background và thông tin hiện tại của bài hát
+
+      player.style.cssText = `background: url('${this.currentSong.imagecover}') no-repeat center center; background-size: cover; object-fit: cover;`;
       heading.textContent = this.currentSong.title;
       cdThumb.style.backgroundImage = `url('${this.currentSong.imagecover}')`;
       audio.src = this.currentSong.link;
@@ -468,19 +473,12 @@ const app = {
     this.loadConfig();
 
     // Định nghĩa các thuộc tính cho object
-    // Defines properties for the object
     this.defineProperties();
 
     // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
-    // Load the first song information into the UI when running the app
     this.loadCurrentSong();
 
     // Lắng nghe / xử lý các sự kiện (DOM events)
-    // Listening / handling events (DOM events)
-    this.handleEvents();
-
-    // Lắng nghe / xử lý các sự kiện (DOM events)
-    // Listening / handling events (DOM events)
     this.handleEvents();
 
     // Render playlist
@@ -488,9 +486,6 @@ const app = {
     this.render__two();
 
     // Hiển thị trạng thái ban đầu của button repeat & random
-    this.handleTitleRun();
-    // Hiển thị trạng thái ban đầu của button repeat & random
-    // Display the initial state of the repeat & random button
     randomBtn.classList.toggle("active", this.isRandom);
     repeatBtn.classList.toggle("active", this.isRepeat);
   },
