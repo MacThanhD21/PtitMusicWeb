@@ -1,7 +1,9 @@
 /* CSS cho side-bar */
 /* Khi không có lớp 'active' */
 .side-bar {
-  background: #141523; /* Màu nền */
+  background: #E0EAFC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   position: fixed; /* Vị trí cố định */
   top: 0; /* Đẩy lên trên */
   left: 0; /* Đẩy sang trái */
@@ -9,7 +11,7 @@
   height: 100%; /* Chiều cao */
   padding: 6px 14px; /* Khoảng cách bên trong */
   transition: all .5s linear; /* Hiệu ứng chuyển động */
-  border-radius: 10px; /* Độ cong viền */
+  border-radius: 0 10px 10px 0; /* Độ cong viền */
   border-right: 2px solid rgba(255, 255, 255, .2); /* Viền phải */
   box-shadow: 0 0 10px rgba(0, 0, 0, 1); /* Bóng đổ */
   z-index: 2; /* Lớp z-index */
@@ -19,12 +21,7 @@
   -ms-backdrop-filter: blur(20px); /* Hiệu ứng nền mờ cho IE */
 }
 
-/* Khi có lớp 'switchMode' */
-.switchMode .side-bar {
-  background: #141523; /* Màu nền */
-  border-right: 2px solid rgba(0, 0, 0, .2); /* Viền phải */
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2); /* Bóng đổ */
-}
+
 
 /* Khi có lớp 'active' */
 .side-bar.active {
@@ -42,11 +39,12 @@
   align-items: center; /* Canh chỉnh theo chiều dọc */
   width: 100%; /* Chiều rộng */
   height: 60px; /* Chiều cao */
+
 }
 
 /* Tiêu đề logo */
 .side-bar .logo-menu h2 {
-  color: #fff; /* Màu chữ */
+  color: #141523;
   font-weight: 600; /* Độ đậm */
   margin-left: 13px; /* Khoảng cách bên trái */
   pointer-events: none; /* Tắt sự kiện */
@@ -76,7 +74,7 @@
   width: 40px; /* Chiều rộng */
   height: 40px; /* Chiều cao */
   font-size: 22px; /* Kích thước chữ */
-  color: #fff; /* Màu chữ */
+  color: #141523;
   text-align: center; /* Căn giữa */
   line-height: 40px; /* Chiều cao dòng */
   cursor: pointer; /* Con trỏ */
@@ -106,7 +104,6 @@
 .list .list-item a {
   display: flex; /* Hiển thị dạng flex */
   font-size: 18px; /* Kích thước chữ */
-  color: #fff; /* Màu chữ */
   text-decoration: none; /* Loại bỏ gạch chân */
   white-space: nowrap; /* Không xuống dòng */
   border-radius: 6px; /* Độ cong góc */
@@ -118,21 +115,18 @@
   background: rgba(255, 255, 255, .2); /* Màu nền */
 }
 
-/* Văn bản trong liên kết */
-.list .list-item a span {
-  color: #fff; /* Màu chữ */
-}
-
 /* Biểu tượng trong liên kết */
 .list .list-item a i {
   min-width: 50px; /* Chiều rộng tối thiểu */
   height: 50px; /* Chiều cao */
   line-height: 50px; /* Chiều cao dòng */
   text-align: center; /* Căn giữa */
+  color: #141523;
 }
 
 /* Tên liên kết */
 .side-bar .link-name {
+  color: #141523;
   opacity: 0; /* Mờ */
   pointer-events: none; /* Tắt sự kiện */
   transition: opacity .3s; /* Hiệu ứng chuyển động */
@@ -144,3 +138,28 @@
   pointer-events: auto; /* Bật sự kiện */
   transition-delay: calc(.1s * var(--i)); /* Độ trễ */
 }
+
+
+/* switchMode */
+/* Khi có lớp 'switchMode' */
+.switchMode .side-bar {
+  background: #141523; /* Màu nền */
+  border-right: 2px solid rgba(0, 0, 0, .2); /* Viền phải */
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2); /* Bóng đổ */
+}
+.switchMode .side-bar .logo-menu h2 {
+  color: #fff;
+}
+
+.switchMode .side-bar .logo-menu .toggle-btn {
+  color: #fff;
+}
+
+.switchMode .list .list-item a i {
+  color: #fff;
+}
+
+.switchMode .side-bar .link-name {
+  color: #fff;
+}
+/* End switchMode */

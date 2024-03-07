@@ -20,6 +20,18 @@
 
 /* Main */
 
+.switchMode .main {
+  z-index: 9999;
+  position: relative;
+  width: calc(100% - 82px);
+  transition: all 0.5s linear; /* Thêm transition cho width và left *;*/
+  background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
 .main {
   z-index: 9999;
   position: relative;
@@ -27,8 +39,12 @@
   transition: all 0.5s linear; /* Thêm transition cho width và left *;*/
   border-radius: 40px 0 0 40px;
   left: 82px;
-}
+  background: #8e9eab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+
+}
 
 #section__trending {
   margin: 10px auto 0; /* Sử dụng thuộc tính margin để đặt margin-top và giữa */
@@ -37,8 +53,6 @@
   max-width: 95%;
   box-sizing: border-box;
 }
-
-
 
 /*========== SECTION: PLAYLIST POST */
 

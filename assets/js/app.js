@@ -1,11 +1,13 @@
 // ## LOADER
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    const loaderWrapper = document.querySelector(".loader-warpper");
-    if (loaderWrapper) {
-      loaderWrapper.classList.toggle("loader-warpper-hide");
-    }
-  }, 2000);
+// Sau 2 giây, ẩn loader và hiển thị nội dung trang web
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+      const loader = document.querySelector('#Top .container__loader');
+      console.log(loader);
+      if (loader) {
+          loader.style.display = 'none';
+      }
+  }, 1000);
 });
 
 

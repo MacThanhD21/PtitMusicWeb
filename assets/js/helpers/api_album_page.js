@@ -37,7 +37,7 @@ let albumFinded = albums.find(album => album._id === albumIdFromMainPage);
 
 let id_randomAlbum = Math.floor(Math.random() * albums.length); // lấy ngẫu nhiên 1 album
 
-console.log(id_randomAlbum);
+// console.log(id_randomAlbum);
 
 let playlistMusicAlbumFined;
 let listDataArray;
@@ -93,6 +93,7 @@ if(albumFinded) {
 
   listDataArray = await getListData(); // Lấy danh sách bài hát từ API
 }
+
 console.log(listDataArray);
 
 // object app
