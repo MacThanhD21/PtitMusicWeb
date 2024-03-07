@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
       if (loader) {
           loader.style.display = 'none';
       }
+  }, 2000);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+      const loader = document.querySelector('.page-02 .container__loader');
+      console.log(loader);
+      if (loader) {
+          loader.style.display = 'none';
+      }
   }, 1000);
 });
 

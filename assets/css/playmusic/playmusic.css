@@ -7,9 +7,8 @@
   position: sticky;
   z-index: 100;
   top: 100px;
-  max-width: 100%;
-  background-size: cover;
-  object-fit: cover;
+  max-width: 98%;
+  margin: 0 auto;
 }
 
 .player.playing {
@@ -17,15 +16,17 @@
   position: sticky;
   backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
   -webkit-backdrop-filter: blur(5px);
+  max-width: 98%;
+  margin: 0 auto;
 }
-.player .icon-pause {
+.player .fa-pause {
   display: none;
 }
-.player.playing .icon-pause {
+.player.playing .fa-pause {
   display: inline-block;
 }
 
-.player.playing .icon-play {
+.player.playing .fa-play {
   display: none;
 }
 
@@ -37,8 +38,8 @@
   padding: 0 16px 0 16px;
   width: 40%;
   position: absolute;
-  /* left: 20px; */
-  /* border-radius: 30px; */
+  left: 20px;
+  border-radius: 30px;
   height: 55vh;
 }
 
@@ -105,7 +106,7 @@
 }
 
 .control .btn.active {
-  color: var(--primary-color);
+  color: var(--color-red);
 }
 
 .control .btn-toggle-play {
@@ -116,7 +117,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-color);
+  background-color: var(--color-silver);
 }
 
 .progress {
@@ -135,10 +136,9 @@
 
 /* PLAYLIST */
 .playlist {
-  /* border-radius: 20px; */
-  /* top: 50px; */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(5px);
+  color: var(--color-white);
   padding: 5px 30px;
   width: 59.5%;
   display: grid;
@@ -162,17 +162,16 @@
 }
 
 .song.active {
-  background-color: var(--color-soft-11);
+  background: #43cea2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #185a9d, #43cea2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #185a9d, #43cea2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 .song.active .body .h3 {
   color: var(--color-black);
 }
 .song:hover {
   cursor: pointer;
-}
-.song:active {
-  background-color: var(--color-soft-11);
-  opacity: 0.8;
 }
 
 .song .thumb {

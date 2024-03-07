@@ -257,9 +257,7 @@ const app = {
         }
       });
   },
-  handle__Image__Slider: () => {
-    
-  },
+
   start: () => {
     app.handle__BtnToggle();
     app.render__one();

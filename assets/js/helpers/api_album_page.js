@@ -29,11 +29,11 @@ const relatedMusic = $$("#section__trending .card-group-grid");
 // Lấy tham số albumId từ URL
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const albumIdFromMainPage = urlParams.get('albumId');
+const albumIdFromMainPage = urlParams.get("albumId");
 
 // Sử dụng albumId và albumName theo nhu cầu của bạn
 
-let albumFinded = albums.find(album => album._id === albumIdFromMainPage);
+let albumFinded = albums.find((album) => album._id === albumIdFromMainPage);
 
 let id_randomAlbum = Math.floor(Math.random() * albums.length); // lấy ngẫu nhiên 1 album
 
@@ -41,11 +41,11 @@ let id_randomAlbum = Math.floor(Math.random() * albums.length); // lấy ngẫu 
 
 let playlistMusicAlbumFined;
 let listDataArray;
-if(albumFinded) {
+if (albumFinded) {
   playlistMusicAlbumFined = albumFinded.tracks; // laasy ra danh sach id cac bai hat
 
   async function getSongById(idAlbum) {
-    return await songs.find(song => song._id === idAlbum);
+    return await songs.find((song) => song._id === idAlbum);
   }
 
   async function getListData() {
@@ -53,14 +53,13 @@ if(albumFinded) {
     for (const idMusicofTrack of playlistMusicAlbumFined) {
       try {
         const songData = await getSongById(idMusicofTrack);
-        if(songData) {
+        if (songData) {
           listData.push(songData);
-        }
-        else {
-          console.log('Failed to fetch song data');
+        } else {
+          console.log("Failed to fetch song data");
         }
       } catch (error) {
-        console.error('Error fetching song data:', error);
+        console.error("Error fetching song data:", error);
       }
     }
     return listData; // Trả về listData khi đã hoàn thành vòng lặp
@@ -70,7 +69,7 @@ if(albumFinded) {
 } else {
   playlistMusicAlbumFined = albums[id_randomAlbum].tracks;
   async function getSongById(idAlbum) {
-    return await songs.find(song => song._id === idAlbum);
+    return await songs.find((song) => song._id === idAlbum);
   }
 
   async function getListData() {
@@ -78,14 +77,13 @@ if(albumFinded) {
     for (const idMusicofTrack of playlistMusicAlbumFined) {
       try {
         const songData = await getSongById(idMusicofTrack);
-        if(songData) {
+        if (songData) {
           listData.push(songData);
-        }
-        else {
-          console.log('Failed to fetch song data');
+        } else {
+          console.log("Failed to fetch song data");
         }
       } catch (error) {
-        console.error('Error fetching song data:', error);
+        console.error("Error fetching song data:", error);
       }
     }
     return listData; // Trả về listData khi đã hoàn thành vòng lặp
@@ -120,7 +118,9 @@ const app = {
                 index === this.currentIndex ? "active" : ""
               }" data-index="${index}">
                   <div class="thumb"
-                      style="background-image: url('${song.imagecover ? song.imagecover : ''}')">
+                      style="background-image: url('${
+                        song.imagecover ? song.imagecover : ""
+                      }')">
                   </div>
                   <div class="body">
                       <h3 class="title">${song.title}</h3>
@@ -133,19 +133,22 @@ const app = {
           `;
     });
     playlist.innerHTML = htmls.join("");
-    
   },
   render__two: () => {
     relatedMusic.forEach((trending, index) => {
-      let song_1, song_2;
+      let song_1, song_2, song_3, song_4;
       if (idx_cur_song < songs.length) {
         song_1 = songs[idx_cur_song];
-        song_2 = idx_cur_song + 1 < songs.length ? songs[idx_cur_song + 1] : null;
-        if (!song_1 || !song_2) {
+        song_2 =
+          idx_cur_song + 1 < songs.length ? songs[idx_cur_song + 1] : null;
+        song_3 =
+          idx_cur_song + 2 < songs.length ? songs[idx_cur_song + 2] : null;
+        song_4 = idx_cur_song + 3 < songs.length ? songs[idx_cur_song + 3] : null;
+        if (!song_1 || !song_2 || !song_3 || !song_4) {
           return;
         }
       }
-      idx_cur_song += 2;
+      idx_cur_song += 4;
       const htmls = `
       <div class="card-playing-horizontal">
         <figure class="card-playing-horizontal-header">
@@ -223,6 +226,78 @@ const app = {
           ></a>
         </div>
       </div>
+      <div class="card-playing-horizontal">
+        <figure class="card-playing-horizontal-header">
+          <div>
+            <span class="far fa-play" onclick=""></span>
+          </div>
+          <a href="post.html"
+            ><img
+              src="${song_3.imagecover}"
+              alt=""
+          /></a>
+        </figure>
+        <div class="card-playing-horizontal-body">
+          <h4>
+            <a href="post.html">
+              ${song_3.title}
+            </a>
+          </h4>
+          <p><a href="user.html">${song_3.artist}</a></p>
+        </div>
+        <div class="card-playing-horizontal-footer">
+          <a
+            href="javascript:void(0)"
+            onclick=""
+            title="Like"
+            aria-label="Like"
+            ><span class="far fa-heart"></span
+          ></a>
+          <a
+            href="javascript:void(0)"
+            onclick=""
+            title="Download"
+            aria-label="Download"
+            ><span class="far fa-download"></span
+          ></a>
+        </div>
+      </div>
+      <div class="card-playing-horizontal">
+        <figure class="card-playing-horizontal-header">
+          <div>
+            <span class="far fa-play" onclick=""></span>
+          </div>
+          <a href="post.html"
+            ><img
+              src="${song_4.imagecover}"
+              alt=""
+          /></a>
+        </figure>
+        <div class="card-playing-horizontal-body">
+          <h4>
+            <a href="post.html">
+              ${song_4.title}
+            </a>
+          </h4>
+          <p><a href="user.html">${song_4.artist}</a></p>
+        </div>
+        <div class="card-playing-horizontal-footer">
+          <a
+            href="javascript:void(0)"
+            onclick=""
+            title="Like"
+            aria-label="Like"
+            ><span class="far fa-heart"></span
+          ></a>
+          <a
+            href="javascript:void(0)"
+            onclick=""
+            title="Download"
+            aria-label="Download"
+            ><span class="far fa-download"></span
+          ></a>
+        </div>
+      </div>
       `;
       trending.innerHTML += htmls;
     });
@@ -237,7 +312,7 @@ const app = {
   handleEvents: function () {
     const _this = this;
     const cdWidth = cd.offsetWidth;
-    
+
     // Xử lý CD quay / dừng
     // Handle CD spins / stops
     const cdThumbAnimate = cdThumb.animate([{ transform: "rotate(360deg)" }], {
@@ -314,8 +389,6 @@ const app = {
       const seekTime = (audio.duration / 100) * e.target.value;
       audio.currentTime = seekTime;
     };
-
-
     // Khi next song
     // When next song
     nextBtn.onclick = function () {
@@ -415,18 +488,18 @@ const app = {
       console.log("Width of h2:", h2Width);
 
       // Xử lý Nếu text dài quá thì cho chạy
-      const header = document.querySelector('.header');
-      const h2 = document.querySelector('.header h2');
-      const span = document.querySelector('.header h2 span');
+      const header = document.querySelector(".header");
+      const h2 = document.querySelector(".header h2");
+      const span = document.querySelector(".header h2 span");
 
       console.log(span.offsetWidth);
       console.log(h2.offsetWidth);
       console.log("--------------------");
 
       if (span.offsetWidth > h2.offsetWidth) {
-        h2.style.animation = 'marquee 5s linear infinite';
+        h2.style.animation = "marquee 5s linear infinite";
       } else {
-        h2.style.animation = 'none';
+        h2.style.animation = "none";
       }
 
       // Xử lý hiển thị ảnh cho background và thông tin hiện tại của bài hát
@@ -468,10 +541,31 @@ const app = {
     this.currentIndex = newIndex;
     this.loadCurrentSong();
   },
+  // Handle Events
+  handle__BtnToggle: () => {
+    const sidebar = document.querySelector(".side-bar");
+    const toggleBtn = document.querySelector(".toggle-btn");
+
+    let sidebarExpanded = false;
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+
+      if (!sidebarExpanded) {
+        document.querySelector(".main").style.width = "calc(100% - 250px)";
+        document.querySelector(".main").style.left = "260px";
+        sidebarExpanded = true;
+      } else {
+        document.querySelector(".main").style.width = "calc(100% - 100px)";
+        document.querySelector(".main").style.left = "90px";
+        sidebarExpanded = false;
+      }
+    });
+  },
   start: function () {
     // Gán cấu hình từ config vào ứng dụng
     // Assign configuration from config to application
-    
+
     this.loadConfig();
 
     // Định nghĩa các thuộc tính cho object
@@ -482,6 +576,7 @@ const app = {
 
     // Lắng nghe / xử lý các sự kiện (DOM events)
     this.handleEvents();
+    this.handle__BtnToggle();
 
     // Render playlist
     this.render__one();
