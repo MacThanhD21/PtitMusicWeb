@@ -233,7 +233,6 @@
 }
 
 .switchMode .hero-page {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.95)), url(../images/elements/hero-dark@90.dba36cdf.jpg);
   background-position: center;
   background-size: cover;
   color: var(--color-dark-main);

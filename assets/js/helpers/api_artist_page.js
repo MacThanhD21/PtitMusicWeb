@@ -1,9 +1,8 @@
-import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
 import { artists } from "../data/artists.js";
 
-console.log(artists);
-console.log(albums);
+// console.log(artists);
+// console.log(albums);
 // idArtist khi click vào artist sẽ lấy danh sách các album của artist đó
 
 // Lấy tham số albumId từ URL
@@ -11,13 +10,13 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const artistIdFromMainPage = urlParams.get('artistId');
 
-console.log(artistIdFromMainPage);
+// console.log(artistIdFromMainPage);
 // Sử dụng albumId và albumName theo nhu cầu của bạn
 
 let artistFinded = artists.find(artist => artist._id === artistIdFromMainPage);
 
 
-let albumFinded = artistFinded.id_albums; // laasy ra danh sach id cac bai hat
+let albumFinded = artistFinded.id_albums; // laasy ra danh sach id cac album cua artist
 
 
 async function getAlbumData(idAlbum) {
@@ -43,18 +42,29 @@ async function getListAlbums() {
 }
 
 
-const listDataArray = await getListAlbums(); // Lấy danh sách bài hát từ API
+const listDataArray = await getListAlbums(); // Lấy danh sách Album từ API
 
-console.log(listDataArray);
+// console.log(listDataArray);
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const inForArtist = $("header .artist");
 const albumsOfArtist = $("#cardGridLen");
+const header = $("header");
+// console.log(header);
 
-console.log(inForArtist);
-console.log(albumsOfArtist);
+const imgArtist = artistFinded.image;
+console.log(imgArtist);
+
+header.style.cssText = `
+  background: url(${imgArtist}) no-repeat center center/cover; 
+  object-fit: cover;
+  background-size: cover;
+  aspect-ratio: 16/9;
+`;
+// console.log(inForArtist);
+// console.log(albumsOfArtist);
 
 // object app
 const app = {
