@@ -21,7 +21,7 @@ const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
 
-
+let idx_cur_song = 0;
 // Initial Related Music
 const relatedMusic = $$("#section__trending .card-group-grid");
 
@@ -138,13 +138,14 @@ const app = {
   render__two: () => {
     relatedMusic.forEach((trending, index) => {
       let song_1, song_2;
-      if (index < songs.length) {
-        song_1 = songs[index];
-        song_2 = index + 1 < songs.length ? songs[index + 1] : null;
+      if (idx_cur_song < songs.length) {
+        song_1 = songs[idx_cur_song];
+        song_2 = idx_cur_song + 1 < songs.length ? songs[idx_cur_song + 1] : null;
         if (!song_1 || !song_2) {
           return;
         }
       }
+      idx_cur_song += 2;
       const htmls = `
       <div class="card-playing-horizontal">
         <figure class="card-playing-horizontal-header">
@@ -309,11 +310,11 @@ const app = {
     };
 
     // Xử lý khi tua song
-    // Handling when seek
-    progress.onchange = function (e) {
+    progress.oninput = function (e) {
       const seekTime = (audio.duration / 100) * e.target.value;
       audio.currentTime = seekTime;
     };
+
 
     // Khi next song
     // When next song
