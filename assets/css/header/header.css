@@ -24,7 +24,9 @@
   /* overflow: hidden; */
   width: 100%;
   height: auto;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  top: 20px;
+  position: absolute;
 }
 
 .page-02 header .artist img {
@@ -49,9 +51,12 @@
   background: var(--color-silver);
   transition: var(--transition-3s-ease);
   border-radius: 10px;
-  width: 27%;
+  width: 26%;
   margin: 10px auto;
-  
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .page-02 header .artist .info__artist h1 {
