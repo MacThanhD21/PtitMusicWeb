@@ -19,10 +19,10 @@
   max-width: 98%;
   margin: 0 auto;
 }
-.player .fa-pause {
+.player .fa-stop {
   display: none;
 }
-.player.playing .fa-pause {
+.player.playing .fa-stop {
   display: inline-block;
 }
 

@@ -1,10 +1,6 @@
 import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
-import { artists } from "../data/artists.js";
-
-// Helper function to select elements
-
-// render the albums
+import { artists } from "../data/artists.js"
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -220,6 +216,7 @@ const app = {
   render__four: () => {
     artists.forEach((artist, index) => {
       const html = `
+        <div class="items">
           <a href="artist.html?artistId=${artist._id}">
             <div class="card-artists-vertical">
               <figure>
@@ -231,6 +228,7 @@ const app = {
               <h4>${artist.name_Artist}</h4>
             </div>
           </a>
+        </div>
       `;
       popularArtistContainer.innerHTML += html;
     });

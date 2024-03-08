@@ -103,12 +103,6 @@
     transition: var(--transition-3s-ease);
     font-size: 14px;
   }  
-
-
-  /* Image Slider */
-  .main .image__slider .image__slider__container {
-    display: none;
-  }
   /* End Image Slider */
 
   /* Sections */
@@ -125,11 +119,6 @@
 @media (max-width: 460px) {
   nav #search {
     display: none;
-  }
-  
-  .side-bar {
-    display: none;
-    
   }
 }  
 
