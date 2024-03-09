@@ -1,704 +1,596 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Slick JS -->
-    <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick-theme.css"/>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- IMPORT FONT AWESOME -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./assets/fonts/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./assets/fonts/css/fontawesome.min.css"
-    />
-    <!-- IMPORT FAVICON -->
-    <link
-      rel="shortcut icon"
-      href="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
-      type="image/png"
-    />
+  <!-- Slick JS -->
+  <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/animation/slick/slick-theme.css" />
 
-    <!-- IMPORT CSS MAIN -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/base.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- IMPORT FONT AWESOME -->
+  <link rel="stylesheet" type="text/css" href="./assets/fonts/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="./assets/fonts/css/fontawesome.min.css" />
+  <!-- IMPORT FAVICON -->
+  <link rel="shortcut icon"
+    href="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
+    type="image/png" />
 
-    <!-- TITLE -->
-    <title>Ptit Music</title>
-  </head>
-  
-  <body id="Top" class="switchMode">
-    <!-- LOADER -->
-    <div class="container__loader">
-      <div class="loader">
-      </div> 
+  <!-- IMPORT CSS MAIN -->
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="./assets/css/base.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- TITLE -->
+  <title>Ptit Music</title>
+</head>
+
+<body id="Top" class="switchMode">
+  <!-- Mouse -->
+  <section id="cursor-1" class="container container-cursor-1"></section>
+
+  <footer>
+    <span class="curzr-hover btn btn-previous">
+    </span>
+
+    <span class="curzr-hover btn btn-next">
+    </span>
+  </footer>
+
+  <div class="curzr-arrow-pointer" hidden>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+      <path class="inner"
+        d="M25,30a5.82,5.82,0,0,1-1.09-.17l-.2-.07-7.36-3.48a.72.72,0,0,0-.35-.08.78.78,0,0,0-.33.07L8.24,29.54a.66.66,0,0,1-.2.06,5.17,5.17,0,0,1-1,.15,3.6,3.6,0,0,1-3.29-5L12.68,4.2a3.59,3.59,0,0,1,6.58,0l9,20.74A3.6,3.6,0,0,1,25,30Z"
+        fill="#F2F5F8" />
+      <path class="outer"
+        d="M16,3A2.59,2.59,0,0,1,18.34,4.6l9,20.74A2.59,2.59,0,0,1,25,29a5.42,5.42,0,0,1-.86-.15l-7.37-3.48a1.84,1.84,0,0,0-.77-.17,1.69,1.69,0,0,0-.73.16l-7.4,3.31a5.89,5.89,0,0,1-.79.12,2.59,2.59,0,0,1-2.37-3.62L13.6,4.6A2.58,2.58,0,0,1,16,3m0-2h0A4.58,4.58,0,0,0,11.76,3.8L2.84,24.33A4.58,4.58,0,0,0,7,30.75a6.08,6.08,0,0,0,1.21-.17,1.87,1.87,0,0,0,.4-.13L16,27.18l7.29,3.44a1.64,1.64,0,0,0,.39.14A6.37,6.37,0,0,0,25,31a4.59,4.59,0,0,0,4.21-6.41l-9-20.75A4.62,4.62,0,0,0,16,1Z"
+        fill="#111920" />
+    </svg>
+  </div>
+
+
+  <!-- End Mouse -->
+  <!-- LOADER -->
+  <div class="container__loader">
+    <div class="loader">
     </div>
-    
-    <!-- End Loader -->
+  </div>
 
-    <!-- Section Navbar Toggle -->
-    <section class="side-bar">
-      <!-- Section-one -->
-      <div class="section-one">
-        <div class="logo-menu">
-          <h2 class="logo">Menu</h2>
-          <i class="fa-solid fa-bars toggle-btn"></i>
-        </div>
-        <!-- Menu -->
-        <ul class="list">
-          <li class="list-item active">
-            <a href="#explore">
-              <i class="fa-solid fa-rocket"></i>
-              <span class="link-name" style="--i: 1">Explore</span>
-            </a>
-          </li>
-          <li class="list-item">
-            <a href="#featured_creators">
-              <i class="fa-solid fa-music"></i>
-              <span class="link-name" style="--i: 2">Featured Creators</span>
-            </a>
-          </li>
-          <li class="list-item">
-            <a href="#trending">
-              <i class="fa-solid fa-arrow-trend-up"></i>
-              <span class="link-name" style="--i: 3">Trending</span>
-            </a>
-          </li>
-          <li class="list-item">
-            <a href="#category">
-              <i class="fa-solid fa-compact-disc"></i>
-              <span class="link-name" style="--i: 4">Genre</span>
-            </a>
-          </li>
-          <li class="list-item">
-            <a href="#popular_artists">
-              <i class="fa-solid fa-headset"></i>
-              <span class="link-name" style="--i: 4">Popular Singer</span>
-            </a>
-          </li>
-        </ul>
+  <!-- End Loader -->
+
+  <!-- Section Navbar Toggle -->
+  <section class="side-bar">
+    <!-- Section-one -->
+    <div class="section-one">
+      <div class="logo-menu">
+        <h2 class="logo">Menu</h2>
+        <i class="fa-solid fa-bars toggle-btn"></i>
       </div>
+      <!-- Menu -->
+      <ul class="list">
+        <li class="list-item active">
+          <a href="#explore">
+            <i class="fa-solid fa-rocket"></i>
+            <span class="link-name" style="--i: 1">Explore</span>
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="#featured_creators">
+            <i class="fa-solid fa-music"></i>
+            <span class="link-name" style="--i: 2">Featured Creators</span>
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="#trending">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+            <span class="link-name" style="--i: 3">Trending</span>
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="#category">
+            <i class="fa-solid fa-compact-disc"></i>
+            <span class="link-name" style="--i: 4">Genre</span>
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="#popular_artists">
+            <i class="fa-solid fa-headset"></i>
+            <span class="link-name" style="--i: 4">Popular Singer</span>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-      <!-- Section-two -->
-      <div class="section-two">
-        <!-- My music -->
-        <div class="logo-menu">
-          <h2 class="logo">My music</h2>
-          <i class="fa-solid fa-headphones toggle-btn"></i>
-        </div>
-        <!-- Menu -->
-        <ul class="list">
-          <li class="list-item">
-            <a href="#">
-              <i class="fa-solid fa-clock-rotate-left"></i>
-              <span class="link-name" style="--i: 5"> Recently Played </span>
-            </a>
-          </li>
-          <li class="list-item">
-            <a href="#">
-              <i class="fa-solid fa-heart"></i>
-              <span class="link-name" style="--i: 6"> Favorite Songs </span>
-            </a>
-          </li>
-          <li class="list-item">
-            <a href="#">
-              <i class="fa-solid fa-robot"></i>
-              <span class="link-name" style="--i: 7"> Music GenAI </span>
-            </a>
-          </li>
-        </ul>
+    <!-- Section-two -->
+    <div class="section-two">
+      <!-- My music -->
+      <div class="logo-menu">
+        <h2 class="logo">My music</h2>
+        <i class="fa-solid fa-headphones toggle-btn"></i>
       </div>
-    </section>
-    <!-- End Section Navbar Toggle -->
+      <!-- Menu -->
+      <ul class="list">
+        <li class="list-item">
+          <a href="#">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span class="link-name" style="--i: 5"> Recently Played </span>
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="#">
+            <i class="fa-solid fa-heart"></i>
+            <span class="link-name" style="--i: 6"> Favorite Songs </span>
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="#">
+            <i class="fa-solid fa-robot"></i>
+            <span class="link-name" style="--i: 7"> Music GenAI </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- End Section Navbar Toggle -->
 
-    <!-- Section Main -->
+  <!-- Section Main -->
 
-    <section class="main">
-      <!-- NAVBAR -->
-      <nav id="navbarFixed">
-        <ul>
-          <a
-            href="javascript:void(0)"
-            onclick="navbarMobileToggle()"
-            title="Menu"
-            aria-label="Menu"
-            class="fa-bars-mobile"
-            ><span class="far fa-bars"></span
-          ></a>
-          <div class="inner-logo">
-            <a href="index.html"
-              ><img
-                src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
-                alt=""
-                title="ptit_music"
-              />
-            </a>
-            <a href="index.html">
-              <span class="name__website">Ptit Music</span>
-            </a>
-          </div>
-        </ul>
-        <!-- FORM: SEARCH -->
-        <div id="search">
-          <span class="far fa-search"></span>
-          <input
-            type="search"
-            placeholder="What do you want to play?"
-            aria-placeholder="Search for music"
-            autofocus="true"
-          />
+  <section class="main">
+    <!-- NAVBAR -->
+    <nav id="navbarFixed">
+      <ul>
+        <a href="javascript:void(0)" onclick="navbarMobileToggle()" title="Menu" aria-label="Menu"
+          class="fa-bars-mobile"><span class="far fa-bars"></span></a>
+        <div class="inner-logo">
+          <a href="index.html"><img
+              src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
+              alt="" title="ptit_music" />
+          </a>
+          <a href="index.html">
+            <span class="name__website">Ptit Music</span>
+          </a>
         </div>
-        <ul>
-          <a>
-            <label class="bb8-toggle">
-              <input
-                href="javascript:void(0)"
-                onclick="switchMode()"
-                id="switchModeBtnDark"
-                title="Switch Dark Mode"
-                aria-label="Switch Dark Mode"
-                class="bb8-toggle__checkbox"
-                type="checkbox"
-              />
-              <div class="bb8-toggle__container">
-                <div class="bb8-toggle__scenery">
-                  <div class="bb8-toggle__star"></div>
-                  <div class="bb8-toggle__star"></div>
-                  <div class="bb8-toggle__star"></div>
-                  <div class="bb8-toggle__star"></div>
-                  <div class="bb8-toggle__star"></div>
-                  <div class="bb8-toggle__star"></div>
-                  <div class="bb8-toggle__star"></div>
-                  <div class="tatto-1"></div>
-                  <div class="tatto-2"></div>
-                  <div class="gomrassen"></div>
-                  <div class="hermes"></div>
-                  <div class="chenini"></div>
-                  <div class="bb8-toggle__cloud"></div>
-                  <div class="bb8-toggle__cloud"></div>
-                  <div class="bb8-toggle__cloud"></div>
-                </div>
-                <div class="bb8">
-                  <div class="bb8__head-container">
-                    <div class="bb8__antenna"></div>
-                    <div class="bb8__antenna"></div>
-                    <div class="bb8__head"></div>
-                  </div>
-                  <div class="bb8__body"></div>
-                </div>
-                <div class="artificial__hidden">
-                  <div class="bb8__shadow"></div>
-                </div>
+      </ul>
+      <!-- FORM: SEARCH -->
+      <div id="search">
+        <span class="far fa-search"></span>
+        <input type="search" placeholder="What do you want to play?" aria-placeholder="Search for music"
+          autofocus="true" />
+      </div>
+      <ul>
+        <a>
+          <label class="bb8-toggle">
+            <input href="javascript:void(0)" onclick="switchMode()" id="switchModeBtnDark" title="Switch Dark Mode"
+              aria-label="Switch Dark Mode" class="bb8-toggle__checkbox" type="checkbox" />
+            <div class="bb8-toggle__container">
+              <div class="bb8-toggle__scenery">
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="bb8-toggle__star"></div>
+                <div class="tatto-1"></div>
+                <div class="tatto-2"></div>
+                <div class="gomrassen"></div>
+                <div class="hermes"></div>
+                <div class="chenini"></div>
+                <div class="bb8-toggle__cloud"></div>
+                <div class="bb8-toggle__cloud"></div>
+                <div class="bb8-toggle__cloud"></div>
               </div>
-            </label>
+              <div class="bb8">
+                <div class="bb8__head-container">
+                  <div class="bb8__antenna"></div>
+                  <div class="bb8__antenna"></div>
+                  <div class="bb8__head"></div>
+                </div>
+                <div class="bb8__body"></div>
+              </div>
+              <div class="artificial__hidden">
+                <div class="bb8__shadow"></div>
+              </div>
+            </div>
+          </label>
+        </a>
+
+        <a href="javascript:void(0)" id="avatar">
+          <i class="fa-solid fa-user"></i>
+        </a>
+
+        <!-- AVATAR DORPDOWN -->
+        <div class="avatar-dropdown" id="avatarDropdown">
+          <a href="profile.html">
+            <li><span class="far fa-user"></span> Profile</li>
           </a>
-
-          <a href="javascript:void(0)" id="avatar">
-            <i class="fa-solid fa-user"></i>
+          <a href="javascript:void(0)" onclick="supportChatMode()">
+            <li><span class="far fa-comment"></span> Support</li>
           </a>
+          <a href="premium.html" target="_blank">
+            <li><span class="far fa-star"></span> Upgrade Plan</li>
+          </a>
+          <hr />
+          <a href="login.html">
+            <li><span class="far fa-history"></span> Log out</li>
+          </a>
+        </div>
+      </ul>
+    </nav>
 
-          <!-- AVATAR DORPDOWN -->
-          <div class="avatar-dropdown" id="avatarDropdown">
-            <a href="profile.html">
-              <li><span class="far fa-user"></span> Profile</li>
-            </a>
-            <a href="javascript:void(0)" onclick="supportChatMode()">
-              <li><span class="far fa-comment"></span> Support</li>
-            </a>
-            <a href="premium.html" target="_blank">
-              <li><span class="far fa-star"></span> Upgrade Plan</li>
-            </a>
-            <hr />
-            <a href="login.html"
-              ><li><span class="far fa-history"></span> Log out</li></a
-            >
+    <!-- SUPPORT & CHAT MODE -->
+    <div class="overlay-support-chat-mode" id="supportChatMode">
+      <div class="support-chat-mode">
+        <!-- CHAT HEADER -->
+        <div class="support-chat-mode-header">
+          <h4>
+            Support
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
+              alt="" title="PtitMusic Bot" />
+          </h4>
+          <a href="javascript:void(0)" onclick="supportChatMode()"><span class="far fa-close"></span></a>
+        </div>
+        <!-- CHAT BODY -->
+        <div class="support-chat-mode-body">
+          <div class="chat-date">Today, September 26, 2023</div>
+          <div class="section-message-bot">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
+              alt="" />
+            <p>Hello! How can I assist you today?</p>
           </div>
-        </ul>
-      </nav>
-
-      <!-- SUPPORT & CHAT MODE -->
-      <div class="overlay-support-chat-mode" id="supportChatMode">
-        <div class="support-chat-mode">
-          <!-- CHAT HEADER -->
-          <div class="support-chat-mode-header">
-            <h4>
-              Support
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
-                alt=""
-                title="PtitMusic Bot"
-              />
-            </h4>
-            <a href="javascript:void(0)" onclick="supportChatMode()"
-              ><span class="far fa-close"></span
-            ></a>
+          <div class="section-message-user">
+            <img src="./assets/images/avatar/avatar-1.png" alt="PtitMusic Bot" />
+            <p>Hi</p>
+            <p>How to download as musics ZIP ???</p>
           </div>
-          <!-- CHAT BODY -->
-          <div class="support-chat-mode-body">
-            <div class="chat-date">Today, September 26, 2023</div>
-            <div class="section-message-bot">
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
-                alt=""
-              />
-              <p>Hello! How can I assist you today?</p>
-            </div>
-            <div class="section-message-user">
-              <img
-                src="./assets/images/avatar/avatar-1.png"
-                alt="PtitMusic Bot"
-              />
-              <p>Hi</p>
-              <p>How to download as musics ZIP ???</p>
-            </div>
-            <div class="section-message-bot">
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
-                alt="PtitMusic Bot"
-              />
-              <p>
-                You most first click on the 'DOWNLOAD' button to automatically
-                download ZIP file after a few seconds. <br /><br />
-                If you have a problem, are you ready to be responsive to you.
-              </p>
-            </div>
-            <div class="section-message-user">
-              <img src="./assets/images/avatar/avatar-1.png" alt="" />
-              <p>Thank you very much for your problem.</p>
-              <p>🙏🙏🙏</p>
-            </div>
+          <div class="section-message-bot">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
+              alt="PtitMusic Bot" />
+            <p>
+              You most first click on the 'DOWNLOAD' button to automatically
+              download ZIP file after a few seconds. <br /><br />
+              If you have a problem, are you ready to be responsive to you.
+            </p>
           </div>
-          <!-- CHAT FOOTER -->
-          <div class="support-chat-mode-footer">
-            <form action="" method="post">
-              <span class="far fa-paperclip" onclick=""></span>
-              <textarea
-                name=""
-                id=""
-                cols="30"
-                rows="1"
-                placeholder="Write a msssage..."
-                aria-placeholder="Write a msssage..."
-              ></textarea>
-              <span class="far fa-smile" onclick=""></span>
-              <button type="submit" aria-label="Send">Send</button>
-            </form>
+          <div class="section-message-user">
+            <img src="./assets/images/avatar/avatar-1.png" alt="" />
+            <p>Thank you very much for your problem.</p>
+            <p>🙏🙏🙏</p>
           </div>
+        </div>
+        <!-- CHAT FOOTER -->
+        <div class="support-chat-mode-footer">
+          <form action="" method="post">
+            <span class="far fa-paperclip" onclick=""></span>
+            <textarea name="" id="" cols="30" rows="1" placeholder="Write a msssage..."
+              aria-placeholder="Write a msssage..."></textarea>
+            <span class="far fa-smile" onclick=""></span>
+            <button type="submit" aria-label="Send">Send</button>
+          </form>
         </div>
       </div>
+    </div>
 
-      <!-- Section Slide Image -->
-      
-      <div class="image__slider">
-        <div class="image__slider__container">
-          <div class="image__slider__item">
-            <img
-              src="https://i.pinimg.com/564x/73/e1/f7/73e1f7faceca4bc5c0f8c11d6fd17b79.jpg"
-              alt=""
-            />
-          </div>
-          <div class="image__slider__item">
-            <img
-              src="https://i.pinimg.com/564x/12/69/e8/1269e846437ab7d765254f45645c80ae.jpg"
-              alt=""
-            />
-          </div>
-          <div class="image__slider__item">
-            <img
-              src="https://i.pinimg.com/564x/b0/d8/97/b0d897d3013ae11ad61859ac4628054b.jpg"
-              alt=""
-            />
-          </div>
-          <div class="image__slider__item">
-            <img
-              src="https://i.pinimg.com/564x/c1/ef/6b/c1ef6b80edd6f4a3e38f8d8dedb7fdbb.jpg"
-              alt=""
-            />
-          </div>
-          <div class="image__slider__item">
-            <img
-              src="https://i.pinimg.com/736x/96/d9/f1/96d9f1ddb1c0bf2b48dd7032b9a2d27c.jpg"
-              alt=""
-            />
-          </div>
-          <div class="image__slider__item">
-            <img
-              src="https://i.pinimg.com/564x/eb/fa/2b/ebfa2bfefd8361ede6ac891832c4f5f1.jpg"
-              alt=""
-            />
-          </div>
+    <!-- Section Slide Image -->
+
+    <div class="image__slider">
+      <div class="image__slider__container">
+        <div class="image__slider__item">
+          <img src="https://i.pinimg.com/564x/73/e1/f7/73e1f7faceca4bc5c0f8c11d6fd17b79.jpg" alt="" />
+        </div>
+        <div class="image__slider__item">
+          <img src="https://i.pinimg.com/564x/12/69/e8/1269e846437ab7d765254f45645c80ae.jpg" alt="" />
+        </div>
+        <div class="image__slider__item">
+          <img src="https://i.pinimg.com/564x/b0/d8/97/b0d897d3013ae11ad61859ac4628054b.jpg" alt="" />
+        </div>
+        <div class="image__slider__item">
+          <img src="https://i.pinimg.com/564x/c1/ef/6b/c1ef6b80edd6f4a3e38f8d8dedb7fdbb.jpg" alt="" />
+        </div>
+        <div class="image__slider__item">
+          <img src="https://i.pinimg.com/736x/96/d9/f1/96d9f1ddb1c0bf2b48dd7032b9a2d27c.jpg" alt="" />
+        </div>
+        <div class="image__slider__item">
+          <img src="https://i.pinimg.com/564x/eb/fa/2b/ebfa2bfefd8361ede6ac891832c4f5f1.jpg" alt="" />
+        </div>
       </div>
+    </div>
 
-      <!-- Section Slide Image -->
-      
-      
-      
-      <!-- MAIN -->
-      <main>
-        <!-- #SECTION: EXPLORE -->
-        <section class="section-explore" id="explore">
-          <!-- EXPLORE MENU -->
-          <div class="section-explore-menu">
-            <h2>Explore</h2>
-            <!-- <a href="#" class="section-explore-menu-item-active">Explore</a> -->
-          </div>
+    <!-- Section Slide Image -->
 
-          <!-- EXPLORE SLIDER -->
-          <div class="card-grid-slider"></div>
-        </section>
 
-        <!-- #SECTION: FEATURED CREATORS -->
-        <section class="section-featured-creators" id="featured_creators">
-          <div>
-            <h2>Featured Creators</h2>
-            <p><a href="">See all</a></p>
-          </div>
 
-          <!-- FEATURED CREATORS SLIDER -->
-          <div class="card-grid-slider">
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-          </div>
-        </section>
-
-        <!-- #SECTION: TRENDING -->
-        <section class="section-trending" id="trending">
-          <div>
-            <h2>Trending</h2>
-            <p><a href="">See all</a></p>
-          </div>
-
-          <!-- TRENDING SLIDER -->
-          <div class="card-grid-slider" id="treding_container">
-            <!-- CARD GROUP GRID -->
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-            <div class="card-group-grid"></div>
-          </div>
-        </section>
-
-        <!-- #SECTION: CATEGORY -->
-        <section class="section-category" id="category">
-          <div>
-            <h2>Genre</h2>
-            <p><a href="">See all</a></p>
-          </div>
-
-          <!-- CATEGORY SLIDER -->
-          <div class="card-grid-slider">
-            <!-- CARD GROUP GRID -->
-            <div class="card-group-grid">
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-1"
-                >
-                  <h4>Soundtrack</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-2"
-                >
-                  <h4>Epic</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-            </div>
-            <div class="card-group-grid">
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-3"
-                >
-                  <h4>Orchestral</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-4"
-                >
-                  <h4>Rock</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-            </div>
-            <div class="card-group-grid">
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-5"
-                >
-                  <h4>Hip Hop</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-6"
-                >
-                  <h4>Electronic</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-            </div>
-            <div class="card-group-grid">
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-7"
-                >
-                  <h4>Techno</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-8"
-                >
-                  <h4>Pop</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-            </div>
-            <div class="card-group-grid">
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-9"
-                >
-                  <h4>Classical</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-10"
-                >
-                  <h4>Lo-Fi</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-            </div>
-            <div class="card-group-grid">
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-11"
-                >
-                  <h4>Folk</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-12"
-                >
-                  <h4>Ambient</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-            </div>
-            <div class="card-group-grid">
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-13"
-                >
-                  <h4>Folk</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-14"
-                >
-                  <h4>Ambient</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-            </div>
-            <div class="card-group-grid">
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-13"
-                >
-                  <h4>Remix</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-              <a href="">
-                <div
-                  class="card-category-vertical card-category-vertical-soft-14"
-                >
-                  <h4>Bolero</h4>
-                  <span class="far fa-play"></span>
-                </div>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <!-- #SECTION: POPULAR ARTISTS -->
-        <section class="section-popular-artists" id="popular_artists">
-          <div>
-            <h2>Famous Singer</h2>
-            <p><a href="">See all</a></p>
-          </div>
-
-          <!-- POPULAR ARTISTS SLIDER -->
-          <div class="card-grid-slider"></div>
-        </section>
-
-        <!-- #SECTION: DOWNLOAD -->
-        <div class="overlay-section-download" id="download">
-          <section class="section-download">
-            <div class="section-download-header">
-              <h4></h4>
-              <span
-                class="far fa-close"
-                onclick="download()"
-                title="Close"
-                aria-label="Close"
-              ></span>
-            </div>
-            <div class="section-download-body">
-              <a href="user.html"
-                ><img
-                  src="./assets/images/avatar-artists/Hans-Zimmer-400x400.jpg"
-                  alt=""
-              /></a>
-              <h3>Say thanks to Ultima Trailer Music</h3>
-              <p>By downloading, you agree to our <a href="">License</a></p>
-              <p>
-                <a href="user.html" class="btn-secondary">Profile</a>
-              </p>
-            </div>
-          </section>
+    <!-- MAIN -->
+    <main>
+      <!-- #SECTION: EXPLORE -->
+      <section class="section-explore" id="explore">
+        <!-- EXPLORE MENU -->
+        <div class="section-explore-menu">
+          <h2>Explore</h2>
+          <!-- <a href="#" class="section-explore-menu-item-active">Explore</a> -->
         </div>
-      </main>
 
-      <!-- #SECTION: MUSIC PLAYER -->
-      <section class="section-music-player" id="sectionMusicPlayer">
+        <!-- EXPLORE SLIDER -->
+        <div class="card-grid-slider"></div>
+      </section>
+
+      <!-- #SECTION: FEATURED CREATORS -->
+      <section class="section-featured-creators" id="featured_creators">
         <div>
-          <span
-            class="far fa-angle-down"
-            id="collapseMusicPlayerBtn"
-            onclick="collapseMusicPlayer()"
-          ></span>
-          <span
-            class="far fa-angle-up"
-            id="expandMusicPlayerBtn"
-            onclick="collapseMusicPlayer()"
-          ></span>
-          <img
-            src="./assets/images/covers/Speed-Runner-Ultima-Trailer-Music-400x400.jpeg"
-            alt=""
-          />
-          <div>
-            <h4>Helix Angle</h4>
-            <a href="user.html">Ultima Trailer Music</a>
-          </div>
+          <h2>Featured Creators</h2>
+          <p><a href="">See all</a></p>
         </div>
-        <div class="section-music-player-timeline">
-          <input
-            id="timeLineMusicPlayer"
-            type="range"
-            value="0"
-            step="1"
-            min="0"
-            max="100"
-          />
-        </div>
-        <div>
-          <a
-            href="javascript:void(0)"
-            onclick="likeMusicPlayer()"
-            title="Like"
-            aria-label="Like"
-            ><span class="far fa-heart" id="likeMusicPlayer"></span
-          ></a>
-          <a href="javascript:void(0)" onclick="" title="Play" aria-label="Play"
-            ><span class="far fa-play"></span
-          ></a>
-          <a
-            href="post.html"
-            onclick=""
-            title="Show Full Player"
-            aria-label="Show Full Player"
-            ><span class="far fa-expand"></span
-          ></a>
+
+        <!-- FEATURED CREATORS SLIDER -->
+        <div class="card-grid-slider">
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
         </div>
       </section>
 
-      <!-- Chat Bot -->
-
-      <!-- End Chat Bot -->
-      <!-- BACK TOP -->
-      <a href="#Top">
-        <div class="back-top" id="backTop">
-          <span class="far fa-angle-up"></span>
+      <!-- #SECTION: TRENDING -->
+      <section class="section-trending" id="trending">
+        <div>
+          <h2>Trending</h2>
+          <p><a href="">See all</a></p>
         </div>
-      </a>
+
+        <!-- TRENDING SLIDER -->
+        <div class="card-grid-slider" id="treding_container">
+          <!-- CARD GROUP GRID -->
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+          <div class="card-group-grid"></div>
+        </div>
+      </section>
+
+      <!-- #SECTION: CATEGORY -->
+      <section class="section-category" id="category">
+        <div>
+          <h2>Genre</h2>
+          <p><a href="">See all</a></p>
+        </div>
+
+        <!-- CATEGORY SLIDER -->
+        <div class="card-grid-slider">
+          <!-- CARD GROUP GRID -->
+          <div class="card-group-grid">
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-1">
+                <h4>Soundtrack</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-2">
+                <h4>Epic</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+          </div>
+          <div class="card-group-grid">
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-3">
+                <h4>Orchestral</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-4">
+                <h4>Rock</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+          </div>
+          <div class="card-group-grid">
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-5">
+                <h4>Hip Hop</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-6">
+                <h4>Electronic</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+          </div>
+          <div class="card-group-grid">
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-7">
+                <h4>Techno</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-8">
+                <h4>Pop</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+          </div>
+          <div class="card-group-grid">
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-9">
+                <h4>Classical</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-10">
+                <h4>Lo-Fi</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+          </div>
+          <div class="card-group-grid">
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-11">
+                <h4>Folk</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-12">
+                <h4>Ambient</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+          </div>
+          <div class="card-group-grid">
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-13">
+                <h4>Folk</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-14">
+                <h4>Ambient</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+          </div>
+          <div class="card-group-grid">
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-13">
+                <h4>Remix</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+            <a href="">
+              <div class="card-category-vertical card-category-vertical-soft-14">
+                <h4>Bolero</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- #SECTION: POPULAR ARTISTS -->
+      <section class="section-popular-artists" id="popular_artists">
+        <div>
+          <h2>Famous Singer</h2>
+          <p><a href="">See all</a></p>
+        </div>
+
+        <!-- POPULAR ARTISTS SLIDER -->
+        <div class="card-grid-slider"></div>
+      </section>
+
+      <!-- #SECTION: DOWNLOAD -->
+      <div class="overlay-section-download" id="download">
+        <section class="section-download">
+          <div class="section-download-header">
+            <h4></h4>
+            <span class="far fa-close" onclick="download()" title="Close" aria-label="Close"></span>
+          </div>
+          <div class="section-download-body">
+            <a href="user.html"><img src="./assets/images/avatar-artists/Hans-Zimmer-400x400.jpg" alt="" /></a>
+            <h3>Say thanks to Ultima Trailer Music</h3>
+            <p>By downloading, you agree to our <a href="">License</a></p>
+            <p>
+              <a href="user.html" class="btn-secondary">Profile</a>
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- #SECTION: MUSIC PLAYER -->
+    <section class="section-music-player" id="sectionMusicPlayer">
+      <div>
+        <span class="far fa-angle-down" id="collapseMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
+        <span class="far fa-angle-up" id="expandMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
+        <img src="./assets/images/covers/Speed-Runner-Ultima-Trailer-Music-400x400.jpeg" alt="" />
+        <div>
+          <h4>Helix Angle</h4>
+          <a href="user.html">Ultima Trailer Music</a>
+        </div>
+      </div>
+      <div class="section-music-player-timeline">
+        <label htmlFor="timeLineMusicPlayer"></label>
+        <input id="timeLineMusicPlayer" type="range" value="0" step="1" min="0" max="100" aria-label="Time Line" />
+
+      </div>
+      <div>
+        <a href="javascript:void(0)" onclick="likeMusicPlayer()" title="Like" aria-label="Like"><span
+            class="far fa-heart" id="likeMusicPlayer"></span></a>
+        <a href="javascript:void(0)" onclick="" title="Play" aria-label="Play"><span class="far fa-play"></span></a>
+        <a href="post.html" onclick="" title="Show Full Player" aria-label="Show Full Player"><span
+            class="far fa-expand"></span></a>
+      </div>
     </section>
-    <!-- End Section Main -->
 
-    <!-- Slick Js -->
-    <script
-      type="text/javascript"
-      src="./assets/animation/slick/jquery-1.11.0.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="./assets/animation/slick/jquery-migrate-1.2.1.min.js"
-    ></script>
-    <script type="text/javascript" src="./assets/animation/slick/slick.min.js"></script>
+    <!-- Chat Bot -->
 
-    <!-- IMPORT JS -->
-    <script src="./assets/js/app.js"></script>
-    <script type="module" src="./assets/js/helpers/api_main_page.js"></script>
+    <!-- End Chat Bot -->
+    <!-- BACK TOP -->
+    <a href="#Top">
+      <div class="back-top" id="backTop">
+        <span class="far fa-angle-up"></span>
+      </div>
+    </a>
+  </section>
+  <!-- End Section Main -->
 
-    <script>
-      $('.image__slider__container').slick({
-        centerMode: true,
-        centerPadding: '60px',
-        slidesToShow: 3,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: '40px',
-              slidesToShow: 2
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: '40px',
-              slidesToShow: 1
-            }
+  <!-- Slick Js -->
+  <script type="text/javascript" src="./assets/animation/slick/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="./assets/animation/slick/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="./assets/animation/slick/slick.min.js"></script>
+
+  <!-- IMPORT JS -->
+  <script src="./assets/js/app.js"></script>
+  <script type="module" src="./assets/js/helpers/api_main_page.js"></script>
+
+  <script>
+    $('.image__slider__container').slick({
+      centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 3,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 2
           }
-        ]
-      });
-    </script>
-  </body>
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js">
+  </script>
+</body>
+
 </html>

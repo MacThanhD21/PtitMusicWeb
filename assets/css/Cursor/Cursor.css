@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+  cursor: none;
+}
+
+:root {
+  --cursor-1-bg: #ffffff;
+  --cursor-1-bg-line: #eef1f4;
+}
+

@@ -21,8 +21,6 @@
   -ms-backdrop-filter: blur(20px); /* Hiệu ứng nền mờ cho IE */
 }
 
-
-
 /* Khi có lớp 'active' */
 .side-bar.active {
   width: 250px; /* Chiều rộng */
@@ -74,7 +72,6 @@
   width: 40px; /* Chiều rộng */
   height: 40px; /* Chiều cao */
   font-size: 22px; /* Kích thước chữ */
-  color: #141523;
   text-align: center; /* Căn giữa */
   line-height: 40px; /* Chiều cao dòng */
   cursor: pointer; /* Con trỏ */

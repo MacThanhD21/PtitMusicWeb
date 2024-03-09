@@ -205,7 +205,105 @@ function download() {
   alert('Your download has started. Please check your downloads folder.');
 }
 
-
-
 // Run current Song in Main
+
+let currentSong = 0;
+let audio = document.querySelector("#audio");
+let title = document.querySelector("#title");
+let artist = document.querySelector("#artist");
+let previous = document.querySelector("#previous");
+let play = document.querySelector("#play");
+let next = document.querySelector("#next");
+
+let songs = [
+  {
+    name: "song-1",
+    title: "Lạ lùng",
+    artist: "Vũ"
+  },
+  {
+    name: "song-2",
+    title: "Cô đơn dành cho ai",
+    artist: "Lee Ken"
+  },
+  {
+    name: "song-3",
+    title: "Em đã thấy anh cùng người ấy",
+    artist: "Hoài Lâm"
+  },
+  {
+    name: "song-4",
+    title: "Một phút",
+    artist: "Andiez"
+  },
+  {
+    name: "song-5",
+    title: "Hai phút hơn",
+    artist: "Pháo"
+  },
+  {
+    name: "song-6",
+    title: "Tháng năm",
+    artist: "Soobin Hoàng Sơn"
+  }
+];
+
+function loadSong(song) {
+  title.textContent = song.title;
+  artist.textContent = song.artist;
+  audio.src = `../musics/${song.name}.mp3`;
+}
+
+function nextSong() {
+  currentSong++;
+  if (currentSong > songs.length - 1) {
+    currentSong = 0;
+  }
+  loadSong(songs[currentSong]);
+  playMusic();
+}
+
+function previousSong() {
+  currentSong--;
+  if (currentSong < 0) {
+    currentSong = songs.length - 1;
+  }
+  loadSong(songs[currentSong]);
+  playMusic();
+}
+
+function playMusic() {
+  if (audio.paused) {
+    audio.play();
+    play.classList.replace("fa-play", "fa-pause");
+  } else {
+    audio.pause();
+    play.classList.replace("fa-pause", "fa-play");
+  }
+}
+
+previous.addEventListener("click", previousSong);
+next.addEventListener("click", nextSong);
+play.addEventListener("click", playMusic);
+
+// Update progress bar
+audio.addEventListener("timeupdate", () => {
+  let { currentTime, duration } = audio;
+  let progressPercent = (currentTime / duration) * 100;
+  let progress = document.querySelector("#progress");
+  progress.style.width = `${progressPercent}%`;
+});
+
+// Click on progress bar
+let progressContainer = document.querySelector("#progress-container");
+progressContainer.addEventListener("click", (e) => {
+  let progressWidth = progressContainer.clientWidth;
+  let clickX = e.offsetX;
+  let duration = audio.duration;
+  audio.currentTime = (clickX / progressWidth) * duration;
+});
+
+// Song ends
+audio.addEventListener("ended", nextSong);
+
 
