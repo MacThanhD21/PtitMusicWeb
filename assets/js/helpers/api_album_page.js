@@ -1,13 +1,14 @@
 import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
+import { Categories } from "../data/category.js";
 
+/*------------------------ Khai Báo Tất Cả các biến cần sử dụng trong Page-------------------- */
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
-const PlAYER_STORAGE_KEY = "F8_PLAYER";
+const PlAYER_STORAGE_KEY = "PTITMUSIC_PLAYER";
 
 const player = $(".player");
-
 const cd = $(".cd");
 const heading = $(".header h2 span");
 const cdThumb = $(".cd-thumb");
@@ -21,79 +22,73 @@ const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
 
-let idx_cur_song = 0;
-// Initial Related Music
 const relatedMusic = $$("#section__trending .card-group-grid");
 
-// idAlbums khi click vào album sẽ lấy danh sách bài hát của album đó
-// Lấy tham số albumId từ URL
+let idx_cur_song = 0;
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const albumIdFromMainPage = urlParams.get("albumId");
-
-// Sử dụng albumId và albumName theo nhu cầu của bạn
-
-let albumFinded = albums.find((album) => album._id === albumIdFromMainPage);
-
-let id_randomAlbum = Math.floor(Math.random() * albums.length); // lấy ngẫu nhiên 1 album
-
-// console.log(id_randomAlbum);
-
-let playlistMusicAlbumFined;
 let listDataArray;
-if (albumFinded) {
-  playlistMusicAlbumFined = albumFinded.tracks; // laasy ra danh sach id cac bai hat
 
-  async function getSongById(idAlbum) {
-    return await songs.find((song) => song._id === idAlbum);
-  }
-
-  async function getListData() {
-    let listData = [];
-    for (const idMusicofTrack of playlistMusicAlbumFined) {
-      try {
-        const songData = await getSongById(idMusicofTrack);
-        if (songData) {
-          listData.push(songData);
-        } else {
-          console.log("Failed to fetch song data");
-        }
-      } catch (error) {
-        console.error("Error fetching song data:", error);
-      }
-    }
-    return listData; // Trả về listData khi đã hoàn thành vòng lặp
-  }
-
-  listDataArray = await getListData(); // Lấy danh sách bài hát từ API
-} else {
-  playlistMusicAlbumFined = albums[id_randomAlbum].tracks;
-  async function getSongById(idAlbum) {
-    return await songs.find((song) => song._id === idAlbum);
-  }
-
-  async function getListData() {
-    let listData = [];
-    for (const idMusicofTrack of playlistMusicAlbumFined) {
-      try {
-        const songData = await getSongById(idMusicofTrack);
-        if (songData) {
-          listData.push(songData);
-        } else {
-          console.log("Failed to fetch song data");
-        }
-      } catch (error) {
-        console.error("Error fetching song data:", error);
-      }
-    }
-    return listData; // Trả về listData khi đã hoàn thành vòng lặp
-  }
-
-  listDataArray = await getListData(); // Lấy danh sách bài hát từ API
+async function getSongById(id) {
+  return await songs.find((song) => song._id === id);
 }
 
-console.log(listDataArray);
+async function getListData(playlist) {
+  let listData = [];
+  for (const id of playlist) {
+    try {
+      const songData = await getSongById(id);
+      if (songData) {
+        listData.push(songData);
+      } else {
+        console.log("Failed to fetch song data");
+      }
+    } catch (error) {
+      console.error("Error fetching song data:", error);
+    }
+  }
+  return listData;
+}
 
+function handleFetchDataError(errorType) {
+  console.error(`Error fetching data: ${errorType}`);
+  // Handle error as needed
+}
+
+try {
+  if (urlParams.has("albumId")) {
+    const albumId = urlParams.get("albumId");
+    const albumFound = albums.find((album) => album._id === albumId);
+
+    if (albumFound) {
+      listDataArray = await getListData(albumFound.tracks);
+    } else {
+      const randomAlbumIndex = Math.floor(Math.random() * albums.length);
+      listDataArray = await getListData(albums[randomAlbumIndex].tracks);
+    }
+  } else if (urlParams.has("cateId")) {
+    const cateId = urlParams.get("cateId");
+    const cateFound = Categories.find((cate) => cate._id === cateId);
+
+    if (cateFound) {
+      listDataArray = await getListData(cateFound.tracks);
+    } else {
+      const randomCateIndex = Math.floor(Math.random() * Categories.length);
+      listDataArray = await getListData(Categories[randomCateIndex].tracks);
+    }
+  } else {
+    listDataArray = songs;
+  }
+
+  console.log(listDataArray);
+} catch (mainError) {
+  handleFetchDataError(mainError.message);
+}
+
+// Search Function
+const searchInput = $("#search input");
+const searchResult = $(".playlist .song");
 // object app
 const app = {
   currentIndex: 0,
@@ -101,16 +96,58 @@ const app = {
   isRandom: false,
   isRepeat: false,
   config: {},
+  songs: listDataArray,
+  removeAccents: function (str) {
+    return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  },
 
+  searchF: function () {
+    const _this = this;
+
+    searchInput.addEventListener("keyup", function (e) {
+      const searchString = _this.removeAccents(e.target.value.toLowerCase());
+      console.log(searchString);
+
+      const filteredSongs = songs.filter((song) => {
+        const normalizedTitle = _this.removeAccents(song.title.toLowerCase());
+        const normalizedArtist = _this.removeAccents(song.artist.toLowerCase());
+        return (
+          normalizedTitle.startsWith(searchString) ||
+          normalizedArtist.startsWith(searchString)
+        );
+      });
+      console.log(filteredSongs);
+      app.songs = filteredSongs;
+      app.render__one();
+      // play nhạc
+      const songNodes = document.querySelectorAll(".song");
+      songNodes.forEach((songNode) => {
+        songNode.onclick = function () {
+          _this.currentIndex = Number(songNode.dataset.index);
+          _this.loadCurrentSong();
+
+          audio.addEventListener('canplaythrough', function () {
+            audio.play();
+          });
+        };
+      });
+      songNodes.forEach((songNode) => {
+        songNode.classList.remove("active");
+      });
+    });
+  },
   // (1/2) Uncomment the line below to use localStorage
-  // config: JSON.parse(localStorage.getItem(PlAYER_STORAGE_KEY)) || {},
+  config: JSON.parse(localStorage.getItem(PlAYER_STORAGE_KEY)) || {},
 
   setConfig: function (key, value) {
     this.config[key] = value;
     // (2/2) Uncomment the line below to use localStorage
-    // localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
+    localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
   },
-  songs: listDataArray,
+  
   render__one: function () {
     const htmls = this.songs.map((song, index) => {
       return `
@@ -143,7 +180,8 @@ const app = {
           idx_cur_song + 1 < songs.length ? songs[idx_cur_song + 1] : null;
         song_3 =
           idx_cur_song + 2 < songs.length ? songs[idx_cur_song + 2] : null;
-        song_4 = idx_cur_song + 3 < songs.length ? songs[idx_cur_song + 3] : null;
+        song_4 =
+          idx_cur_song + 3 < songs.length ? songs[idx_cur_song + 3] : null;
         if (!song_1 || !song_2 || !song_3 || !song_4) {
           return;
         }
@@ -544,23 +582,35 @@ const app = {
   // Handle Events
   handle__BtnToggle: () => {
     const sidebar = document.querySelector(".side-bar");
-    const toggleBtn = document.querySelector(".toggle-btn");
+    const toggleBtn1 = document.querySelector(".toggle-btn-1");
+    const toggleBtn2 = document.querySelector(".toggle-btn-2");
+    const section_music_player = document.querySelector(
+      ".section-music-player"
+    );
+    const main = document.querySelector(".main");
 
     let sidebarExpanded = false;
 
-    toggleBtn.addEventListener("click", () => {
+    const toggleSidebar = () => {
       sidebar.classList.toggle("active");
+      toggleBtn2.classList.toggle("active");
 
-      if (!sidebarExpanded) {
-        document.querySelector(".main").style.width = "calc(100% - 250px)";
-        document.querySelector(".main").style.left = "260px";
-        sidebarExpanded = true;
-      } else {
-        document.querySelector(".main").style.width = "calc(100% - 100px)";
-        document.querySelector(".main").style.left = "90px";
-        sidebarExpanded = false;
+      const newWidth = sidebarExpanded
+        ? "calc(100% - 100px)"
+        : "calc(100% - 250px)";
+      const newLeft = sidebarExpanded ? "90px" : "260px";
+
+      try {
+        main.style.width = newWidth;
+        main.style.left = newLeft;
+      } catch (error) {
+        console.error("Error:", error);
       }
-    });
+      sidebarExpanded = !sidebarExpanded;
+    };
+
+    toggleBtn1.addEventListener("click", toggleSidebar);
+    toggleBtn2.addEventListener("click", toggleSidebar);
   },
   start: function () {
     // Gán cấu hình từ config vào ứng dụng
@@ -585,6 +635,9 @@ const app = {
     // Hiển thị trạng thái ban đầu của button repeat & random
     randomBtn.classList.toggle("active", this.isRandom);
     repeatBtn.classList.toggle("active", this.isRepeat);
+
+    // Search
+    this.searchF();
   },
 };
 

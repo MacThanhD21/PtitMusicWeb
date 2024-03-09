@@ -24,24 +24,11 @@
 }
 
 .switchMode {
-  background-color: var(--color-black);
+  background: -webkit-linear-gradient(to right, #434343, #000000);
+  background: linear-gradient(to right, #434343, #000000);
   color: var(--color-white);
 }
 
-.switchMode .loader-warpper {
-  background-color: var(--color-black);
-}
-
-.switchMode .loader-warpper .loader {
-  border: 3px solid var(--color-white);
-  border-top: 3px solid var(--color-black);
-  border-right: 3px solid var(--color-black);
-  border-bottom: 3px solid var(--color-black);
-}
-
-.switchMode .nav-fixed-active {
-  border-bottom: 1px solid var(--background-dark-primary-main);
-}
 
 .switchMode nav {
   background: #000000;  /* fallback for old browsers */
@@ -70,35 +57,6 @@
   background-color: var(--background-dark-primary-main);
 }
 
-.switchMode .navbarMobileToggle {
-  background-color: var(--color-black);
-  border-color: var(--background-dark-primary-main);
-}
-
-.switchMode .navbarMobileToggle .fa-close-mobile {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .navbarMobileToggle .fa-close-mobile:hover {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode .navbarMobileToggle .fa-close-mobile:active {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .overlay-search-mode,
-.switchMode .overlay-support-chat-mode {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.switchMode .overlay-search-mode form {
-  background-color: var(--color-black);
-}
-
-.switchMode .overlay-search-mode form input {
-  color: var(--color-white);
-}
 
 .switchMode .avatar-dropdown {
   box-shadow: var(--box-shadow-dark-xlg);
@@ -155,16 +113,6 @@
 
 .switchMode .support-chat-mode .support-chat-mode-footer form textarea {
   color: var(--color-white);
-}
-
-.switchMode header form, .switchMode .hero form {
-  background-color: var(--el-overlay-color-lighter);
-  border: 2px solid blueviolet;
-}
-
-.switchMode header form, .switchMode .hero form input:focus {
-  color: var(--color-white);
-  font-size: 20px;
 }
 
 .switchMode .section-explore .section-explore-menu a {
@@ -258,35 +206,6 @@
   background-color: var(--background-dark-primary-main);
 }
 
-.switchMode .section-playlist-post-body .section-playlist-post-play-card {
-  background-color: var(--background-dark-main);
-  color: var(--color-black);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card:hover {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card:active {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far,
-.switchMode .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far {
-  background-color: var(--color-black);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far:hover,
-.switchMode .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far:hover {
-  background-color: var(--background-dark-main) !important;
-  color: var(--color-white);
-}
-
-.switchMode .section-playlist-post-body .section-playlist-post-play-card>div:nth-child(1) .far:active,
-.switchMode .section-playlist-post-body .section-playlist-post-play-card div:nth-child(2) div .far:active {
-  background-color: var(--background-dark-primary-main) !important;
-}
-
 .switchMode .section-music-player {
   background-color: var(--color-black);
   box-shadow: var(--box-shadow-dark-xlg);
@@ -352,6 +271,26 @@
 .switchMode.song.active .title {
   color: #fff;
 }
+.switchMode .side-bar {
+  background: -webkit-linear-gradient(to left, #434343, #000000);
+  background: linear-gradient(to left, #434343, #000000);
+}
+.switchMode .side-bar .logo-menu h2 {
+  color: #EF2519;
+}
+
+.switchMode .side-bar .logo-menu .toggle-btn {
+  color: #fff;
+}
+
+.switchMode .list .list-item a i {
+  color: #EF2519;
+}
+
+.switchMode .side-bar .link-name {
+  color: #fff;
+}
+
 
 /* End darkMode Player */
 

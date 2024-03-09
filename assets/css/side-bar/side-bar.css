@@ -1,16 +1,15 @@
 /* CSS cho side-bar */
 /* Khi không có lớp 'active' */
 .side-bar {
-  background: #E0EAFC;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #CFDEF3, #E0EAFC);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #CFDEF3, #E0EAFC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);
+  background: linear-gradient(to left, #eef2f3, #8e9eab);
   position: fixed; /* Vị trí cố định */
   top: 0; /* Đẩy lên trên */
   left: 0; /* Đẩy sang trái */
   width: 80px; /* Chiều rộng */
   height: 100%; /* Chiều cao */
   padding: 6px 14px; /* Khoảng cách bên trong */
-  transition: all .5s linear; /* Hiệu ứng chuyển động */
+  transition: left 0.5s linear, width 0.5s linear; /* Hiệu ứng chuyển động */
   border-radius: 0 10px 10px 0; /* Độ cong viền */
   border-right: 2px solid rgba(255, 255, 255, .2); /* Viền phải */
   box-shadow: 0 0 10px rgba(0, 0, 0, 1); /* Bóng đổ */
@@ -63,24 +62,37 @@
   opacity: 1; /* Hiện */
   transition-delay: .2s; /* Độ trễ */
 }
-
-/* Nút chuyển đổi */
-.side-bar .logo-menu .toggle-btn {
-  position: absolute; /* Vị trí tuyệt đối */
-  left: 50%; /* Canh trái giữa */
-  transform: translateX(-50%); /* Dịch chuyển theo chiều ngang */
-  width: 40px; /* Chiều rộng */
-  height: 40px; /* Chiều cao */
-  font-size: 22px; /* Kích thước chữ */
-  text-align: center; /* Căn giữa */
-  line-height: 40px; /* Chiều cao dòng */
-  cursor: pointer; /* Con trỏ */
-  transition: .4s; /* Hiệu ứng chuyển động */
+.side-bar .logo-menu .toggle-btn-1,
+.side-bar .logo-menu .toggle-btn-2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  transition: all .3s linear; /* Chỉ áp dụng transition cho thuộc tính left và opacity */
+}
+.side-bar .logo-menu .toggle-btn-1:hover,
+.side-bar .logo-menu .toggle-btn-2:hover {
+  background: #BCBCBC; /* Màu nền */
+  border-radius: 10px; /* Độ cong viền */
+}
+.side-bar .logo-menu .toggle-btn-2 {
+  left: 85%; /* Đẩy sang phải */
+  opacity: 0; /* Ẩn */
 }
 
-/* Nút chuyển đổi khi có lớp 'active' */
-.side-bar.active .logo-menu .toggle-btn {
-  left: 85%; /* Canh trái */
+.side-bar.active .logo-menu .toggle-btn-1 {
+  left: 85%; /* Chuyển nút thứ nhất ra ngoài */
+  opacity: 0; /* Ẩn nút thứ nhất */
+}
+
+.side-bar.active .logo-menu .toggle-btn-2 {
+  left: 85%; /* Hiển thị nút thứ hai */
+  opacity: 1; /* Hiển thị nút thứ hai */
 }
 
 /* Danh sách */
@@ -118,12 +130,13 @@
   height: 50px; /* Chiều cao */
   line-height: 50px; /* Chiều cao dòng */
   text-align: center; /* Căn giữa */
-  color: #141523;
+  color: #103178;
 }
 
 /* Tên liên kết */
 .side-bar .link-name {
   color: #141523;
+  font-weight: 600; /* Độ đậm */
   opacity: 0; /* Mờ */
   pointer-events: none; /* Tắt sự kiện */
   transition: opacity .3s; /* Hiệu ứng chuyển động */
@@ -135,28 +148,3 @@
   pointer-events: auto; /* Bật sự kiện */
   transition-delay: calc(.1s * var(--i)); /* Độ trễ */
 }
-
-
-/* switchMode */
-/* Khi có lớp 'switchMode' */
-.switchMode .side-bar {
-  background: #141523; /* Màu nền */
-  border-right: 2px solid rgba(0, 0, 0, .2); /* Viền phải */
-  box-shadow: 0 0 10px rgba(0, 0, 0, .2); /* Bóng đổ */
-}
-.switchMode .side-bar .logo-menu h2 {
-  color: #fff;
-}
-
-.switchMode .side-bar .logo-menu .toggle-btn {
-  color: #fff;
-}
-
-.switchMode .list .list-item a i {
-  color: #fff;
-}
-
-.switchMode .side-bar .link-name {
-  color: #fff;
-}
-/* End switchMode */

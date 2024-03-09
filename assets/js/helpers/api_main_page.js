@@ -1,6 +1,7 @@
 import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
 import { artists } from "../data/artists.js"
+import { Categories } from "../data/category.js";
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -20,11 +21,49 @@ const trendingContainer = $$("#treding_container .card-group-grid");
 const songsCount = songs.length;
 let idx_cur_song = 0;
 
+// Genre Container
+const genreContainer = $$("#category .card-grid-slider .card-group-grid");
+
 // Popular Artist Container
 const popularArtistContainer = $("#popular_artists .card-grid-slider");
 
+// Current Index
+let currentIdxAlbum = 0;
+let currentIdxCate = 0;
+
+
+
 // App Object
 const app = {
+  // Handle Events
+  handle__BtnToggle: () => {
+    const sidebar = document.querySelector(".side-bar");
+    const toggleBtn1 = document.querySelector(".toggle-btn-1");
+    const toggleBtn2 = document.querySelector(".toggle-btn-2");
+    const section_music_player = document.querySelector(".section-music-player");
+    const main = document.querySelector(".main");
+
+    let sidebarExpanded = false;
+
+    const toggleSidebar = () => {
+      sidebar.classList.toggle("active");
+      toggleBtn2.classList.toggle("active");
+
+      const newWidth = sidebarExpanded ? "calc(100% - 100px)" : "calc(100% - 250px)";
+      const newLeft = sidebarExpanded ? "90px" : "260px";
+
+      main.style.width = newWidth;
+      main.style.left = newLeft;
+      section_music_player.style.left = newLeft;
+      section_music_player.style.transition = "all 0.5s ease-in-out";
+
+      sidebarExpanded = !sidebarExpanded;
+    };
+
+    toggleBtn1.addEventListener("click", toggleSidebar);
+    toggleBtn2.addEventListener("click", toggleSidebar);
+
+  },
   // Render the UI
   render__one: () => {
     // Render the Explore Container
@@ -49,7 +88,6 @@ const app = {
 
   render__two: () => {
     // Render the featured albums
-
     // Lặp qua từng thẻ card-group-grid để render dữ liệu từ albums
     cardGroupGrids.forEach((cardGroupGrid, index) => {
       const album_1 = albums[index * 2];
@@ -89,7 +127,7 @@ const app = {
 
   render__three: () => {
     // Render Trending Container
-    trendingContainer.forEach((trending, index) => {
+    trendingContainer.forEach((trending) => {
       let song_1, song_2, song_3;
       if (idx_cur_song < songsCount) {
         song_1 = songs[idx_cur_song];
@@ -108,7 +146,7 @@ const app = {
                   <span class="far fa-play" onclick=""></span>
                   <span class="far fa-pause" onclick=""></span>
                 </div>
-                <a href="playmusic.html"
+                <a href="album.html"
                   ><img
                     src="${song_1.imagecover}"
                     alt=""
@@ -116,7 +154,7 @@ const app = {
               </figure>
               <div class="card-playing-horizontal-body">
                 <h4>
-                  <a href="playmusic.html">${song_1.title}</a>
+                  <a href="album.html">${song_1.title}</a>
                 </h4>
                 <p><a href="artist.html">${song_1.artist}</a></p>
               </div>
@@ -143,7 +181,7 @@ const app = {
                 <div>
                   <span class="far fa-play" onclick=""></span>
                 </div>
-                <a href="playmusic.html"
+                <a href="album.html"
                   ><img
                     src="${song_2.imagecover}"
                     alt=""
@@ -151,7 +189,7 @@ const app = {
               </figure>
               <div class="card-playing-horizontal-body">
                 <h4>
-                  <a href="playmusic.html">${song_2.title}</a>
+                  <a href="album.html">${song_2.title}</a>
                 </h4>
                 <p><a href="artist.html">${song_2.artist}</a></p>
               </div>
@@ -178,7 +216,7 @@ const app = {
                 <div>
                   <span class="far fa-play" onclick=""></span>
                 </div>
-                <a href="playmusic.html"
+                <a href="album.html"
                   ><img
                     src="${song_3.imagecover}"
                     alt=""
@@ -186,7 +224,7 @@ const app = {
               </figure>
               <div class="card-playing-horizontal-body">
                 <h4>
-                  <a href="playmusic.html">${song_3.title}</a>
+                  <a href="album.html">${song_3.title}</a>
                 </h4>
                 <p><a href="artist.html">${song_3.artist}</a></p>
               </div>
@@ -214,7 +252,36 @@ const app = {
   },
 
   render__four: () => {
-    artists.forEach((artist, index) => {
+    currentIdxAlbum
+
+    // Render the Genre Container
+    genreContainer.forEach((genre) => {
+      const cate_1 = Categories[currentIdxCate];
+      const cate_2 = Categories[currentIdxCate + 1];
+      if (!cate_1 || !cate_2) {
+        return;
+      }
+      
+      const html = `
+            <a href="album.html?cateId=${cate_1._id}">
+              <div class="card-category-vertical card-category-vertical-soft-${currentIdxCate}">
+                <h4>${cate_1.Category}</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+            <a href="album.html?cateId=${cate_2._id}">
+              <div class="card-category-vertical card-category-vertical-soft-${currentIdxCate + 1}">
+                <h4>${cate_2.Category}</h4>
+                <span class="far fa-play"></span>
+              </div>
+            </a>
+      `;
+      genre.innerHTML += html;
+      currentIdxCate += 2;
+    }
+  )},
+  render__five: () => {
+    artists.forEach((artist) => {
       const html = `
         <div class="items">
           <a href="artist.html?artistId=${artist._id}">
@@ -234,34 +301,13 @@ const app = {
     });
   },
 
-  // Handle Events
-  handle__BtnToggle: () => {
-    const sidebar = document.querySelector(".side-bar");
-    const toggleBtn = document.querySelector(".toggle-btn");
-
-      let sidebarExpanded = false;
-
-      toggleBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
-
-        if (!sidebarExpanded) {
-          document.querySelector(".main").style.width = "calc(100% - 250px)";
-          document.querySelector(".main").style.left = "260px";
-          sidebarExpanded = true;
-        } else {
-          document.querySelector(".main").style.width = "calc(100% - 100px)";
-          document.querySelector(".main").style.left = "90px";
-          sidebarExpanded = false;
-        }
-      });
-  },
-
   start: () => {
     app.handle__BtnToggle();
     app.render__one();
     app.render__two();
     app.render__three();
     app.render__four();
+    app.render__five();
   },
 };
 

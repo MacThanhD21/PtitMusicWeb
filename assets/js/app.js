@@ -1,24 +1,4 @@
-// ## LOADER
-// Sau 2 giây, ẩn loader và hiển thị nội dung trang web
-document.addEventListener('DOMContentLoaded', function() {
-  setTimeout(function() {
-      const loader = document.querySelector('#Top .container__loader');
-      console.log(loader);
-      if (loader) {
-          loader.style.display = 'none';
-      }
-  }, 2000);
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-  setTimeout(function() {
-      const loader = document.querySelector('.page-02 .container__loader');
-      console.log(loader);
-      if (loader) {
-          loader.style.display = 'none';
-      }
-  }, 1000);
-});
 
 
 // Login page occurs default
@@ -207,6 +187,7 @@ function download() {
 
 // Run current Song in Main
 
+/* 
 let currentSong = 0;
 let audio = document.querySelector("#audio");
 let title = document.querySelector("#title");
@@ -306,3 +287,5 @@ progressContainer.addEventListener("click", (e) => {
 // Song ends
 audio.addEventListener("ended", nextSong);
 
+
+*/
