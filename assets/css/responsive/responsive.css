@@ -27,18 +27,18 @@
   .page-01 .player .dashboard {
     width: 50%;
   }
-  .page-01 .player.playing .dashboard{
+  .page-01 #player .dashboard{
     width: 50%;
   }
   .page-01 .player .playlist{
     grid-template-columns: repeat(1, 1fr);
     width: 50%;
   }
-  .page-01 .player.playing .playlist{
+  .page-01 #player .playlist{
     grid-template-columns: repeat(1, 1fr);
     width: 50%;
   }
-  .page-01 .player.playing .playlist .song {
+  .page-01 #player .playlist .song {
     width: 90%;
     margin: 0 auto;
   }
@@ -105,47 +105,48 @@
   }
 
   /* PlayMusic page */
-  .page-01 .player.playing  {
+  .page-01 #player  {
     height: 40vh;
   }
 
-  .page-01 .player.playing .dashboard {
+  .page-01 #player .dashboard {
     width: 40%;
+    height: 40vh;
   }
-  .page-01 .player.playing .dashboard h4{
+  .page-01 #player .dashboard h4{
     font-size: 18px;
   }
-  .page-01 .player.playing .dashboard h2 span{
+  .page-01 #player .dashboard h2 span{
     font-size: 20px;
   }
-  .page-01 .player.playing .dashboard .cd-thumb {
+  .page-01 #player .dashboard .cd-thumb {
     width: 55%;
     padding-top: 55%;
   }
-  .page-01 .player.playing .dashboard .control .btn {
+  .page-01 #player .dashboard .control .btn {
     padding: 14px;
     font-size: 18px;
   }
-  .page-01 .player.playing .dashboard .control .btn-toggle-play {
+  .page-01 #player .dashboard .control .btn-toggle-play {
     width: 45px;
   }
-  .page-01 .player.playing .playlist {
+  .page-01 #player .playlist {
     height: 40vh;
     width: 60%;
   }
-  .page-01 .player.playing .playlist .song {
+  .page-01 #player .playlist .song {
     width: 330px;
     margin: 0 auto;
     height: 8vh;
   }
-  .page-01 .player.playing .playlist .song .thumb {
+  .page-01 #player .playlist .song .thumb {
     width: 35px;
     height: 35px;
   }
-  .page-01 .player.playing .playlist .song .title {
+  .page-01 #player .playlist .song .title {
     font-size: 18px;
   }
-  .page-01 .player.playing .playlist .song .author {
+  .page-01 #player .playlist .song .author {
     display: none;
   }
 }
@@ -171,48 +172,48 @@
   }
   /* End Sections */
   /* PlayMusic page */
-  .page-01 .player.playing  {
+  .page-01 #player  {
     height: 40vh;
   }
 
-  .page-01 .player.playing .dashboard {
+  .page-01 #player .dashboard {
     width: 40%;
   }
-  .page-01 .player.playing .dashboard h4{
+  .page-01 #player .dashboard h4{
     font-size: 18px;
   }
-  .page-01 .player.playing .dashboard h2 span{
+  .page-01 #player .dashboard h2 span{
     font-size: 20px;
   }
-  .page-01 .player.playing .dashboard .cd-thumb {
+  .page-01 #player .dashboard .cd-thumb {
     width: 55%;
     padding-top: 55%;
   }
-  .page-01 .player.playing .dashboard .control .btn {
+  .page-01 #player .dashboard .control .btn {
     padding: 14px;
     font-size: 18px;
   }
-  .page-01 .player.playing .dashboard .control .btn-toggle-play {
+  .page-01 #player .dashboard .control .btn-toggle-play {
     width: 40px;
     font-size: 14px;
   }
-  .page-01 .player.playing .playlist {
+  .page-01 #player .playlist {
     height: 40vh;
     width: 60%;
   }
-  .page-01 .player.playing .playlist .song {
+  .page-01 #player .playlist .song {
     width: 270px;
     margin: 0 auto;
     height: 6vh;
   }
-  .page-01 .player.playing .playlist .song .thumb {
+  .page-01 #player .playlist .song .thumb {
     width: 35px;
     height: 35px;
   }
-  .page-01 .player.playing .playlist .song .title {
+  .page-01 #player .playlist .song .title {
     font-size: 14px;
   }
-  .page-01 .player.playing .playlist .song .author {
+  .page-01 #player .playlist .song .author {
     display: none;
   }
 }  
@@ -228,58 +229,60 @@
     font-size: 14px;
   }
   /* PlayMusic page */
-  .page-01 .player.playing  {
+  .page-01 #player  {
     height: 30vh;
   }
-  .page-01 .player.playing .dashboard {
+  .page-01 #player .dashboard {
     width: 50%;
+    height: 30vh;
+
   }
-  .page-01 .player.playing .dashboard h4{
+  .page-01 #player .dashboard h4{
     font-size: 12px;
   }
-  .page-01 .player.playing .dashboard h2 span{
+  .page-01 #player .dashboard h2 span{
     font-size: 16px;
   }
-  .page-01 .player.playing .dashboard .cd{
+  .page-01 #player .dashboard .cd{
     width: 100px;
     overflow: 1;
   }
-  .page-01 .player.playing .dashboard .cd-thumb {
+  .page-01 #player .dashboard .cd-thumb {
     width: 25%;
     padding-top: 25%;
     position: relative;
     margin: 0 auto;
   }
-  .page-01 .player.playing .dashboard .control .btn {
+  .page-01 #player .dashboard .control .btn {
     font-size: 14px;
     margin: 0 auto;
   }
-  .page-01 .player.playing .dashboard .control .btn-toggle-play {
+  .page-01 #player .dashboard .control .btn-toggle-play {
     width: 40px;
     font-size: 16px;
   }
-  .page-01 .player.playing .playlist {
+  .page-01 #player .playlist {
     height: 30vh;
     width: 50%;
     padding: 5px 0px;
 
   }
-  .page-01 .player.playing .playlist .song {
+  .page-01 #player .playlist .song {
     width: 200px;
     margin: 0 auto;
     height: 6vh;
   }
-  .page-01 .player.playing .playlist .song .thumb {
+  .page-01 #player .playlist .song .thumb {
     width: 25px;
     height: 25px;
   }
-  .page-01 .player.playing .playlist .song .title {
+  .page-01 #player .playlist .song .title {
     font-size: 14px;
   }
-  .page-01 .player.playing .playlist .song .author {
+  .page-01 #player .playlist .song .author {
     display: none;
   }
-  .page-01 .player.playing .playlist .song .option {
+  .page-01 #player .playlist .song .option {
     display: none;
   }
 }  
@@ -299,65 +302,66 @@
     left: 0;
   }
 
+
   /* PlayMusic page */
-  .page-01 .player.playing  {
+  .page-01 #player  {
     height: 20vh;
   }
 
-  .page-01 .player.playing .dashboard {
+  .page-01 #player .dashboard {
     width: 50%;
+    height: 20vh;
   }
-  .page-01 .player.playing .dashboard h4{
+  .page-01 #player .dashboard h4{
     font-size: 12px;
   }
-  .page-01 .player.playing .dashboard h2 span{
+  .page-01 #player .dashboard h2 span{
     font-size: 16px;
   }
-  .page-01 .player.playing .dashboard .cd{
+  .page-01 #player .dashboard .cd{
     display: none;
   }
-  .page-01 .player.playing .dashboard .control {
+  .page-01 #player .dashboard .control {
     padding: 0;
   }
-  .page-01 .player.playing .dashboard .control .btn {
+  .page-01 #player .dashboard .control .btn {
     padding: 10px;
     font-size: 16px;
     margin:  auto;
   }
-  .page-01 .player.playing .dashboard .control .btn-toggle-play {
+  .page-01 #player .dashboard .control .btn-toggle-play {
     width: 30px;
     font-size: 12px;
   }
-  .page-01 .player.playing .dashboard .progress {
+  .page-01 #player .dashboard .progress {
     width: 90%;
     left: 6%;
     position: relative;
   }
-  .page-01 .player.playing .playlist {
+  .page-01 #player .playlist {
     height: 20vh;
     width: 50%;
     padding: 0;
   }
-  .page-01 .player.playing .playlist .song {
+  .page-01 #player .playlist .song {
     width: 200px;
     margin: 0 auto;
     height: 6vh;
     padding: 0;
   }
-  .page-01 .player.playing .playlist .song .thumb {
+  .page-01 #player .playlist .song .thumb {
     width: 25px;
     height: 25px;
   }
-  .page-01 .player.playing .playlist .song .title {
+  .page-01 #player .playlist .song .title {
     font-size: 14px;
   }
-  .page-01 .player.playing .playlist .song .author {
+  .page-01 #player .playlist .song .author {
     display: none;
   }
-  .page-01 .player.playing .playlist .song .option {
+  .page-01 #player .playlist .song .option {
     display: none;
   }
-
   /* Section Treding */
   .section__treding h2 {
     font-size: 20px;
