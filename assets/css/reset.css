@@ -21,7 +21,6 @@ figure {
 ul, li {
   list-style: none;
   font-size: 20px;
-
 }
 
 h1,
@@ -42,11 +41,13 @@ hr {
 /*========== A / LINK */
 a {
   text-decoration: none;
-  /* color: var(--color-main); */
 }
 
 a:hover {
   color: var(--color-main);
+}
+a:active, a:focus {
+  outline: none;
 }
 
 /*========== SELECTION */
@@ -55,22 +56,3 @@ a:hover {
   color: var(--color-black);
 }
 
-/*========== SCROLLBAR */
-::-webkit-scrollbar {
-  height: 3px;
-  width: 4px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #dddddd;
-  border-radius: 7px;
-}
-
-::-webkit-scrollbar-thumb:hover,
-::-webkit-scrollbar-thumb:active {
-  background-color: var(--color-dark-main);
-}

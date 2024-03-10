@@ -1,5 +1,5 @@
 /* PlayMusic */
-.player {
+#player {
   border-radius: 20px;
   height: 55vh;
   position: sticky;
@@ -7,9 +7,6 @@
   top: 100px;
   max-width: 98%;
   margin: 0 auto;
-}
-
-.player.playing {
   backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
   -webkit-backdrop-filter: blur(5px);
 }
