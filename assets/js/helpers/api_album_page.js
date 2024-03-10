@@ -21,6 +21,7 @@ const nextBtn = $(".btn-next");
 const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
+const notification = $("#noti");
 
 const relatedMusic = $$("#section__trending .card-group-grid");
 
@@ -119,14 +120,37 @@ const app = {
           normalizedArtist.startsWith(searchString)
         );
       });
+      console.log(filteredSongs.length);
       if(filteredSongs.length === 0) {
-        playlist.innerHTML = `<p>Không tìm thấy bài hát nào</p>`;
+        notification.innerHTML = `
+          <h2>No results found for "${e.target.value}"</h2>
+          <p>Please make sure your words are spelled correctly, or use fewer or different keywords</p>
+        `;
+        notification.style.display = "flex";
+      } else {
+        notification.style.display = "none";
+
+        const htmls = filteredSongs.map((song, index) => {
+          return `
+          <div class="song ${index === _this.currentIndex ? "active" : ""}" data-index="${index}">
+            <div class="thumb" style="background-image: url('${song.imagecover ? song.imagecover : ""}')"></div>
+            <div class="body">
+                <h3 class="title">${song.title}</h3>
+                <p class="author">${song.artist}</p>
+            </div>
+            <div class="option">
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+          </div>
+          `;
+        });
+        playlist.innerHTML = htmls.join("");
       }
       console.log(filteredSongs);
       app.songs = filteredSongs;
 
       app.render__one();
-      // play nhạc
+      // play music
       const songNodes = document.querySelectorAll(".song");
       songNodes.forEach((songNode) => {
         songNode.onclick = function () {

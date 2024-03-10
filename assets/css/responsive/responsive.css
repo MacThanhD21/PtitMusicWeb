@@ -251,13 +251,12 @@
     margin: 0 auto;
   }
   .page-01 .player.playing .dashboard .control .btn {
-    padding: 5px;
     font-size: 14px;
     margin: 0 auto;
   }
   .page-01 .player.playing .dashboard .control .btn-toggle-play {
-    width: 20px;
-    font-size: 12px;
+    width: 40px;
+    font-size: 16px;
   }
   .page-01 .player.playing .playlist {
     height: 30vh;
