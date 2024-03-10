@@ -9,37 +9,22 @@
   margin: 0 auto;
 }
 
-/* Định dạng cho phần giao diện chơi nhạc */
-/* Lớp .player có các thuộc tính như bo tròn viền, chiều cao, vị trí cố định, độ ưu tiên z-index, vị trí top, chiều rộng tối đa, và căn giữa theo chiều ngang */
-
 .player.playing {
   backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
   -webkit-backdrop-filter: blur(5px);
 }
 
-/* Định dạng cho phần giao diện chơi nhạc khi đang phát */
-/* Lớp .player.playing có hiệu ứng backdrop-filter làm mờ nền với độ mờ được điều chỉnh, và hiệu ứng tương tự cho trình duyệt Chrome */
-
 .player .fa-stop {
   display: none;
 }
-
-/* Ẩn biểu tượng dừng */
-/* Ẩn biểu tượng dừng trong phần giao diện chơi nhạc */
 
 .player.playing .fa-stop {
   display: inline-block;
 }
 
-/* Hiển thị biểu tượng dừng khi đang phát */
-/* Hiển thị biểu tượng dừng trong phần giao diện chơi nhạc khi đang phát */
-
 .player.playing .fa-play {
   display: none;
 }
-
-/* Ẩn biểu tượng phát */
-/* Ẩn biểu tượng phát trong phần giao diện chơi nhạc khi đang phát */
 
 
 /* Dashboard */
@@ -52,9 +37,6 @@
   height: 55vh;
 }
 
-/* Định dạng cho phần giao diện dashboard */
-/* Lớp .dashboard có hiệu ứng backdrop-filter làm mờ nền với độ mờ được điều chỉnh, và các thuộc tính khác như padding, chiều rộng, vị trí tuyệt đối, vị trí trái, bo tròn viền, và chiều cao */
-
 /* HEADER */
 .header {
   text-align: center;
@@ -63,16 +45,10 @@
   width: 100%;
 }
 
-/* Định dạng cho phần tiêu đề */
-/* Lớp .header có các thuộc tính như căn giữa theo chiều ngang, margin dưới, ẩn tràn nội dung, và chiều rộng 100% */
-
 .header h4 {
   color: var(--primary-color);
   font-size: 18px;
 }
-
-/* Định dạng cho tiêu đề h4 */
-/* Lớp .header h4 có các thuộc tính như màu chữ, kích thước chữ */
 
 .header h2 span{
   color: #F2E394;
@@ -81,9 +57,6 @@
   width: 50%;
   margin: auto;
 }
-
-/* Định dạng cho phần tiêu đề h2 span */
-/* Lớp .header h2 span có các thuộc tính như màu chữ, kích thước chữ, không gian trắng không xuống dòng, chiều rộng tối đa 50%, và căn giữa theo chiều ngang */
 
 @keyframes marquee {
   from {
@@ -95,18 +68,12 @@
   }
 }
 
-/* Định dạng cho hiệu ứng chạy chữ */
-/* Keyframes marquee có hiệu ứng chạy chữ từ phải sang trái và di chuyển về phải để tạo hiệu ứng chạy */
-
 /* CD */
 .cd {
   display: flex;
   margin: auto;
   width: 200px;
 }
-
-/* Định dạng cho phần giao diện CD */
-/* Lớp .cd có các thuộc tính như hiển thị dạng flex, căn giữa theo chiều ngang, và chiều rộng 200px */
 
 .cd-thumb {
   width: 100%;
@@ -115,9 +82,6 @@
   background-size: cover;
   margin: auto;
 }
-
-/* Định dạng cho hình ảnh CD */
-/* Lớp .cd-thumb có các thuộc tính như chiều rộng 100%, padding-top 100% để giữ tỷ lệ hình ảnh, bo tròn viền, kích thước ảnh nền, và căn giữa theo chiều ngang */
 
 /* CONTROL */
 .control {
@@ -129,23 +93,14 @@
   margin: 0 auto;
 }
 
-/* Định dạng cho phần điều khiển */
-/* Lớp .control có các thuộc tính như hiển thị dạng flex, căn giữa theo chiều ngang và chiều dọc, padding, chiều rộng 90%, và căn giữa theo chiều ngang */
-
 .control .btn {
   padding: 18px;
   font-size: 18px;
 }
 
-/* Định dạng cho các nút điều khiển */
-/* Lớp .control .btn có các thuộc tính như padding, kích thước chữ */
-
 .control .btn.active {
   color: var(--color-red);
 }
-
-/* Định dạng cho nút điều khiển đang hoạt động */
-/* Lớp .control .btn.active có thuộc tính màu chữ là màu đỏ */
 
 .control .btn-toggle-play {
   width: 60px;
@@ -158,17 +113,11 @@
   background-color: var(--color-silver);
 }
 
-/* Định dạng cho nút chuyển đổi phát/nghỉ */
-/* Lớp .control .btn-toggle-play có các thuộc tính như chiều rộng 60px, bo tròn viền, kích thước chữ, màu chữ trắng, hiển thị dạng flex, căn giữa theo chiều ngang và chiều dọc, và màu nền là màu bạc */
-
 .progress {
   width: 69%;
   position: relative;
   left: 16%;
 }
-
-/* Định dạng cho thanh tiến độ */
-/* Lớp .progress có các thuộc tính như chiều rộng 69%, vị trí tương đối, và vị trí trái 16% */
 
 .progress::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -179,31 +128,25 @@
   cursor: pointer;
 }
 
-/* Định dạng cho nút kéo trượt trên thanh tiến độ */
-/* Lớp .progress::-webkit-slider-thumb có các thuộc tính như ẩn giao diện mặc định, chiều rộng 12px, chiều cao 6px, màu nền là màu chính, và con trỏ chuột là con trỏ tùy chỉnh */
-
 /* PLAYLIST */
 .playlist {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(5px);
   color: var(--color-white);
   padding: 5px 30px;
-  width: 60.5%;
+  width: 60%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   height: 55vh;
   overflow: auto;
-  right: 0;
+  right: 0px;
   position: absolute;
 }
 
-/* Định dạng cho phần danh sách phát */
-/* Lớp .playlist có các thuộc tính như hiệu ứng backdrop-filter làm mờ nền với độ mờ được điều chỉnh, màu chữ là màu trắng, padding, chiều rộng, hiển thị dạng grid với 2 cột, khoảng cách giữa các cột, chiều cao, hiển thị thanh cuộn khi nội dung vượt quá, vị trí phải 10px, và vị trí tuyệt đối */
-
 .song {
   position: relative;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   align-items: center;
   padding: 8px 16px;
@@ -212,37 +155,22 @@
   height: 10vh;
 }
 
-/* Định dạng cho mỗi bài hát trong danh sách phát */
-/* Lớp .song có các thuộc tính như vị trí tương đối, hiển thị thanh cuộn khi nội dung vượt quá, hiển thị dạng flex, căn giữa theo chiều ngang, padding, bo tròn viền, đổ bóng, và chiều cao 10% của viewport */
-
 .switchMode .song {
   background: #403A3E;
   box-shadow: 5px 5px 3px #BCBCBC;
 }
 
-/* Định dạng cho chế độ chuyển đổi */
-/* Lớp .switchMode .song có các thuộc tính như màu nền là màu xám đậm, đổ bóng, và đổ bóng mờ */
-
 .song.active {
   background: linear-gradient(to right, #9a8478, #1e130c);
 }
-
-/* Định dạng cho bài hát đang phát */
-/* Lớp .song.active có hiệu ứng gradient từ trái sang phải với màu sáng và màu tối */
 
 .song.active .body .h3 {
   color: var(--color-black);
 }
 
-/* Định dạng cho tiêu đề bài hát đang phát */
-/* Lớp .song.active .body .h3 có thuộc tính màu chữ là màu đen */
-
 .song:hover {
   cursor: pointer;
 }
-
-/* Định dạng khi di chuột qua bài hát */
-/* Lớp .song:hover có thuộc tính con trỏ chuột là con trỏ tùy chỉnh */
 
 .song .thumb {
   width: 44px;
@@ -252,18 +180,12 @@
   margin: 0 8px;
 }
 
-/* Định dạng cho hình ảnh bài hát */
-/* Lớp .song .thumb có các thuộc tính như chiều rộng 44px, chiều cao 44px, bo tròn viền, kích thước ảnh nền, và khoảng cách với các phần tử khác */
-
 .song .body {
   flex: 1;
   padding: 0 16px;
   position: relative;
   overflow: hidden;
 }
-
-/* Định dạng cho phần nội dung bài hát */
-/* Lớp .song .body có các thuộc tính như mở rộng theo tỷ lệ, padding, vị trí tương đối, hiển thị thanh cuộn khi nội dung vượt quá */
 
 .song .title {
   font-size: 18px;
@@ -274,31 +196,18 @@
   font-size: 12px;
 }
 
-/* Định dạng cho tiêu đề và tác giả bài hát */
-/* Lớp .song .title có các thuộc tính như kích thước chữ, chiều rộng tối đa 100%, không gian trắng không xuống dòng */
-/* Lớp .song .author có thuộc tính kích thước chữ */
-
 .song .option {
   padding: 16px 8px;
   font-size: 18px;
 }
 
-/* Định dạng cho tùy chọn bài hát */
-/* Lớp .song .option có các thuộc tính như padding, kích thước chữ */
-
 .switchMode .song {
   background: #403A3E;
 }
 
-/* Định dạng cho chế độ chuyển đổi */
-/* Lớp .switchMode .song có thuộc tính màu nền là màu xám đậm */
-
 .song.active .title {
   animation: marquee 6s linear infinite;
 }
-
-/* Định dạng cho tiêu đề bài hát đang phát */
-/* Lớp .song.active .title có hiệu ứng chạy chữ trong 6 giây với tốc độ tuyến tính và lặp vô hạn */
 
 @keyframes marquee {
   0% {
@@ -309,7 +218,6 @@
   }
 }
 
-/* Định dạng cho hiệu ứng chạy chữ */
-/* Keyframes marquee có hiệu ứng chạy chữ từ phải sang trái và di chuyển về phải để tạo hiệu ứng chạy */
+
 
 /* End Player */

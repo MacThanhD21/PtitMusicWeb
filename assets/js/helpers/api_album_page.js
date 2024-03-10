@@ -119,8 +119,12 @@ const app = {
           normalizedArtist.startsWith(searchString)
         );
       });
+      if(filteredSongs.length === 0) {
+        playlist.innerHTML = `<p>Không tìm thấy bài hát nào</p>`;
+      }
       console.log(filteredSongs);
       app.songs = filteredSongs;
+
       app.render__one();
       // play nhạc
       const songNodes = document.querySelectorAll(".song");

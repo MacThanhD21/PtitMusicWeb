@@ -31,8 +31,6 @@ const popularArtistContainer = $("#popular_artists .card-grid-slider");
 let currentIdxAlbum = 0;
 let currentIdxCate = 0;
 
-
-
 // App Object
 const app = {
   // Handle Events
