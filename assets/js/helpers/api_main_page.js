@@ -53,7 +53,7 @@ const app = {
       main.style.width = newWidth;
       main.style.left = newLeft;
       section_music_player.style.left = newLeft;
-      section_music_player.style.transition = "all 0.5s ease-in-out";
+      section_music_player.style.transition = "all .4s ease";
 
       sidebarExpanded = !sidebarExpanded;
     };
