@@ -97,12 +97,20 @@
 /*========== BODY */
 body {
   font-family: var(--font-family);
-  background-color: var(--background-main);
-  line-height: var(--line-height);
+  /* background-color: var(--background-main); */
+  line-height: 20px;
   font-size: var(--font-size-16);
   color: var(--color-main);
   height: 100%;
   padding: 0;
   margin: 0;
   -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
+}
+html.unselectable * {
+  -webkit-user-select: none;
+}
+html:not(.rwos) body {
+  -webkit-overflow-scrolling: touch;
 }

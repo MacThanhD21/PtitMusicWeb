@@ -217,14 +217,6 @@
   color: var(--color-black);
 }
 
-.switchMode .section-music-player>div:nth-child(3) .far:hover {
-  background-color: var(--background-dark-primary-main) !important;
-}
-
-.switchMode .section-music-player>div:nth-child(3) .far:active {
-  background-color: var(--background-dark-secondary-main) !important;
-}
-
 .switchMode .section-music-player .section-music-player-timeline {
   background-color: var(--background-dark-main);
 }

@@ -97,7 +97,7 @@ background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, F
   transition: var(--transition-3s-ease);
   height: 25px;
   width: 50px;
-  left: 50%;
+  left: 48%;
   right: 50%;
   bottom: 60px;
   display: flex;
@@ -122,7 +122,7 @@ background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, F
 }
 
 .section-music-player>div:nth-child(1) h4 {
-  width: 200px;
+  width: 150px;
   line-clamp: 1;
   overflow: hidden;
   font-size: 0.950rem;
@@ -134,7 +134,7 @@ background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, F
 
 .section-music-player>div:nth-child(1) a {
   color: var(--color-silver);
-  width: 200px;
+  width: 150px;
   line-clamp: 1;
   overflow: hidden;
   font-size: var(--font-size-12);
@@ -167,7 +167,7 @@ background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, F
 }
 
 .section-music-player .section-music-player-timeline #timeLineMusicPlayer {
-  width: 100%;
+  width: 85%;
 }
 
 /* SECTION MUSIC PLAYER TIMELINE */

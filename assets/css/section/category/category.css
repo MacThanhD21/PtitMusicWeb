@@ -21,7 +21,10 @@
   transition: var(--transition-3s-ease);
   color: var(--el-color-error-light-9);
 }
+.card-category-vertical-soft-0 {
+  background-color: var(--color-soft-13);
 
+}
 .card-category-vertical-soft-1 {
   background-color: var(--color-soft-1);
 }
