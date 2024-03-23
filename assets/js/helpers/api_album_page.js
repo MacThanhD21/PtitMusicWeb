@@ -26,10 +26,10 @@ const notification = $("#noti");
 const relatedMusic = $$("#section__trending .card-group-grid");
 
 let idx_cur_song = 0;
+let listDataArray;
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-let listDataArray;
 
 async function getSongById(id) {
   return await songs.find((song) => song._id === id);
@@ -539,37 +539,44 @@ const app = {
   },
   loadCurrentSong: function () {
     if (this.currentSong) {
-      // Lấy các phần tử mà bạn muốn lấy giá trị width
-      const headerElement = document.querySelector(".header");
-      const spanElement = document.querySelector("h2#marqueeText span");
-      const h2Element = document.getElementById("marqueeText");
-
-      // Lấy giá trị width thực sự của các phần tử
-      const headerWidth = headerElement.getBoundingClientRect().width;
-      const spanWidth = spanElement.getBoundingClientRect().width;
-      const h2Width = h2Element.getBoundingClientRect().width;
-
-      console.log("Width of header:", headerWidth);
-      console.log("Width of span:", spanWidth);
-      console.log("Width of h2:", h2Width);
-
-      // Xử lý Nếu text dài quá thì cho chạy
-      const header = document.querySelector(".header");
-      const h2 = document.querySelector(".header h2");
-      const span = document.querySelector(".header h2 span");
-
-      console.log(span.offsetWidth);
-      console.log(h2.offsetWidth);
-      console.log("--------------------");
-
-      if (span.offsetWidth > h2.offsetWidth) {
-        h2.style.animation = "marquee 5s linear infinite";
-      } else {
-        h2.style.animation = "none";
-      }
-
       // Xử lý hiển thị ảnh cho background và thông tin hiện tại của bài hát
+      // đẩy bài hát hiện tại lên localStorage
+      localStorage.setItem("currentSong", JSON.stringify(this.currentSong));
+      const roundTime = (time) => {
+        const decimal = time - Math.floor(time); // Get the decimal part of the time
+  
+        // Adjust the time based on the decimal value
+        if (decimal < 0.1) {
+          time += 0.234567; // Add 0.234567 if decimal < 0.1
+        } else if (decimal < 0.2) {
+          time += 0.234567; // Add 0.234567 if decimal < 0.2
+        } else if (decimal < 0.3) {
+          time += 0.234567; // Add 0.234567 if decimal < 0.3
+        } else if (decimal < 0.4) {
+          time += 0.234567; // Add 0.234567 if decimal < 0.4
+        } else if (decimal < 0.5) {
+          time += 0.234567; // Add 0.234567 if decimal < 0.5
+        } else if (decimal < 0.6) {
+          time += 0.234567; // Add 0.234567 if decimal < 0.6
+        } else if (decimal < 0.7) {
+          time += 0.234567; // Add 0.234567 if decimal < 0.7
+        } else if (decimal < 0.8) {
+          time += 0.234567; // Add 0.234567 if decimal < 0.8
+        } else if (decimal < 0.9) {
+          time += 0.234567; // Add 0.234567 if decimal < 0.9
+        }
+        // You can continue this pattern for other decimal ranges
+  
+        return time;
+      };
+  
+      // Inside your component where you handle the audio player
+      audio.addEventListener("timeupdate", (e) => {
+        const currentTime = roundTime(e.target.currentTime);
+        localStorage.setItem("currentSongTime", currentTime);
+      });
 
+      // render information of currentSong
       player.style.cssText = `background: url('${this.currentSong.imagecover}') no-repeat center center; background-size: cover; object-fit: cover;`;
       heading.textContent = this.currentSong.title;
       cdThumb.style.backgroundImage = `url('${this.currentSong.imagecover}')`;

@@ -7,13 +7,6 @@
 //   window.location.href = "login.html"; // Replace 'login.html' with your actual login page URL
 // }
 
-// ## NAVBAR MOBILE
-function navbarMobileToggle() {
-  document
-    .getElementById("navbarMobileToggle")
-    .classList.toggle("navbarMobileToggle");
-}
-
 // DROPDOWN MENU
 document.addEventListener("click", function (event) {
   const dropdown = document.getElementById("dropdownMenu");
@@ -34,20 +27,9 @@ document.addEventListener("click", function (event) {
 
 
 // SWITCH MODE
-function toggleClass(elementId, className) {
-  const element = document.getElementById(elementId);
-  if (element) {
-    element.classList.toggle(className);
-  }
-}
 
 function switchMode() {
   document.body.classList.toggle("switchMode");
-
-  toggleClass("switchModeBtnDark", "switchModeBtnDarkToggle");
-  toggleClass("switchModeBtnLight", "switchModeBtnLightToggle");
-  toggleClass("logoFooterModeLight", "logoFooterModeLightToggle");
-  toggleClass("logoFooterModeDark", "logoFooterModeDarkToggle");
 }
 
 // AVATAR DROPDOWN

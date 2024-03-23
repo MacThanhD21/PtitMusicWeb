@@ -78,24 +78,25 @@
   background-color: var(--color-white);
   position: fixed;
   padding: 20px;
-  height: 70px;
+  height: 100px;
   bottom: 0;
   right: 0;
   left: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   border-radius: 10px 10px 0 0;
+  border: 2px solid red;
 }
 .section-music-player div:nth-child(1) .far {
   background-color: var(--color-white);
   border-radius: var(--border-radius-mmmd);
   transition: var(--transition-3s-ease);
-  height: 25px;
+  height: 40px;
   width: 50px;
   left: 48%;
   right: 50%;
-  bottom: 60px;
+  bottom: 100px;
   display: flex;
   cursor: pointer;
   position: absolute;
@@ -110,38 +111,47 @@
 }
 
 .section-music-player div:nth-child(1) img {
-  border-radius: var(--border-radius-mmmd);
   object-fit: contain;
   margin-right: 10px;
-  height: 50px;
-  width: 50px;
+  /* height: 50px; */
+  width: 70px;
+  border-radius: 100%;
+  animation: rotateImage 10s linear infinite;
+}
+@keyframes rotateImage {
+  /* Rotate the image 360 degrees */
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .section-music-player>div:nth-child(1) h4 {
-  width: 150px;
-  line-clamp: 1;
+  width: 300px;
   overflow: hidden;
-  font-size: 0.950rem;
+  font-size: 24px;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
   transition: var(--transition-3s-ease);
+  margin-bottom: 5px;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow: hidden;
 }
 
 .section-music-player>div:nth-child(1) a {
   color: var(--color-silver);
-  width: 150px;
+  width: 300px;
   line-clamp: 1;
   overflow: hidden;
-  font-size: var(--font-size-12);
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  transition: var(--transition-3s-ease);
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .section-music-player>div:nth-child(1) a:hover {
-  color: var(--background-dark-secondary-main);
+  color: #000000;
 }
 
 .section-music-player>div:nth-child(3) {
@@ -166,53 +176,6 @@
   width: 85%;
 }
 
-/* SECTION MUSIC PLAYER TIMELINE */
-.section-music-player .section-music-player-timeline {
-  background-color: var(--background-thirdly-main);
-  transition: var(--transition-3s-ease);
-  border-radius: var(--border-radius-full);
-  height: 2px;
-  width: 40%;
-  display: flex;
-  align-items: center;
-}
-
-.section-music-player .section-music-player-timeline .section-music-player-timeline-linepoint {
-  background-color: #0000FF;
-  transition: var(--transition-3s-ease);
-  border-radius: var(--border-radius-full);
-  height: 2px;
-  width: 20%;
-  display: flex;
-  align-items: center;
-}
-
-.section-music-player .section-music-player-timeline .section-music-player-timeline-linepoint:hover {
-  transition: var(--transition-3s-ease);
-  cursor: pointer;
-  height: 4px;
-}
-
-.section-music-player .section-music-player-timeline .section-music-player-timeline-linepoint:hover::after {
-  transition: var(--transition-3s-ease);
-  background-color: #0000c4;
-  height: 10px;
-  width: 10px;
-}
-
-.section-music-player .section-music-player-timeline .section-music-player-timeline-linepoint::after {
-  background-color: #0000FF;
-  border-radius: var(--border-radius-full);
-  height: 8px;
-  width: 8px;
-  left: 99%;
-  content: " ";
-  display: flex;
-  cursor: pointer;
-  position: relative;
-  align-self: center;
-  align-items: center;
-}
 
 .likeMusicPlayerToggle {
   color: var(--color-red);
@@ -222,14 +185,6 @@
   bottom: -100px;
 }
 
-.sectionMusicPlayerToggle #collapseMusicPlayerBtn,
-.sectionMusicPlayerToggle #expandMusicPlayerBtn {
-  bottom: 105px;
-  display: flex;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-}
 
 #expandMusicPlayerBtn {
   display: none;
@@ -244,165 +199,7 @@
 }
 
 .page-01 .back-top {
-  bottom: 80px;
-}
-
-/*========== SECTION: FULL PLAYER */
-.fullPlayer {
-  display: flex !important;
-  transition: var(--transition-3s-ease);
-}
-
-.section-full-player .section-full-player-header {
-  position: absolute;
-  padding: 23px;
-  top: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.fullPlayerHeaderDropdown {
-  display: flex !important;
-}
-
-.section-full-player .section-full-player-header .section-full-player-header-dropdown {
-  box-shadow: var(--box-shadow-xlg);
-  background-color: var(--color-white);
-  transition: var(--transition-3s-ease);
-  border-radius: var(--border-radius-mmmd);
-  position: absolute;
-  padding: 10px;
-  right: 30px;
-  top: 65px;
-  display: none;
-  flex-direction: column;
-  animation: a1 0.3s ease;
-}
-
-.section-full-player .section-full-player-header .section-full-player-header-dropdown a {
-  border-radius: var(--border-radius-mmmd);
-  padding: 5px 10px;
-  margin: 1px 0;
-  font-size: 15px;
-  color: var(--background-dark-secondary-main);
-}
-
-.section-full-player .section-full-player-header .section-full-player-header-dropdown a:hover {
-  transition: var(--transition-3s-ease);
-  background-color: var(--background-thirdly-main);
-  color: var(--background-dark-secondary-main);
-}
-
-.section-full-player .section-full-player-header .section-full-player-header-dropdown a:active {
-  transition: var(--transition-3s-ease);
-  background-color: var(--background-primary-main);
-  color: var(--background-dark-secondary-main);
-}
-
-.section-full-player .section-full-player-header .section-full-player-header-dropdown .far {
-  background-color: transparent !important;
-  margin-right: 5px;
-  display: inline;
-  padding: 0;
-}
-
-
-.section-full-player .section-full-player-header .far:hover {
-  transition: var(--transition-3s-ease);
-  background: var(--color-blue);
-  color: var(--color-white);
-}
-
-.section-full-player .section-full-player-header .far:active {
-  transition: var(--transition-3s-ease);
-  background-color: var(--background-primary-main);
-}
-
-.section-full-player .section-full-player-body img {
-  width: 250px;
-  height: 250px;
-  margin-top: 20px;
-  border-radius: var(--border-radius-mmmd);
-  transition: var(--transition-3s-ease);
-  box-shadow: var(--box-shadow-xlg);
-}
-
-.section-full-player .section-full-player-body div {
-  display: flex;
-  margin-top: 5px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.section-full-player .section-full-player-body div .far {
-  cursor: pointer;
-}
-
-.section-full-player .section-full-player-body div div {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.section-full-player .section-full-player-body div h3 {
-  width: 200px;
-  line-clamp: 1;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  transition: var(--transition-3s-ease);
-}
-
-.section-full-player .section-full-player-body div a {
-  width: 200px;
-  line-clamp: 1;
-  overflow: hidden;
-  font-size: var(--font-size-12);
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  transition: var(--transition-3s-ease);
-}
-
-.section-full-player .section-full-player-footer {
-  display: flex;
-  margin-top: 70px;
-  align-items: center;
-  justify-content: center;
-}
-
-.section-full-player .section-full-player-footer .fa-play {
-  height: 55px !important;
-  width: 55px !important;
-}
-
-.section-full-player .section-full-player-footer .far {
-  transition: var(--transition-3s-ease);
-  border-radius: var(--border-radius-mmmd);
-  margin-right: 10px;
-  padding: 8px;
-  height: 45px;
-  width: 45px;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-}
-
-.section-full-player .section-full-player-footer .far:hover {
-  transition: var(--transition-2s-ease);
-  background: var(--color-blue);
-  color: var(--color-white);
-}
-
-.section-full-player .section-full-player-footer .far:active {
-  transition: var(--transition-3s-ease);
-  background-color: var(--background-primary-main);
+  bottom: 100px;
 }
 
 /*========== SECTION: DOWNLOAD */
@@ -537,21 +334,20 @@
 
 /*========== BACK TOP */
 .back-top {
-  width: 45px;
+  width: 50px;
   right: 20px;
-  height: 45px;
-  bottom: 20px;
+  height: 50px;
+  bottom: 100px;
   display: none;
   position: fixed;
   animation: a1 0.5s;
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-lg);
-  background-color: var(--color-soft-10);
-  color: var(--color-white);
+  background-color: #FFF3CD;
 }
 .back-top:hover{
-  background-color: var(--color-blue);
+  background-color: #F2E394;
   transition: var(--transition-3s-ease);
 }
 .back-top-active {

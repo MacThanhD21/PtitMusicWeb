@@ -1,6 +1,6 @@
 import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
-import { artists } from "../data/artists.js"
+import { artists } from "../data/artists.js";
 import { Categories } from "../data/category.js";
 
 const $ = document.querySelector.bind(document);
@@ -8,14 +8,10 @@ const $$ = document.querySelectorAll.bind(document);
 
 // Explore Container
 const exploreContainer = $(".card-grid-slider");
-
 // Render Trending Containere
-
 // Featured Container
-const cardGroupGrids = $$('.card-group-grid');
-
+const cardGroupGrids = $$(".card-group-grid");
 // Render Trending Container
-
 const trendingContainer = $$("#treding_container .card-group-grid");
 
 const songsCount = songs.length;
@@ -23,13 +19,15 @@ let idx_cur_song = 0;
 
 // Genre Container
 const genreContainer = $$("#category .card-grid-slider .card-group-grid");
-
 // Popular Artist Container
 const popularArtistContainer = $("#popular_artists .card-grid-slider");
-
 // Current Index
 let currentIdxAlbum = 0;
 let currentIdxCate = 0;
+
+// Bài hát hiện tại
+
+const musicPlayer = $(".section-music-player");
 
 // App Object
 const app = {
@@ -38,7 +36,9 @@ const app = {
     const sidebar = document.querySelector(".side-bar");
     const toggleBtn1 = document.querySelector(".toggle-btn-1");
     const toggleBtn2 = document.querySelector(".toggle-btn-2");
-    const section_music_player = document.querySelector(".section-music-player");
+    const section_music_player = document.querySelector(
+      ".section-music-player"
+    );
     const main = document.querySelector(".main");
 
     let sidebarExpanded = false;
@@ -47,7 +47,9 @@ const app = {
       sidebar.classList.toggle("active");
       toggleBtn2.classList.toggle("active");
 
-      const newWidth = sidebarExpanded ? "calc(100% - 100px)" : "calc(100% - 250px)";
+      const newWidth = sidebarExpanded
+        ? "calc(100% - 100px)"
+        : "calc(100% - 250px)";
       const newLeft = sidebarExpanded ? "90px" : "260px";
 
       main.style.width = newWidth;
@@ -60,7 +62,6 @@ const app = {
 
     toggleBtn1.addEventListener("click", toggleSidebar);
     toggleBtn2.addEventListener("click", toggleSidebar);
-
   },
   // Render the UI
   render__one: () => {
@@ -250,7 +251,7 @@ const app = {
   },
 
   render__four: () => {
-    currentIdxAlbum
+    currentIdxAlbum;
 
     // Render the Genre Container
     genreContainer.forEach((genre) => {
@@ -259,7 +260,7 @@ const app = {
       if (!cate_1 || !cate_2) {
         return;
       }
-      
+
       const html = `
             <a href="album.html?cateId=${cate_1._id}">
               <div class="card-category-vertical card-category-vertical-soft-${currentIdxCate}">
@@ -268,7 +269,9 @@ const app = {
               </div>
             </a>
             <a href="album.html?cateId=${cate_2._id}">
-              <div class="card-category-vertical card-category-vertical-soft-${currentIdxCate + 1}">
+              <div class="card-category-vertical card-category-vertical-soft-${
+                currentIdxCate + 1
+              }">
                 <h4>${cate_2.Category}</h4>
                 <span class="far fa-play"></span>
               </div>
@@ -276,8 +279,8 @@ const app = {
       `;
       genre.innerHTML += html;
       currentIdxCate += 2;
-    }
-  )},
+    });
+  },
   render__five: () => {
     artists.forEach((artist) => {
       const html = `
@@ -298,8 +301,73 @@ const app = {
       popularArtistContainer.innerHTML += html;
     });
   },
+  playCurrentSong: function () {
+    // Lấy dữ liệu bài hát từ localStorage
+    const currentSongString = localStorage.getItem("currentSong");
+
+    // Lấy thời gian hiện tại của bài hát từ localStorage
+    const currentTime =
+      parseFloat(localStorage.getItem("currentSongTime")) || 0;
+
+    // Kiểm tra xem dữ liệu có tồn tại không
+    if (currentSongString) {
+      // Lấy phần tử chứa music player từ DOM
+      const musicPlayer = document.getElementById("sectionMusicPlayer");
+
+      // Chuyển đổi chuỗi JSON thành đối tượng JavaScript
+      const currentSong = JSON.parse(currentSongString);
+      musicPlayer.style.cssText = `
+        background-image: url(${currentSong.imagecover});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      `;
+
+      // Tạo HTML cho music player dựa trên thông tin của bài hát
+      const html = `
+        <div>
+          <span class="far fa-angle-down" id="collapseMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
+          <span class="far fa-angle-up" id="expandMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
+          <img src="${currentSong.imagecover}" alt="${currentSong.title}" />
+          <div>
+            <h4>${currentSong.title}</h4>
+            <a href="${currentSong.artistLink}">${currentSong.artist}</a>
+          </div>
+        </div>
+        <div class="section-music-player-timeline">
+          <audio src="${currentSong.link}" autoplay controls></audio>
+        </div>
+      `;
+
+      // Gán nội dung HTML vào phần tử music player
+      musicPlayer.innerHTML = html;
+
+      // Đặt thời gian hiện tại của bài hát trong player
+      const audioElement = musicPlayer.querySelector("audio");
+      audioElement.addEventListener("ended", (e) => {
+        // Đặt thời gian hiện tại của bài hát về 0
+        audioElement.currentTime = 0;
+
+        // Phát lại nhạc từ đầu
+        audioElement.play();
+      });
+
+      audioElement.addEventListener("input", (e) => {
+        // Lấy giá trị của thanh tua (vị trí tua hiện tại)
+        const seekTime = parseFloat(e.target.value);
+
+        // Đặt thời gian hiện tại của bài hát tương ứng với vị trí tua mới
+        audioElement.currentTime = seekTime;
+      });
+      audioElement.currentTime = currentTime;
+    } else {
+      // Xử lý trường hợp không tìm thấy dữ liệu trong localStorage
+      console.log("Không tìm thấy bài hát trong localStorage");
+    }
+  },
 
   start: () => {
+    app.playCurrentSong();
     app.handle__BtnToggle();
     app.render__one();
     app.render__two();
