@@ -57,6 +57,17 @@ function getCookie(name) {
   return cookieValue ? cookieValue.pop() : '';
 }
 
+// Lấy giá trị của cookie 'accessToken'
+const accessToken = getCookie('accessToken');
+console.log(accessToken);
+// // Kiểm tra xem accessToken có tồn tại hay không
+// if (accessToken) {
+//   // Nếu có, chuyển hướng người dùng đến trang chính (index.html)
+//   window.location.href = '/index.html';
+// } else {
+//   // Nếu không, chuyển hướng người dùng đến trang đăng nhập (login.html)
+//   window.location.href = '/login.html';
+// }
 
 const usernameInput = $('#username');
 const passwordInput = $('#password');
