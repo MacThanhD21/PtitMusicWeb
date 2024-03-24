@@ -50,6 +50,14 @@ registerLink.addEventListener('click', function (event) {
 // }
 // );
 
+
+// Hàm lấy giá trị của một cookie cụ thể
+function getCookie(name) {
+  const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+  return cookieValue ? cookieValue.pop() : '';
+}
+
+
 const usernameInput = $('#username');
 const passwordInput = $('#password');
 console.log(username, password);

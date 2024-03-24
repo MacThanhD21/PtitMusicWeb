@@ -513,12 +513,16 @@
 
   <script>
     // Kiểm tra xem có cookie chứa token hay không
-    function hasAccessTokenCookie() {
-      return document.cookie.split(';').some(cookie => {
-        return cookie.trim().startsWith('accessToken=');
-      });
+    function getCookie(name) {
+      const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return cookieValue ? cookieValue.pop() : '';
     }
-    const accessToken = hasAccessTokenCookie();
+    
+    // Lấy giá trị của cookie 'accessToken'
+    const accessToken = getCookie('accessToken');
+    console.log(accessToken);
+
+    // Nếu không có token, chuyển hướng người dùng đến trang đăng nhập
     if (!accessToken) {
       window.location.href = '/login.html';
     }
