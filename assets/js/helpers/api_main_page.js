@@ -33,6 +33,7 @@ const musicPlayer = $(".section-music-player");
 
 // App Object
 const app = {
+  isPlaying: false,
   // Handle Events
   handle__BtnToggle: () => {
     const sidebar = document.querySelector(".side-bar");
@@ -315,113 +316,84 @@ const app = {
 
   handleEvents: function () {
     const trendingSection = $("#treding_container");
-    const songItems = $(
+    const songItems = $$(
       "#treding_container .card-group-grid .card-playing-horizontal"
     );
-    const audio = $("#audio");
-    const playBtn = $(".btnHandleMusic .fa-play");
-    const pauseBtn = $(".btnHandleMusic .fa-pause");
-    const likeBtn = $("#likeMusicPlay");
-    const downloadBtn = $(".fa-download");
-
-    // Handle Play Music
-    const handlePlayMusic = () => {
-      audio.play();
-      playBtn.style.display = "none";
-      pauseBtn.style.display = "block";
-    };
-
-    // Handle Pause Music
-    const handlePauseMusic = () => {
-      audio.pause();
-      playBtn.style.display = "block";
-      pauseBtn.style.display = "none";
-    };
-
-    // Handle Like Music
-
-    const handleLikeMusic = () => {
-      likeBtn.style.color = "red";
-    };
-
-    // Handle Download Music
-
-    const handleDownloadMusic = () => {
-      downloadBtn.style.color = "blue";
-    };
-
-    // Handle Events
-
-    playBtn.addEventListener("click", handlePlayMusic);
-    pauseBtn.addEventListener("click", handlePauseMusic);
-    likeBtn.addEventListener("click", handleLikeMusic);
-    downloadBtn.addEventListener("click", handleDownloadMusic);
-
-    // Handle Click Trending Section
-
-    trendingSection.addEventListener("click", (e) => {
-      const target = e.target;
-      const isPlayBtn = target.closest(".fa-play");
-      const isPauseBtn = target.closest(".fa-pause");
-      const isLikeBtn = target.closest("#likeMusicPlay");
-      const isDownloadBtn = target.closest(".fa-download");
-
-      if (isPlayBtn) {
-        handlePlayMusic();
-      }
-
-      if (isPauseBtn) {
-        handlePauseMusic();
-      }
-
-      if (isLikeBtn) {
-        handleLikeMusic();
-      }
-
-      if (isDownloadBtn) {
-        handleDownloadMusic();
-      }
+    const audio = $$("#audio");
+    const btnHandleMusic = $$(".btnHandleMusic");
+    const playBtn = $$(".btnHandleMusic .fa-play");
+    const pauseBtn = $$(".btnHandleMusic .fa-pause");
+    const likeBtn = $$("#likeMusicPlay");
+    const downloadBtn = $$(".fa-download");
+    songItems.forEach((song, index) => {
+      // song.addEventListener("click", () => {
+      //   song.classList.toggle("active");
+      // })
     });
+    songItems.forEach((song, index) => {
+      song.addEventListener("click", () => {
+        // Toggle class "playing" để đánh dấu bài hát đang được phát hoặc dừng
+        song.classList.toggle("playing");
 
-    // Handle Click Song Items
+        // Lấy audio tương ứng với bài hát được click
+        const audioElement = audio[index];
 
-    songItems.forEach((songItem) => {
-      songItem.addEventListener("click", (e) => {
-        const target = e.target;
-        const isPlayBtn = target.closest(".fa-play");
-        const isPauseBtn = target.closest(".fa-pause");
-        const isLikeBtn = target.closest("#likeMusicPlay");
-        const isDownloadBtn = target.closest(".fa-download");
+        // Lấy audio hiện tại đang phát (nếu có)
+        const currentPlayingAudio = document.querySelector(".playing audio");
 
-        if (isPlayBtn) {
-          handlePlayMusic();
+        // Nếu có audio đang phát và không phải là audio mới click
+        if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
+          // Tạm dừng audio đang phát và đặt về thời gian 0
+          currentPlayingAudio.pause();
+          currentPlayingAudio.currentTime = 0;
+
+          // Loại bỏ class "playing" từ phần tử cha của audio đang phát
+          currentPlayingAudio.parentElement.classList.remove("playing");
         }
 
-        if (isPauseBtn) {
-          handlePauseMusic();
-        }
-
-        if (isLikeBtn) {
-          handleLikeMusic();
-        }
-
-        if (isDownloadBtn) {
-          handleDownloadMusic();
+        // Nếu audio mới click đang tạm dừng
+        if (audioElement.paused) {
+          // Phát audio mới click
+          audioElement.play();
+          // Hiển thị nút tạm dừng và ẩn nút phát
+          playBtn[index].style.display = "none";
+          pauseBtn[index].style.display = "inline-block";
+        } else {
+          // Tạm dừng audio mới click
+          audioElement.pause();
+          // Hiển thị nút phát và ẩn nút tạm dừng
+          playBtn[index].style.display = "inline-block";
+          pauseBtn[index].style.display = "none";
         }
       });
     });
 
-    // Handle Click Genre Container
+    // Like Music
 
-    genreContainer.forEach((genre) => {
-      genre.addEventListener("click", (e) => {
-        const target = e.target;
-        const isPlayBtn = target.closest(".fa-play");
-
-        if (isPlayBtn) {
-          handlePlayMusic();
-        }
+    likeBtn.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("active");
       });
+    });
+
+    // Download Music
+
+    downloadBtn.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        alert("Downloading...");
+      });
+    });
+
+    // Show Music Player
+
+    trendingSection.addEventListener("click", () => {
+      musicPlayer.classList.add("active");
+    });
+
+    // Hide Music Player
+
+    musicPlayer.addEventListener("click", () => {
+      musicPlayer.classList.remove("active");
     });
   },
 
