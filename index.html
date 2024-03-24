@@ -532,7 +532,7 @@
 
     // Lắng nghe sự kiện click trên nút logout
     logoutButton.addEventListener('click', function () {
-      if (hasAccessTokenCookie()) {
+      if (accessToken) {
         // Xóa cookie chứa token
         deleteCookie('accessToken');
 
