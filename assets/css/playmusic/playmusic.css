@@ -45,10 +45,13 @@
   font-size: 18px;
   margin-bottom: 10px;
 }
-
+.header h2 {
+  height: 30px;
+}
 .header h2 span{
+  font-family: Niconne, cursive;
   color: #fff;
-  font-size: 24px;
+  font-size: 30px;
   white-space: nowrap;
   width: 50%;
   margin: auto;
@@ -84,8 +87,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 83%;
-  margin: 20px auto;
+  width: 70%;
+  margin: 10px auto;
   border:2px solid #9a8478;
   border-radius: 20px;
   padding: 5px;
@@ -111,10 +114,27 @@
 
 }
 
-.progress {
-  width: 69%;
+.dashboard .progress-music {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+}
+.dashboard .progress-music .progress-bar {
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
   position: relative;
-  left: 16%;
+}
+
+.progress {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-appearance: none;
 }
 
 .progress::-webkit-slider-thumb {
@@ -208,4 +228,4 @@
 }
 
 
-/* End Player */
+

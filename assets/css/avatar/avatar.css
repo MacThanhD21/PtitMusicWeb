@@ -308,3 +308,19 @@
   fill: #f09f33;
   transition: .3s ease;
 }
+
+/* logoutBtn */
+
+.logoutBtn {
+  background: #f09f33;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.logoutBtn:hover {
+  background: #ff0000;
+}

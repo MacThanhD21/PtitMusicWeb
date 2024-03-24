@@ -14,6 +14,8 @@ const cardGroupGrids = $$(".card-group-grid");
 // Render Trending Container
 const trendingContainer = $$("#treding_container .card-group-grid");
 
+// Khai báo tất cả các biến liên quan đến việc chơi nhạc ở trang chính
+
 const songsCount = songs.length;
 let idx_cur_song = 0;
 
@@ -144,6 +146,7 @@ const app = {
                   <span class="far fa-play" onclick=""></span>
                   <span class="far fa-pause" onclick=""></span>
                 </div>
+                <audio src="${song_1.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
                 <a href="album.html"
                   ><img
@@ -183,6 +186,7 @@ const app = {
                 <span class="far fa-play" onclick=""></span>
                 <span class="far fa-pause" onclick=""></span>
               </div>
+              <audio src="${song_2.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
                 <a href="album.html"
                   ><img
@@ -220,6 +224,7 @@ const app = {
                 <span class="far fa-play" onclick=""></span>
                 <span class="far fa-pause" onclick=""></span>
               </div>
+              <audio src="${song_3.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
                 <a href="album.html"
                   ><img
@@ -308,6 +313,118 @@ const app = {
     });
   },
 
+  handleEvents: function () {
+    const trendingSection = $("#treding_container");
+    const songItems = $(
+      "#treding_container .card-group-grid .card-playing-horizontal"
+    );
+    const audio = $("#audio");
+    const playBtn = $(".btnHandleMusic .fa-play");
+    const pauseBtn = $(".btnHandleMusic .fa-pause");
+    const likeBtn = $("#likeMusicPlay");
+    const downloadBtn = $(".fa-download");
+
+    // Handle Play Music
+    const handlePlayMusic = () => {
+      audio.play();
+      playBtn.style.display = "none";
+      pauseBtn.style.display = "block";
+    };
+
+    // Handle Pause Music
+    const handlePauseMusic = () => {
+      audio.pause();
+      playBtn.style.display = "block";
+      pauseBtn.style.display = "none";
+    };
+
+    // Handle Like Music
+
+    const handleLikeMusic = () => {
+      likeBtn.style.color = "red";
+    };
+
+    // Handle Download Music
+
+    const handleDownloadMusic = () => {
+      downloadBtn.style.color = "blue";
+    };
+
+    // Handle Events
+
+    playBtn.addEventListener("click", handlePlayMusic);
+    pauseBtn.addEventListener("click", handlePauseMusic);
+    likeBtn.addEventListener("click", handleLikeMusic);
+    downloadBtn.addEventListener("click", handleDownloadMusic);
+
+    // Handle Click Trending Section
+
+    trendingSection.addEventListener("click", (e) => {
+      const target = e.target;
+      const isPlayBtn = target.closest(".fa-play");
+      const isPauseBtn = target.closest(".fa-pause");
+      const isLikeBtn = target.closest("#likeMusicPlay");
+      const isDownloadBtn = target.closest(".fa-download");
+
+      if (isPlayBtn) {
+        handlePlayMusic();
+      }
+
+      if (isPauseBtn) {
+        handlePauseMusic();
+      }
+
+      if (isLikeBtn) {
+        handleLikeMusic();
+      }
+
+      if (isDownloadBtn) {
+        handleDownloadMusic();
+      }
+    });
+
+    // Handle Click Song Items
+
+    songItems.forEach((songItem) => {
+      songItem.addEventListener("click", (e) => {
+        const target = e.target;
+        const isPlayBtn = target.closest(".fa-play");
+        const isPauseBtn = target.closest(".fa-pause");
+        const isLikeBtn = target.closest("#likeMusicPlay");
+        const isDownloadBtn = target.closest(".fa-download");
+
+        if (isPlayBtn) {
+          handlePlayMusic();
+        }
+
+        if (isPauseBtn) {
+          handlePauseMusic();
+        }
+
+        if (isLikeBtn) {
+          handleLikeMusic();
+        }
+
+        if (isDownloadBtn) {
+          handleDownloadMusic();
+        }
+      });
+    });
+
+    // Handle Click Genre Container
+
+    genreContainer.forEach((genre) => {
+      genre.addEventListener("click", (e) => {
+        const target = e.target;
+        const isPlayBtn = target.closest(".fa-play");
+
+        if (isPlayBtn) {
+          handlePlayMusic();
+        }
+      });
+    });
+  },
+
   start: () => {
     app.handle__BtnToggle();
     app.render__one();
@@ -315,6 +432,7 @@ const app = {
     app.render__three();
     app.render__four();
     app.render__five();
+    app.handleEvents();
   },
 };
 

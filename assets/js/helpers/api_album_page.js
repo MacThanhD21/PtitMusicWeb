@@ -23,7 +23,9 @@ const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
 const notification = $("#noti");
 const navbar = $("#navbarFixed");
-
+const currentTime = $(".currentTime span");
+const remainTime = $(".remainTime span");
+console.log(currentTime, remainTime);
 const relatedMusic = $$("#section__trending .card-group-grid");
 
 let idx_cur_song = 0;

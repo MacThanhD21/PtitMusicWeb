@@ -32,7 +32,7 @@ function playCurrentSong() {
         </div>
       <div class="item__infor">
         <h4>${currentSong.title}</h4>
-        <a href="${currentSong.artistLink}">${currentSong.artist}</a>
+        <a href="artist.html?artistId=${currentSong.artist}">${currentSong.artist}</a>
       </div>
       <div class="section-music-player-timeline">
         <audio src="${currentSong.link}" autoplay controls></audio>

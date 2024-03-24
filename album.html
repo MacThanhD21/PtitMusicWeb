@@ -90,7 +90,7 @@
         <li class="list-item">
           <a href="#">
             <i class="fa-solid fa-robot"></i>
-            <span class="link-name" style="--i: 7"> Music GenAI </span>
+            <span class="link-name" style="--i: 2"> Music GenAI </span>
           </a>
         </li>
       </ul>
@@ -120,7 +120,8 @@
       <ul>
         <a>
           <label class="switch">
-            <input checked ="javascript:void(0)" onclick="switchMode()" class="switch__input" type="checkbox" role="switch">
+            <input checked="javascript:void(0)" onclick="switchMode()" class="switch__input" type="checkbox"
+              role="switch">
             <svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="12px" height="12px"
               aria-hidden="true">
               <g fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round">
@@ -242,15 +243,14 @@
         border-radius: 5px;
         padding: 10px;
         transition: all 0.3s ease;
-    }
-
+      }
     </style>
     <!-- Notification when not songs fined -->
     <div id="noti">
 
     </div>
     <!-- Notification when not songs fined -->
-    
+
     <!-- main player -->
     <div class="player" id="player">
       <!-- Dashboard -->
@@ -287,7 +287,17 @@
             <i class="fa-regular fa-shuffle"></i>
           </div>
         </div>
-        <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" title="Progress">
+        <div class="progress-music">
+          <div class="currentTime">
+            <span>0:00</span> 
+          </div>
+          <div class="progress-bar">
+            <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" title="Progress">
+          </div>
+          <div class="remainTime">
+            <span>0:00</span>
+          </div>
+        </div>
 
         <audio id="audio" src="" autoplay></audio>
       </div>

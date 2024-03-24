@@ -27,47 +27,9 @@
     <title>User</title>
   </head>
   <body id="Top" class="page-02 switchMode">
-    
-    <!-- LOADER -->
-    <div class="loader-warpper" id="loader">
-      <div class="loader">
-        <div
-          aria-label="Orange and tan hamster running in a metal wheel"
-          role="img"
-          class="wheel-and-hamster"
-        >
-          <div class="wheel"></div>
-          <div class="hamster">
-            <div class="hamster__body">
-              <div class="hamster__head">
-                <div class="hamster__ear"></div>
-                <div class="hamster__eye"></div>
-                <div class="hamster__nose"></div>
-              </div>
-              <div class="hamster__limb hamster__limb--fr"></div>
-              <div class="hamster__limb hamster__limb--fl"></div>
-              <div class="hamster__limb hamster__limb--br"></div>
-              <div class="hamster__limb hamster__limb--bl"></div>
-              <div class="hamster__tail"></div>
-            </div>
-          </div>
-          <div class="spoke"></div>
-        </div>
-      </div>
-    </div>
-    <!-- End Loader -->
-
     <!-- NAVBAR -->
     <nav id="navbarFixed">
       <ul>
-        <a
-          href="javascript:void(0)"
-          onclick="navbarMobileToggle()"
-          title="Menu"
-          aria-label="Menu"
-          class="fa-bars-mobile"
-          ><span class="far fa-bars"></span
-        ></a>
         <div class="inner-logo">
           <a href="index.html"
             ><img
@@ -80,65 +42,43 @@
             <span>Ptit Music</span>
           </a>
         </div>
-        <ul id="navbarMobileToggle">
-          <a
-            href="javascript:void(0)"
-            onclick="navbarMobileToggle()"
-            title="Close Menu"
-            aria-label="Close Menu"
-            class="fa-close-mobile"
-          >
-            <span class="far fa-close"></span>
-          </a>
-        </ul>
       </ul>
       <ul>
         <a>
-          <label class="bb8-toggle">
-            <input
-              href="javascript:void(0)"
-              onclick="switchMode()"
-              id="switchModeBtnDark"
-              title="Switch Dark Mode"
-              aria-label="Switch Dark Mode"
-              class="bb8-toggle__checkbox"
-              type="checkbox"
-            />
-            <div class="bb8-toggle__container">
-              <div class="bb8-toggle__scenery">
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="tatto-1"></div>
-                <div class="tatto-2"></div>
-                <div class="gomrassen"></div>
-                <div class="hermes"></div>
-                <div class="chenini"></div>
-                <div class="bb8-toggle__cloud"></div>
-                <div class="bb8-toggle__cloud"></div>
-                <div class="bb8-toggle__cloud"></div>
-              </div>
-              <div class="bb8">
-                <div class="bb8__head-container">
-                  <div class="bb8__antenna"></div>
-                  <div class="bb8__antenna"></div>
-                  <div class="bb8__head"></div>
-                </div>
-                <div class="bb8__body"></div>
-              </div>
-              <div class="artificial__hidden">
-                <div class="bb8__shadow"></div>
-              </div>
-            </div>
+          <label class="switch">
+            <input checked="javascript:void(0)" onclick="switchMode()" class="switch__input" type="checkbox"
+              role="switch">
+            <svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="12px" height="12px"
+              aria-hidden="true">
+              <g fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round">
+                <circle cx="6" cy="6" r="2" />
+                <g stroke-dasharray="1.5 1.5">
+                  <polyline points="6 10,6 11.5" transform="rotate(0,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(45,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(90,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(135,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(180,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(225,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(270,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(315,6,6)" />
+                </g>
+              </g>
+            </svg>
+            <svg class="switch__icon switch__icon--dark" viewBox="0 0 12 12" width="12px" height="12px"
+              aria-hidden="true">
+              <g fill="none" stroke="#fff" stroke-width="1" stroke-linejoin="round" transform="rotate(-45,6,6)">
+                <path
+                  d="m9,10c-2.209,0-4-1.791-4-4s1.791-4,4-4c.304,0,.598.041.883.105-.995-.992-2.367-1.605-3.883-1.605C2.962.5.5,2.962.5,6s2.462,5.5,5.5,5.5c1.516,0,2.888-.613,3.883-1.605-.285.064-.578.105-.883.105Z" />
+              </g>
+            </svg>
+            <span class="switch__sr">Dark Mode</span>
           </label>
         </a>
 
         <a href="javascript:void(0)" id="avatar">
-          <i class="fa-solid fa-user"></i>
+          <div class="container-avatar">
+            <img src="./assets/images/avatar/avatar-1.png" alt="Avatar" />
+          </div>
         </a>
 
         <!-- AVATAR DORPDOWN -->
