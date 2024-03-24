@@ -68,16 +68,9 @@
 }
 
 .switchMode .avatar-dropdown a li {
-  color: var(--color-dark-main);
+  color: var(--color-white);
 }
 
-.switchMode .avatar-dropdown a li:hover {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .avatar-dropdown a li:active {
-  background-color: var(--background-dark-primary-main);
-}
 
 .switchMode .support-chat-mode {
   box-shadow: var(--box-shadow-dark-xlg);
@@ -212,35 +205,6 @@
   border-color: var(--background-dark-primary-main);
 }
 
-.switchMode .section-music-player div:nth-child(1) .far,
-.switchMode .section-music-player>div:nth-child(3) .far {
-  color: var(--color-black);
-}
-
-.switchMode .section-music-player .section-music-player-timeline {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .overlay-section-download {
-  background-color: rgba(0, 0, 0, 0.800);
-}
-
-.switchMode .section-download {
-  background-color: var(--color-black);
-}
-
-.switchMode .section-download .section-download-header .far {
-  color: var(--color-white);
-}
-
-.switchMode .section-download .section-download-header .far:hover {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .section-download .section-download-header .far:active {
-  background-color: var(--background-dark-secondary-main);
-}
-
 
 /* darkMode Player */
 .switchMode .dashboard {
@@ -286,6 +250,4 @@
 
 /* End darkMode Player */
 
-
-/* for Page-02 */
 

@@ -125,7 +125,3 @@ nav ul:nth-child(2) .far:active {
   transition: var(--transition-3s-ease);
 }
 
-.fa-bars-mobile,
-.fa-close-mobile {
-  display: none;
-}

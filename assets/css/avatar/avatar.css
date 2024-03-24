@@ -10,6 +10,23 @@
   cursor: pointer;
   transition: var(--transition-3s-ease);
   animation: a1 0.6s ease;
+  margin-left: 20px;
+}
+
+#avatar .container-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+
+}
+#avatar .container-avatar img {
+  border-radius: var(--border-radius-full);
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+
 }
 /* End Avatar-User */
 
@@ -36,18 +53,24 @@
 
 .avatar-dropdown a li {
   transition: var(--transition-3s-ease);
-  border-radius: var(--border-radius-mmmd);
+  border-radius: 5px;
   animation: a2 0.2s ease;
   padding: 5px 10px;
-  font-size: 15px;
+  font-size: 20px;
   color: var(--background-dark-secondary-main);
   margin: 5px;
 }
 
 .avatar-dropdown a li:hover {
+  background: red;
   transition: var(--transition-3s-ease);
-  background-color: var(--background-thirdly-main);
-  color: var(--color-black);
+  color: #fff;
+}
+
+.switchMode .avatar-dropdown a li:hover {
+  background: #0000FF;
+  transition: var(--transition-3s-ease);
+  color: #fff;
 }
 
 .avatar-dropdown a li:active {

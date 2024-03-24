@@ -16,13 +16,10 @@
 
 /* WebKit (Chrome, Safari) */
 .card-grid-slider::-webkit-scrollbar {
-  width: 10px; /* Set the width of the scrollbar */
-  height: 5px; /* Set the height of the scrollbar */
 }
 
 .card-grid-slider::-webkit-scrollbar-thumb {
-  background-color: #888; /* Color of the thumb */
-  border-radius: 5px; /* Rounded corners of the thumb */
+  display: none;
 }
 
 .card-grid-slider::-webkit-scrollbar-track {

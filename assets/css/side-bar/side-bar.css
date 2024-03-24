@@ -3,65 +3,98 @@
 .side-bar {
   background: -webkit-linear-gradient(to left, #eef2f3, #8e9eab);
   background: linear-gradient(to left, #eef2f3, #8e9eab);
-  position: fixed; /* Vị trí cố định */
-  top: 0; /* Đẩy lên trên */
-  left: 0; /* Đẩy sang trái */
-  width: 80px; /* Chiều rộng */
-  height: 100%; /* Chiều cao */
-  padding: 6px 14px; /* Khoảng cách bên trong */
-  transition: all .4s ease; /* Hiệu ứng chuyển động */
-  border-radius: 0 10px 10px 0; /* Độ cong viền */
-  border-right: 2px solid rgba(255, 255, 255, .2); /* Viền phải */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1); /* Bóng đổ */
-  z-index: 2; /* Lớp z-index */
-  backdrop-filter: blur(20px); /* Hiệu ứng nền mờ */
-  -webkit-backdrop-filter: blur(20px); /* Hiệu ứng nền mờ cho Safari */
-  -moz-backdrop-filter: blur(20px); /* Hiệu ứng nền mờ cho Firefox */
-  -ms-backdrop-filter: blur(20px); /* Hiệu ứng nền mờ cho IE */
+  position: fixed;
+  /* Vị trí cố định */
+  top: 0;
+  /* Đẩy lên trên */
+  left: 0;
+  /* Đẩy sang trái */
+  width: 80px;
+  /* Chiều rộng */
+  height: 100%;
+  /* Chiều cao */
+  padding: 6px 14px;
+  /* Khoảng cách bên trong */
+  transition: all .4s ease;
+  /* Hiệu ứng chuyển động */
+  border-radius: 0 10px 10px 0;
+  /* Độ cong viền */
+  border-right: 2px solid rgba(255, 255, 255, .2);
+  /* Viền phải */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  /* Bóng đổ */
+  z-index: 2;
+  /* Lớp z-index */
+  backdrop-filter: blur(20px);
+  /* Hiệu ứng nền mờ */
+  -webkit-backdrop-filter: blur(20px);
+  /* Hiệu ứng nền mờ cho Safari */
+  -moz-backdrop-filter: blur(20px);
+  /* Hiệu ứng nền mờ cho Firefox */
+  -ms-backdrop-filter: blur(20px);
+  /* Hiệu ứng nền mờ cho IE */
 }
 
 /* Khi có lớp 'active' */
 .side-bar.active {
-  width: 250px; /* Chiều rộng */
+  width: 250px;
+  /* Chiều rộng */
 }
 
 /* Phần section-two */
 .side-bar .section-two {
-  margin-top: 10px; /* Khoảng cách từ trên xuống */
+  margin-top: 10px;
+  /* Khoảng cách từ trên xuống */
 }
 
 /* Menu logo */
 .side-bar .logo-menu {
-  display: flex; /* Hiển thị dạng flex */
-  align-items: center; /* Canh chỉnh theo chiều dọc */
-  width: 100%; /* Chiều rộng */
-  height: 60px; /* Chiều cao */
+  display: flex;
+  /* Hiển thị dạng flex */
+  align-items: center;
+  /* Canh chỉnh theo chiều dọc */
+  width: 100%;
+  /* Chiều rộng */
+  height: 60px;
+  /* Chiều cao */
 
 }
 
 /* Tiêu đề logo */
 .side-bar .logo-menu h2 {
   color: #141523;
-  font-weight: 600; /* Độ đậm */
-  margin-left: 13px; /* Khoảng cách bên trái */
-  pointer-events: none; /* Tắt sự kiện */
-  opacity: 0; /* Mờ */
-  transition: .4s ease; /* Hiệu ứng chuyển động */
+  font-weight: 600;
+  /* Độ đậm */
+  margin-left: 13px;
+  /* Khoảng cách bên trái */
+  pointer-events: none;
+  /* Tắt sự kiện */
+  opacity: 0;
+  /* Mờ */
+  transition: .4s ease;
+  /* Hiệu ứng chuyển động */
 }
 
 /* Logo */
 .side-bar .logo-menu .logo {
-  font-size: 25px; /* Kích thước chữ */
-  pointer-events: none; /* Tắt sự kiện */
-  opacity: 0; /* Mờ */
-  transition: .4s ease; /* Hiệu ứng chuyển động */
+
+  font-size: 35px;
+  pointer-events: none;
+  /* Tắt sự kiện */
+  opacity: 0;
+  /* Mờ */
+  transition: .4s ease;
+  /* Hiệu ứng chuyển động */
 }
 
 /* Logo khi có lớp 'active' */
 .side-bar.active .logo-menu .logo {
-  opacity: 1; /* Hiện */
-  transition-delay: .2s; /* Độ trễ */
+  opacity: 1;
+  /* Hiện */
+  transition-delay: .2s;
+  /* Độ trễ */
 }
+
 .side-bar .logo-menu .toggle-btn-1,
 .side-bar .logo-menu .toggle-btn-2 {
   position: absolute;
@@ -75,76 +108,115 @@
   cursor: pointer;
   transition: .3s;
 }
+
 .side-bar .logo-menu .toggle-btn-1:hover,
 .side-bar .logo-menu .toggle-btn-2:hover {
-  background: #BCBCBC; /* Màu nền */
-  border-radius: 10px; /* Độ cong viền */
+  background: #F0F2F5;
+  /* Màu nền */
+  border-radius: 5px;
+  /* Độ cong viền */
 }
+
+.switchMode .side-bar .logo-menu .toggle-btn-1:hover,
+.side-bar .logo-menu .toggle-btn-2:hover {
+  color: #000;
+
+}
+
 .side-bar .logo-menu .toggle-btn-2 {
-  left: 85%; /* Đẩy sang phải */
-  opacity: 0; /* Ẩn */
+  left: 85%;
+  /* Đẩy sang phải */
+  opacity: 0;
+  /* Ẩn */
 }
 
 .side-bar.active .logo-menu .toggle-btn-1 {
-  left: 85%; /* Chuyển nút thứ nhất ra ngoài */
-  opacity: 0; /* Ẩn nút thứ nhất */
+  left: 85%;
+  /* Chuyển nút thứ nhất ra ngoài */
+  opacity: 0;
+  /* Ẩn nút thứ nhất */
 }
 
 .side-bar.active .logo-menu .toggle-btn-2 {
-  left: 85%; /* Hiển thị nút thứ hai */
-  opacity: 1; /* Hiển thị nút thứ hai */
+  left: 85%;
+  /* Hiển thị nút thứ hai */
+  opacity: 1;
+  /* Hiển thị nút thứ hai */
 }
 
 /* Danh sách */
 .side-bar .list {
-  margin-top: 10px; /* Khoảng cách từ trên xuống */
+  margin-top: 10px;
+  /* Khoảng cách từ trên xuống */
 }
 
 /* Mục trong danh sách */
 .list .list-item {
-  list-style: none; /* Loại bỏ dấu đầu dòng */
-  width: 100%; /* Chiều rộng */
-  height: 50px; /* Chiều cao */
-  margin : 5px 0; /* Khoảng cách */
-  line-height: 50px; /* Chiều cao dòng */
+  list-style: none;
+  /* Loại bỏ dấu đầu dòng */
+  width: 100%;
+  /* Chiều rộng */
+  height: 50px;
+  /* Chiều cao */
+  margin: 5px 0;
+  /* Khoảng cách */
+  line-height: 50px;
+  /* Chiều cao dòng */
 }
 
 /* Liên kết trong mục */
 .list .list-item a {
-  display: flex; /* Hiển thị dạng flex */
-  font-size: 18px; /* Kích thước chữ */
-  text-decoration: none; /* Loại bỏ gạch chân */
-  white-space: nowrap; /* Không xuống dòng */
-  border-radius: 6px; /* Độ cong góc */
+  display: flex;
+  /* Hiển thị dạng flex */
+  font-size: 18px;
+  /* Kích thước chữ */
+  text-decoration: none;
+  /* Loại bỏ gạch chân */
+  white-space: nowrap;
+  /* Không xuống dòng */
+  border-radius: 6px;
+  /* Độ cong góc */
 }
 
 /* Liên kết được chọn hoặc khi rê chuột qua */
 .list .list-item.active a,
 .list .list-item a:hover {
-  background: rgba(255, 255, 255, .2); /* Màu nền */
+  background: rgba(255, 255, 255, .2);
+  /* Màu nền */
 }
 
 /* Biểu tượng trong liên kết */
 .list .list-item a i {
-  min-width: 50px; /* Chiều rộng tối thiểu */
-  height: 50px; /* Chiều cao */
-  line-height: 50px; /* Chiều cao dòng */
-  text-align: center; /* Căn giữa */
+  min-width: 50px;
+  /* Chiều rộng tối thiểu */
+  height: 50px;
+  /* Chiều cao */
+  line-height: 50px;
+  /* Chiều cao dòng */
+  text-align: center;
+  /* Căn giữa */
   color: #103178;
 }
 
 /* Tên liên kết */
 .side-bar .link-name {
   color: #141523;
-  font-weight: 600; /* Độ đậm */
-  opacity: 0; /* Mờ */
-  pointer-events: none; /* Tắt sự kiện */
-  transition: opacity .3s; /* Hiệu ứng chuyển động */
+  font-weight: 600;
+  /* Độ đậm */
+  opacity: 0;
+  /* Mờ */
+  pointer-events: none;
+  /* Tắt sự kiện */
+  transition: opacity .3s;
+  /* Hiệu ứng chuyển động */
 }
 
 /* Tên liên kết khi có lớp 'active' */
 .side-bar.active .link-name {
-  opacity: 1; /* Hiện */
-  pointer-events: auto; /* Bật sự kiện */
-  transition-delay: calc(.1s * var(--i)); /* Độ trễ */
+  opacity: 1;
+  /* Hiện */
+  pointer-events: auto;
+  /* Bật sự kiện */
+  transition-delay: calc(.1s * var(--i));
+  /* Độ trễ */
 }
