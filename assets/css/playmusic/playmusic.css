@@ -1,7 +1,7 @@
 /* PlayMusic */
 #player {
-  border-radius: 20px;
-  height: 55vh;
+  border-radius: 10px;
+  height: 60vh;
   position: sticky;
   z-index: 100;
   top: 100px;
@@ -11,14 +11,12 @@
   -webkit-backdrop-filter: blur(5px);
 }
 
-.player .fa-stop {
+.player .fa-pause{
   display: none;
 }
-
-.player.playing .fa-stop {
+.player.playing .fa-pause {
   display: inline-block;
 }
-
 .player.playing .fa-play {
   display: none;
 }
@@ -31,7 +29,7 @@
   padding: 0 16px;
   width: 40%;
   position: absolute;
-  height: 55vh;
+  height: 60vh;
 }
 
 /* HEADER */
@@ -45,10 +43,11 @@
 .header h4 {
   color: var(--primary-color);
   font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .header h2 span{
-  color: #F2E394;
+  color: #fff;
   font-size: 24px;
   white-space: nowrap;
   width: 50%;
@@ -85,14 +84,17 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 18px 0 8px 0;
-  width: 90%;
-  margin: 0 auto;
+  width: 83%;
+  margin: 20px auto;
+  border:2px solid #9a8478;
+  border-radius: 20px;
+  padding: 5px;
 }
 
 .control .btn {
   padding: 18px;
-  font-size: 18px;
+  font-size: 30px;
+  cursor: pointer;
 }
 
 .control .btn.active {
@@ -100,14 +102,13 @@
 }
 
 .control .btn-toggle-play {
-  width: 60px;
+  width: 70px;
   border-radius: 50%;
-  font-size: 24px;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-silver);
+
 }
 
 .progress {
@@ -135,7 +136,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  height: 55vh;
+  height: 60vh;
   overflow: auto;
   right: 0px;
   position: absolute;
@@ -203,18 +204,8 @@
 }
 
 .song.active .title {
-  animation: marquee 6s linear infinite;
+  animation: 20s linear infinite;
 }
-
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 
 
 /* End Player */

@@ -22,6 +22,7 @@ const randomBtn = $(".btn-random");
 const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
 const notification = $("#noti");
+const navbar = $("#navbarFixed");
 
 const relatedMusic = $$("#section__trending .card-group-grid");
 
@@ -121,7 +122,7 @@ const app = {
         );
       });
       console.log(filteredSongs.length);
-      if(filteredSongs.length === 0) {
+      if (filteredSongs.length === 0) {
         notification.innerHTML = `
           <h2>No results found for "${e.target.value}"</h2>
           <p>Please make sure your words are spelled correctly, or use fewer or different keywords</p>
@@ -132,8 +133,12 @@ const app = {
 
         const htmls = filteredSongs.map((song, index) => {
           return `
-          <div class="song ${index === _this.currentIndex ? "active" : ""}" data-index="${index}">
-            <div class="thumb" style="background-image: url('${song.imagecover ? song.imagecover : ""}')"></div>
+          <div class="song ${
+            index === _this.currentIndex ? "active" : ""
+          }" data-index="${index}">
+            <div class="thumb" style="background-image: url('${
+              song.imagecover ? song.imagecover : ""
+            }')"></div>
             <div class="body">
                 <h3 class="title">${song.title}</h3>
                 <p class="author">${song.artist}</p>
@@ -157,7 +162,7 @@ const app = {
           _this.currentIndex = Number(songNode.dataset.index);
           _this.loadCurrentSong();
 
-          audio.addEventListener('canplaythrough', function () {
+          audio.addEventListener("canplaythrough", function () {
             audio.play();
           });
         };
@@ -175,7 +180,7 @@ const app = {
     // (2/2) Uncomment the line below to use localStorage
     localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
   },
-  
+
   render__one: function () {
     const htmls = this.songs.map((song, index) => {
       return `
@@ -390,12 +395,18 @@ const app = {
     // Xử lý phóng to / thu nhỏ CD
     // Handles CD enlargement / reduction
     document.onscroll = function () {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const newCdWidth = cdWidth - scrollTop;
+      const viewportWidth =
+        window.innerWidth || document.documentElement.clientWidth;
+      if (viewportWidth > 992) {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const newCdWidth = cdWidth - scrollTop;
 
-      // cd.style.height = newCdHeight > 0 ? newCdHeight + "%" : 0;
-      cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
-      cd.style.opacity = newCdWidth / cdWidth;
+        // cd.style.height = newCdHeight > 0 ? newCdHeight + "%" : 0;
+        cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
+        cd.style.opacity = newCdWidth / cdWidth;
+      }
+      navbar.style.cssText = `background: transparent; backdrop-filter: blur(10px); box-shadow: none;`;
+
     };
 
     // Xử lý khi click play
@@ -544,7 +555,7 @@ const app = {
       localStorage.setItem("currentSong", JSON.stringify(this.currentSong));
       const roundTime = (time) => {
         const decimal = time - Math.floor(time); // Get the decimal part of the time
-  
+
         // Adjust the time based on the decimal value
         if (decimal < 0.1) {
           time += 0.234567; // Add 0.234567 if decimal < 0.1
@@ -566,10 +577,10 @@ const app = {
           time += 0.234567; // Add 0.234567 if decimal < 0.9
         }
         // You can continue this pattern for other decimal ranges
-  
+
         return time;
       };
-  
+
       // Inside your component where you handle the audio player
       audio.addEventListener("timeupdate", (e) => {
         const currentTime = roundTime(e.target.currentTime);

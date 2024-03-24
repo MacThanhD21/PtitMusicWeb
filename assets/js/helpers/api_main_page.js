@@ -140,11 +140,11 @@ const app = {
       idx_cur_song += 3;
       const html = `
             <div class="card-playing-horizontal">
-              <figure class="card-playing-horizontal-header">
-                <div>
+                <div class="btnHandleMusic">
                   <span class="far fa-play" onclick=""></span>
                   <span class="far fa-pause" onclick=""></span>
                 </div>
+              <figure class="card-playing-horizontal-header">
                 <a href="album.html"
                   ><img
                     src="${song_1.imagecover}"
@@ -155,7 +155,9 @@ const app = {
                 <h4>
                   <a href="album.html">${song_1.title}</a>
                 </h4>
-                <p><a href="artist.html">${song_1.artist}</a></p>
+                <p>
+                  <a href="artist.html">${song_1.artist}</a>
+                </p>
               </div>
               <div class="card-playing-horizontal-footer">
                 <a
@@ -175,11 +177,13 @@ const app = {
                 ></a>
               </div>
             </div>
+
             <div class="card-playing-horizontal">
-                <figure class="card-playing-horizontal-header">
-                <div>
-                  <span class="far fa-play" onclick=""></span>
-                </div>
+              <div class="btnHandleMusic">
+                <span class="far fa-play" onclick=""></span>
+                <span class="far fa-pause" onclick=""></span>
+              </div>
+              <figure class="card-playing-horizontal-header">
                 <a href="album.html"
                   ><img
                     src="${song_2.imagecover}"
@@ -210,11 +214,13 @@ const app = {
                 ></a>
               </div>
             </div>
+
             <div class="card-playing-horizontal">
-                <figure class="card-playing-horizontal-header">
-                <div>
-                  <span class="far fa-play" onclick=""></span>
-                </div>
+              <div class="btnHandleMusic">
+                <span class="far fa-play" onclick=""></span>
+                <span class="far fa-pause" onclick=""></span>
+              </div>
+              <figure class="card-playing-horizontal-header">
                 <a href="album.html"
                   ><img
                     src="${song_3.imagecover}"

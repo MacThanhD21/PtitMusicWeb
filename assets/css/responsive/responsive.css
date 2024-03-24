@@ -5,33 +5,37 @@
   nav ul:nth-child(1) img {
     height: 40px;
     width: 40px;
-  }  
+  }
 
   .inner-logo span {
-    font-size: 24px;
-  }  
+    font-size: 30px;
+  }
+
   .bb8-toggle__container {
     font-size: 5px;
-  }  
+  }
 
   #avatar {
     font-size: 24px;
-  }  
+  }
+
   nav ul li {
     padding: 0px;
     font-size: 16px;
-  }  
-}  
+  }
+}
 
 @media (max-width: 992px) {
   .page-01 #player {
-    height: 100vh;
+    height: 98vh;
   }
+
   .page-01 #player .dashboard {
     height: 100vh;
     width: 100%;
   }
-  .page-01 #player .playlist{
+
+  .page-01 #player .playlist {
     grid-template-columns: repeat(1, 1fr);
     height: 42vh;
     top: 400px;
@@ -39,50 +43,102 @@
   }
 
 }
+
 @media (max-width: 768px) {
   .inner-logo span {
     display: none;
-  }  
+  }
+
   nav ul:nth-child(1):nth-child(1) {
     left: 5%;
     position: relative;
   }
+
   nav ul:nth-child(1) img {
     height: 50px;
     width: 50px;
   }
-  
+
 }
+
 /* TABLET */
 @media (max-width: 576px) {
+  .side-bar {
+    display: none;
+  }
+
+  #Top .main {
+    width: 100% !important;
+    left: 0;
+  }
+
+  #Top .main .section-music-player {
+    width: 100%;
+    left: 0;
+  }
+
+  #Top .image__slider {
+    margin-bottom: 50px;
+  }
+
+  #Top .main main {
+    transition: var(--transition-3s-ease);
+  }
+
+  #Top .section-music-player>div:nth-child(1) h4,
+  #Top .section-music-player>div:nth-child(1) a {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 90px;
+  }
+  #Top .section-music-player audio {
+    width: 200px;
+    height: 40px;
+  }
+
+  nav #search {
+    width: 50%;
+    padding: 0;
+  }
+
+  nav #search input {
+    transition: var(--transition-3s-ease);
+    font-size: 14px;
+  }
+
   /* Nav Bar */
   nav,
   main {
     transition: var(--transition-3s-ease);
-    padding: 20px 16px;
   }
+
   nav #search {
-    width: 58% ;
+    width: 58%;
   }
-  nav #search input{
+
+  nav #search input {
     transition: var(--transition-3s-ease);
     font-size: 14px;
   }
+
   nav ul:nth-child(1) {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  nav ul:nth-child(1) a img{
-      width: 50px;
-      height: 50px;
+
+  nav ul:nth-child(1) a img {
+    width: 50px;
+    height: 50px;
   }
+
   /* End Nav bar */
 
   /* Image Slider */
   .main .image__slider .image__slider__container {
     height: 35vh;
   }
+
   /* End Image Slider */
   .avatar-dropdown,
   .support-chat-mode {
@@ -99,302 +155,64 @@
     transition: var(--transition-3s-ease);
     font-size: var(--font-size-16);
   }
-
-  /* PlayMusic page */
-  .page-01 #player  {
-    height: 40vh;
-  }
-
-  .page-01 #player .dashboard {
-    width: 40%;
-    height: 40vh;
-  }
-  .page-01 #player .dashboard h4{
-    font-size: 18px;
-  }
-  .page-01 #player .dashboard h2 span{
-    font-size: 20px;
-  }
-  .page-01 #player .dashboard .cd-thumb {
-    width: 55%;
-    padding-top: 55%;
-  }
-  .page-01 #player .dashboard .control .btn {
-    padding: 14px;
-    font-size: 18px;
-  }
-  .page-01 #player .dashboard .control .btn-toggle-play {
-    width: 45px;
-  }
-  .page-01 #player .playlist {
-    height: 40vh;
-    width: 60%;
-  }
-  .page-01 #player .playlist .song {
-    width: 330px;
-    margin: 0 auto;
-    height: 8vh;
-  }
-  .page-01 #player .playlist .song .thumb {
-    width: 35px;
-    height: 35px;
-  }
-  .page-01 #player .playlist .song .title {
-    font-size: 18px;
-  }
-  .page-01 #player .playlist .song .author {
-    display: none;
-  }
 }
 
+
+@media (max-width: 580px) {
+  
+}
 /* Dif Size for Phone */
 @media (max-width: 480px) {
-  nav ul:nth-child(1) a img{
-      width: 40px;
-      height: 40px;
+  nav ul:nth-child(1) a img {
+    width: 40px;
+    height: 40px;
   }
+
   nav #search {
     width: 60%;
-  }  
+  }
+
   nav #search input {
     transition: var(--transition-3s-ease);
     font-size: 14px;
-  }  
+  }
+
   /* End Image Slider */
 
   /* Sections */
   .section-explore {
     margin: 0;
   }
+
   /* End Sections */
-  /* PlayMusic page */
-  .page-01 #player  {
-    height: 40vh;
-  }
-
-  .page-01 #player .dashboard {
-    width: 40%;
-  }
-  .page-01 #player .dashboard h4{
-    font-size: 18px;
-  }
-  .page-01 #player .dashboard h2 span{
-    font-size: 20px;
-  }
-  .page-01 #player .dashboard .cd-thumb {
-    width: 55%;
-    padding-top: 55%;
-  }
-  .page-01 #player .dashboard .control .btn {
-    padding: 14px;
-    font-size: 18px;
-  }
-  .page-01 #player .dashboard .control .btn-toggle-play {
-    width: 40px;
-    font-size: 14px;
-  }
-  .page-01 #player .playlist {
-    height: 40vh;
-    width: 60%;
-  }
-  .page-01 #player .playlist .song {
-    width: 270px;
-    margin: 0 auto;
-    height: 6vh;
-  }
-  .page-01 #player .playlist .song .thumb {
-    width: 35px;
-    height: 35px;
-  }
-  .page-01 #player .playlist .song .title {
-    font-size: 14px;
-  }
-  .page-01 #player .playlist .song .author {
-    display: none;
-  }
-}  
+}
 
 
-@media (max-width: 580px) {
-  .side-bar {
-    display: none;
-  }
-  #Top .main {
-    width: 100% !important;
-    left: 0;
-  }
-  #Top .main .section-music-player {
-    width: 100%;
-    left: 0;
-  }
-  #Top .image__slider {
-    width: 90%;
-    position: relative;
-    margin: 0 auto;
-  }
-  #Top .main main {
-    transition: var(--transition-3s-ease);
-    padding: 60px 32px;
-  }
-  #Top .section-music-player>div:nth-child(1) h4,
-  #Top .section-music-player>div:nth-child(1) a {
-    width: 90px;
-  }
-  .section-music-player .section-music-player-timeline #timeLineMusicPlayer {
-    width: 85%;
-  }
-  nav #search {
-    width: 50%;
-    padding: 0;
-  }
-  nav #search input {
-    transition: var(--transition-3s-ease);
-    font-size: 14px;
-  }
-  
-  /* PlayMusic page */
-  .page-01 #player  {
-    height: 30vh;
-  }
-  .page-01 #player .dashboard {
-    width: 50%;
-    height: 30vh;
-
-  }
-  .page-01 #player .dashboard h4{
-    font-size: 12px;
-  }
-  .page-01 #player .dashboard h2 span{
-    font-size: 16px;
-  }
-  .page-01 #player .dashboard .cd{
-    width: 100px;
-    overflow: 1;
-  }
-  .page-01 #player .dashboard .cd-thumb {
-    width: 25%;
-    padding-top: 25%;
-    position: relative;
-    margin: 0 auto;
-  }
-  .page-01 #player .dashboard .control .btn {
-    font-size: 14px;
-    margin: 0 auto;
-  }
-  .page-01 #player .dashboard .control .btn-toggle-play {
-    width: 40px;
-    font-size: 16px;
-  }
-  .page-01 #player .playlist {
-    height: 30vh;
-    width: 50%;
-    padding: 5px 0px;
-
-  }
-  .page-01 #player .playlist .song {
-    width: 200px;
-    margin: 0 auto;
-    height: 6vh;
-  }
-  .page-01 #player .playlist .song .thumb {
-    width: 25px;
-    height: 25px;
-  }
-  .page-01 #player .playlist .song .title {
-    font-size: 14px;
-  }
-  .page-01 #player .playlist .song .author {
-    display: none;
-  }
-  .page-01 #player .playlist .song .option {
-    display: none;
-  }
-}  
 
 @media (max-width: 490px) {
   nav #search {
     width: 40%;
   }
+
   nav #search .fa-search {
     font-size: 14px;
   }
+
   .page-01 .side-bar {
     display: none;
   }
+
   .page-01 .main {
     width: 100% !important;
     left: 0;
   }
 
-
-  /* PlayMusic page */
-  .page-01 #player  {
-    height: 20vh;
-  }
-
-  .page-01 #player .dashboard {
-    width: 50%;
-    height: 20vh;
-  }
-  .page-01 #player .dashboard h4{
-    font-size: 12px;
-  }
-  .page-01 #player .dashboard h2 span{
-    font-size: 16px;
-  }
-  .page-01 #player .dashboard .cd{
-    display: none;
-  }
-  .page-01 #player .dashboard .control {
-    padding: 0;
-  }
-  .page-01 #player .dashboard .control .btn {
-    padding: 10px;
-    font-size: 16px;
-    margin:  auto;
-  }
-  .page-01 #player .dashboard .control .btn-toggle-play {
-    width: 30px;
-    font-size: 12px;
-  }
-  .page-01 #player .dashboard .progress {
-    width: 90%;
-    left: 6%;
-    position: relative;
-  }
-  .page-01 #player .playlist {
-    height: 20vh;
-    width: 50%;
-    padding: 0;
-  }
-  .page-01 #player .playlist .song {
-    width: 200px;
-    margin: 0 auto;
-    height: 6vh;
-    padding: 0;
-  }
-  .page-01 #player .playlist .song .thumb {
-    width: 25px;
-    height: 25px;
-  }
-  .page-01 #player .playlist .song .title {
-    font-size: 14px;
-  }
-  .page-01 #player .playlist .song .author {
-    display: none;
-  }
-  .page-01 #player .playlist .song .option {
-    display: none;
-  }
   /* Section Treding */
   .section__treding h2 {
     font-size: 20px;
   }
-}  
+}
 
 
 /* MOBILE */
-@media (max-width: 375px) {
-
-}  
-
+@media (max-width: 375px) {}

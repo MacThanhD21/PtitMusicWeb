@@ -41,8 +41,8 @@
 #section__trending {
   margin: 10px auto 0; /* Sử dụng thuộc tính margin để đặt margin-top và giữa */
   position: relative;
-  top: 10px;
-  max-width: 95%;
+  top: 20px;
+  max-width: 98%;
   box-sizing: border-box;
 }
 

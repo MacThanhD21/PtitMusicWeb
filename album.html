@@ -32,8 +32,7 @@
         <i class="fa-solid fa-angles-right toggle-btn-1"></i>
         <i class="fa-solid fa-angles-left toggle-btn-2"></i>
       </div>
-      <!-- Menu -->
-      <ul class="list">
+      <!-- <ul class="list">
         <li class="list-item active">
           <a href="#explore">
             <i class="fa-solid fa-rocket"></i>
@@ -64,7 +63,7 @@
             <span class="link-name" style="--i: 4">Popular Singer</span>
           </a>
         </li>
-      </ul>
+      </ul> -->
     </div>
 
     <!-- Section-two -->
@@ -76,7 +75,7 @@
       </div>
       <!-- Menu -->
       <ul class="list">
-        <li class="list-item">
+        <!-- <li class="list-item">
           <a href="#">
             <i class="fa-solid fa-clock-rotate-left"></i>
             <span class="link-name" style="--i: 5"> Recently Played </span>
@@ -87,7 +86,7 @@
             <i class="fa-solid fa-heart"></i>
             <span class="link-name" style="--i: 6"> Favorite Songs </span>
           </a>
-        </li>
+        </li> -->
         <li class="list-item">
           <a href="#">
             <i class="fa-solid fa-robot"></i>
@@ -103,8 +102,6 @@
     <!-- NAVBAR -->
     <nav id="navbarFixed">
       <ul>
-        <a href="javascript:void(0)" onclick="navbarMobileToggle()" title="Menu" aria-label="Menu"
-          class="fa-bars-mobile"><span class="far fa-bars"></span></a>
         <div class="inner-logo">
           <a href="index.html"><img
               src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
@@ -117,50 +114,45 @@
       </ul>
       <!-- FORM: SEARCH -->
       <div id="search">
-        <span class="far fa-search"></span>
         <input type="search" placeholder="What do you want to play?" aria-placeholder="Search for music"
-          autofocus="true" id=""/>
+          autofocus="true" />
       </div>
       <ul>
         <a>
-          <label class="bb8-toggle">
-            <input href="javascript:void(0)" onclick="switchMode()" id="switchModeBtnDark" title="Switch Dark Mode"
-              aria-label="Switch Dark Mode" class="bb8-toggle__checkbox" type="checkbox" />
-            <div class="bb8-toggle__container">
-              <div class="bb8-toggle__scenery">
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="bb8-toggle__star"></div>
-                <div class="tatto-1"></div>
-                <div class="tatto-2"></div>
-                <div class="gomrassen"></div>
-                <div class="hermes"></div>
-                <div class="chenini"></div>
-                <div class="bb8-toggle__cloud"></div>
-                <div class="bb8-toggle__cloud"></div>
-                <div class="bb8-toggle__cloud"></div>
-              </div>
-              <div class="bb8">
-                <div class="bb8__head-container">
-                  <div class="bb8__antenna"></div>
-                  <div class="bb8__antenna"></div>
-                  <div class="bb8__head"></div>
-                </div>
-                <div class="bb8__body"></div>
-              </div>
-              <div class="artificial__hidden">
-                <div class="bb8__shadow"></div>
-              </div>
-            </div>
+          <label class="switch">
+            <input checked ="javascript:void(0)" onclick="switchMode()" class="switch__input" type="checkbox" role="switch">
+            <svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="12px" height="12px"
+              aria-hidden="true">
+              <g fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round">
+                <circle cx="6" cy="6" r="2" />
+                <g stroke-dasharray="1.5 1.5">
+                  <polyline points="6 10,6 11.5" transform="rotate(0,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(45,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(90,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(135,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(180,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(225,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(270,6,6)" />
+                  <polyline points="6 10,6 11.5" transform="rotate(315,6,6)" />
+                </g>
+              </g>
+            </svg>
+            <svg class="switch__icon switch__icon--dark" viewBox="0 0 12 12" width="12px" height="12px"
+              aria-hidden="true">
+              <g fill="none" stroke="#fff" stroke-width="1" stroke-linejoin="round" transform="rotate(-45,6,6)">
+                <path
+                  d="m9,10c-2.209,0-4-1.791-4-4s1.791-4,4-4c.304,0,.598.041.883.105-.995-.992-2.367-1.605-3.883-1.605C2.962.5.5,2.962.5,6s2.462,5.5,5.5,5.5c1.516,0,2.888-.613,3.883-1.605-.285.064-.578.105-.883.105Z" />
+              </g>
+            </svg>
+            <span class="switch__sr">Dark Mode</span>
           </label>
         </a>
 
+        <!-- User -->
         <a href="javascript:void(0)" id="avatar">
-          <i class="fa-solid fa-user"></i>
+          <div class="container-avatar">
+            <img src="./assets/images/avatar/avatar-1.png" alt="Avatar" />
+          </div>
         </a>
 
         <!-- AVATAR DORPDOWN -->
@@ -278,20 +270,20 @@
         <!-- Control -->
         <div class="control">
           <div class="btn btn-repeat">
-            <i class="fas fa-redo"></i>
+            <i class="fa-regular fa-rotate-right"></i>
           </div>
           <div class="btn btn-prev">
-            <i class="fas fa-step-backward"></i>
+            <i class="fa-regular fa-backward-step"></i>
           </div>
           <div class="btn btn-toggle-play">
-            <i class="fa-solid fa-play"></i>
-            <i class="fa-solid fa-stop"></i>
+            <i class="fa-regular fa-play"></i>
+            <i class="fa-regular fa-pause"></i>
           </div>
           <div class="btn btn-next">
-            <i class="fas fa-step-forward"></i>
+            <i class="fa-regular fa-forward-step"></i>
           </div>
           <div class="btn btn-random">
-            <i class="fas fa-random"></i>
+            <i class="fa-regular fa-shuffle"></i>
           </div>
         </div>
         <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100" title="Progress">
@@ -308,7 +300,6 @@
     <section id="section__trending">
       <div>
         <h2>Related Musics</h2>
-        <p><a href="">See all</a></p>
       </div>
 
       <!-- RELATED MUSIC SLIDER -->
@@ -321,24 +312,6 @@
         <div class="card-group-grid"></div>
       </div>
     </section>
-
-    <!-- #SECTION: DOWNLOAD -->
-    <div class="overlay-section-download" id="download">
-      <section class="section-download">
-        <div class="section-download-header">
-          <h4></h4>
-          <span class="far fa-close" onclick="download()" title="Close" aria-label="Close"></span>
-        </div>
-        <div class="section-download-body">
-          <a href="user.html"><img src="./assets/images/avatar-artists/Hans-Zimmer-400x400.jpg" alt="" /></a>
-          <h3>Say thanks to Ultima Trailer Music</h3>
-          <p>By downloading, you agree to our <a href="">License</a></p>
-          <p>
-            <a href="user.html" class="btn-secondary">Profile</a>
-          </p>
-        </div>
-      </section>
-    </div>
 
     <!-- BACK TOP -->
     <a href="#Top">
