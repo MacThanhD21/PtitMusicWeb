@@ -14,24 +14,22 @@
   max-width: 1600px;
 }
 
+#explore>div:first-child h2 {
+  transition: var(--transition-3s-ease);
+  font-size: 30px;
+}
+
 /* WebKit (Chrome, Safari) */
 .card-grid-slider::-webkit-scrollbar {
+  display: none;
 }
 
 .card-grid-slider::-webkit-scrollbar-thumb {
-  display: none;
 }
 
 .card-grid-slider::-webkit-scrollbar-track {
   background-color: #f1f1f1; /* Color of the track */
 }
-
-/* Firefox */
-.card-grid-slider {
-  scrollbar-color: #888 #f1f1f1; /* thumb color track color */
-  scrollbar-width: thin; /* width of the scrollbar */
-}
-
 /* CARD SIMPLE */
 .card-simple {
   background-color: var(--background-thirdly-main);

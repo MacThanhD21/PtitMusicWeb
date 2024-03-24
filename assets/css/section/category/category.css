@@ -15,7 +15,9 @@
   width: 180px;
   color: var(--background-dark-secondary-main);
 }
-
+.card-category-vertical h2 {
+  font-size: 30px;
+}
 .card-category-vertical:hover {
   background-color: var(--color-soft-9);
   transition: var(--transition-3s-ease);

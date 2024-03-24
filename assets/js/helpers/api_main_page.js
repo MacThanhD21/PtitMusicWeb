@@ -370,6 +370,7 @@ const app = {
         audioElement.currentTime = seekTime;
       });
       audioElement.currentTime = currentTime;
+      audioElement.autoplay = true;
     } else {
       // Lấy ra bài hát đầu tiên trong danh sách bài hát nếu không có bài hát nào đang phát
       const idxRamdom = Math.floor(Math.random() * songs.length);
@@ -410,6 +411,8 @@ const app = {
         audioElement.currentTime = seekTime;
       });
       audioElement.currentTime = currentTime;
+      audioElement.autoplay = true;
+
     }
   },
 

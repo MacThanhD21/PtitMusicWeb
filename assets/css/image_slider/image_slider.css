@@ -2,7 +2,6 @@
 .main .image__slider .image__slider__container {
   align-items: center;
   justify-content: center;
-  height: 35vh;
   margin: 20px 0;
   position: relative;
   top: 30px;
@@ -15,3 +14,11 @@
   z-index: 1;
 }
 /* End Section Image Slider */
+
+.image__slider__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  margin: 10px;
+}

@@ -3,31 +3,9 @@
 .section-trending {
   margin-top: 40px;
 }
-
-.section-trending>div:first-child,
-.section-category>div:first-child,
-.section-popular-artists>div:first-child,
-.section-featured-creators>div:first-child {
-  display: flex;
-  margin-bottom: 10px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.section-trending>div:first-child h2,
-.section-category>div:first-child h2,
-.section-popular-artists>div:first-child h2,
-.section-featured-creators>div:first-child h2 {
+.section-trending>div:first-child h2 {
   transition: var(--transition-3s-ease);
-  font-size: 1.3rem;
-}
-
-.section-trending>div:first-child p a,
-.section-category>div:first-child p a,
-.section-popular-artists>div:first-child p a,
-.section-featured-creators>div:first-child p a {
-  font-size: var(--font-size-14);
-  color: var(--color-silver);
+  font-size: 30px;
 }
 
 /* CARD PLAYING HORIZONTAL */
@@ -122,7 +100,6 @@
 
 .card-playing-horizontal div h4 a:hover {
   transition: var(--transition-3s-ease);
-  color: #0000FF;
 }
 
 .card-playing-horizontal div p a {
@@ -163,6 +140,8 @@
 .btnHandleMusic .fa-pause {
   display: none;
 }
+
+
 .btnHandleMusic:hover {
   cursor: pointer;
 }

@@ -256,12 +256,6 @@
           <div class="image__slider__item">
             <img src="https://i.pinimg.com/564x/c1/ef/6b/c1ef6b80edd6f4a3e38f8d8dedb7fdbb.jpg" alt="" />
           </div>
-          <div class="image__slider__item">
-            <img src="https://i.pinimg.com/736x/96/d9/f1/96d9f1ddb1c0bf2b48dd7032b9a2d27c.jpg" alt="" />
-          </div>
-          <div class="image__slider__item">
-            <img src="https://i.pinimg.com/564x/eb/fa/2b/ebfa2bfefd8361ede6ac891832c4f5f1.jpg" alt="" />
-          </div>
         </div>
 
       </div>
@@ -283,7 +277,6 @@
       <section class="section-featured-creators" id="featured_creators">
         <div>
           <h2>Featured Creators</h2>
-          <p><a href="">See all</a></p>
         </div>
 
         <!-- FEATURED CREATORS SLIDER -->
@@ -322,7 +315,6 @@
       <section class="section-category" id="category">
         <div>
           <h2>Genre</h2>
-          <p><a href="">See all</a></p>
         </div>
 
         <!-- CATEGORY SLIDER -->
@@ -352,7 +344,6 @@
       <section class="section-popular-artists" id="popular_artists">
         <div>
           <h2>Famous Singer</h2>
-          <p><a href="">See all</a></p>
         </div>
 
         <!-- POPULAR ARTISTS SLIDER -->
@@ -387,30 +378,20 @@
 
   <script>
     $('.image__slider__container').slick({
+      arrows: true,
       centerMode: true,
-      centerPadding: '60px',
-      slidesToShow: 3,
+      slidesToShow: 2,
       autoplay: true,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 5000,
       responsive: [
         {
           breakpoint: 768,
           settings: {
-            arrows: false,
+            arrows: true,
             centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
             slidesToShow: 1
           }
-        }
+        },
       ]
     });
   </script>
