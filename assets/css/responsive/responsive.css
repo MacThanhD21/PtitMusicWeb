@@ -1,7 +1,7 @@
 /*========== Responsive ============ */
 
 /* LapTop */
-@media (max-width: 1120px) {
+@media (max-width: 1200px) {
   nav ul:nth-child(1) img {
     height: 40px;
     width: 40px;
@@ -23,27 +23,23 @@
   }  
 }  
 
-@media (max-width: 1024px) {
-  .page-01 .player .dashboard {
-    width: 50%;
+@media (max-width: 992px) {
+  .page-01 #player {
+    height: 100vh;
   }
-  .page-01 #player .dashboard{
-    width: 50%;
-  }
-  .page-01 .player .playlist{
-    grid-template-columns: repeat(1, 1fr);
-    width: 50%;
+  .page-01 #player .dashboard {
+    height: 100vh;
+    width: 100%;
   }
   .page-01 #player .playlist{
     grid-template-columns: repeat(1, 1fr);
-    width: 50%;
+    height: 42vh;
+    top: 400px;
+    width: 100%;
   }
-  .page-01 #player .playlist .song {
-    width: 90%;
-    margin: 0 auto;
-  }
+
 }
-@media (max-width: 925px) {
+@media (max-width: 768px) {
   .inner-logo span {
     display: none;
   }  
@@ -58,7 +54,7 @@
   
 }
 /* TABLET */
-@media (max-width: 860px) {
+@media (max-width: 576px) {
   /* Nav Bar */
   nav,
   main {
@@ -152,7 +148,7 @@
 }
 
 /* Dif Size for Phone */
-@media (max-width: 690px) {
+@media (max-width: 480px) {
   nav ul:nth-child(1) a img{
       width: 40px;
       height: 40px;

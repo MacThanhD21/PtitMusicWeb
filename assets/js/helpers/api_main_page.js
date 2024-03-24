@@ -325,18 +325,22 @@ const app = {
 
       // Tạo HTML cho music player dựa trên thông tin của bài hát
       const html = `
+      <div class="containerPlayer">
         <div>
           <span class="far fa-angle-down" id="collapseMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
           <span class="far fa-angle-up" id="expandMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
-          <img src="${currentSong.imagecover}" alt="${currentSong.title}" />
-          <div>
-            <h4>${currentSong.title}</h4>
-            <a href="${currentSong.artistLink}">${currentSong.artist}</a>
+          <div class="item__image">
+            <img src="${currentSong.imagecover}" alt="${currentSong.title}" />
           </div>
+          </div>
+        <div class="item__infor">
+          <h4>${currentSong.title}</h4>
+          <a href="${currentSong.artistLink}">${currentSong.artist}</a>
         </div>
         <div class="section-music-player-timeline">
           <audio src="${currentSong.link}" autoplay controls></audio>
         </div>
+      </div>
       `;
 
       // Gán nội dung HTML vào phần tử music player
@@ -361,8 +365,45 @@ const app = {
       });
       audioElement.currentTime = currentTime;
     } else {
-      // Xử lý trường hợp không tìm thấy dữ liệu trong localStorage
-      console.log("Không tìm thấy bài hát trong localStorage");
+      // Lấy ra bài hát đầu tiên trong danh sách bài hát nếu không có bài hát nào đang phát
+      const idxRamdom = Math.floor(Math.random() * songs.length);
+      const currentSong = songs[idxRamdom];
+      const musicPlayer = document.getElementById("sectionMusicPlayer");
+      musicPlayer.style.cssText = `
+        background-image: url(${currentSong.imagecover});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      `;
+      const html = `
+      <div class="containerPlayer">
+        <div>
+          <span class="far fa-angle-down" id="collapseMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
+          <span class="far fa-angle-up" id="expandMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
+          <div class="item__image">
+            <img src="${currentSong.imagecover}" alt="${currentSong.title}" />
+          </div>
+          </div>
+        <div class="item__infor">
+          <h4>${currentSong.title}</h4>
+          <a href="${currentSong.artistLink}">${currentSong.artist}</a>
+        </div>
+        <div class="section-music-player-timeline">
+          <audio src="${currentSong.link}" autoplay controls></audio>
+        </div>
+      </div>
+      `;
+      musicPlayer.innerHTML = html;
+      const audioElement = musicPlayer.querySelector("audio");
+      audioElement.addEventListener("ended", (e) => {
+        audioElement.currentTime = 0;
+        audioElement.play();
+      });
+      audioElement.addEventListener("input", (e) => {
+        const seekTime = parseFloat(e.target.value);
+        audioElement.currentTime = seekTime;
+      });
+      audioElement.currentTime = currentTime;
     }
   },
 
