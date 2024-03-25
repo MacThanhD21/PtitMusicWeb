@@ -366,17 +366,14 @@ const app = {
       });
     });
 
-    // Show Music Player
+    // trendingSection.addEventListener("click", () => {
+    //   musicPlayer.classList.add("active");
+    // });
 
-    trendingSection.addEventListener("click", () => {
-      musicPlayer.classList.add("active");
-    });
 
-    // Hide Music Player
-
-    musicPlayer.addEventListener("click", () => {
-      musicPlayer.classList.remove("active");
-    });
+    // musicPlayer.addEventListener("click", () => {
+    //   musicPlayer.classList.remove("active");
+    // });
   },
 
   start: () => {

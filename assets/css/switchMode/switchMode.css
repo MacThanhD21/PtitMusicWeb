@@ -232,7 +232,7 @@
   background: linear-gradient(to left, #434343, #000000);
 }
 .switchMode .side-bar .logo-menu h2 {
-  color: #EF2519;
+  color: var(--color-soft-10);
 }
 
 .switchMode .side-bar .logo-menu .toggle-btn {
@@ -240,7 +240,7 @@
 }
 
 .switchMode .list .list-item a i {
-  color: #EF2519;
+  color: var(--color-soft-10);
 }
 
 .switchMode .side-bar .link-name {

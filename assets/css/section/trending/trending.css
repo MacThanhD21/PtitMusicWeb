@@ -98,6 +98,7 @@
 }
 
 .card-playing-horizontal div p span {
+  cursor: pointer;
   font-size: var(--font-size-16);
   color: var(--color-silver);
   -webkit-box-orient: vertical;

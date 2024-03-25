@@ -62,37 +62,25 @@
 
 /* Tiêu đề logo */
 .side-bar .logo-menu h2 {
-  color: #141523;
+  color: var(--color-black);
   font-weight: 600;
-  /* Độ đậm */
   margin-left: 13px;
-  /* Khoảng cách bên trái */
   pointer-events: none;
-  /* Tắt sự kiện */
   opacity: 0;
-  /* Mờ */
   transition: .4s ease;
-  /* Hiệu ứng chuyển động */
 }
 
 /* Logo */
 .side-bar .logo-menu .logo {
-
   font-size: 35px;
   pointer-events: none;
-  /* Tắt sự kiện */
   opacity: 0;
-  /* Mờ */
   transition: .4s ease;
-  /* Hiệu ứng chuyển động */
 }
 
 /* Logo khi có lớp 'active' */
 .side-bar.active .logo-menu .logo {
   opacity: 1;
-  /* Hiện */
-  transition-delay: .2s;
-  /* Độ trễ */
 }
 
 .side-bar .logo-menu .toggle-btn-1,

@@ -25,6 +25,7 @@ const notification = $("#noti");
 const navbar = $("#navbarFixed");
 const currentTime = $(".currentTime");
 const remainTime = $(".remainTime");
+const songsCount = songs.length;
 
 console.log(currentTime, remainTime);
 
@@ -209,172 +210,184 @@ const app = {
     playlist.innerHTML = htmls.join("");
   },
   render__two: () => {
-    relatedMusic.forEach((trending, index) => {
-      let song_1, song_2, song_3, song_4;
-      if (idx_cur_song < songs.length) {
+    // Render Trending Container
+    relatedMusic.forEach((relateSection) => {
+      let song_1, song_2, song_3, song_4, song_5, song_6;
+      if (idx_cur_song < songsCount) {
         song_1 = songs[idx_cur_song];
-        song_2 =
-          idx_cur_song + 1 < songs.length ? songs[idx_cur_song + 1] : null;
-        song_3 =
-          idx_cur_song + 2 < songs.length ? songs[idx_cur_song + 2] : null;
-        song_4 =
-          idx_cur_song + 3 < songs.length ? songs[idx_cur_song + 3] : null;
-        if (!song_1 || !song_2 || !song_3 || !song_4) {
+        song_2 = idx_cur_song + 1 < songsCount ? songs[idx_cur_song + 1] : null;
+        song_3 = idx_cur_song + 2 < songsCount ? songs[idx_cur_song + 2] : null;
+        song_4 = idx_cur_song + 3 < songsCount ? songs[idx_cur_song + 3] : null;
+        song_5 = idx_cur_song + 4 < songsCount ? songs[idx_cur_song + 4] : null;
+        song_6 = idx_cur_song + 5 < songsCount ? songs[idx_cur_song + 5] : null;
+
+
+        if (!song_1 || !song_2 || !song_3 || !song_4 || !song_5 || !song_6) {
           return;
         }
       }
-      idx_cur_song += 4;
-      const htmls = `
-      <div class="card-playing-horizontal">
-        <figure class="card-playing-horizontal-header">
-          <div>
-            <span class="far fa-play" onclick=""></span>
-          </div>
-          <a href="post.html"
-            ><img
-              src="${song_1.imagecover}"
-              alt=""
-          /></a>
-        </figure>
-        <div class="card-playing-horizontal-body">
-          <h4>
-            <a href="post.html">
-              ${song_1.title}
-            </a>
-          </h4>
-          <p><a href="user.html">${song_1.artist}</a></p>
-        </div>
-        <div class="card-playing-horizontal-footer">
-          <a
-            href="javascript:void(0)"
-            onclick=""
-            title="Like"
-            aria-label="Like"
-            ><span class="far fa-heart"></span
-          ></a>
-          <a
-            href="javascript:void(0)"
-            onclick=""
-            title="Download"
-            aria-label="Download"
-            ><span class="far fa-download"></span
-          ></a>
-        </div>
-      </div>
-      <div class="card-playing-horizontal">
-        <figure class="card-playing-horizontal-header">
-          <div>
-            <span class="far fa-play" onclick=""></span>
-          </div>
-          <a href="post.html"
-            ><img
-              src="${song_2.imagecover}"
-              alt=""
-          /></a>
-        </figure>
-        <div class="card-playing-horizontal-body">
-          <h4>
-            <a href="post.html">
-              ${song_2.title}
-            </a>
-          </h4>
-          <p>
-            <a href="user.html">
-              ${song_2.artist}
-            </a>
-          </p>
-        </div>
-        <div class="card-playing-horizontal-footer">
-          <a
-            href="javascript:void(0)"
-            onclick=""
-            title="Like"
-            aria-label="Like"
-            ><span class="far fa-heart"></span
-          ></a>
-          <a
-            href="javascript:void(0)"
-            onclick=""
-            title="Download"
-            aria-label="Download"
-            ><span class="far fa-download"></span
-          ></a>
-        </div>
-      </div>
-      <div class="card-playing-horizontal">
-        <figure class="card-playing-horizontal-header">
-          <div>
-            <span class="far fa-play" onclick=""></span>
-          </div>
-          <a href="post.html"
-            ><img
-              src="${song_3.imagecover}"
-              alt=""
-          /></a>
-        </figure>
-        <div class="card-playing-horizontal-body">
-          <h4>
-            <a href="post.html">
-              ${song_3.title}
-            </a>
-          </h4>
-          <p><a href="user.html">${song_3.artist}</a></p>
-        </div>
-        <div class="card-playing-horizontal-footer">
-          <a
-            href="javascript:void(0)"
-            onclick=""
-            title="Like"
-            aria-label="Like"
-            ><span class="far fa-heart"></span
-          ></a>
-          <a
-            href="javascript:void(0)"
-            onclick=""
-            title="Download"
-            aria-label="Download"
-            ><span class="far fa-download"></span
-          ></a>
-        </div>
-      </div>
-      <div class="card-playing-horizontal">
-        <figure class="card-playing-horizontal-header">
-          <div>
-            <span class="far fa-play" onclick=""></span>
-          </div>
-          <a href="post.html"
-            ><img
-              src="${song_4.imagecover}"
-              alt=""
-          /></a>
-        </figure>
-        <div class="card-playing-horizontal-body">
-          <h4>
-            <a href="post.html">
-              ${song_4.title}
-            </a>
-          </h4>
-          <p><a href="user.html">${song_4.artist}</a></p>
-        </div>
-        <div class="card-playing-horizontal-footer">
-          <a
-            href="javascript:void(0)"
-            onclick=""
-            title="Like"
-            aria-label="Like"
-            ><span class="far fa-heart"></span
-          ></a>
-          <a
-            href="javascript:void(0)"
-            onclick=""
-            title="Download"
-            aria-label="Download"
-            ><span class="far fa-download"></span
-          ></a>
-        </div>
-      </div>
-      `;
-      trending.innerHTML += htmls;
+      idx_cur_song += 6;
+      const html = `
+            <div class="card-playing-horizontal">
+                <div class="btnHandleMusic">
+                  <span class="far fa-play" onclick=""></span>
+                  <span class="far fa-pause" onclick=""></span>
+                </div>
+                <audio src="${song_1.link}" id="audio"></audio>
+              <figure class="card-playing-horizontal-header">
+                <img src="${song_1.imagecover}" alt="" />
+              </figure>
+              <div class="card-playing-horizontal-body">
+                <h4>
+                  <span>${song_1.title}</span>
+                </h4>
+                <p>
+                  <span>${song_1.artist}</span>
+                </p>
+              </div>
+              <div class="card-playing-horizontal-footer">
+                <div class="btnHandleDif likeMusic">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="btnHandleDif downloadMusic">
+                  <i class="fa-regular fa-download"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-playing-horizontal">
+              <div class="btnHandleMusic">
+                <span class="far fa-play" onclick=""></span>
+                <span class="far fa-pause" onclick=""></span>
+              </div>
+              <audio src="${song_2.link}" id="audio"></audio>
+              <figure class="card-playing-horizontal-header">
+                <img src="${song_2.imagecover}" alt="" />
+              </figure>
+              <div class="card-playing-horizontal-body">
+                <h4>
+                  <span>${song_2.title}</span>
+                </h4>
+                <p>
+                  <span>${song_2.artist}</span>
+                </p>
+              </div>
+              <div class="card-playing-horizontal-footer">
+                <div class="btnHandleDif likeMusic">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="btnHandleDif downloadMusic">
+                  <i class="fa-regular fa-download"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-playing-horizontal">
+              <div class="btnHandleMusic">
+                <span class="far fa-play" onclick=""></span>
+                <span class="far fa-pause" onclick=""></span>
+              </div>
+              <audio src="${song_3.link}" id="audio"></audio>
+              <figure class="card-playing-horizontal-header">
+                <img src="${song_3.imagecover}" alt="" />
+              </figure>
+              <div class="card-playing-horizontal-body">
+                <h4>
+                  <span>${song_3.title}</span>
+                </h4>
+                <p>
+                  <span>${song_3.artist}</span>
+                </p>
+              </div>
+              <div class="card-playing-horizontal-footer">
+                <div class="btnHandleDif likeMusic">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="btnHandleDif downloadMusic">
+                  <i class="fa-regular fa-download"></i>
+                </div>
+              </div>
+            </div>
+            <div class="card-playing-horizontal">
+              <div class="btnHandleMusic">
+                <span class="far fa-play" onclick=""></span>
+                <span class="far fa-pause" onclick=""></span>
+              </div>
+              <audio src="${song_4.link}" id="audio"></audio>
+              <figure class="card-playing-horizontal-header">
+                <img src="${song_4.imagecover}" alt="" />
+              </figure>
+              <div class="card-playing-horizontal-body">
+                <h4>
+                  <span>${song_4.title}</span>
+                </h4>
+                <p>
+                  <span>${song_4.artist}</span>
+                </p>
+              </div>
+              <div class="card-playing-horizontal-footer">
+                <div class="btnHandleDif likeMusic">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="btnHandleDif downloadMusic">
+                  <i class="fa-regular fa-download"></i>
+                </div>
+              </div>
+            </div>
+            <div class="card-playing-horizontal">
+              <div class="btnHandleMusic">
+                <span class="far fa-play" onclick=""></span>
+                <span class="far fa-pause" onclick=""></span>
+              </div>
+              <audio src="${song_5.link}" id="audio"></audio>
+              <figure class="card-playing-horizontal-header">
+                <img src="${song_5.imagecover}" alt="" />
+              </figure>
+              <div class="card-playing-horizontal-body">
+                <h4>
+                  <span>${song_5.title}</span>
+                </h4>
+                <p>
+                  <span>${song_5.artist}</span>
+                </p>
+              </div>
+              <div class="card-playing-horizontal-footer">
+                <div class="btnHandleDif likeMusic">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="btnHandleDif downloadMusic">
+                  <i class="fa-regular fa-download"></i>
+                </div>
+              </div>
+            </div>
+            <div class="card-playing-horizontal">
+              <div class="btnHandleMusic">
+                <span class="far fa-play" onclick=""></span>
+                <span class="far fa-pause" onclick=""></span>
+              </div>
+              <audio src="${song_6.link}" id="audio"></audio>
+              <figure class="card-playing-horizontal-header">
+                <img src="${song_6.imagecover}" alt="" />
+              </figure>
+              <div class="card-playing-horizontal-body">
+                <h4>
+                  <span>${song_6.title}</span>
+                </h4>
+                <p>
+                  <span>${song_6.artist}</span>
+                </p>
+              </div>
+              <div class="card-playing-horizontal-footer">
+                <div class="btnHandleDif likeMusic">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="btnHandleDif downloadMusic">
+                  <i class="fa-regular fa-download"></i>
+                </div>
+              </div>
+            </div>
+            `;
+      relateSection.innerHTML += html;
     });
   },
   defineProperties: function () {
@@ -694,6 +707,82 @@ const app = {
     toggleBtn1.addEventListener("click", toggleSidebar);
     toggleBtn2.addEventListener("click", toggleSidebar);
   },
+  handlePlayMusic: () => {
+    // const trendingSection = $("#treding_container");
+    // const btnHandleMusic = $$(".btnHandleMusic");
+    const songItems = $$(
+      "#section__trending .card-group-grid .card-playing-horizontal"
+    );
+    const audio = $$(".card-playing-horizontal #audio");
+    const playBtn = $$(".btnHandleMusic .fa-play");
+    const pauseBtn = $$(".btnHandleMusic .fa-pause");
+    const likeBtn = $$(".likeMusic");
+    const downloadBtn = $$(".downloadMusic");
+
+    songItems.forEach((song, index) => {
+      song.addEventListener("click", (e) => {
+        console.log(e.target);
+        if (
+          !e.target.classList.contains("fa-heart") &&
+          !e.target.classList.contains("fa-download")
+        ) {
+          const audioElement = audio[index];
+          const currentPlayingAudio = document.querySelector(".playing audio");
+
+          if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
+            currentPlayingAudio.pause();
+            currentPlayingAudio.currentTime = 0;
+            currentPlayingAudio.parentElement.classList.remove("playing");
+            const index = Array.from(audio).indexOf(currentPlayingAudio);
+            playBtn[index].style.display = "inline-block";
+            pauseBtn[index].style.display = "none";
+          }
+
+          song.classList.toggle("playing");
+
+          if (audioElement.paused) {
+            audioElement.play();
+            playBtn[index].style.display = "none";
+            pauseBtn[index].style.display = "inline-block";
+          } else {
+            audioElement.pause();
+            playBtn[index].style.display = "inline-block";
+            pauseBtn[index].style.display = "none";
+          }
+        }
+      });
+    });
+
+    // Like Music
+
+    likeBtn.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("active");
+      });
+    });
+
+    // Download Music
+
+    downloadBtn.forEach((btn, index) => {
+      btn.addEventListener("click", () => {
+        // Tải xuống tệp MP3
+        const audioElement = audio[index];
+        const audioSource = audioElement.src;
+        const downloadLink = document.createElement("a");
+        // gán đường link
+        downloadLink.href = audioSource;
+        // xét thuộc tính cho thẻ a
+        downloadLink.setAttribute("target", "_blank");
+        downloadLink.setAttribute("rel", "noopener noreferrer");
+        downloadLink.setAttribute("download", `${songs[index].title}`);
+        // thêm vào body
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+
+      });
+    });
+  },
   start: function () {
     // Gán cấu hình từ config vào ứng dụng
     // Assign configuration from config to application
@@ -706,14 +795,15 @@ const app = {
     // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
     this.loadCurrentSong();
 
-    // Lắng nghe / xử lý các sự kiện (DOM events)
-    this.handleEvents();
-    this.handle__BtnToggle();
-
+    
     // Render playlist
     this.render__one();
     this.render__two();
-
+    
+    // Lắng nghe / xử lý các sự kiện (DOM events)
+    this.handleEvents();
+    this.handle__BtnToggle();
+    this.handlePlayMusic();
     // Hiển thị trạng thái ban đầu của button repeat & random
     randomBtn.classList.toggle("active", this.isRandom);
     repeatBtn.classList.toggle("active", this.isRepeat);

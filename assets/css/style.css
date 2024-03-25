@@ -98,12 +98,12 @@
   -webkit-backdrop-filter: blur(10px);
 }
 .section-music-player div:nth-child(1) .far {
-  background-color: #555;
+  background-color: var(--color-black);
   color: #fff;
-  border-radius: var(--border-radius-mmmd);
+  border-radius: 10px;
   transition: var(--transition-3s-ease);
   height: 35px;
-  width: 50px;
+  width: 80px;
   left: 48%;
   right: 50%;
   bottom: 100px;
@@ -113,6 +113,11 @@
   align-items: center;
   justify-content: center;
   font-size: 30px;
+  opacity: 0.5;
+}
+.section-music-player div:nth-child(1) .far:hover {
+  opacity: 1;
+
 }
 #collapseMusicPlayerBtn::after {
   content: "";
