@@ -456,36 +456,38 @@ const app = {
     // Khi tiến độ bài hát thay đổi
     // When the song progress changes
     audio.ontimeupdate = function () {
-      // Tính thời gian hiện tại của bài hát
-      // Calculate the current time of the song
+      if (!isNaN(audio.duration)) {
+        // Tính thời gian hiện tại của bài hát
+        // Calculate the current time of the song
 
-      // Calculate the current time of the song in minutes and seconds
-      const currentMinutes = Math.floor(audio.currentTime / 60);
-      const currentSeconds = Math.floor(audio.currentTime % 60);
+        // Calculate the current time of the song in minutes and seconds
+        const currentMinutes = Math.floor(audio.currentTime / 60);
+        const currentSeconds = Math.floor(audio.currentTime % 60);
 
-      // Calculate the remaining time of the song in minutes and seconds
-      const remainMinutes = Math.floor(
-        (audio.duration - audio.currentTime) / 60
-      );
-      const remainSeconds = Math.floor(
-        (audio.duration - audio.currentTime) % 60
-      );
+        // Calculate the remaining time of the song in minutes and seconds
+        const remainMinutes = Math.floor(
+          (audio.duration - audio.currentTime) / 60
+        );
+        const remainSeconds = Math.floor(
+          (audio.duration - audio.currentTime) % 60
+        );
 
-      const curTime = `${currentMinutes}:${
-        currentSeconds < 10 ? "0" : ""
-      }${currentSeconds}`;
-      const remTime = `${remainMinutes}:${
-        remainSeconds < 10 ? "0" : ""
-      }${remainSeconds}`;
+        const curTime = `${currentMinutes}:${
+          currentSeconds < 10 ? "0" : ""
+        }${currentSeconds}`;
+        const remTime = `${remainMinutes}:${
+          remainSeconds < 10 ? "0" : ""
+        }${remainSeconds}`;
 
-      const curTimeHtml = `<span>${curTime}</span>`;
-      const remTimeHtml = `<span>${remTime}</span>`;
+        const curTimeHtml = `<span>${curTime}</span>`;
+        const remTimeHtml = `<span>${remTime}</span>`;
 
-      // Update the HTML content of the current time element
-      currentTime.innerHTML = curTimeHtml;
+        // Update the HTML content of the current time element
+        currentTime.innerHTML = curTimeHtml;
 
-      // Update the HTML content of the remaining time element
-      remainTime.innerHTML = remTimeHtml;
+        // Update the HTML content of the remaining time element
+        remainTime.innerHTML = remTimeHtml;
+      }
 
       if (audio.duration) {
         const progressPercent = Math.floor(

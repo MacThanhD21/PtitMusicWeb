@@ -97,7 +97,7 @@
 .control .btn {
   color: #fff;
   padding: 18px;
-  font-size: 30px;
+  font-size: 26px;
   cursor: pointer;
 }
 
@@ -125,7 +125,7 @@
 .dashboard .progress-music .remainTime{
   user-select: none;
   -webkit-user-select: none;
-  font-size: 14px;
+  font-size: 18px;
   color: #fff;
 }
 .dashboard .progress-music .progress-bar {

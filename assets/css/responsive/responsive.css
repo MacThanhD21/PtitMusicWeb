@@ -27,11 +27,11 @@
 
 @media (max-width: 992px) {
   .page-01 #player {
-    height: 98vh;
+    height: 100vh;
   }
 
   .page-01 #player .dashboard {
-    height: 100vh;
+    height: 60vh;
     width: 100%;
   }
 
@@ -42,6 +42,9 @@
     width: 100%;
   }
 
+  .page-01 #section__trending {
+    display: none;
+  } 
 }
 
 @media (max-width: 768px) {
