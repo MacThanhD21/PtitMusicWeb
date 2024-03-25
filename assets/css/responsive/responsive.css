@@ -28,11 +28,13 @@
 @media (max-width: 992px) {
   .page-01 #player {
     height: 100vh;
+    border-radius: 30px;
   }
 
   .page-01 #player .dashboard {
     height: 60vh;
     width: 100%;
+    border-radius: 30px;
   }
 
   .page-01 #player .playlist {

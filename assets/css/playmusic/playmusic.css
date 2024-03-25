@@ -157,9 +157,9 @@
 
 .progress::-webkit-slider-thumb {
   appearance: none;
-  width: 25px;
-  height: 25px;
-  background: red;
+  width: 30px;
+  height: 30px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><text x="0" y="20" font-size="20">🦝</text></svg>');
   cursor: pointer;
   border-radius: 20%;
 }

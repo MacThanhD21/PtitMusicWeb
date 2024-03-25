@@ -157,28 +157,19 @@ const app = {
               </figure>
               <div class="card-playing-horizontal-body">
                 <h4>
-                  <a href="album.html">${song_1.title}</a>
+                  <span>${song_1.title}</span>
                 </h4>
                 <p>
-                  <a href="artist.html">${song_1.artist}</a>
+                  <span>${song_1.artist}</span>
                 </p>
               </div>
               <div class="card-playing-horizontal-footer">
-                <a
-                  id="likeMusicPlay"
-                  href="javascript:void(0)"
-                  onclick="likeMusicPlay()"
-                  title="Like"
-                  aria-label="Like"
-                  ><span class="far fa-heart"></span
-                ></a>
-                <a
-                  href="javascript:download()"
-                  onclick=""
-                  title="Download"
-                  aria-label="Download"
-                  ><span class="far fa-download"></span
-                ></a>
+                <div class="btnHandleDif likeMusic">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="btnHandleDif downloadMusic">
+                  <i class="fa-regular fa-download"></i>
+                </div>
               </div>
             </div>
 
@@ -197,26 +188,19 @@ const app = {
               </figure>
               <div class="card-playing-horizontal-body">
                 <h4>
-                  <a href="album.html">${song_2.title}</a>
+                  <span>${song_2.title}</span>
                 </h4>
-                <p><a href="artist.html">${song_2.artist}</a></p>
+                <p>
+                  <span>${song_2.artist}</span>
+                </p>
               </div>
               <div class="card-playing-horizontal-footer">
-                <a
-                  id="likeMusicPlay"
-                  href="javascript:void(0)"
-                  onclick=""
-                  title="Like"
-                  aria-label="Like"
-                  ><span class="far fa-heart"></span
-                ></a>
-                <a
-                  href="javascript:download()"
-                  onclick=""
-                  title="Download"
-                  aria-label="Download"
-                  ><span class="far fa-download"></span
-                ></a>
+                <div class="btnHandleDif likeMusic">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="btnHandleDif downloadMusic">
+                  <i class="fa-regular fa-download"></i>
+                </div>
               </div>
             </div>
 
@@ -235,26 +219,19 @@ const app = {
               </figure>
               <div class="card-playing-horizontal-body">
                 <h4>
-                  <a href="album.html">${song_3.title}</a>
+                  <span>${song_3.title}</span>
                 </h4>
-                <p><a href="artist.html">${song_3.artist}</a></p>
+                <p>
+                  <span>${song_3.artist}</span>
+                </p>
               </div>
               <div class="card-playing-horizontal-footer">
-                <a
-                  id="likeMusicPlay"
-                  href="javascript:void(0)"
-                  onclick=""
-                  title="Like"
-                  aria-label="Like"
-                  ><span class="far fa-heart"></span
-                ></a>
-                <a
-                  href="javascript:download()"
-                  onclick=""
-                  title="Download"
-                  aria-label="Download"
-                  ><span class="far fa-download"></span
-                ></a>
+                <div class="btnHandleDif likeMusic">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="btnHandleDif downloadMusic">
+                  <i class="fa-regular fa-download"></i>
+                </div>
               </div>
             </div>
             `;
@@ -323,37 +300,38 @@ const app = {
     const btnHandleMusic = $$(".btnHandleMusic");
     const playBtn = $$(".btnHandleMusic .fa-play");
     const pauseBtn = $$(".btnHandleMusic .fa-pause");
-    const likeBtn = $$("#likeMusicPlay");
-    const downloadBtn = $$(".fa-download");
+    const likeBtn = $$(".likeMusic");
+    const downloadBtn = $$(".downloadMusic");
+
     songItems.forEach((song, index) => {
-      // song.addEventListener("click", () => {
-      //   song.classList.toggle("active");
-      // })
-    });
-    songItems.forEach((song, index) => {
-      song.addEventListener("click", () => {
-        const audioElement = audio[index];
-        const currentPlayingAudio = document.querySelector(".playing audio");
+      song.addEventListener("click", (e) => {
+        if (
+          !e.target.classList.contains("fa-heart") &&
+          !e.target.classList.contains("fa-download")
+        ) {
+          const audioElement = audio[index];
+          const currentPlayingAudio = document.querySelector(".playing audio");
 
-        if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
-          currentPlayingAudio.pause();
-          currentPlayingAudio.currentTime = 0;
-          currentPlayingAudio.parentElement.classList.remove("playing");
-          const index = Array.from(audio).indexOf(currentPlayingAudio);
-          playBtn[index].style.display = "inline-block";
-          pauseBtn[index].style.display = "none";
-        }
+          if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
+            currentPlayingAudio.pause();
+            currentPlayingAudio.currentTime = 0;
+            currentPlayingAudio.parentElement.classList.remove("playing");
+            const index = Array.from(audio).indexOf(currentPlayingAudio);
+            playBtn[index].style.display = "inline-block";
+            pauseBtn[index].style.display = "none";
+          }
 
-        song.classList.toggle("playing");
+          song.classList.toggle("playing");
 
-        if (audioElement.paused) {
-          audioElement.play();
-          playBtn[index].style.display = "none";
-          pauseBtn[index].style.display = "inline-block";
-        } else {
-          audioElement.pause();
-          playBtn[index].style.display = "inline-block";
-          pauseBtn[index].style.display = "none";
+          if (audioElement.paused) {
+            audioElement.play();
+            playBtn[index].style.display = "none";
+            pauseBtn[index].style.display = "inline-block";
+          } else {
+            audioElement.pause();
+            playBtn[index].style.display = "inline-block";
+            pauseBtn[index].style.display = "none";
+          }
         }
       });
     });
@@ -368,9 +346,23 @@ const app = {
 
     // Download Music
 
-    downloadBtn.forEach((btn) => {
+    downloadBtn.forEach((btn, index) => {
       btn.addEventListener("click", () => {
-        alert("Downloading...");
+        // Tải xuống tệp MP3
+        const audioElement = audio[index];
+        const audioSource = audioElement.src;
+        const downloadLink = document.createElement("a");
+        // gán đường link
+        downloadLink.href = audioSource;
+        // xét thuộc tính cho thẻ a
+        downloadLink.setAttribute("target", "_blank");
+        downloadLink.setAttribute("rel", "noopener noreferrer");
+        downloadLink.setAttribute("download", `${songs[index].title}`);
+        // thêm vào body
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+
       });
     });
 

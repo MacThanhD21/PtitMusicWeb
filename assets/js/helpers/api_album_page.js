@@ -582,7 +582,7 @@ const app = {
         behavior: "smooth",
         block: "nearest",
       });
-    }, 300);
+    }, 400);
   },
   loadCurrentSong: function () {
     if (this.currentSong) {

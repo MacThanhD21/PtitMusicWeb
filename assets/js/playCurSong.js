@@ -22,25 +22,24 @@ function playCurrentSong() {
 
     // Tạo HTML cho music player dựa trên thông tin của bài hát
     const html = `
-    <div class="containerPlayer">
-      <div>
-        <span class="far fa-angle-down" id="collapseMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
-        <span class="far fa-angle-up" id="expandMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
-        <div class="item__image">
-          <img src="${currentSong.imagecover}" alt="${currentSong.title}" />
+      <div class="containerPlayer">
+        <div>
+          <span class="far fa-angle-down" id="collapseMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
+          <span class="far fa-angle-up" id="expandMusicPlayerBtn" onclick="collapseMusicPlayer()"></span>
+          <div class="item__image">
+            <img src="${currentSong.imagecover}" alt="${currentSong.title}" />
+          </div>
+          </div>
+        <div class="item__infor">
+          <h4>${currentSong.title}</h4>
+          <a href="artist.html?artistId=${currentSong.artist}">${currentSong.artist}</a>
         </div>
+        <div class="section-music-player-timeline">
+          <audio src="${currentSong.link}" autoplay controls></audio>
         </div>
-      <div class="item__infor">
-        <h4>${currentSong.title}</h4>
-        <a href="artist.html?artistId=${currentSong.artist}">${currentSong.artist}</a>
       </div>
-      <div class="section-music-player-timeline">
-        <audio src="${currentSong.link}" autoplay controls></audio>
-      </div>
-    </div>
     `;
 
-    // Gán nội dung HTML vào phần tử music player
     musicPlayer.innerHTML = html;
 
     // Đặt thời gian hiện tại của bài hát trong player
