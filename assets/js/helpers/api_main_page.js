@@ -332,39 +332,29 @@ const app = {
     });
     songItems.forEach((song, index) => {
       song.addEventListener("click", () => {
-        // Toggle class "playing" để đánh dấu bài hát đang được phát hoặc dừng
-        song.classList.toggle("playing");
+      const audioElement = audio[index];
+      const currentPlayingAudio = document.querySelector(".playing audio");
 
-        // Lấy audio tương ứng với bài hát được click
-        const audioElement = audio[index];
+      if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
+        currentPlayingAudio.pause();
+        currentPlayingAudio.currentTime = 0;
+        currentPlayingAudio.parentElement.classList.remove("playing");
+        const index = Array.from(audio).indexOf(currentPlayingAudio);
+        playBtn[index].style.display = "inline-block";
+        pauseBtn[index].style.display = "none";
+      }
 
-        // Lấy audio hiện tại đang phát (nếu có)
-        const currentPlayingAudio = document.querySelector(".playing audio");
+      song.classList.toggle("playing");
 
-        // Nếu có audio đang phát và không phải là audio mới click
-        if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
-          // Tạm dừng audio đang phát và đặt về thời gian 0
-          currentPlayingAudio.pause();
-          currentPlayingAudio.currentTime = 0;
-
-          // Loại bỏ class "playing" từ phần tử cha của audio đang phát
-          currentPlayingAudio.parentElement.classList.remove("playing");
-        }
-
-        // Nếu audio mới click đang tạm dừng
-        if (audioElement.paused) {
-          // Phát audio mới click
-          audioElement.play();
-          // Hiển thị nút tạm dừng và ẩn nút phát
-          playBtn[index].style.display = "none";
-          pauseBtn[index].style.display = "inline-block";
-        } else {
-          // Tạm dừng audio mới click
-          audioElement.pause();
-          // Hiển thị nút phát và ẩn nút tạm dừng
-          playBtn[index].style.display = "inline-block";
-          pauseBtn[index].style.display = "none";
-        }
+      if (audioElement.paused) {
+        audioElement.play();
+        playBtn[index].style.display = "none";
+        pauseBtn[index].style.display = "inline-block";
+      } else {
+        audioElement.pause();
+        playBtn[index].style.display = "inline-block";
+        pauseBtn[index].style.display = "none";
+      }
       });
     });
 
