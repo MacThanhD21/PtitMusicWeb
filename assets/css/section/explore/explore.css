@@ -13,7 +13,6 @@
   scroll-snap-type: x mandatory;
   max-width: 1600px;
 }
-
 #explore>div:first-child h2 {
   transition: var(--transition-3s-ease);
   font-size: 30px;
@@ -21,7 +20,7 @@
 
 /* WebKit (Chrome, Safari) */
 .card-grid-slider::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
 
 .card-grid-slider::-webkit-scrollbar-thumb {

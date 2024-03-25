@@ -23,9 +23,11 @@ const repeatBtn = $(".btn-repeat");
 const playlist = $(".playlist");
 const notification = $("#noti");
 const navbar = $("#navbarFixed");
-const currentTime = $(".currentTime span");
-const remainTime = $(".remainTime span");
+const currentTime = $(".currentTime");
+const remainTime = $(".remainTime");
+
 console.log(currentTime, remainTime);
+
 const relatedMusic = $$("#section__trending .card-group-grid");
 
 let idx_cur_song = 0;
@@ -408,7 +410,6 @@ const app = {
         cd.style.opacity = newCdWidth / cdWidth;
       }
       navbar.style.cssText = `background: transparent; backdrop-filter: blur(10px); box-shadow: none;`;
-
     };
 
     // Xử lý khi click play
@@ -455,6 +456,37 @@ const app = {
     // Khi tiến độ bài hát thay đổi
     // When the song progress changes
     audio.ontimeupdate = function () {
+      // Tính thời gian hiện tại của bài hát
+      // Calculate the current time of the song
+
+      // Calculate the current time of the song in minutes and seconds
+      const currentMinutes = Math.floor(audio.currentTime / 60);
+      const currentSeconds = Math.floor(audio.currentTime % 60);
+
+      // Calculate the remaining time of the song in minutes and seconds
+      const remainMinutes = Math.floor(
+        (audio.duration - audio.currentTime) / 60
+      );
+      const remainSeconds = Math.floor(
+        (audio.duration - audio.currentTime) % 60
+      );
+
+      const curTime = `${currentMinutes}:${
+        currentSeconds < 10 ? "0" : ""
+      }${currentSeconds}`;
+      const remTime = `${remainMinutes}:${
+        remainSeconds < 10 ? "0" : ""
+      }${remainSeconds}`;
+
+      const curTimeHtml = `<span>${curTime}</span>`;
+      const remTimeHtml = `<span>${remTime}</span>`;
+
+      // Update the HTML content of the current time element
+      currentTime.innerHTML = curTimeHtml;
+
+      // Update the HTML content of the remaining time element
+      remainTime.innerHTML = remTimeHtml;
+
       if (audio.duration) {
         const progressPercent = Math.floor(
           (audio.currentTime / audio.duration) * 100

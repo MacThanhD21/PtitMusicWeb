@@ -332,29 +332,29 @@ const app = {
     });
     songItems.forEach((song, index) => {
       song.addEventListener("click", () => {
-      const audioElement = audio[index];
-      const currentPlayingAudio = document.querySelector(".playing audio");
+        const audioElement = audio[index];
+        const currentPlayingAudio = document.querySelector(".playing audio");
 
-      if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
-        currentPlayingAudio.pause();
-        currentPlayingAudio.currentTime = 0;
-        currentPlayingAudio.parentElement.classList.remove("playing");
-        const index = Array.from(audio).indexOf(currentPlayingAudio);
-        playBtn[index].style.display = "inline-block";
-        pauseBtn[index].style.display = "none";
-      }
+        if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
+          currentPlayingAudio.pause();
+          currentPlayingAudio.currentTime = 0;
+          currentPlayingAudio.parentElement.classList.remove("playing");
+          const index = Array.from(audio).indexOf(currentPlayingAudio);
+          playBtn[index].style.display = "inline-block";
+          pauseBtn[index].style.display = "none";
+        }
 
-      song.classList.toggle("playing");
+        song.classList.toggle("playing");
 
-      if (audioElement.paused) {
-        audioElement.play();
-        playBtn[index].style.display = "none";
-        pauseBtn[index].style.display = "inline-block";
-      } else {
-        audioElement.pause();
-        playBtn[index].style.display = "inline-block";
-        pauseBtn[index].style.display = "none";
-      }
+        if (audioElement.paused) {
+          audioElement.play();
+          playBtn[index].style.display = "none";
+          pauseBtn[index].style.display = "inline-block";
+        } else {
+          audioElement.pause();
+          playBtn[index].style.display = "inline-block";
+          pauseBtn[index].style.display = "none";
+        }
       });
     });
 
