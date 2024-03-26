@@ -149,6 +149,10 @@
   border-radius: 100%;
   animation: rotateImage 10s linear infinite;
 }
+
+.section-music-player .containerPlayer .section-music-player-timeline audio {
+  width: 1000px;
+}
 @keyframes rotateImage {
   /* Rotate the image 360 degrees */
   from {
