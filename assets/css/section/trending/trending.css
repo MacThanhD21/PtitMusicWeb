@@ -4,7 +4,6 @@
   margin-top: 40px;
 }
 .section-trending>div:first-child h2 {
-  transition: var(--transition-3s-ease);
   font-size: 30px;
 }
 
@@ -24,6 +23,7 @@
 .card-playing-horizontal .card-playing-horizontal-footer {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .card-playing-horizontal .card-playing-horizontal-footer .btnHandleDif {

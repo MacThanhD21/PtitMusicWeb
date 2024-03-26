@@ -14,7 +14,6 @@
   max-width: 1600px;
 }
 #explore>div:first-child h2 {
-  transition: var(--transition-3s-ease);
   font-size: 30px;
 }
 

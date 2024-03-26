@@ -6,7 +6,6 @@
 
 
 #featured_creators>div:first-child h2 {
-  transition: var(--transition-3s-ease);
   font-size: 30px;
 }
 .section-featured-creators .card-simple {

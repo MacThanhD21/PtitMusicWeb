@@ -83,8 +83,13 @@
   background-color: var(--color-soft-14);
 }
 
-.card-category-vertical h4 {
-  font-size: 0.950rem;
+.card-category-vertical-soft-15 {
+  background-color: var(--color-soft-1);
+}
+
+card-category-vertical h4 {
+  font-size: 18px;
+  white-space: nowrap;
 }
 
 .card-category-vertical span {

@@ -98,7 +98,7 @@
 body {
   font-family: var(--font-family);
   /* background-color: var(--background-main); */
-  line-height: 20px;
+  line-height: 26px;
   font-size: var(--font-size-16);
   color: var(--color-main);
   height: 100%;
