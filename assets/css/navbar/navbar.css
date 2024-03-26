@@ -36,11 +36,14 @@ nav #search {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 30%;
   border: 1px solid gray;
   border-radius: 10px;
   flex: 1;
   margin-right: 5%;
+  /* height: 500px; */
+  position: relative;
 }
 
 nav #search input {
@@ -72,6 +75,31 @@ nav #search input:focus {
 nav #search span {
   font-size: 20px;
   margin: 0 10px;
+}
+
+nav #search .result-songs {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 48%;
+  height: 300px;
+  /* background: #fff; */
+  border: 5px solid gray;
+  border-radius: 10px;
+  z-index: 1000;
+  top: 50px;
+}
+nav #search .result-albums {
+  display: none;
+  position: absolute;
+  right: 0;
+  width: 48%;
+  height: 300px;
+  /* background: #fff; */
+  border: 5px solid gray;
+  border-radius: 10px;
+  z-index: 1000;
+  top: 50px;
 }
 
 /* End Search Bar */

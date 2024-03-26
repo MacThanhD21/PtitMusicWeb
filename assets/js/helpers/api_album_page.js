@@ -114,67 +114,77 @@ const app = {
   searchF: function () {
     const _this = this;
 
-    searchInput.addEventListener("keyup", function (e) {
-      const searchString = _this.removeAccents(e.target.value.toLowerCase());
-      console.log(searchString);
+    let timeoutId;
 
-      const filteredSongs = songs.filter((song) => {
-        const normalizedTitle = _this.removeAccents(song.title.toLowerCase());
-        const normalizedArtist = _this.removeAccents(song.artist.toLowerCase());
-        return (
-          normalizedTitle.startsWith(searchString) ||
-          normalizedArtist.startsWith(searchString)
-        );
-      });
-      console.log(filteredSongs.length);
-      if (filteredSongs.length === 0) {
-        notification.innerHTML = `
-          <h2>No results found for "${e.target.value}"</h2>
-          <p>Please make sure your words are spelled correctly, or use fewer or different keywords</p>
-        `;
-        notification.style.display = "flex";
-      } else {
-        notification.style.display = "none";
+    searchInput.addEventListener("input", function (e) {
+      // Xóa bỏ setTimeout trước đó nếu có
+      clearTimeout(timeoutId);
 
-        const htmls = filteredSongs.map((song, index) => {
-          return `
-          <div class="song ${
-            index === _this.currentIndex ? "active" : ""
-          }" data-index="${index}">
-            <div class="thumb" style="background-image: url('${
-              song.imagecover ? song.imagecover : ""
-            }')"></div>
-            <div class="body">
-                <h3 class="title">${song.title}</h3>
-                <p class="author">${song.artist}</p>
-            </div>
-            <div class="option">
-                <i class="fas fa-ellipsis-h"></i>
-            </div>
-          </div>
-          `;
+      // Thiết lập setTimeout mới cho việc search sau 1 giây
+      timeoutId = setTimeout(function () {
+        const searchString = _this.removeAccents(e.target.value.toLowerCase());
+        console.log(searchString);
+
+        const filteredSongs = songs.filter((song) => {
+          const normalizedTitle = _this.removeAccents(song.title.toLowerCase());
+          const normalizedArtist = _this.removeAccents(
+            song.artist.toLowerCase()
+          );
+          return (
+            normalizedTitle.startsWith(searchString) ||
+            normalizedArtist.startsWith(searchString)
+          );
         });
-        playlist.innerHTML = htmls.join("");
-      }
-      console.log(filteredSongs);
-      app.songs = filteredSongs;
+        console.log(filteredSongs.length);
+        if (filteredSongs.length === 0) {
+          notification.innerHTML = `
+        <h2>No results found for "${e.target.value}"</h2>
+        <p>Please make sure your words are spelled correctly, or use fewer or different keywords</p>
+      `;
+          notification.style.display = "flex";
+        } else {
+          notification.style.display = "none";
 
-      app.render__one();
-      // play music
-      const songNodes = document.querySelectorAll(".song");
-      songNodes.forEach((songNode) => {
-        songNode.onclick = function () {
-          _this.currentIndex = Number(songNode.dataset.index);
-          _this.loadCurrentSong();
-
-          audio.addEventListener("canplaythrough", function () {
-            audio.play();
+          const htmls = filteredSongs.map((song, index) => {
+            return `
+        <div class="song ${
+          index === _this.currentIndex ? "active" : ""
+        }" data-index="${index}">
+          <div class="thumb" style="background-image: url('${
+            song.imagecover ? song.imagecover : ""
+          }')"></div>
+          <div class="body">
+              <h3 class="title">${song.title}</h3>
+              <p class="author">${song.artist}</p>
+          </div>
+          <div class="option">
+              <i class="fas fa-ellipsis-h"></i>
+          </div>
+        </div>
+        `;
           });
-        };
-      });
-      songNodes.forEach((songNode) => {
-        songNode.classList.remove("active");
-      });
+          playlist.innerHTML = htmls.join("");
+        }
+        console.log(filteredSongs);
+        app.songs = filteredSongs;
+
+        app.render__one();
+        // play music
+        const songNodes = document.querySelectorAll(".song");
+        songNodes.forEach((songNode) => {
+          songNode.onclick = function () {
+            _this.currentIndex = Number(songNode.dataset.index);
+            _this.loadCurrentSong();
+
+            audio.addEventListener("canplaythrough", function () {
+              audio.play();
+            });
+          };
+        });
+        songNodes.forEach((songNode) => {
+          songNode.classList.remove("active");
+        });
+      }, 500); // Thiết lập độ trễ là 1000ms (1 giây)
     });
   },
   // (1/2) Uncomment the line below to use localStorage
@@ -220,7 +230,6 @@ const app = {
         song_4 = idx_cur_song + 3 < songsCount ? songs[idx_cur_song + 3] : null;
         song_5 = idx_cur_song + 4 < songsCount ? songs[idx_cur_song + 4] : null;
         song_6 = idx_cur_song + 5 < songsCount ? songs[idx_cur_song + 5] : null;
-
 
         if (!song_1 || !song_2 || !song_3 || !song_4 || !song_5 || !song_6) {
           return;
@@ -779,7 +788,6 @@ const app = {
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
-
       });
     });
   },
@@ -795,11 +803,10 @@ const app = {
     // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
     this.loadCurrentSong();
 
-    
     // Render playlist
     this.render__one();
     this.render__two();
-    
+
     // Lắng nghe / xử lý các sự kiện (DOM events)
     this.handleEvents();
     this.handle__BtnToggle();

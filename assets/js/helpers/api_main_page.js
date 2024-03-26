@@ -244,7 +244,7 @@ const app = {
 
     // Render the Genre Container
     genreContainer.forEach((genre) => {
-      console.log(genre);
+      // console.log(genre);
       const cate_1 = Categories[currentIdxCate];
       const cate_2 = Categories[currentIdxCate + 1];
       if (!cate_1 || !cate_2) {
