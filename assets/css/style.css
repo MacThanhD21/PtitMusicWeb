@@ -100,7 +100,7 @@
 .section-music-player div:nth-child(1) .far {
   background-color: var(--color-black);
   color: #fff;
-  border-radius: 10px;
+  border-radius: 6px;
   transition: var(--transition-3s-ease);
   height: 35px;
   width: 80px;

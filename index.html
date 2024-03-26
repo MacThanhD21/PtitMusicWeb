@@ -117,7 +117,7 @@
               alt="" title="ptit_music" />
           </a>
           <a href="index.html">
-            <span class="name__website">Ptit Music</span>
+            <span class="name__website">PTIT MUSIC</span>
           </a>
         </div>
       </ul>
@@ -172,7 +172,7 @@
           <a href="javascript:void(0)" onclick="supportChatMode()">
             <li><span class="far fa-comment"></span> Support</li>
           </a>
-          <a href="#" >
+          <a href="#">
             <li><span class="far fa-star"></span> Upgrade Plan</li>
           </a>
           <hr />
@@ -248,16 +248,28 @@
       <div class="image__slider">
         <div class="image__slider__container">
           <div class="image__slider__item">
-            <img src="https://i.pinimg.com/564x/73/e1/f7/73e1f7faceca4bc5c0f8c11d6fd17b79.jpg" alt="" />
+            <img src="https://i.pinimg.com/564x/95/19/78/9519781f55548066d1dcd54770c373c3.jpg" alt="" />
           </div>
           <div class="image__slider__item">
-            <img src="https://i.pinimg.com/564x/12/69/e8/1269e846437ab7d765254f45645c80ae.jpg" alt="" />
+            <img src="https://i.pinimg.com/564x/cd/f4/c9/cdf4c99c240673f8c63f3ef46f862dc4.jpg" alt="" />
           </div>
           <div class="image__slider__item">
-            <img src="https://i.pinimg.com/564x/b0/d8/97/b0d897d3013ae11ad61859ac4628054b.jpg" alt="" />
+            <img src="https://i.pinimg.com/564x/27/b5/89/27b589b03e3ba90c0f9eb450a1e6bf44.jpg" alt="" />
           </div>
           <div class="image__slider__item">
-            <img src="https://i.pinimg.com/564x/c1/ef/6b/c1ef6b80edd6f4a3e38f8d8dedb7fdbb.jpg" alt="" />
+            <img src="https://i.pinimg.com/564x/a8/80/8c/a8808cf7be7f573c94218d844aa0c80d.jpg" alt="" />
+          </div>
+          <div class="image__slider__item">
+            <img src="https://i.pinimg.com/736x/63/68/51/636851d748113f4f3c47f1b26ef8ad78.jpg" alt="" />
+          </div>
+          <div class="image__slider__item">
+            <img src="https://i.pinimg.com/736x/f6/45/f5/f645f55c7310597473abc3d96f56e092.jpg" alt="" />
+          </div>
+          <div class="image__slider__item">
+            <img src="https://i.pinimg.com/736x/61/7d/89/617d8942160c41a8401e00ad57075ea7.jpg" alt="" />
+          </div>
+          <div class="image__slider__item">
+            <img src="https://i.pinimg.com/564x/a6/ba/f9/a6baf90754f47d0528ee306f0ba70bbe.jpg" alt="" />
           </div>
         </div>
 
@@ -384,22 +396,33 @@
     $('.image__slider__container').slick({
       arrows: true,
       centerMode: true,
-      slidesToShow: 2,
+      slidesToShow: 3,
       autoplay: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 2000,
+      slidesToScroll: 1,
       responsive: [
         {
           breakpoint: 768,
           settings: {
             arrows: true,
             centerMode: true,
-            slidesToShow: 1
+            slidesToShow: 2,
+            slidesToScroll: 2,
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: true,
+            centerMode: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
           }
         },
       ]
     });
   </script>
-  
+
 </body>
 
 </html>

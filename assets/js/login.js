@@ -59,7 +59,6 @@ function getCookie(name) {
 
 // Lấy giá trị của cookie 'accessToken'
 const accessToken = getCookie('accessToken');
-console.log(accessToken);
 // // Kiểm tra xem accessToken có tồn tại hay không
 // if (accessToken) {
 //   // Nếu có, chuyển hướng người dùng đến trang chính (index.html)
@@ -111,8 +110,9 @@ loginForm.addEventListener('submit', async function (event) {
     const response = await login(user, password);
     console.log(response);
     if (response && response.result._id) {
+      setCookie('allInfores', JSON.stringify(response.result), 1);
       // Lưu token vào cookie
-      setCookie('accessToken', response.result._id, 1); // Thời gian sống của cookie là 7 ngày
+      setCookie('accessToken', response.result._id, 1); // Thời gian sống của cookie là 1 ngày
 
       // Chuyển hướng người dùng đến trang chính
       window.location.href = '/index.html';
