@@ -39,9 +39,7 @@ const app = {
     const sidebar = document.querySelector(".side-bar");
     const toggleBtn1 = document.querySelector(".toggle-btn-1");
     const toggleBtn2 = document.querySelector(".toggle-btn-2");
-    const section_music_player = document.querySelector(
-      ".section-music-player"
-    );
+
     const main = document.querySelector(".main");
 
     let sidebarExpanded = false;
@@ -57,8 +55,6 @@ const app = {
 
       main.style.width = newWidth;
       main.style.left = newLeft;
-      section_music_player.style.left = newLeft;
-      section_music_player.style.transition = "all .4s ease";
 
       sidebarExpanded = !sidebarExpanded;
     };
