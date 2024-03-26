@@ -81,8 +81,8 @@ nav #search .result-songs {
   display: none;
   position: absolute;
   left: 0;
-  width: 48%;
-  height: 300px;
+  width: 100%;
+  height: 200px;
   /* background: #fff; */
   border: 5px solid gray;
   border-radius: 10px;
@@ -93,13 +93,13 @@ nav #search .result-albums {
   display: none;
   position: absolute;
   right: 0;
-  width: 48%;
-  height: 300px;
+  width: 100%;
+  height: 200px;
   /* background: #fff; */
   border: 5px solid gray;
   border-radius: 10px;
   z-index: 1000;
-  top: 50px;
+  top: 250px;
 }
 
 /* End Search Bar */
@@ -117,6 +117,8 @@ nav #search .result-albums {
 }
 
 .inner-logo span {
+  user-select: none;
+  -webkit-user-select: none;
   display: block;
   margin-top: 5px;
   color: var(--color-silver);

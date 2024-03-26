@@ -15,16 +15,16 @@ searchInput.addEventListener("focus", () => {
 });
 
 // Ẩn hộp kết quả khi click ra ngoài input
-document.addEventListener("click", (event) => {
-  if (!searchInput.contains(event.target)) {
-    resultSongs.style.display = "none";
-  }
-});
-document.addEventListener("click", (event) => {
-  if (!searchInput.contains(event.target)) {
-    resultAlbums.style.display = "none";
-  }
-});
+// document.addEventListener("click", (event) => {
+//   if (!searchInput.contains(event.target)) {
+//     resultSongs.style.display = "none";
+//   }
+// });
+// document.addEventListener("click", (event) => {
+//   if (!searchInput.contains(event.target)) {
+//     resultAlbums.style.display = "none";
+//   }
+// });
 
 // Lắng nghe sự kiện gõ (keypress) hoặc thay đổi nội dung của input
 searchInput.addEventListener("input", () => {
