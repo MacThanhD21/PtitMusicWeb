@@ -77,7 +77,6 @@
   transition: var(--transition-3s-ease);
   background-color: var(--color-white);
   position: fixed;
-  padding: 0 20px;
   height: 100px;
   bottom: 0;
   right: 0;

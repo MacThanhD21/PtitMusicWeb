@@ -78,7 +78,9 @@
     height: 50px;
     width: 50px;
   }
-
+  #Top .section-music-player>div:nth-child(1) h4 {
+    width: 130px;
+  }
 }
 
 /* TABLET */
@@ -105,10 +107,6 @@
 
   #Top .main main {
     transition: var(--transition-3s-ease);
-  }
-
-  #Top .section-music-player>div:nth-child(1) {
-    margin: 10px;
   }
 
   #Top .section-music-player>div:nth-child(1) h4,
