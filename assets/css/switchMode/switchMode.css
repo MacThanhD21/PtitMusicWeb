@@ -57,6 +57,9 @@
   background-color: var(--background-dark-primary-main);
 }
 
+.switchMode .page-02 header .artist .infor__artist {
+  background: var(--primary-color);
+}
 
 .switchMode .avatar-dropdown {
   box-shadow: var(--box-shadow-dark-xlg);

@@ -358,9 +358,6 @@
   object-fit: cover;
 }
 
-.switchMode .page-02 header .artist .infor__artist {
-  background: var(--primary-color);
-}
 
 /*========== BACK TOP */
 .back-top {
@@ -383,61 +380,6 @@
 .back-top-active {
   display: flex;
 }
-
-
-/*========== BTNS */
-/* BTNS */
-.btn-default, .btn-secondary {
-  border-radius: var(--border-radius-lg);
-  transition: var(--transition-3s-ease);
-  color: var(--color-white) !important;
-  display: inline-flex;
-  padding: 10px 25px;
-  cursor: pointer;
-  outline: none;
-}
-
-.btn-default span, .btn-secondary span {
-  margin-right: 5px;
-}
-
-.btn-default {
-  background-color: #3333ff;
-}
-
-.btn-default:hover {
-  background-color: #0000FF;
-  transition: var(--transition-3s-ease);
-}
-
-.btn-default:focus {
-  background-color: #4747ff;
-  transition: var(--transition-3s-ease);
-}
-
-.btn-default:active {
-  background-color: #0000c4;
-}
-
-.btn-secondary {
-  background-color: var(--background-dark-primary-main);
-  font-size: var(--font-size-14);
-}
-
-.btn-secondary:hover {
-  background-color: var(--background-dark-secondary-main);
-  transition: var(--transition-3s-ease);
-}
-
-.btn-secondary:focus {
-  transition: var(--transition-3s-ease);
-  background-color: #0f0f0f;
-}
-
-.btn-secondary:active {
-  background-color: #070707;
-}
-
 
 /*========== INPUTS */
 input[type="search"] {
