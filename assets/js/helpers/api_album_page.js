@@ -27,7 +27,7 @@ const currentTime = $(".currentTime");
 const remainTime = $(".remainTime");
 const songsCount = songs.length;
 
-console.log(currentTime, remainTime);
+// console.log(currentTime, remainTime);
 
 const relatedMusic = $$("#section__trending .card-group-grid");
 
@@ -88,7 +88,7 @@ try {
     listDataArray = songs;
   }
 
-  console.log(listDataArray);
+  // console.log(listDataArray);
 } catch (mainError) {
   handleFetchDataError(mainError.message);
 }
