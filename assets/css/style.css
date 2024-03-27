@@ -30,16 +30,16 @@
   z-index: 9999;
   position: relative;
   width: calc(100% - 82px);
-  transition: all .4s ease; /* Thêm transition cho width và left *;*/
+  transition: all .4s ease; 
   border-radius: 40px 0 0 40px;
   left: 82px;
   background: #8e9eab;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+  background: linear-gradient(to right, #eef2f3, #8e9eab); 
 }
 
 #section__trending {
-  margin: 10px auto 0; /* Sử dụng thuộc tính margin để đặt margin-top và giữa */
+  margin: 10px auto 0;
   position: relative;
   top: 20px;
   max-width: 98%;
@@ -47,19 +47,10 @@
 }
 
 /*========== SECTION: PLAYLIST POST */
-
-
 .playBtnPlayCardToggle {
   display: none !important;
 }
 
-.likeMusicHeaderToggle {
-  color: var(--color-red);
-}
-
-.likeMusicPlayToggle {
-  color: var(--color-red);
-}
 
 .page-01 .section-playlist-post-footer {
   margin-top: 30px;
