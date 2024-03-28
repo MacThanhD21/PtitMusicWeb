@@ -238,5 +238,8 @@
     width: 90%;
   }
 
+  .page-01 #player .playlist {
+    height: 40vh;
+  }
   /* End Sections */
 }
