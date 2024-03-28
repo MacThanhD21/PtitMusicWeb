@@ -61,17 +61,6 @@
   margin: 5px;
 }
 
-.avatar-dropdown a li:hover {
-  background: red;
-  transition: var(--transition-3s-ease);
-  color: #fff;
-}
-
-.switchMode .avatar-dropdown a li:hover {
-  background: #0000FF;
-  transition: var(--transition-3s-ease);
-  color: #fff;
-}
 
 .avatar-dropdown a li:active {
   transition: var(--transition-3s-ease);
