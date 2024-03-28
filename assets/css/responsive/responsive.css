@@ -61,7 +61,6 @@
   .page-01 #player .dashboard {
     height: 60vh;
     width: 100%;
-    border-radius: 30px;
   }
 
   .page-01 #player .playlist {
@@ -160,8 +159,6 @@
     top: -30px;
   }
 
-
-
   nav #search {
     width: 50%;
     padding: 0;
@@ -239,6 +236,9 @@
   /* Sections */
   .section-explore {
     margin: 0;
+  }
+  .page-01 #player .dashboard .control {
+    width: 90%;
   }
 
   /* End Sections */
