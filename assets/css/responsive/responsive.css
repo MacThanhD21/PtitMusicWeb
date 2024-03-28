@@ -213,7 +213,7 @@
 }
 
 
-/* Dif Size for Phone */
+
 @media (max-width: 480px) {
   nav ul:nth-child(1) a img {
     width: 40px;
@@ -228,9 +228,6 @@
     font-size: 14px;
   }
 
-  /* End Image Slider */
-
-  /* Sections */
   .section-explore {
     margin: 0;
   }
