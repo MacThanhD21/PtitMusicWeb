@@ -182,8 +182,8 @@ nav ul:nth-child(2) img {
 }
 
 nav ul:nth-child(2) .far {
-  background-color: var(--background-thirdly-main);
-  border-radius: var(--border-radius-mmmd);
+  background-color: #f8f8f8;
+  border-radius: 10px;
   animation: a3 0.2s;
   margin-right: 16px;
   padding: 8px;
