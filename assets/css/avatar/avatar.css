@@ -48,7 +48,6 @@
 
 .avatar-dropdown hr {
   margin: 10px 0;
-  border: 1px solid gray;
 }
 
 .avatar-dropdown a li {
@@ -77,7 +76,6 @@
   display: block;
 }
 
-/* SUPPORT & CHAT MODE */
 .support-chat-mode {
   box-shadow: var(--box-shadow-xlg);
   background-color: var(--color-white);
