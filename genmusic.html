@@ -4,29 +4,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <title>GenMusic</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="shortcut icon"
     href="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
     type="image/png">
-  <title>GenMusic</title>
+
+  <!-- CSS File -->
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/base.css">
+  <link rel="stylesheet" href="./assets/css/genmusic.css">
 </head>
 
+<style>
+</style>
 <body>
-  <div class="section-Gen">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <div class="inner-title">
-        <h1>GenMusic</h1>
-        <p>GenMusic is a music generator that can generate music based on your mood. You can choose your mood and the music will be generated based on that mood.</p>
-        <a href="genmusic.html" class="btn">Generate Music</a>
-      </div>
-
-      <div class="inner-genmusic">
-        <input type="text" class="genmusic" title="genmusic">
-        <button class="btn">Generate</button>
-
+      <a class="navbar-brand" href="index.html">
+        <img src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
+          alt="logo" width="30" height="30" class="d-inline-block align-text-top">
+        GenMusic
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="genmusic.html">GenMusic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
+  </nav>
+  
+  <!-- GenMusic -->
+  <div class="container mt-5">
+    <div class="row d-flex flex-column align-items-center justify-content-center bd-highlight mb-3">
+      <div class="col-md-8">
+        <div class="text-center">
+          <h1 class="mb-4">GenMusic</h1>
+          <p class="lead">GenMusic is a music generator that can generate music based on your mood. You can
+            choose your mood and the music will be generated based on that mood.</p>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="inner-genmusic mt-4">
+          <input type="text" class="form-control mb-3" placeholder="Enter your mood..." title="genmusic">
+          <button class="btn btn-success btn-block">Generate</button>
+          <!-- Kết quả -->
+          <div class="result col-12">
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-body">
+                    <p class="card-text">This is a music generated based on your mood.</p>
+                    <audio autoplay controls>
+                      <source src="" type="audio/mp3">
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"></script>
 </body>
 
 </html>
