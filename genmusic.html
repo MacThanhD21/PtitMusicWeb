@@ -20,14 +20,16 @@
 
 <style>
 </style>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
-          alt="logo" width="30" height="30" class="d-inline-block align-text-top">
-        GenMusic
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
+          alt="logo" width="50" height="50" class="d-inline-block align-text-top">
+        <span class="ms-3 fs-4">PTIT MUSIC</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,19 +41,16 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="genmusic.html">GenMusic</a>
+            <a class="nav-link" href="index.html">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="index.html">Contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  
+
   <!-- GenMusic -->
   <div class="container mt-5">
     <div class="row d-flex flex-column align-items-center justify-content-center bd-highlight mb-3">
@@ -64,20 +63,20 @@
       </div>
       <div class="col-md-8">
         <div class="inner-genmusic mt-4">
-          <input type="text" class="form-control mb-3" placeholder="Enter your mood..." title="genmusic">
+          <input type="text" class="form-control mb-3" placeholder="Drop your feelings here..." title="genmusic">
           <button class="btn btn-success btn-block">Generate</button>
           <!-- Kết quả -->
-          <div class="result col-12">
-            <div class="row mt-4">
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-body">
-                    <p class="card-text">This is a music generated based on your mood.</p>
-                    <audio autoplay controls>
-                      <source src="" type="audio/mp3">
-                      Your browser does not support the audio element.
-                    </audio>
-                  </div>
+        </div>
+        <div class="result">
+          <div class="row mt-4">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-text">This is a music generated based on your mood.</p>
+                  <audio autoplay controls>
+                    <source src="" type="audio/mp3">
+                    Your browser does not support the audio element.
+                  </audio>
                 </div>
               </div>
             </div>
@@ -85,6 +84,8 @@
         </div>
       </div>
     </div>
+
+    <script src="./assets/js/helpers/genmuic.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
