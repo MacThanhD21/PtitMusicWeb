@@ -426,7 +426,6 @@ const app = {
     // Xử lý phóng to / thu nhỏ CD, player /
     // Handles CD enlargement / reduction
     document.onscroll = function () {
-      
       const viewportWidth =
         window.innerWidth || document.documentElement.clientWidth;
       // console.log(viewportWidth);
@@ -434,14 +433,11 @@ const app = {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const newCdWidth = cdWidth - scrollTop;
 
-        // console.log(scrollTop);
-        // console.log(newCdWidth);
-
         cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
         cd.style.opacity = newCdWidth / cdWidth;
-        cd.style.transition = "all 0.5s ease-in-out";
-
-        clearTimeout(debounceTimer);
+        cd.style.transition = "all 0.3s ease-in-out";
+      }
+      clearTimeout(debounceTimer);
 
       debounceTimer = setTimeout(() => {
         const viewportHeight = window.innerHeight;
@@ -454,17 +450,28 @@ const app = {
         } else {
           newHeightVH = 60;
         }
-        console.log(newHeightVH);
-
         player.style.height = `${newHeightVH}vh`;
         playlist.style.height = `${newHeightVH}vh`;
 
-        player.style.transition = "all 0.5s ease";
-        playlist.style.transition = "all 0.5s ease";
+        player.style.transition = "all 0.3s ease";
+        playlist.style.transition = "all 0.3s ease";
+
+        if (newHeightVH == 30) {
+          const viewportWidth =
+            window.innerWidth || document.documentElement.clientWidth;
+
+          const widthImage = cdThumb.offsetWidth;
+          if (viewportWidth < 992 && widthImage < 50) {
+            // newHeightVH = 50;
+            playlist.style.height = "70vh";
+            playlist.style.top = "200px";
+          }
+        }
+
+        
 
         // lastScrollTop = scrollTop;
       }, 50); // Adjust debounce delay as needed
-      }
       navbar.style.cssText = `background: transparent; backdrop-filter: blur(10px); box-shadow: none;`;
     };
 

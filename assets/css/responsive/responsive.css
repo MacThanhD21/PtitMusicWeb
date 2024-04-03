@@ -54,7 +54,7 @@
   }
 
   .page-01 #player {
-    height: 100vh;
+    height: 100vh !important;
     border-radius: 30px;
   }
 
@@ -65,7 +65,7 @@
 
   .page-01 #player .playlist {
     grid-template-columns: repeat(1, 1fr);
-    height: 42vh;
+    height: 42vh ;
     top: 400px;
     width: 100%;
   }
