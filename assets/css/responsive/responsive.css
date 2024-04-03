@@ -65,11 +65,15 @@
 
   .page-01 #player .playlist {
     grid-template-columns: repeat(1, 1fr);
-    height: 42vh ;
+    height: 42vh !important;
     top: 400px;
     width: 100%;
   }
 
+  .page-01 #player .cd {
+    width: 200px !important;
+    opacity: 1 !important;
+  }
   .page-01 #section__trending {
     display: none;
   }
