@@ -96,6 +96,11 @@ try {
 // Search Function
 const searchInput = $("#search input");
 const searchResult = $(".playlist .song");
+
+let isScrollingDown = false;
+let lastScrollTop = 0;
+let debounceTimer;
+
 // object app
 const app = {
   currentIndex: 0,
@@ -418,18 +423,45 @@ const app = {
     });
     cdThumbAnimate.pause();
 
-    // Xử lý phóng to / thu nhỏ CD
+    // Xử lý phóng to / thu nhỏ CD, player /
     // Handles CD enlargement / reduction
     document.onscroll = function () {
+      clearTimeout(debounceTimer);
+
+      debounceTimer = setTimeout(() => {
+        const viewportHeight = window.innerHeight;
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollDirection = scrollTop > lastScrollTop ? "down" : "up";
+        let newHeightVH;
+
+        if (scrollDirection === "down") {
+          newHeightVH = 30;
+        } else {
+          newHeightVH = 60;
+        }
+        console.log(newHeightVH);
+
+        player.style.height = `${newHeightVH}vh`;
+        playlist.style.height = `${newHeightVH}vh`;
+
+        player.style.transition = "all 0.5s ease";
+        playlist.style.transition = "all 0.5s ease";
+
+        // lastScrollTop = scrollTop;
+      }, 50); // Adjust debounce delay as needed
       const viewportWidth =
         window.innerWidth || document.documentElement.clientWidth;
+      // console.log(viewportWidth);
       if (viewportWidth > 992) {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const newCdWidth = cdWidth - scrollTop;
 
-        // cd.style.height = newCdHeight > 0 ? newCdHeight + "%" : 0;
+        // console.log(scrollTop);
+        // console.log(newCdWidth);
+
         cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
         cd.style.opacity = newCdWidth / cdWidth;
+        cd.style.transition = "all 0.5s ease-in-out";
       }
       navbar.style.cssText = `background: transparent; backdrop-filter: blur(10px); box-shadow: none;`;
     };
