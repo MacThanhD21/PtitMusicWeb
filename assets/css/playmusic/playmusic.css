@@ -87,7 +87,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 80%;
+  width: 94%;
   margin: 10px auto;
   border-radius: 20px;
   padding: 5px;
@@ -117,7 +117,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 .dashboard .progress-music .currentTime,
