@@ -426,7 +426,22 @@ const app = {
     // Xử lý phóng to / thu nhỏ CD, player /
     // Handles CD enlargement / reduction
     document.onscroll = function () {
-      clearTimeout(debounceTimer);
+      
+      const viewportWidth =
+        window.innerWidth || document.documentElement.clientWidth;
+      // console.log(viewportWidth);
+      if (viewportWidth > 992) {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const newCdWidth = cdWidth - scrollTop;
+
+        // console.log(scrollTop);
+        // console.log(newCdWidth);
+
+        cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
+        cd.style.opacity = newCdWidth / cdWidth;
+        cd.style.transition = "all 0.5s ease-in-out";
+
+        clearTimeout(debounceTimer);
 
       debounceTimer = setTimeout(() => {
         const viewportHeight = window.innerHeight;
@@ -449,19 +464,6 @@ const app = {
 
         // lastScrollTop = scrollTop;
       }, 50); // Adjust debounce delay as needed
-      const viewportWidth =
-        window.innerWidth || document.documentElement.clientWidth;
-      // console.log(viewportWidth);
-      if (viewportWidth > 992) {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const newCdWidth = cdWidth - scrollTop;
-
-        // console.log(scrollTop);
-        // console.log(newCdWidth);
-
-        cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
-        cd.style.opacity = newCdWidth / cdWidth;
-        cd.style.transition = "all 0.5s ease-in-out";
       }
       navbar.style.cssText = `background: transparent; backdrop-filter: blur(10px); box-shadow: none;`;
     };
