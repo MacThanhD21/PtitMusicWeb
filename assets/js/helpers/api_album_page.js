@@ -463,8 +463,8 @@ const app = {
           const widthImage = cdThumb.offsetWidth;
           if (viewportWidth < 992 && widthImage < 50) {
             // newHeightVH = 50;
-            playlist.style.height = "70vh";
-            playlist.style.top = "200px";
+            // playlist.style.height = "70vh";
+            // playlist.style.top = "200px";
           }
         }
 
