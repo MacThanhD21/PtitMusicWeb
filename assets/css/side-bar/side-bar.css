@@ -164,13 +164,14 @@
   /* Không xuống dòng */
   border-radius: 6px;
   /* Độ cong góc */
+  transition: transform 0.3s ease;
 }
 
 /* Liên kết được chọn hoặc khi rê chuột qua */
 .list .list-item.active a,
 .list .list-item a:hover {
-  background: rgba(255, 255, 255, .2);
-  /* Màu nền */
+  background: rgba(255, 255, 255, .1);
+  transform: translateX(10px); /* Adjust the value as needed */
 }
 
 /* Biểu tượng trong liên kết */
