@@ -53,7 +53,3 @@ If you have any feedback, please reach out to us at fake@fake.com
 ## Features
 
 - Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
-
