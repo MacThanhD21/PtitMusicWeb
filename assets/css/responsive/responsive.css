@@ -59,7 +59,7 @@
   }
 
   .page-01 #player .dashboard {
-    height: 60vh;
+    height: 60vh !important;
     width: 100%;
     border-radius: 10px;
 
