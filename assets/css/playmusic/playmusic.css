@@ -199,7 +199,7 @@
 }
 
 .switchMode .song {
-  background: #403A3E;
+
   box-shadow: 5px 5px 3px #BCBCBC;
 }
 
@@ -264,10 +264,6 @@
 .song .option {
   padding: 16px 8px;
   font-size: 18px;
-}
-
-.switchMode .song {
-  background: #403A3E;
 }
 
 
