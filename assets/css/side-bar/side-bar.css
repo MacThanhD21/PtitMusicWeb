@@ -57,7 +57,7 @@
   /* Chiều rộng */
   height: 60px;
   /* Chiều cao */
-
+  white-space: nowrap;
 }
 
 /* Tiêu đề logo */

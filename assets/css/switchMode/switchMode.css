@@ -240,7 +240,7 @@
 }
 
 .switchMode .side-bar .logo-menu h2 {
-  color: var(--color-soft-2);
+  color: var(--color-white)
 }
 
 .switchMode .side-bar .logo-menu .toggle-btn {
