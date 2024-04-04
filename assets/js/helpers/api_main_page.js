@@ -289,6 +289,17 @@ const app = {
   },
 
   handleEvents: function () {
+    document.querySelectorAll(".list-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        // Remove the 'active' class from all items
+        document.querySelectorAll(".list-item").forEach((item) => {
+          item.classList.remove("active");
+        });
+        // Add the 'active' class to the clicked item
+        item.classList.add("active");
+      });
+    });
+
     const trendingSection = $("#treding_container");
     const songItems = $$(
       "#treding_container .card-group-grid .card-playing-horizontal"
@@ -359,14 +370,12 @@ const app = {
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
-
       });
     });
 
     // trendingSection.addEventListener("click", () => {
     //   musicPlayer.classList.add("active");
     // });
-
 
     // musicPlayer.addEventListener("click", () => {
     //   musicPlayer.classList.remove("active");
