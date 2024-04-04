@@ -250,7 +250,7 @@
 }
 
 .song.active .body h3 {
-  animation: slideInLeft 3s ease infinite;
+  animation: slideInLeft 10s ease infinite;
 }
 
 .song .author {
