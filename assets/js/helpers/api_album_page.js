@@ -170,7 +170,7 @@ const app = {
           });
           playlist.innerHTML = htmls.join("");
         }
-        console.log(filteredSongs);
+        // console.log(filteredSongs);
         app.songs = filteredSongs;
 
         app.render__one();
@@ -435,7 +435,7 @@ const app = {
 
         cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
         cd.style.opacity = newCdWidth / cdWidth;
-        cd.style.transition = "all 0.3s ease-in-out";
+        cd.style.transition = "all 0.2s ease-in-out";
       }
       clearTimeout(debounceTimer);
 
@@ -453,24 +453,8 @@ const app = {
         player.style.height = `${newHeightVH}vh`;
         playlist.style.height = `${newHeightVH}vh`;
 
-        player.style.transition = "all 0.3s ease";
-        playlist.style.transition = "all 0.3s ease";
-
-        if (newHeightVH == 30) {
-          const viewportWidth =
-            window.innerWidth || document.documentElement.clientWidth;
-
-          const widthImage = cdThumb.offsetWidth;
-          if (viewportWidth < 992 && widthImage < 50) {
-            // newHeightVH = 50;
-            // playlist.style.height = "70vh";
-            // playlist.style.top = "200px";
-          }
-        }
-
-        
-
-        // lastScrollTop = scrollTop;
+        player.style.transition = "all 0.2s ease";
+        playlist.style.transition = "all 0.2s ease";
       }, 50); // Adjust debounce delay as needed
       navbar.style.cssText = `background: transparent; backdrop-filter: blur(10px); box-shadow: none;`;
     };

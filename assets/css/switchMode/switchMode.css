@@ -220,9 +220,8 @@
 }
 
 .switchMode .playlist .active{
-  background: #948E99;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2E1437, #948E99);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2E1437, #948E99); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to left, #9a8478, #1e130c);
+  transition: 0.2s;
 
 }
 .switchMode.song.active .option,

@@ -192,7 +192,8 @@
   align-items: center;
   padding: 8px 16px;
   border-radius: 5px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 1);
+  box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
+
   height: 10vh;
 }
 
@@ -203,6 +204,8 @@
 
 .song.active {
   background: linear-gradient(to right, #9a8478, #1e130c);
+  transition: 0.2s;
+
 }
 
 .song.active .body .h3 {
@@ -235,6 +238,8 @@
 }
 .song .author {
   font-size: 12px;
+  white-space: nowrap;
+
 }
 
 .song .option {
