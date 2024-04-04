@@ -17,14 +17,17 @@
   grid-column: 1 / 1;
   grid-row: 1 / 1;
   transition: transform 200ms;
+
 }
 
-.fa-moon{
+.icon--moon {
   transition-delay: 100ms;
+  
 }
 
 .icon--sun {
   transform: scale(0);
+  color: #fff;
 }
 
 #switch:checked + .icon--moon {
