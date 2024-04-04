@@ -26,7 +26,10 @@ const notification = $("#noti");
 const navbar = $("#navbarFixed");
 const currentTime = $(".currentTime");
 const remainTime = $(".remainTime");
+console.log(currentTime, remainTime);
 const songsCount = songs.length;
+const favoriteSong = $(".favoriteSong");
+console.log(favoriteSong);
 
 // console.log(currentTime, remainTime);
 
@@ -141,7 +144,7 @@ const app = {
             normalizedArtist.startsWith(searchString)
           );
         });
-        console.log(filteredSongs.length);
+        // console.log(filteredSongs.length);
         if (filteredSongs.length === 0) {
           notification.innerHTML = `
         <h2>No results found for "${e.target.value}"</h2>
@@ -153,21 +156,21 @@ const app = {
 
           const htmls = filteredSongs.map((song, index) => {
             return `
-        <div class="song ${
-          index === _this.currentIndex ? "active" : ""
-        }" data-index="${index}">
-          <div class="thumb" style="background-image: url('${
-            song.imagecover ? song.imagecover : ""
-          }')"></div>
-          <div class="body">
-              <h3 class="title">${song.title}</h3>
-              <p class="author">${song.artist}</p>
-          </div>
-          <div class="option">
-              <i class="fas fa-ellipsis-h"></i>
-          </div>
-        </div>
-        `;
+                  <div class="song ${
+                    index === _this.currentIndex ? "active" : ""
+                    }" data-index="${index}">
+                    <div class="thumb" style="background-image: url('${
+                      song.imagecover ? song.imagecover : ""
+                    }')"></div>
+                    <div class="body">
+                        <h3 class="title">${song.title}</h3>
+                        <p class="author">${song.artist}</p>
+                    </div>
+                    <div class="favoriteSong">
+                      <i class="fa-regular fa-heart"></i>
+                    </div>
+                  </div>
+            `;
           });
           playlist.innerHTML = htmls.join("");
         }
@@ -217,8 +220,8 @@ const app = {
                       <h3 class="title">${song.title}</h3>
                       <p class="author">${song.artist}</p>
                   </div>
-                  <div class="option">
-                      <i class="fas fa-ellipsis-h"></i>
+                  <div class="favoriteSong">
+                    <i class="fa-regular fa-heart"></i>
                   </div>
               </div>
           `;
