@@ -17,6 +17,8 @@
 	justify-content: center;
 	width: 45px;
 	height: 45px;
+	user-select: none;
+	-webkit-user-select: none;
 }
 #avatar .container-avatar img {
 	border-radius: var(--border-radius-full);
