@@ -9,6 +9,7 @@ const $$ = document.querySelectorAll.bind(document);
 const PlAYER_STORAGE_KEY = "PTITMUSIC_PLAYER";
 
 const player = $(".player");
+const dashboard = $(".dashboard");
 const cd = $(".cd");
 const heading = $(".header h2 span");
 const cdThumb = $(".cd-thumb");
@@ -452,9 +453,11 @@ const app = {
         }
         player.style.height = `${newHeightVH}vh`;
         playlist.style.height = `${newHeightVH}vh`;
+        dashboard.style.height = `${newHeightVH}vh`;
 
         player.style.transition = "all 0.2s ease";
         playlist.style.transition = "all 0.2s ease";
+        dashboard.style.transition = "all 0.2s ease";
       }, 50); // Adjust debounce delay as needed
       navbar.style.cssText = `background: transparent; backdrop-filter: blur(10px); box-shadow: none;`;
     };

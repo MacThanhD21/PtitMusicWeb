@@ -93,7 +93,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 90%;
+  width: 85%;
   margin: 10px auto;
   border-radius: 10px;
   /* padding: 5px; */
@@ -208,12 +208,10 @@
   padding: 8px 16px;
   border-radius: 5px;
   box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
-
   height: 10vh;
 }
 
 .switchMode .song {
-
   box-shadow: 5px 5px 3px #BCBCBC;
 }
 
