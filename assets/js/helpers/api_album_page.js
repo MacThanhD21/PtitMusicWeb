@@ -13,6 +13,8 @@ const dashboard = $(".dashboard");
 const cd = $(".cd");
 const heading = $(".header h2 span");
 const cdThumb = $(".cd-thumb");
+const mainColor = $("#mainColor");
+// console.log(mainColor);
 const audio = $("#audio");
 const playBtn = $(".btn-toggle-play");
 
@@ -26,10 +28,9 @@ const notification = $("#noti");
 const navbar = $("#navbarFixed");
 const currentTime = $(".currentTime");
 const remainTime = $(".remainTime");
-console.log(currentTime, remainTime);
+// console.log(currentTime, remainTime);
 const songsCount = songs.length;
 const favoriteSong = $(".favoriteSong");
-console.log(favoriteSong);
 
 // console.log(currentTime, remainTime);
 
@@ -105,6 +106,73 @@ let isScrollingDown = false;
 let lastScrollTop = 0;
 let debounceTimer;
 
+function averageColor(imageElement) {
+  console.log("Hello");
+  // Create the canavs element
+  var canvas = document.createElement("canvas"),
+    // Get the 2D context of the canvas
+    context = canvas.getContext && canvas.getContext("2d"),
+    imgData,
+    width,
+    height,
+    length,
+    // Define variables for storing
+    // the individual red, blue and
+    // green colors
+    rgb = { r: 0, g: 0, b: 0 },
+    // Define variable for the
+    // total number of colors
+    count = 0;
+
+  // Set the height and width equal
+  // to that of the canvas and the image
+  height = canvas.height =
+    imageElement.naturalHeight ||
+    imageElement.offsetHeight ||
+    imageElement.height;
+  width = canvas.width =
+    imageElement.naturalWidth || imageElement.offsetWidth || imageElement.width;
+
+  // Check if the image has valid dimensions
+  if (width === 0 || height === 0) {
+    return rgb;
+  }
+
+  // Draw the image to the canvas
+  context.drawImage(imageElement, 0, 0);
+
+  // Get the data of the image
+  imgData = context.getImageData(0, 0, width, height);
+
+  // Get the length of image data object
+  length = imgData.data.length;
+
+  for (var i = 0; i < length; i += 4) {
+    // Sum all values of red colour
+    rgb.r += imgData.data[i];
+
+    // Sum all values of green colour
+    rgb.g += imgData.data[i + 1];
+
+    // Sum all values of blue colour
+    rgb.b += imgData.data[i + 2];
+
+    // Increment the total number of
+    // values of rgb colours
+    count++;
+  }
+
+  // Find the average of red
+  rgb.r = Math.floor(rgb.r / count);
+
+  // Find the average of green
+  rgb.g = Math.floor(rgb.g / count);
+
+  // Find the average of blue
+  rgb.b = Math.floor(rgb.b / count);
+
+  return rgb;
+}
 // object app
 const app = {
   currentIndex: 0,
@@ -158,7 +226,7 @@ const app = {
             return `
                   <div class="song ${
                     index === _this.currentIndex ? "active" : ""
-                    }" data-index="${index}">
+                  }" data-index="${index}">
                     <div class="thumb" style="background-image: url('${
                       song.imagecover ? song.imagecover : ""
                     }')"></div>
@@ -224,6 +292,9 @@ const app = {
                     <i class="fa-regular fa-heart"></i>
                   </div>
               </div>
+              <image id="mainColor" src="${
+                song.imagecover
+              }" alt="" style="display:none" />
           `;
     });
     playlist.innerHTML = htmls.join("");
@@ -437,23 +508,24 @@ const app = {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const newCdWidth = cdWidth - scrollTop;
 
-        cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
-        cd.style.opacity = newCdWidth / cdWidth;
-        cd.style.transition = "all 0.2s ease-in-out";
+        // cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
+        // cd.style.opacity = newCdWidth / cdWidth;
+        // cd.style.transition = "all 0.2s ease-in-out";
       }
       clearTimeout(debounceTimer);
 
       debounceTimer = setTimeout(() => {
         const viewportHeight = window.innerHeight;
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        console.log(scrollTop);
         const scrollDirection = scrollTop > lastScrollTop ? "down" : "up";
         let newHeightVH;
 
-        if (scrollDirection === "down") {
-          newHeightVH = 30;
-        } else {
-          newHeightVH = 60;
-        }
+        // if (scrollDirection === "down") {
+        //   newHeightVH = 30;
+        // } else {
+        //   newHeightVH = 60;
+        // }
         player.style.height = `${newHeightVH}vh`;
         playlist.style.height = `${newHeightVH}vh`;
         dashboard.style.height = `${newHeightVH}vh`;
@@ -644,6 +716,26 @@ const app = {
       heading.textContent = this.currentSong.title;
       cdThumb.style.backgroundImage = `url('${this.currentSong.imagecover}')`;
       audio.src = this.currentSong.link;
+      // mainColor.src = this.currentSong.imagecover;
+
+      const mainColor = document.getElementById("mainColor");
+      if (mainColor) {
+        // console.log(mainColor);
+        // mainColor.crossOrigin = "anonymous"; // Set crossOrigin attribute to allow loading cross-origin images
+        mainColor.src = this.currentSong.imagecover;
+        mainColor.crossOrigin = "Anonymous";
+        console.log(mainColor);
+        var rgb = averageColor(mainColor);
+        console.log(rgb);
+        $(
+          `.side-bar`
+        ).style.cssText = `background: rgb(${rgb.r}, ${rgb.g}, ${rgb.b});`;
+        $(
+          `.main`
+        ).style.cssText = `background: rgb(${rgb.r}, ${rgb.g}, ${rgb.b});`;
+      } else {
+        console.error("mainColor element not found.");
+      }
     } else {
       console.error(
         "Current song is undefined or does not have a title property."
@@ -710,6 +802,7 @@ const app = {
     toggleBtn1.addEventListener("click", toggleSidebar);
     toggleBtn2.addEventListener("click", toggleSidebar);
   },
+  handleMainColor: () => {},
   handlePlayMusic: () => {
     // const trendingSection = $("#treding_container");
     // const btnHandleMusic = $$(".btnHandleMusic");
@@ -794,17 +887,18 @@ const app = {
     // Định nghĩa các thuộc tính cho object
     this.defineProperties();
 
-    // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
-    this.loadCurrentSong();
-
     // Render playlist
     this.render__one();
     this.render__two();
+
+    // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
+    this.loadCurrentSong();
 
     // Lắng nghe / xử lý các sự kiện (DOM events)
     this.handleEvents();
     this.handle__BtnToggle();
     this.handlePlayMusic();
+    this.handleMainColor();
     // Hiển thị trạng thái ban đầu của button repeat & random
     randomBtn.classList.toggle("active", this.isRandom);
     repeatBtn.classList.toggle("active", this.isRepeat);

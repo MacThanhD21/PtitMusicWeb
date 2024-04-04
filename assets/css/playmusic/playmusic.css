@@ -2,7 +2,7 @@
 #player {
   border-radius: 10px;
   height: 60vh;
-  position: sticky;
+  /* position: sticky; */
   z-index: 100;
   top: 90px;
   /* max-width: 98%; */
