@@ -55,12 +55,14 @@
 
   .page-01 #player {
     height: 100vh !important;
-    border-radius: 30px;
+    border-radius: 10px;
   }
 
   .page-01 #player .dashboard {
     height: 60vh;
     width: 100%;
+    border-radius: 10px;
+
   }
 
   .page-01 #player .playlist {

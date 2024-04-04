@@ -649,43 +649,6 @@ const app = {
   },
   loadCurrentSong: function () {
     if (this.currentSong) {
-      // Xử lý hiển thị ảnh cho background và thông tin hiện tại của bài hát
-      // đẩy bài hát hiện tại lên localStorage
-      localStorage.setItem("currentSong", JSON.stringify(this.currentSong));
-      const roundTime = (time) => {
-        const decimal = time - Math.floor(time); // Get the decimal part of the time
-
-        // Adjust the time based on the decimal value
-        if (decimal < 0.1) {
-          time += 0.234567; // Add 0.234567 if decimal < 0.1
-        } else if (decimal < 0.2) {
-          time += 0.234567; // Add 0.234567 if decimal < 0.2
-        } else if (decimal < 0.3) {
-          time += 0.234567; // Add 0.234567 if decimal < 0.3
-        } else if (decimal < 0.4) {
-          time += 0.234567; // Add 0.234567 if decimal < 0.4
-        } else if (decimal < 0.5) {
-          time += 0.234567; // Add 0.234567 if decimal < 0.5
-        } else if (decimal < 0.6) {
-          time += 0.234567; // Add 0.234567 if decimal < 0.6
-        } else if (decimal < 0.7) {
-          time += 0.234567; // Add 0.234567 if decimal < 0.7
-        } else if (decimal < 0.8) {
-          time += 0.234567; // Add 0.234567 if decimal < 0.8
-        } else if (decimal < 0.9) {
-          time += 0.234567; // Add 0.234567 if decimal < 0.9
-        }
-        // You can continue this pattern for other decimal ranges
-
-        return time;
-      };
-
-      // Inside your component where you handle the audio player
-      audio.addEventListener("timeupdate", (e) => {
-        const currentTime = roundTime(e.target.currentTime);
-        localStorage.setItem("currentSongTime", currentTime);
-      });
-
       // render information of currentSong
       player.style.cssText = `background: url('${this.currentSong.imagecover}') no-repeat center center; background-size: cover; object-fit: cover;`;
       heading.textContent = this.currentSong.title;
