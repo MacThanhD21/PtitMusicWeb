@@ -46,7 +46,7 @@
 }
 
 .card-simple:hover img {
-  transform: scale(1.1) rotate(1deg);
+  transform: scale(1.1) rotate(2deg);
   transition: var(--transition-3s-ease);
 }
 
@@ -60,7 +60,7 @@
 .card-simple h3 {
   transition: var(--transition-3s-ease);
   margin-top: 6px;
-  font-size: 0.980rem;
+  font-size: 20px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
@@ -74,7 +74,7 @@
 }
 
 .card-simple p a {
-  font-size: var(--font-size-12);
+  font-size: 16px;
   color: var(--color-silver);
   display: -webkit-box;
   -webkit-box-orient: vertical;

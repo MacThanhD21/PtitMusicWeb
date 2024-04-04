@@ -50,7 +50,7 @@
 .card-artists-vertical h4 {
   transition: var(--transition-3s-ease);
   margin-top: 10px;
-  font-size: var(--font-size-14);
+  font-size: var(--font-size-18);
   color: #323232;
   line-clamp: 1;
   overflow: hidden;

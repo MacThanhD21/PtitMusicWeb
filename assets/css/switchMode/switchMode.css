@@ -31,9 +31,9 @@
 
 
 .switchMode nav {
-  background: #000000;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #485563;
+  background: -webkit-linear-gradient(to bottom, #29323c, #485563);
+  background: linear-gradient(to bottom, #29323c, #485563);
 }
 
 .switchMode nav ul:nth-child(1) a {
@@ -215,24 +215,30 @@
 }
 
 .switchMode .playlist {
-  backdrop-filter: blur(10px); /* Điều chỉnh giá trị theo mong muốn */
+  backdrop-filter: blur(10px);
+  /* Điều chỉnh giá trị theo mong muốn */
   -webkit-backdrop-filter: blur(5px);
 }
 
-.switchMode .playlist .active{
+.switchMode .playlist .active {
   background: linear-gradient(to left, #9a8478, #1e130c);
   transition: 0.2s;
 
 }
+
 .switchMode.song.active .option,
 .switchMode.song.active .author,
 .switchMode.song.active .title {
   color: #fff;
 }
+
 .switchMode .side-bar {
-  background: -webkit-linear-gradient(to left, #434343, #000000);
-  background: linear-gradient(to left, #434343, #000000);
+  background: #485563;
+  background: -webkit-linear-gradient(to bottom, #29323c, #485563);
+  background: linear-gradient(to bottom, #29323c, #485563);
+
 }
+
 .switchMode .side-bar .logo-menu h2 {
   color: var(--color-soft-2);
 }
@@ -251,5 +257,3 @@
 
 
 /* End darkMode Player */
-
-

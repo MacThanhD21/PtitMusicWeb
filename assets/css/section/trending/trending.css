@@ -121,6 +121,12 @@
   flex-direction: column;
 }
 
+.card-group-grid .card-category-vertical h4 {
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .card-group-grid .card-playing-horizontal {
   margin-bottom: 10px;
 }
