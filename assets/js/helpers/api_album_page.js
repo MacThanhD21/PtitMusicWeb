@@ -699,7 +699,7 @@ const app = {
 
       const mainColor = document.getElementById("mainColor");
       // const mainColor = new Image();
-      console.log(mainColor);
+      // console.log(mainColor);
 
       if (mainColor) {
         // mainColor.crossOrigin = "anonymous"; // Set crossOrigin attribute to allow loading cross-origin images
@@ -709,7 +709,7 @@ const app = {
         mainColor.setAttribute("crossOrigin", "anonymous");
         mainColor.onload = function () {
           const { R, G, B } = getAverageColor(mainColor, 4);
-          console.log(R, G, B);
+          // console.log(R, G, B);
           $(`.side-bar`).style.cssText = `background: rgb(${R}, ${G},${B})`;
           $(`.main`).style.cssText = `background: rgb(${R}, ${G},${B})`;
           $(`#navbarFixed`).style.cssText = `background: rgb(${R}, ${G},${B})`;
