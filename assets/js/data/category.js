@@ -5,8 +5,7 @@ const API_CATEGORIES = "https://ap-southeast-1.aws.data.mongodb-api.com/app/data
 // Use async/await to fetch and export the data
 async function fetchData() {
   try {
-    const data = await fetchApi(API_CATEGORIES);
-    return data;
+    return await fetchApi(API_CATEGORIES);
   } catch (error) {
     console.error("Error fetching data:", error);
   }

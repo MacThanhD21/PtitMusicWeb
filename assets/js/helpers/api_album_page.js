@@ -2,7 +2,8 @@ import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
 import { Categories } from "../data/category.js";
 
-/*------------------------ Khai Báo Tất Cả các biến cần sử dụng trong Page-------------------- */
+/************ Khai Báo Tất Cả các biến cần sử dụng trong Page************* */
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -102,10 +103,7 @@ try {
 const searchInput = $("#search input");
 const searchResult = $(".playlist .song");
 
-let isScrollingDown = false;
-let lastScrollTop = 0;
-let debounceTimer;
-
+// Function to get average color of an image
 function getAverageColor(imageElement, ratio) {
   const canvas = document.createElement("canvas");
 
@@ -783,7 +781,6 @@ const app = {
     toggleBtn1.addEventListener("click", toggleSidebar);
     toggleBtn2.addEventListener("click", toggleSidebar);
   },
-  handleMainColor: () => {},
   handlePlayMusic: () => {
     // const trendingSection = $("#treding_container");
     // const btnHandleMusic = $$(".btnHandleMusic");
@@ -860,32 +857,31 @@ const app = {
     });
   },
   start: function () {
-    // Gán cấu hình từ config vào ứng dụng
-    // Assign configuration from config to application
-
     this.loadConfig();
-
     // Định nghĩa các thuộc tính cho object
     this.defineProperties();
 
-    // Render playlist
     this.render__one();
-    this.render__two();
 
     // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
     this.loadCurrentSong();
-
+    // this.handleMainColor();
+    
     // Lắng nghe / xử lý các sự kiện (DOM events)
     this.handleEvents();
-    this.handle__BtnToggle();
     this.handlePlayMusic();
-    this.handleMainColor();
+
+    // Render playlist
+    this.render__two();
+
     // Hiển thị trạng thái ban đầu của button repeat & random
     randomBtn.classList.toggle("active", this.isRandom);
     repeatBtn.classList.toggle("active", this.isRepeat);
 
-    // Search
+    // Search Function
     this.searchF();
+    this.handle__BtnToggle();
+
   },
 };
 

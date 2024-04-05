@@ -9,7 +9,7 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-track {
   box-shadow: inset 0 0 10px grey; /* shadow on the track */
 }
- 
+
 /* Handle (thumb) styling */
 body::-webkit-scrollbar-thumb {
   background: var(--color-soft-5); /* background color of the thumb */

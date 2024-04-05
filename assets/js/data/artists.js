@@ -5,8 +5,7 @@ const API_ARTIST = "https://ap-southeast-1.aws.data.mongodb-api.com/app/data-pkc
 // Use async/await to fetch and export the data
 async function fetchData() {
   try {
-    const data = await fetchApi(API_ARTIST);
-    return data;
+    return await fetchApi(API_ARTIST);
   } catch (error) {
     console.error("Error fetching data:", error);
   }

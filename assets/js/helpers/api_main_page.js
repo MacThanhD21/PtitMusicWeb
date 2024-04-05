@@ -3,6 +3,8 @@ import { albums } from "../data/albums.js";
 import { artists } from "../data/artists.js";
 import { Categories } from "../data/category.js";
 
+// console.log(songs);
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 

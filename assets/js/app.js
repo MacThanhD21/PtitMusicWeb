@@ -1,6 +1,4 @@
 
-
-
 // Login page occurs default
 
 // if (!localStorage.getItem("userLoggedIn")) {
@@ -24,14 +22,6 @@ document.addEventListener("click", function (event) {
     }
   }
 });
-
-
-// SWITCH MODE
-
-function switchMode() {
-  document.body.classList.toggle("switchMode");
-}
-
 // AVATAR DROPDOWN
 document.addEventListener("click", function (event) {
   const dropdown = document.getElementById("avatarDropdown");
@@ -46,6 +36,15 @@ document.addEventListener("click", function (event) {
     dropdown.classList.remove("avatarDropdown");
   }
 });
+
+
+
+// SWITCH MODE
+
+function switchMode() {
+  document.body.classList.toggle("switchMode");
+}
+
 
 // Toggle the dropdown when clicking on the avatar
 document.getElementById("avatar").addEventListener("click", function (event) {
@@ -82,87 +81,3 @@ window.addEventListener("scroll", () => {
     navbarFixed.classList.remove("nav-fixed-active");
   }
 });
-
-// ## LIKE MUSIC HEADER
-function likeMusicHeader() {
-  document
-    .getElementById("likeMusicHeader")
-    .classList.toggle("likeMusicHeaderToggle");
-}
-function likeMusicPlay() {
-  document
-    .querySelector("#likeMusicPlay")
-    .classList.toggle("likeMusicPlayToggle");
-}
-
-// ## PLAY SOUND/MUSIC PLAYER
-var audio1 = new Audio("");
-// PLAY SOUND
-function playSound(id) {
-  console.log(id);
-  audio1.src =
-    "https://firebasestorage.googleapis.com/v0/b/ptitwebmusicspring24.appspot.com/o/y2mate.is%20-%20Vietsub%20Thanh%20B%C3%ACnh%20Ng%E1%BB%99%20Ho%C3%A0ng%20Thi%20Ph%C3%B9%20%E6%B8%85%E5%B9%B3%E8%AF%AF%20%E9%BB%84%E8%AF%97%E6%89%B6--vGwJat7LZ0-128k-1695022607.mp3?alt=media&token=34d14d2b-291f-44c1-8c54-1f35da09c6df";
-  audio1.play();
-  // const playBtnPlayCard = document.querySelectorAll("");
-  document
-    .getElementById("pauseBtnPlayCard")
-    .classList.toggle("pauseBtnPlayCardToggle");
-  document
-    .getElementById("playBtnPlayCard")
-    .classList.toggle("playBtnPlayCardToggle");
-  // if (audio1.paused) {
-  // } else {
-  // }
-}
-// PAUSE SOUND
-function pauseSound() {
-  audio1.pause();
-  document
-    .getElementById("pauseBtnPlayCard")
-    .classList.toggle("pauseBtnPlayCardToggle");
-  document
-    .getElementById("playBtnPlayCard")
-    .classList.toggle("playBtnPlayCardToggle");
-}
-function likeMusicPlayer() {
-  document
-    .getElementById("likeMusicPlayer")
-    .classList.toggle("likeMusicPlayerToggle");
-}
-
-// COLLAPSE MUSIC PLAYER
-function collapseMusicPlayer() {
-  document
-    .getElementById("sectionMusicPlayer")
-    .classList.toggle("sectionMusicPlayerToggle");
-  document
-    .getElementById("collapseMusicPlayerBtn")
-    .classList.toggle("collapseMusicPlayerBtnToggle");
-  document
-    .getElementById("expandMusicPlayerBtn")
-    .classList.toggle("expandMusicPlayerBtnToggle");
-}
-
-// FULL PLAYER
-function fullPlayer() {
-  document.getElementById("fullPlayer").classList.toggle("fullPlayer");
-}
-function fullPlayerHeaderDropdown() {
-  document
-    .getElementById("fullPlayerHeaderDropdown")
-    .classList.toggle("fullPlayerHeaderDropdown");
-}
-
-// ## DOWNLOAD
-function download() {
-  // Tải xuống tệp MP3
-  const downloadLink = document.createElement('a');
-  downloadLink.href = '../musics/1.mp3';
-  downloadLink.download = '1.mp3'; // Tên tệp khi tải xuống
-  document.body.appendChild(downloadLink);
-  downloadLink.click();
-  document.body.removeChild(downloadLink);
-
-  // Hiển thị thông báo hoặc chuyển hướng tới một trang web hướng dẫn
-  alert('Your download has started. Please check your downloads folder.');
-}

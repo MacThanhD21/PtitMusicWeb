@@ -1,6 +1,8 @@
-@import url("../css/loader.css");
+/* @import url("../css/loader.css"); */
 @import url("../css/navbar/navbar.css");
 @import url("../css/side-bar/side-bar.css");
+/* Main */
+@import url("../css/main/main.css");
 @import url("../css/scroll_tab/scroll_tab.css");
 @import url("../css/mode/mode.css");
 @import url("../css/avatar/avatar.css");
@@ -13,58 +15,6 @@
 @import url("../css/section/artists/artists.css");
 @import url("../css/switchMode/switchMode.css");
 @import url("../css/responsive/responsive.css");
-
-/* albumPage */
-@import url("../css/playmusic/playmusic.css");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-/* Main */
-
-.switchMode .main {
-  background: #485563;
-  background: -webkit-linear-gradient(to bottom, #29323c, #485563);
-  background: linear-gradient(to bottom, #29323c, #485563);
-}
-
-.main {
-  z-index: 9999;
-  position: relative;
-  width: calc(100% - 82px);
-  transition: all .4s ease;
-  /* border-radius: 40px 0 0 40px; */
-  left: 82px;
-  background: #8e9eab;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
-  background: linear-gradient(to right, #eef2f3, #8e9eab);
-}
-
-#section__trending {
-  margin: 10px auto;
-  position: relative;
-  top: 20px;
-  box-sizing: border-box;
-}
-
-/* Notification for search */
-#noti {
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: fixed;
-  top: 75px;
-  left: 55%;
-  transform: translateX(-50%);
-  width: 62%;
-  height: 150px;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  border-radius: 5px;
-  padding: 10px;
-  transition: all 0.3s ease;
-  color: aliceblue;
-}
 
 
 /*========== SECTION: MUSIC PLAYER */
@@ -338,38 +288,7 @@
 }
 
 
-/*====================
-#02. PAGE: USER
-=====================*/
-.page-02 .back-top {
-  bottom: 20px;
-}
 
-.page-02 .section-playlist-post {
-  margin: 0 auto 100px auto;
-  width: 80%;
-}
-
-.page-02 .section-playlist-post-header {
-  padding: 20px;
-}
-
-.page-02 .card-grid {
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-  display: grid;
-  gap: 10px 0;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  padding: 20px;
-  border-radius: var(--border-radius-mmmd);
-}
-
-.page-02 .card-grid .card-simple figure {
-  width: 100%;
-}
-
-.page-02 .card-grid img {
-  object-fit: cover;
-}
 
 
 /*========== BACK TOP */
@@ -377,14 +296,15 @@
   width: 50px;
   right: 20px;
   height: 50px;
-  bottom: 100px;
+  bottom: 50px;
   display: none;
   position: fixed;
   animation: a1 0.5s;
   align-items: center;
   justify-content: center;
-  border-radius: var(--border-radius-lg);
+  border-radius: 10px;
   background-color: #FFF3CD;
+  transition: all 0.5s ease;
 }
 
 .back-top:hover {
@@ -394,6 +314,8 @@
 
 .back-top-active {
   display: flex;
+  transition: all 0.5s ease;
+
 }
 
 /*========== INPUTS */

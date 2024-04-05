@@ -1,0 +1,20 @@
+
+/* Notification for search */
+#noti {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 75px;
+  left: 55%;
+  transform: translateX(-50%);
+  width: 62%;
+  height: 150px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.3s ease;
+  color: aliceblue;
+}

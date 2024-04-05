@@ -1,12 +1,101 @@
 
-/*========== SECTION TRENDING */
-.section-trending {
-  margin-top: 40px;
+#section__trending {
+  margin: 10px auto;
+  position: relative;
+  top: 20px;
+  box-sizing: border-box;
 }
-.section-trending>div:first-child h2 {
+
+
+/* Relate Music */
+.section-explore {
+  margin: 60px 0 0 0;
+  transition: all 0.5s ease;
+}
+
+/* CARD GRID SLIDER */
+.card-grid-slider {
+  display: flex;
+  padding: 10px 0;
+  overflow-x: auto;
+  align-items: center;
+  scroll-snap-type: x mandatory;
+  max-width: 1600px;
+}
+#explore>div:first-child h2 {
   font-size: 30px;
 }
 
+/* WebKit (Chrome, Safari) */
+.card-grid-slider::-webkit-scrollbar {
+  /* display: none; */
+}
+
+.card-grid-slider::-webkit-scrollbar-thumb {
+}
+
+.card-grid-slider::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the track */
+}
+/* CARD SIMPLE */
+.card-simple {
+  background-color: var(--background-thirdly-main);
+  border-radius: var(--border-radius-mmmd);
+  transition: var(--transition-2s-ease);
+  scroll-snap-align: start;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.card-simple figure {
+  border-radius: var(--border-radius-mmmd);
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+}
+
+.card-simple:hover img {
+  transform: scale(1.1) rotate(2deg);
+  transition: var(--transition-3s-ease);
+}
+
+.card-simple img {
+  transition: var(--transition-3s-ease);
+  border-radius: var(--border-radius-mmmd);
+  height: 100%;
+  width: 100%;
+}
+
+.card-simple h3 {
+  transition: var(--transition-3s-ease);
+  margin-top: 6px;
+  font-size: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  line-clamp: 1;
+  width: 200px;
+}
+
+.card-simple:hover h3 {
+  color: #EF2519;
+}
+
+.card-simple p a {
+  font-size: 16px;
+  color: var(--color-silver);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  line-clamp: 1;
+  width: 200px;
+}
+
+/* End Relate Music */
+
+/*========== SECTION TRENDING */
 /* CARD PLAYING HORIZONTAL */
 .card-playing-horizontal {
   background-color: var(--background-thirdly-main);
@@ -108,6 +197,7 @@
   line-clamp: 1;
   user-select: none;
   -webkit-user-select: none;
+  width: 130px;
 }
 
 .card-playing-horizontal div p span:hover {
@@ -145,3 +235,4 @@
   cursor: pointer;
 }
 
+/*========== END SECTION TRENDING */
