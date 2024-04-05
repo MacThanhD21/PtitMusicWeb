@@ -1,4 +1,4 @@
-import { fetchApi } from "../helpers/fetchApi.js"
+import { fetchApi } from "../services/fetchApi.js"
 
 const API_ARTIST = "https://ap-southeast-1.aws.data.mongodb-api.com/app/data-pkcss/endpoint/artistdata";
 

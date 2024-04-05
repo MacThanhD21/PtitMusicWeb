@@ -1,6 +1,12 @@
+
+// low performance --- need to be optimized
+
 import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
 import { Categories } from "../data/category.js";
+import { getAverageColor } from "../helpers/getAverageColor.js";
+
+console.log(songs, albums, Categories);
 
 /************ Khai Báo Tất Cả các biến cần sử dụng trong Page************* */
 
@@ -38,7 +44,7 @@ const favoriteSong = $(".favoriteSong");
 const relatedMusic = $$("#section__trending .card-group-grid");
 
 let idx_cur_song = 0;
-let listDataArray;
+let listDataArray = [];
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -103,52 +109,6 @@ try {
 const searchInput = $("#search input");
 const searchResult = $(".playlist .song");
 
-// Function to get average color of an image
-function getAverageColor(imageElement, ratio) {
-  const canvas = document.createElement("canvas");
-
-  let height = (canvas.height = imageElement.naturalHeight);
-  let width = (canvas.width = imageElement.naturalWidth);
-
-  const context = canvas.getContext("2d");
-  context.drawImage(imageElement, 0, 0);
-
-  let data, length;
-  let i = -4,
-    count = 0;
-
-  try {
-    data = context.getImageData(0, 0, width, height);
-    length = data.data.length;
-  } catch (err) {
-    console.error(err);
-    return {
-      R: 0,
-      G: 0,
-      B: 0,
-    };
-  }
-  let R, G, B;
-  R = G = B = 0;
-
-  while ((i += ratio * 4) < length) {
-    ++count;
-
-    R += data.data[i];
-    G += data.data[i + 1];
-    B += data.data[i + 2];
-  }
-
-  R = ~~(R / count);
-  G = ~~(G / count);
-  B = ~~(B / count);
-
-  return {
-    R,
-    G,
-    B,
-  };
-}
 
 // object app
 const app = {
@@ -474,45 +434,6 @@ const app = {
       iterations: Infinity,
     });
     cdThumbAnimate.pause();
-
-    // Xử lý phóng to / thu nhỏ CD, player /
-    // Handles CD enlargement / reduction
-    document.onscroll = function () {
-      const viewportWidth =
-        window.innerWidth || document.documentElement.clientWidth;
-      // console.log(viewportWidth);
-      if (viewportWidth > 992) {
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const newCdWidth = cdWidth - scrollTop;
-
-        // cd.style.width = newCdWidth > 0 ? newCdWidth + "px" : 0;
-        // cd.style.opacity = newCdWidth / cdWidth;
-        // cd.style.transition = "all 0.2s ease-in-out";
-      }
-      clearTimeout(debounceTimer);
-
-      debounceTimer = setTimeout(() => {
-        const viewportHeight = window.innerHeight;
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        console.log(scrollTop);
-        const scrollDirection = scrollTop > lastScrollTop ? "down" : "up";
-        let newHeightVH;
-
-        // if (scrollDirection === "down") {
-        //   newHeightVH = 30;
-        // } else {
-        //   newHeightVH = 60;
-        // }
-        player.style.height = `${newHeightVH}vh`;
-        playlist.style.height = `${newHeightVH}vh`;
-        dashboard.style.height = `${newHeightVH}vh`;
-
-        player.style.transition = "all 0.2s ease";
-        playlist.style.transition = "all 0.2s ease";
-        dashboard.style.transition = "all 0.2s ease";
-      }, 50); // Adjust debounce delay as needed
-      navbar.style.cssText = `background: transparent; backdrop-filter: blur(10px); box-shadow: none;`;
-    };
 
     // Xử lý khi click play
     // Handle when click play
