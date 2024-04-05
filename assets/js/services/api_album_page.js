@@ -1,4 +1,3 @@
-
 // low performance --- need to be optimized
 
 import { songs } from "../data/songs.js";
@@ -6,7 +5,7 @@ import { albums } from "../data/albums.js";
 import { Categories } from "../data/category.js";
 import { getAverageColor } from "../helpers/getAverageColor.js";
 
-console.log(songs, albums, Categories);
+// console.log(songs, albums, Categories);
 
 /************ Khai Báo Tất Cả các biến cần sử dụng trong Page************* */
 
@@ -38,7 +37,8 @@ const remainTime = $(".remainTime");
 // console.log(currentTime, remainTime);
 const songsCount = songs.length;
 const favoriteSong = $(".favoriteSong");
-
+// Search Function
+const searchInput = $("#search input");
 // console.log(currentTime, remainTime);
 
 const relatedMusic = $$("#section__trending .card-group-grid");
@@ -47,27 +47,49 @@ let idx_cur_song = 0;
 let listDataArray = [];
 
 const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
+const urlParams = new URLSearchParams(queryString); 
+
+const songMap = new Map();
+const albumMap = new Map();
+const cateMap = new Map();
+songs.forEach((song) => {
+  songMap.set(song._id, song);
+});
+
+albums.forEach((album) => {
+  albumMap.set(album._id, album);
+});
+
+Categories.forEach((cate) => {
+  cateMap.set(cate._id, cate);
+});
 
 async function getSongById(id) {
-  return await songs.find((song) => song._id === id);
+  return await songMap.get(id);
+}
+
+async function getAlbumById(id) {
+  return await albumMap.get(id);
+}
+
+async function getCateById(id) {
+  return await cateMap.get(id);
 }
 
 async function getListData(playlist) {
-  let listData = [];
-  for (const id of playlist) {
-    try {
-      const songData = await getSongById(id);
-      if (songData) {
-        listData.push(songData);
-      } else {
-        console.log("Failed to fetch song data");
-      }
-    } catch (error) {
-      console.error("Error fetching song data:", error);
-    }
+  try {
+    // Sử dụng Promise.all để thực hiện các cuộc gọi API song song
+    const promises = playlist.map((id) => getSongById(id));
+    const songDataArray = await Promise.all(promises);
+
+    // Lọc ra các dữ liệu bài hát không null
+    const listData = songDataArray.filter((songData) => songData !== null);
+
+    return listData;
+  } catch (error) {
+    console.error("Error fetching song data:", error);
+    return [];
   }
-  return listData;
 }
 
 function handleFetchDataError(errorType) {
@@ -78,7 +100,7 @@ function handleFetchDataError(errorType) {
 try {
   if (urlParams.has("albumId")) {
     const albumId = urlParams.get("albumId");
-    const albumFound = albums.find((album) => album._id === albumId);
+    const albumFound = await getAlbumById(albumId);
 
     if (albumFound) {
       listDataArray = await getListData(albumFound.tracks);
@@ -88,7 +110,7 @@ try {
     }
   } else if (urlParams.has("cateId")) {
     const cateId = urlParams.get("cateId");
-    const cateFound = Categories.find((cate) => cate._id === cateId);
+    const cateFound = await getCateById(cateId);
 
     if (cateFound) {
       listDataArray = await getListData(cateFound.tracks);
@@ -105,9 +127,6 @@ try {
   handleFetchDataError(mainError.message);
 }
 
-// Search Function
-const searchInput = $("#search input");
-const searchResult = $(".playlist .song");
 
 
 // object app
@@ -129,6 +148,7 @@ const app = {
     const _this = this;
 
     let timeoutId;
+    let filteredSongs = [];
 
     searchInput.addEventListener("input", function (e) {
       // Xóa bỏ setTimeout trước đó nếu có
@@ -139,16 +159,22 @@ const app = {
         const searchString = _this.removeAccents(e.target.value.toLowerCase());
         console.log(searchString);
 
-        const filteredSongs = songs.filter((song) => {
-          const normalizedTitle = _this.removeAccents(song.title.toLowerCase());
-          const normalizedArtist = _this.removeAccents(
-            song.artist.toLowerCase()
-          );
-          return (
-            normalizedTitle.startsWith(searchString) ||
-            normalizedArtist.startsWith(searchString)
-          );
-        });
+        if (searchString === "") {
+          filteredSongs = listDataArray;
+          console.log(filteredSongs);
+          console.log('...');
+        } else {
+          filteredSongs = _this.songs.filter((song) => {
+            const normalizedTitle = _this.removeAccents(song.title.toLowerCase());
+            const normalizedArtist = _this.removeAccents(
+              song.artist.toLowerCase()
+            );
+            return (
+              normalizedTitle.includes(searchString) ||
+              normalizedArtist.includes(searchString)
+            );
+          });
+        }
         // console.log(filteredSongs.length);
         if (filteredSongs.length === 0) {
           notification.innerHTML = `
@@ -594,7 +620,8 @@ const app = {
 
         // Xử lý khi click vào song option
         // Handle when clicking on the song option
-        if (e.target.closest(".option")) {
+        if (e.target.closest(".favoriteSong")) {
+          e.target.classList.toggle("active");
         }
       }
     };
@@ -622,8 +649,7 @@ const app = {
 
       if (mainColor) {
         // mainColor.crossOrigin = "anonymous"; // Set crossOrigin attribute to allow loading cross-origin images
-        mainColor.src =
-          app.currentSong.imagecover; // Blocked by CORS policy
+        mainColor.src = app.currentSong.imagecover; // Blocked by CORS policy
         // console.log(mainColor);
         mainColor.setAttribute("crossOrigin", "anonymous");
         mainColor.onload = function () {
@@ -632,7 +658,7 @@ const app = {
           $(`.side-bar`).style.cssText = `background: rgb(${R}, ${G},${B})`;
           $(`.main`).style.cssText = `background: rgb(${R}, ${G},${B})`;
           $(`#navbarFixed`).style.cssText = `background: rgb(${R}, ${G},${B})`;
-        }
+        };
       } else {
         console.error("mainColor element not found.");
       }
@@ -708,6 +734,8 @@ const app = {
     const songItems = $$(
       "#section__trending .card-group-grid .card-playing-horizontal"
     );
+
+    // console.log(songItems);
     const audio = $$(".card-playing-horizontal #audio");
     const playBtn = $$(".btnHandleMusic .fa-play");
     const pauseBtn = $$(".btnHandleMusic .fa-pause");
@@ -787,13 +815,12 @@ const app = {
     // Tải thông tin bài hát đầu tiên vào UI khi chạy ứng dụng
     this.loadCurrentSong();
     // this.handleMainColor();
-    
-    // Lắng nghe / xử lý các sự kiện (DOM events)
-    this.handleEvents();
-    this.handlePlayMusic();
 
     // Render playlist
     this.render__two();
+    // Lắng nghe / xử lý các sự kiện (DOM events)
+    this.handleEvents();
+    this.handlePlayMusic();
 
     // Hiển thị trạng thái ban đầu của button repeat & random
     randomBtn.classList.toggle("active", this.isRandom);
@@ -802,7 +829,6 @@ const app = {
     // Search Function
     this.searchF();
     this.handle__BtnToggle();
-
   },
 };
 

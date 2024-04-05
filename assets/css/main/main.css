@@ -1,8 +1,28 @@
 /* Main */
+
 .switchMode .main {
-  background: #485563;
-  background: -webkit-linear-gradient(to bottom, #29323c, #485563);
-  background: linear-gradient(to bottom, #29323c, #485563);
+  background: linear-gradient(34deg, #000000, #182826, #212d4f, #4d3c5a);
+  background-size: 800% 800%;
+
+  -webkit-animation: AnimationName 20s ease infinite;
+  -moz-animation: AnimationName 20s ease infinite;
+  animation: AnimationName 20s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 94%}
+  50%{background-position:100% 7%}
+  100%{background-position:0% 94%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 94%}
+  50%{background-position:100% 7%}
+  100%{background-position:0% 94%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 94%}
+  50%{background-position:100% 7%}
+  100%{background-position:0% 94%}
 }
 
 .main {
