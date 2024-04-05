@@ -106,73 +106,52 @@ let isScrollingDown = false;
 let lastScrollTop = 0;
 let debounceTimer;
 
-function averageColor(imageElement) {
-  console.log("Hello");
-  // Create the canavs element
-  var canvas = document.createElement("canvas"),
-    // Get the 2D context of the canvas
-    context = canvas.getContext && canvas.getContext("2d"),
-    imgData,
-    width,
-    height,
-    length,
-    // Define variables for storing
-    // the individual red, blue and
-    // green colors
-    rgb = { r: 0, g: 0, b: 0 },
-    // Define variable for the
-    // total number of colors
-    count = 0;
+function getAverageColor(imageElement, ratio) {
+  const canvas = document.createElement("canvas");
 
-  // Set the height and width equal
-  // to that of the canvas and the image
-  height = canvas.height =
-    imageElement.naturalHeight ||
-    imageElement.offsetHeight ||
-    imageElement.height;
-  width = canvas.width =
-    imageElement.naturalWidth || imageElement.offsetWidth || imageElement.width;
+  let height = (canvas.height = imageElement.naturalHeight);
+  let width = (canvas.width = imageElement.naturalWidth);
 
-  // Check if the image has valid dimensions
-  if (width === 0 || height === 0) {
-    return rgb;
-  }
-
-  // Draw the image to the canvas
+  const context = canvas.getContext("2d");
   context.drawImage(imageElement, 0, 0);
 
-  // Get the data of the image
-  imgData = context.getImageData(0, 0, width, height);
+  let data, length;
+  let i = -4,
+    count = 0;
 
-  // Get the length of image data object
-  length = imgData.data.length;
+  try {
+    data = context.getImageData(0, 0, width, height);
+    length = data.data.length;
+  } catch (err) {
+    console.error(err);
+    return {
+      R: 0,
+      G: 0,
+      B: 0,
+    };
+  }
+  let R, G, B;
+  R = G = B = 0;
 
-  for (var i = 0; i < length; i += 4) {
-    // Sum all values of red colour
-    rgb.r += imgData.data[i];
+  while ((i += ratio * 4) < length) {
+    ++count;
 
-    // Sum all values of green colour
-    rgb.g += imgData.data[i + 1];
-
-    // Sum all values of blue colour
-    rgb.b += imgData.data[i + 2];
-
-    // Increment the total number of
-    // values of rgb colours
-    count++;
+    R += data.data[i];
+    G += data.data[i + 1];
+    B += data.data[i + 2];
   }
 
-  // Find the average of red
-  rgb.r = Math.floor(rgb.r / count);
+  R = ~~(R / count);
+  G = ~~(G / count);
+  B = ~~(B / count);
 
-  // Find the average of green
-  rgb.g = Math.floor(rgb.g / count);
-
-  // Find the average of blue
-  rgb.b = Math.floor(rgb.b / count);
-
-  return rgb;
+  return {
+    R,
+    G,
+    B,
+  };
 }
+
 // object app
 const app = {
   currentIndex: 0,
@@ -719,20 +698,22 @@ const app = {
       // mainColor.src = this.currentSong.imagecover;
 
       const mainColor = document.getElementById("mainColor");
+      // const mainColor = new Image();
+      console.log(mainColor);
+
       if (mainColor) {
-        // console.log(mainColor);
         // mainColor.crossOrigin = "anonymous"; // Set crossOrigin attribute to allow loading cross-origin images
-        mainColor.src = this.currentSong.imagecover;
-        mainColor.crossOrigin = "Anonymous";
-        console.log(mainColor);
-        var rgb = averageColor(mainColor);
-        console.log(rgb);
-        $(
-          `.side-bar`
-        ).style.cssText = `background: rgb(${rgb.r}, ${rgb.g}, ${rgb.b});`;
-        $(
-          `.main`
-        ).style.cssText = `background: rgb(${rgb.r}, ${rgb.g}, ${rgb.b});`;
+        mainColor.src =
+          app.currentSong.imagecover; // Blocked by CORS policy
+        // console.log(mainColor);
+        mainColor.setAttribute("crossOrigin", "anonymous");
+        mainColor.onload = function () {
+          const { R, G, B } = getAverageColor(mainColor, 4);
+          console.log(R, G, B);
+          $(`.side-bar`).style.cssText = `background: rgb(${R}, ${G},${B})`;
+          $(`.main`).style.cssText = `background: rgb(${R}, ${G},${B})`;
+          $(`#navbarFixed`).style.cssText = `background: rgb(${R}, ${G},${B})`;
+        }
       } else {
         console.error("mainColor element not found.");
       }
