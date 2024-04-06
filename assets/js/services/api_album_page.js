@@ -47,6 +47,7 @@ let listDataArray = [];
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
+
 const songMap = new Map();
 const albumMap = new Map();
 const cateMap = new Map();
@@ -194,7 +195,7 @@ const app = {
                         <p class="author">${song.artist}</p>
                     </div>
                     <div class="favoriteSong">
-                      <i class="fa-regular fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
                     </div>
                   </div>
             `;
@@ -251,7 +252,7 @@ const app = {
                       <p class="author">${song.artist}</p>
                   </div>
                   <div class="favoriteSong">
-                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-solid fa-heart"></i>
                   </div>
               </div>
               <image id="mainColor" src="${
@@ -282,8 +283,8 @@ const app = {
       const html = `
             <div class="card-playing-horizontal">
                 <div class="btnHandleMusic">
-                  <span class="far fa-play" onclick=""></span>
-                  <span class="far fa-pause" onclick=""></span>
+                  <span class="fa-solid fa-play" onclick=""></span>
+                  <span class="fa-solid fa-pause" onclick=""></span>
                 </div>
                 <audio src="${song_1.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
@@ -302,15 +303,15 @@ const app = {
                   <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="btnHandleDif downloadMusic">
-                  <i class="fa-regular fa-download"></i>
+                  <i class="fa-solid fa-download"></i>
                 </div>
               </div>
             </div>
 
             <div class="card-playing-horizontal">
               <div class="btnHandleMusic">
-                <span class="far fa-play" onclick=""></span>
-                <span class="far fa-pause" onclick=""></span>
+                <span class="fa-solid fa-play" onclick=""></span>
+                <span class="fa-solid fa-pause" onclick=""></span>
               </div>
               <audio src="${song_2.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
@@ -329,15 +330,15 @@ const app = {
                   <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="btnHandleDif downloadMusic">
-                  <i class="fa-regular fa-download"></i>
+                  <i class="fa-solid fa-download"></i>
                 </div>
               </div>
             </div>
 
             <div class="card-playing-horizontal">
               <div class="btnHandleMusic">
-                <span class="far fa-play" onclick=""></span>
-                <span class="far fa-pause" onclick=""></span>
+                <span class="fa-solid fa-play" onclick=""></span>
+                <span class="fa-solid fa-pause" onclick=""></span>
               </div>
               <audio src="${song_3.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
@@ -356,14 +357,14 @@ const app = {
                   <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="btnHandleDif downloadMusic">
-                  <i class="fa-regular fa-download"></i>
+                  <i class="fa-solid fa-download"></i>
                 </div>
               </div>
             </div>
             <div class="card-playing-horizontal">
               <div class="btnHandleMusic">
-                <span class="far fa-play" onclick=""></span>
-                <span class="far fa-pause" onclick=""></span>
+                <span class="fa-solid fa-play" onclick=""></span>
+                <span class="fa-solid fa-pause" onclick=""></span>
               </div>
               <audio src="${song_4.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
@@ -382,14 +383,14 @@ const app = {
                   <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="btnHandleDif downloadMusic">
-                  <i class="fa-regular fa-download"></i>
+                  <i class="fa-solid fa-download"></i>
                 </div>
               </div>
             </div>
             <div class="card-playing-horizontal">
               <div class="btnHandleMusic">
-                <span class="far fa-play" onclick=""></span>
-                <span class="far fa-pause" onclick=""></span>
+                <span class="fa-solid fa-play" onclick=""></span>
+                <span class="fa-solid fa-pause" onclick=""></span>
               </div>
               <audio src="${song_5.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
@@ -408,14 +409,14 @@ const app = {
                   <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="btnHandleDif downloadMusic">
-                  <i class="fa-regular fa-download"></i>
+                  <i class="fa-solid fa-download"></i>
                 </div>
               </div>
             </div>
             <div class="card-playing-horizontal">
               <div class="btnHandleMusic">
-                <span class="far fa-play" onclick=""></span>
-                <span class="far fa-pause" onclick=""></span>
+                <span class="fa-solid fa-play" onclick=""></span>
+                <span class="fa-solid fa-pause" onclick=""></span>
               </div>
               <audio src="${song_6.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
@@ -434,7 +435,7 @@ const app = {
                   <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="btnHandleDif downloadMusic">
-                  <i class="fa-regular fa-download"></i>
+                  <i class="fa-solid fa-download"></i>
                 </div>
               </div>
             </div>

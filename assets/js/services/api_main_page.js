@@ -142,8 +142,8 @@ const app = {
       const html = `
             <div class="card-playing-horizontal">
                 <div class="btnHandleMusic">
-                  <span class="far fa-play" onclick=""></span>
-                  <span class="far fa-pause" onclick=""></span>
+                  <span class="fa-solid fa-play" onclick=""></span>
+                  <span class="fa-solid fa-pause" onclick=""></span>
                 </div>
                 <audio src="${song_1.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
@@ -166,15 +166,15 @@ const app = {
                   <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="btnHandleDif downloadMusic">
-                  <i class="fa-regular fa-download"></i>
+                  <i class="fa-solid fa-download"></i>
                 </div>
               </div>
             </div>
 
             <div class="card-playing-horizontal">
               <div class="btnHandleMusic">
-                <span class="far fa-play" onclick=""></span>
-                <span class="far fa-pause" onclick=""></span>
+                <span class="fa-solid fa-play" onclick=""></span>
+                <span class="fa-solid fa-pause" onclick=""></span>
               </div>
               <audio src="${song_2.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
@@ -197,15 +197,15 @@ const app = {
                   <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="btnHandleDif downloadMusic">
-                  <i class="fa-regular fa-download"></i>
+                  <i class="fa-solid fa-download"></i>
                 </div>
               </div>
             </div>
 
             <div class="card-playing-horizontal">
               <div class="btnHandleMusic">
-                <span class="far fa-play" onclick=""></span>
-                <span class="far fa-pause" onclick=""></span>
+                <span class="fa-solid fa-play" onclick=""></span>
+                <span class="fa-solid fa-pause" onclick=""></span>
               </div>
               <audio src="${song_3.link}" id="audio"></audio>
               <figure class="card-playing-horizontal-header">
@@ -228,7 +228,7 @@ const app = {
                   <i class="fa-solid fa-heart"></i>
                 </div>
                 <div class="btnHandleDif downloadMusic">
-                  <i class="fa-regular fa-download"></i>
+                  <i class="fa-solid fa-download"></i>
                 </div>
               </div>
             </div>
@@ -253,7 +253,7 @@ const app = {
             <a href="album.html?cateId=${cate_1._id}">
               <div class="card-category-vertical card-category-vertical-soft-${currentIdxCate}">
                 <h4>${cate_1.Category}</h4>
-                <span class="far fa-play"></span>
+                <span class="fa-solid fa-play"></span>
               </div>
             </a>
             <a href="album.html?cateId=${cate_2._id}">
@@ -261,7 +261,7 @@ const app = {
                 currentIdxCate + 1
               }">
                 <h4>${cate_2.Category}</h4>
-                <span class="far fa-play"></span>
+                <span class="fa-solid fa-play"></span>
               </div>
             </a>
       `;

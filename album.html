@@ -6,9 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- IMPORT FONT AWESOME -->
-  <link rel="stylesheet" type="text/css" href="./assets/fonts/css/fontawesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/fonts/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- IMPORT FAVICON -->
   <link rel="shortcut icon"
     href="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
@@ -129,7 +127,7 @@
         <div class="inner-logo">
           <a href="index.html"><img
               src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
-              alt="" title="ptit_music" />
+              alt="" title="PTIT MUSIC" />
           </a>
           <a href="index.html">
             <span>PTIT MUSIC</span>
@@ -193,55 +191,6 @@
       </ul>
     </nav>
 
-    <!-- SUPPORT & CHAT MODE -->
-    <div class="overlay-support-chat-mode" id="supportChatMode">
-      <div class="support-chat-mode">
-        <!-- CHAT HEADER -->
-        <div class="support-chat-mode-header">
-          <h4>
-            Support
-            <img src="./assets/images/logo/JPEG/main_logo.png" alt="" title="PtitMusic Bot" />
-          </h4>
-          <a href="javascript:void(0)" onclick="supportChatMode()"><span class="far fa-close"></span></a>
-        </div>
-        <!-- CHAT BODY -->
-        <div class="support-chat-mode-body">
-          <div class="chat-date">Today, September 26, 2023</div>
-          <div class="section-message-bot">
-            <img src="./assets/images/logo/JPEG/main_logo.png" alt="" />
-            <p>Hello! How can I assist you today?</p>
-          </div>
-          <div class="section-message-user">
-            <img src="./assets/images/avatar/avatar-1.png" alt="" />
-            <p>Hi</p>
-            <p>How to download as musics ZIP ???</p>
-          </div>
-          <div class="section-message-bot">
-            <img src="./assets/images/logo/JPEG/main_logo.png" alt="" />
-            <p>
-              You most first click on the 'DOWNLOAD' button to automatically
-              download ZIP file after a few seconds. <br /><br />
-              If you have a problem, are you ready to be responsive to you.
-            </p>
-          </div>
-          <div class="section-message-user">
-            <img src="./assets/images/avatar/avatar-1.png" alt="" />
-            <p>Thank you very much for your problem.</p>
-            <p>🙏🙏🙏</p>
-          </div>
-        </div>
-        <!-- CHAT FOOTER -->
-        <div class="support-chat-mode-footer">
-          <form action="" method="post">
-            <span class="far fa-paperclip" onclick=""></span>
-            <textarea name="" id="" cols="30" rows="1" placeholder="Write a msssage..."
-              aria-placeholder="Write a msssage..."></textarea>
-            <span class="far fa-smile" onclick=""></span>
-            <button type="submit" aria-label="Send">Send</button>
-          </form>
-        </div>
-      </div>
-    </div>
 
     <style>
       /* Notification when not songs fined */
@@ -257,6 +206,7 @@
       <!-- Dashboard -->
       <div class="dashboard">
         <!-- Header -->
+        
         <div class="header">
           <h4>Now playing</h4>
           <h2 id="marqueeText">
@@ -272,20 +222,20 @@
         <!-- Control -->
         <div class="control">
           <div class="btn btn-repeat">
-            <i class="fa-regular fa-rotate-right"></i>
+            <i class="fa-solid fa-rotate-right"></i>
           </div>
           <div class="btn btn-prev">
-            <i class="fa-regular fa-backward-step"></i>
+            <i class="fa-solid fa-backward-step"></i>
           </div>
           <div class="btn btn-toggle-play">
-            <i class="fa-regular fa-play"></i>
-            <i class="fa-regular fa-pause"></i>
+            <i class="fa-solid fa-play"></i>
+            <i class="fa-solid fa-pause"></i>
           </div>
           <div class="btn btn-next">
-            <i class="fa-regular fa-forward-step"></i>
+            <i class="fa-solid fa-forward-step"></i>
           </div>
           <div class="btn btn-random">
-            <i class="fa-regular fa-shuffle"></i>
+            <i class="fa-solid fa-shuffle"></i>
           </div>
         </div>
         <div class="progress-music">
