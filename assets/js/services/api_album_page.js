@@ -166,8 +166,8 @@ const app = {
               song.artist.toLowerCase()
             );
             return (
-              normalizedTitle.includes(searchString) ||
-              normalizedArtist.includes(searchString)
+              normalizedTitle.startswith(searchString) ||
+              normalizedArtist.startswith(searchString)
             );
           });
         }
