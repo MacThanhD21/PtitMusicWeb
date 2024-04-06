@@ -5,7 +5,7 @@ import { albums } from "../data/albums.js";
 import { Categories } from "../data/category.js";
 import { getAverageColor } from "../helpers/getAverageColor.js";
 
-console.log(songs, albums, Categories);
+// console.log(songs, albums, Categories);
 
 /************ Khai Báo Tất Cả các biến cần sử dụng trong Page************* */
 
@@ -19,8 +19,6 @@ const dashboard = $(".dashboard");
 const cd = $(".cd");
 const heading = $(".header h2 span");
 const cdThumb = $(".cd-thumb");
-const mainColor = $("#mainColor");
-// console.log(mainColor);
 const audio = $("#audio");
 const playBtn = $(".btn-toggle-play");
 
@@ -236,7 +234,7 @@ const app = {
 
   render__one: function () {
     // console.log("Hello");
-    console.log(this.songs);
+    // console.log(this.songs);
     const htmls = this.songs.map((song, index) => {
       if (song != undefined) {
         return `
