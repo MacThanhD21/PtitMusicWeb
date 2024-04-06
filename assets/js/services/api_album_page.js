@@ -5,7 +5,7 @@ import { albums } from "../data/albums.js";
 import { Categories } from "../data/category.js";
 import { getAverageColor } from "../helpers/getAverageColor.js";
 
-// console.log(songs, albums, Categories);
+console.log(songs, albums, Categories);
 
 /************ Khai Báo Tất Cả các biến cần sử dụng trong Page************* */
 
@@ -47,7 +47,7 @@ let idx_cur_song = 0;
 let listDataArray = [];
 
 const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString); 
+const urlParams = new URLSearchParams(queryString);
 
 const songMap = new Map();
 const albumMap = new Map();
@@ -127,8 +127,6 @@ try {
   handleFetchDataError(mainError.message);
 }
 
-
-
 // object app
 const app = {
   currentIndex: 0,
@@ -157,15 +155,15 @@ const app = {
       // Thiết lập setTimeout mới cho việc search sau 1 giây
       timeoutId = setTimeout(function () {
         const searchString = _this.removeAccents(e.target.value.toLowerCase());
-        console.log(searchString);
+        // console.log(searchString);
 
         if (searchString === "") {
           filteredSongs = listDataArray;
-          console.log(filteredSongs);
-          console.log('...');
         } else {
           filteredSongs = _this.songs.filter((song) => {
-            const normalizedTitle = _this.removeAccents(song.title.toLowerCase());
+            const normalizedTitle = _this.removeAccents(
+              song.title.toLowerCase()
+            );
             const normalizedArtist = _this.removeAccents(
               song.artist.toLowerCase()
             );
@@ -237,8 +235,11 @@ const app = {
   },
 
   render__one: function () {
+    // console.log("Hello");
+    console.log(this.songs);
     const htmls = this.songs.map((song, index) => {
-      return `
+      if (song != undefined) {
+        return `
               <div class="song ${
                 index === this.currentIndex ? "active" : ""
               }" data-index="${index}">
@@ -259,6 +260,7 @@ const app = {
                 song.imagecover
               }" alt="" style="display:none" />
           `;
+      }
     });
     playlist.innerHTML = htmls.join("");
   },
@@ -451,7 +453,7 @@ const app = {
   },
   handleEvents: function () {
     const _this = this;
-    const cdWidth = cd.offsetWidth;
+    // const cdWidth = cd.offsetWidth;
 
     // Xử lý CD quay / dừng
     // Handle CD spins / stops
@@ -608,7 +610,7 @@ const app = {
     playlist.onclick = function (e) {
       const songNode = e.target.closest(".song:not(.active)");
 
-      if (songNode || e.target.closest(".option")) {
+      if (songNode || !e.target.contains(".favoriteSong")) {
         // Xử lý khi click vào song
         // Handle when clicking on the song
         if (songNode) {
