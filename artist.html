@@ -8,13 +8,22 @@
   <!-- IMPORT CSS MAIN -->
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/base.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
+  <link rel="stylesheet" href="./assets/css/switchMode.css" />
+
+  <link rel="stylesheet" href="./assets/css/navbar/navbar.css" />
+  <link rel="stylesheet" href="./assets/css/avatar/avatar.css" />
+
   <link rel="stylesheet" href="./assets/css/artist.css" />
-  
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <link rel="stylesheet" href="./assets/css/backTop/backTop.css">
+
 
   <!-- IMPORT FONT AWESOME -->
-  <link rel="stylesheet" type="text/css" href="/assets/fonts/css/fontawesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/fonts/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- IMPORT FAVICON -->
   <link rel="shortcut icon"
     href="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
@@ -427,56 +436,6 @@
     </ul>
   </nav>
 
-  <!-- SUPPORT & CHAT MODE -->
-  <div class="overlay-support-chat-mode" id="supportChatMode">
-    <div class="support-chat-mode">
-      <!-- CHAT HEADER -->
-      <div class="support-chat-mode-header">
-        <h4>
-          Support
-          <img src="./assets/images/logo/JPEG/main_logo.png" alt="" title="Audiospark Bot" />
-        </h4>
-        <a href="javascript:void(0)" onclick="supportChatMode()"><span class="far fa-close"></span></a>
-      </div>
-      <!-- CHAT BODY -->
-      <div class="support-chat-mode-body">
-        <div class="chat-date">Today, September 26, 2023</div>
-        <div class="section-message-bot">
-          <img src="./assets/images/logo/JPEG/main_logo.png" alt="" />
-          <p>Hello! How can I assist you today?</p>
-        </div>
-        <div class="section-message-user">
-          <img src="./assets/images/avatar/avatar-1.png" alt="" />
-          <p>Hi</p>
-          <p>How to download as musics ZIP ???</p>
-        </div>
-        <div class="section-message-bot">
-          <img src="./assets/images/logo/JPEG/main_logo.png" alt="" />
-          <p>
-            You most first click on the 'DOWNLOAD' button to automatically
-            download ZIP file after a few seconds. <br /><br />
-            If you have a problem, are you ready to be responsive to you.
-          </p>
-        </div>
-        <div class="section-message-user">
-          <img src="./assets/images/avatar/avatar-1.png" alt="" />
-          <p>Thank you very much for your problem.</p>
-          <p>🙏🙏🙏</p>
-        </div>
-      </div>
-      <!-- CHAT FOOTER -->
-      <div class="support-chat-mode-footer">
-        <form action="" method="post">
-          <span class="far fa-paperclip" onclick=""></span>
-          <textarea name="" id="" cols="30" rows="1" placeholder="Write a msssage..."
-            aria-placeholder="Write a msssage..."></textarea>
-          <span class="far fa-smile" onclick=""></span>
-          <button type="submit" aria-label="Send">Send</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
   <!-- MAIN -->
   <main class="user-page">
     <!-- #SECTION: ALBUMS -->
@@ -495,13 +454,13 @@
   <!-- BACK TOP -->
   <a href="#Top">
     <div class="back-top" id="backTop">
-      <span class="far fa-angle-up"></span>
+      <i class="fa-solid fa-angles-up"></i>
     </div>
   </a>
 
   <!-- IMPORT JS -->
+  <script type="module" src="./assets/js/services/api_artist_page.js"></script>
   <script src="./assets/js/app.js"></script>
-  <script type="module" src="./assets/js/helpers/api_artist_page.js"></script>
 </body>
 
 </html>

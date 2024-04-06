@@ -157,7 +157,7 @@
   -webkit-appearance: none;
   border: 2px solid #1e130c;
   border-radius: 5px;
-  height: 18px;
+  height: 15px;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
@@ -173,7 +173,7 @@
   appearance: none;
   width: 30px;
   height: 30px;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><text x="0" y="20" font-size="20">🦝</text></svg>');
+  background: #1e130c;
   cursor: pointer;
   border-radius: 20%;
 }
@@ -194,7 +194,7 @@
   position: absolute;
   font-family: "Tilt Neon", sans-serif;
   font-size: 20px;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 /* WebKit (Chrome, Safari) */
@@ -248,9 +248,10 @@
 }
 
 .song .title {
-  font-size: 20px;
+  font-size: 22px;
   max-width: 100%;
   white-space: nowrap;
+  
 }
 
 .song.active .body h3 {
@@ -260,6 +261,7 @@
 .song .author {
   font-size: 16px;
   white-space: nowrap;
+  color: #9a8478;
 }
 
 .song .favoriteSong {

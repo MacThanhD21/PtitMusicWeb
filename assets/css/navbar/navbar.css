@@ -141,7 +141,7 @@ nav #search .result-songs ul li .infor-song {
   -webkit-user-select: none;
   display: block;
   margin-top: 5px;
-  color: rgba(220, 20, 60, 0.8);
+  color: red;
   font-family: var(--font-family-1);
   font-style:oblique;
   font-size: 30px;
