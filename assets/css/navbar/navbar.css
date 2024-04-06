@@ -64,14 +64,7 @@ nav #search input:focus {
   border-radius: 10px;
 }
 
-.switchMode nav #search input {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  color: #F2E394;
-}
-.switchMode nav #search input:focus {
-  border: 3px solid #eef2f3;
-  border-radius: 10px;
-}
+
 nav #search span {
   font-size: 20px;
   margin: 0 10px;

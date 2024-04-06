@@ -47,7 +47,6 @@ let listDataArray = [];
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
-
 const songMap = new Map();
 const albumMap = new Map();
 const cateMap = new Map();
@@ -453,56 +452,6 @@ const app = {
   handleEvents: function () {
     const _this = this;
     // const cdWidth = cd.offsetWidth;
-
-    // Xử lý CD quay / dừng
-    // Handle CD spins / stops
-    const cdThumbAnimate = cdThumb.animate([{ transform: "rotate(360deg)" }], {
-      duration: 10000, // 10 seconds
-      iterations: Infinity,
-    });
-    cdThumbAnimate.pause();
-
-    // Xử lý khi click play
-    // Handle when click play
-    playBtn.onclick = function () {
-      if (_this.isPlaying) {
-        audio.pause();
-      } else {
-        var playPromise = audio.play();
-
-        // In browsers that don’t yet support this functionality,
-        // playPromise won’t be defined.
-        if (playPromise !== undefined) {
-          playPromise
-            .then(function () {
-              // Automatic playback started!
-              audio.play();
-            })
-            .catch(function (error) {
-              console.log(error);
-              // Automatic playback failed.
-              // Show a UI element to let the user manually start playback.
-            });
-        }
-      }
-    };
-
-    // Khi song được play
-    // When the song is played
-    audio.onplay = function () {
-      _this.isPlaying = true;
-      player.classList.add("playing");
-      cdThumbAnimate.play();
-    };
-
-    // Khi song bị pause
-    // When the song is pause
-    audio.onpause = function () {
-      _this.isPlaying = false;
-      player.classList.remove("playing");
-      cdThumbAnimate.pause();
-    };
-
     // Khi tiến độ bài hát thay đổi
     // When the song progress changes
     audio.ontimeupdate = function () {
@@ -545,6 +494,39 @@ const app = {
         );
         progress.value = progressPercent;
       }
+    };
+    // Xử lý CD quay / dừng
+    // Handle CD spins / stops
+    const cdThumbAnimate = cdThumb.animate([{ transform: "rotate(360deg)" }], {
+      duration: 10000, // 10 seconds
+      iterations: Infinity,
+    });
+    cdThumbAnimate.pause();
+
+    // Xử lý khi click play
+    // Handle when click play
+    playBtn.onclick = function () {
+      if (_this.isPlaying) {
+        audio.pause();
+      } else {
+        audio.play();
+      }
+    };
+
+    // Khi song được play
+    // When the song is played
+    audio.onplay = function () {
+      _this.isPlaying = true;
+      player.classList.add("playing");
+      cdThumbAnimate.play();
+    };
+
+    // Khi song bị pause
+    // When the song is pause
+    audio.onpause = function () {
+      _this.isPlaying = false;
+      player.classList.remove("playing");
+      cdThumbAnimate.pause();
     };
 
     // Xử lý khi tua song

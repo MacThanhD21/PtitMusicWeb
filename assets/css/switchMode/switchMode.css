@@ -29,6 +29,7 @@
   color: var(--color-white);
 }
 
+/* Navbar */
 .switchMode nav {
   background: linear-gradient(34deg, #000000, #182826, #212d4f, #4d3c5a);
   background-size: 800% 800%;
@@ -53,20 +54,14 @@
   50%{background-position:100% 7%}
   100%{background-position:0% 94%}
 }
-
-.main {
-  z-index: 9999;
-  position: relative;
-  width: calc(100% - 82px);
-  transition: all .4s ease;
-  /* border-radius: 40px 0 0 40px; */
-  left: 82px;
-  background: #8e9eab;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
-  background: linear-gradient(to right, #eef2f3, #8e9eab);
+.switchMode nav #search input {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  color: #F2E394;
 }
-
+.switchMode nav #search input:focus {
+  border: 3px solid #eef2f3;
+  border-radius: 10px;
+}
 .switchMode nav ul:nth-child(1) a {
   color: var(--color-dark-main);
 }
@@ -88,6 +83,22 @@
   background-color: var(--background-dark-primary-main);
 }
 
+/* End Navbar */
+
+/* Main */
+.main {
+  z-index: 9999;
+  position: relative;
+  width: calc(100% - 82px);
+  transition: all .4s ease;
+  /* border-radius: 40px 0 0 40px; */
+  left: 82px;
+  background: #8e9eab;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+}
+
 .switchMode .page-02 header .artist .infor__artist {
   background: var(--primary-color);
 }
@@ -102,43 +113,6 @@
 }
 
 .switchMode .avatar-dropdown a li {
-  color: var(--color-white);
-}
-
-
-.switchMode .support-chat-mode {
-  box-shadow: var(--box-shadow-dark-xlg);
-  background-color: var(--color-black);
-  color: var(--color-white);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-header {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-color: var(--background-dark-primary-main);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-header a {
-  background-color: var(--background-dark-main);
-  color: var(--color-white);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-header a:hover {
-  background-color: var(--background-dark-secondary-main);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-header a:focus {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .support-chat-mode-body .section-message-bot p {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-footer form {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .support-chat-mode .support-chat-mode-footer form textarea {
   color: var(--color-white);
 }
 
@@ -206,39 +180,8 @@
 }
 
 .switchMode .card-artists-vertical:hover h4 {
-  color: #ffff00;
+  color: #F46D65;
 }
-
-.switchMode .hero-page {
-  background-position: center;
-  background-size: cover;
-  color: var(--color-dark-main);
-}
-
-.switchMode .hero-page>div>div a:hover {
-  color: var(--color-white);
-}
-
-.switchMode .hero-page .btn-post-default {
-  background-color: var(--color-black);
-  border-color: var(--background-dark-primary-main);
-  color: var(--color-white);
-}
-
-.switchMode .hero-page .btn-post-default:hover {
-  background-color: var(--background-dark-main);
-}
-
-.switchMode .hero-page .btn-post-default:active {
-  background-color: var(--background-dark-primary-main);
-}
-
-.switchMode .section-music-player {
-  background-color: var(--color-black);
-  box-shadow: var(--box-shadow-dark-xlg);
-  border-color: var(--background-dark-primary-main);
-}
-
 
 /* darkMode Player */
 .switchMode .dashboard {
@@ -318,6 +261,5 @@
 .switchMode .side-bar .link-name {
   color: #fff;
 }
-
 
 /* End darkMode Player */
