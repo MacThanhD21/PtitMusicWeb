@@ -131,6 +131,25 @@ try {
 } catch (mainError) {
   handleFetchDataError(mainError.message);
 }
+
+// Process music playing
+const processCurSongPlaying = () => {
+  const audio = $$(".card-playing-horizontal #audio");
+  const playBtn = $$(".btnHandleMusic .fa-play");
+  const pauseBtn = $$(".btnHandleMusic .fa-pause");
+
+  const currentPlayingAudio = document.querySelector(".playing audio");
+  console.log(currentPlayingAudio);
+
+  if (currentPlayingAudio) {
+    currentPlayingAudio.pause();
+    currentPlayingAudio.currentTime = 0;
+    currentPlayingAudio.parentElement.classList.remove("playing");
+    const index = Array.from(audio).indexOf(currentPlayingAudio);
+    playBtn[index].style.display = "inline-block";
+    pauseBtn[index].style.display = "none";
+  }
+};
 // object app
 const app = {
   currentIndex: 0,
@@ -265,7 +284,7 @@ const app = {
     });
     playlist.innerHTML = htmls.join("");
   },
-  
+
   defineProperties: function () {
     Object.defineProperty(this, "currentSong", {
       get: function () {
@@ -304,7 +323,7 @@ const app = {
       }
     }
 
-     // Xử lý CD quay / dừng
+    // Xử lý CD quay / dừng
     // Handle CD spins / stops
     const cdThumbAnimate = cdThumb.animate([{ transform: "rotate(360deg)" }], {
       duration: 10000, // 10 seconds
@@ -320,6 +339,7 @@ const app = {
     }
 
     function handlePlay() {
+      processCurSongPlaying();
       _this.isPlaying = true;
       player.classList.add("playing");
       cdThumbAnimate.play();
@@ -474,6 +494,7 @@ const app = {
     this.currentIndex = newIndex;
     this.loadCurrentSong();
   },
+
   start: function () {
     this.loadConfig();
     // Định nghĩa các thuộc tính cho object

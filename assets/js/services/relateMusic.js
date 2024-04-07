@@ -177,9 +177,8 @@ const handlePlayMusic = () => {
             playBtn[index].style.display = "inline-block";
             pauseBtn[index].style.display = "none";
           } catch (err) {
-            console.log(err);
+            audioElement.pause();
           }
-          
         }
 
         song.classList.toggle("playing");
