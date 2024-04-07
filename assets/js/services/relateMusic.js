@@ -151,11 +151,13 @@ const handlePlayMusic = () => {
 
   // console.log(songItems);
   const audio = $$(".card-playing-horizontal #audio");
+  console.log(audio);
+  console.log(Array.from(audio));
   const playBtn = $$(".btnHandleMusic .fa-play");
   const pauseBtn = $$(".btnHandleMusic .fa-pause");
   const likeBtn = $$(".likeMusic");
   const downloadBtn = $$(".downloadMusic");
-
+  let cur_index;
   songItems.forEach((song, index) => {
     song.addEventListener("click", (e) => {
       if (
@@ -164,36 +166,33 @@ const handlePlayMusic = () => {
       ) {
         const audioElement = audio[index];
         const currentPlayingAudio = document.querySelector(".playing audio");
-        const cur_index = Array.from(audio).indexOf(currentPlayingAudio);
-        if (cur_index == -1) {
-          currentPlayingAudio.pause();
-          currentPlayingAudio.currentTime = 0;
-          currentPlayingAudio.parentElement.classList.remove("playing");
-          audioElement.play();
-          playBtn[index].style.display = "none";
-          pauseBtn[index].style.display = "inline-block";
-        } else {
-          if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
+        cur_index = Array.from(audio).indexOf(currentPlayingAudio);
+        console.log(cur_index);
+        if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
+          try {
             currentPlayingAudio.pause();
             currentPlayingAudio.currentTime = 0;
             currentPlayingAudio.parentElement.classList.remove("playing");
             const index = Array.from(audio).indexOf(currentPlayingAudio);
             playBtn[index].style.display = "inline-block";
             pauseBtn[index].style.display = "none";
+          } catch (err) {
+            console.log(err);
           }
-
-
-          if (audioElement.paused) {
-            audioElement.play();
-            playBtn[index].style.display = "none";
-            pauseBtn[index].style.display = "inline-block";
-          } else {
-            audioElement.pause();
-            playBtn[index].style.display = "inline-block";
-            pauseBtn[index].style.display = "none";
-          }
+          
         }
+
         song.classList.toggle("playing");
+
+        if (audioElement.paused) {
+          audioElement.play();
+          playBtn[index].style.display = "none";
+          pauseBtn[index].style.display = "inline-block";
+        } else {
+          audioElement.pause();
+          playBtn[index].style.display = "inline-block";
+          pauseBtn[index].style.display = "none";
+        }
       }
     });
   });
