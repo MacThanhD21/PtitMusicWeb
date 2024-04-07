@@ -1,0 +1,231 @@
+import { songs } from "../data/specifyDataMusic.js";
+
+// console.log(songs);
+
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+const relatedMusic = $$("#section__trending .card-group-grid");
+
+let idx_cur_song = 0;
+let songsCount = songs.length;
+
+const render__two = () => {
+  // Render Trending Container
+  relatedMusic.forEach((relateSection) => {
+    let song_1, song_2, song_3, song_4, song_5, song_6;
+    if (idx_cur_song < songsCount) {
+      song_1 = songs[idx_cur_song];
+      song_2 = idx_cur_song + 1 < songsCount ? songs[idx_cur_song + 1] : null;
+      song_3 = idx_cur_song + 2 < songsCount ? songs[idx_cur_song + 2] : null;
+      song_4 = idx_cur_song + 3 < songsCount ? songs[idx_cur_song + 3] : null;
+      song_5 = idx_cur_song + 4 < songsCount ? songs[idx_cur_song + 4] : null;
+      song_6 = idx_cur_song + 5 < songsCount ? songs[idx_cur_song + 5] : null;
+
+      if (!song_1 || !song_2 || !song_3 || !song_4 || !song_5 || !song_6) {
+        return;
+      }
+    }
+    idx_cur_song += 6;
+    const html = `
+          <div class="card-playing-horizontal">
+              <div class="btnHandleMusic">
+                <span class="fa-solid fa-play" onclick=""></span>
+                <span class="fa-solid fa-pause" onclick=""></span>
+              </div>
+              <audio src="${song_1.link}" id="audio"></audio>
+            <figure class="card-playing-horizontal-header">
+              <img src="${song_1.imagecover}" alt="" />
+            </figure>
+            <div class="card-playing-horizontal-body">
+              <h4>
+                <span>${song_1.title}</span>
+              </h4>
+              <p>
+                <span>${song_1.artist}</span>
+              </p>
+            </div>
+            <div class="card-playing-horizontal-footer">
+              <div class="btnHandleDif likeMusic">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="btnHandleDif downloadMusic">
+                <i class="fa-solid fa-download"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-playing-horizontal">
+            <div class="btnHandleMusic">
+              <span class="fa-solid fa-play" onclick=""></span>
+              <span class="fa-solid fa-pause" onclick=""></span>
+            </div>
+            <audio src="${song_2.link}" id="audio"></audio>
+            <figure class="card-playing-horizontal-header">
+              <img src="${song_2.imagecover}" alt="" />
+            </figure>
+            <div class="card-playing-horizontal-body">
+              <h4>
+                <span>${song_2.title}</span>
+              </h4>
+              <p>
+                <span>${song_2.artist}</span>
+              </p>
+            </div>
+            <div class="card-playing-horizontal-footer">
+              <div class="btnHandleDif likeMusic">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="btnHandleDif downloadMusic">
+                <i class="fa-solid fa-download"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-playing-horizontal">
+            <div class="btnHandleMusic">
+              <span class="fa-solid fa-play" onclick=""></span>
+              <span class="fa-solid fa-pause" onclick=""></span>
+            </div>
+            <audio src="${song_3.link}" id="audio"></audio>
+            <figure class="card-playing-horizontal-header">
+              <img src="${song_3.imagecover}" alt="" />
+            </figure>
+            <div class="card-playing-horizontal-body">
+              <h4>
+                <span>${song_3.title}</span>
+              </h4>
+              <p>
+                <span>${song_3.artist}</span>
+              </p>
+            </div>
+            <div class="card-playing-horizontal-footer">
+              <div class="btnHandleDif likeMusic">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="btnHandleDif downloadMusic">
+                <i class="fa-solid fa-download"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card-playing-horizontal">
+            <div class="btnHandleMusic">
+              <span class="fa-solid fa-play" onclick=""></span>
+              <span class="fa-solid fa-pause" onclick=""></span>
+            </div>
+            <audio src="${song_4.link}" id="audio"></audio>
+            <figure class="card-playing-horizontal-header">
+              <img src="${song_4.imagecover}" alt="" />
+            </figure>
+            <div class="card-playing-horizontal-body">
+              <h4>
+                <span>${song_4.title}</span>
+              </h4>
+              <p>
+                <span>${song_4.artist}</span>
+              </p>
+            </div>
+            <div class="card-playing-horizontal-footer">
+              <div class="btnHandleDif likeMusic">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+              <div class="btnHandleDif downloadMusic">
+                <i class="fa-solid fa-download"></i>
+              </div>
+            </div>
+          </div>
+          
+          </div>
+          `;
+    relateSection.innerHTML += html;
+  });
+};
+
+// proccess Logic chơi nhạc
+
+const handlePlayMusic = () => {
+  // const trendingSection = $("#treding_container");
+  // const btnHandleMusic = $$(".btnHandleMusic");
+  const songItems = $$(
+    "#section__trending .card-group-grid .card-playing-horizontal"
+  );
+
+  // console.log(songItems);
+  const audio = $$(".card-playing-horizontal #audio");
+  const playBtn = $$(".btnHandleMusic .fa-play");
+  const pauseBtn = $$(".btnHandleMusic .fa-pause");
+  const likeBtn = $$(".likeMusic");
+  const downloadBtn = $$(".downloadMusic");
+
+  songItems.forEach((song, index) => {
+    song.addEventListener("click", (e) => {
+      if (
+        !e.target.classList.contains("fa-heart") &&
+        !e.target.classList.contains("fa-download")
+      ) {
+        const audioElement = audio[index];
+        const currentPlayingAudio = document.querySelector(".playing audio");
+        const cur_index = Array.from(audio).indexOf(currentPlayingAudio);
+        if (cur_index == -1) {
+          currentPlayingAudio.pause();
+          currentPlayingAudio.currentTime = 0;
+          currentPlayingAudio.parentElement.classList.remove("playing");
+          audioElement.play();
+          playBtn[index].style.display = "none";
+          pauseBtn[index].style.display = "inline-block";
+        } else {
+          if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
+            currentPlayingAudio.pause();
+            currentPlayingAudio.currentTime = 0;
+            currentPlayingAudio.parentElement.classList.remove("playing");
+            const index = Array.from(audio).indexOf(currentPlayingAudio);
+            playBtn[index].style.display = "inline-block";
+            pauseBtn[index].style.display = "none";
+          }
+
+
+          if (audioElement.paused) {
+            audioElement.play();
+            playBtn[index].style.display = "none";
+            pauseBtn[index].style.display = "inline-block";
+          } else {
+            audioElement.pause();
+            playBtn[index].style.display = "inline-block";
+            pauseBtn[index].style.display = "none";
+          }
+        }
+        song.classList.toggle("playing");
+      }
+    });
+  });
+
+  // Like Music
+
+  likeBtn.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+    });
+  });
+
+  // Download Music
+
+  downloadBtn.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      // Tải xuống tệp MP3
+      const currentAudio = audio[index];
+      const audioSource = audioElement.src;
+      const downloadLink = document.createElement("a");
+      // gán đường link
+      downloadLink.href = audioSource;
+      // xét thuộc tính cho thẻ a
+      downloadLink.setAttribute("target", "_blank");
+      downloadLink.setAttribute("rel", "noopener noreferrer");
+      downloadLink.setAttribute("download", `${songs[index].title}`);
+      // thêm vào body
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    });
+  });
+};
+render__two();
+handlePlayMusic();
