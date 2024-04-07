@@ -142,28 +142,6 @@
     transition: var(--transition-3s-ease);
   }
 
-  #Top .section-music-player>div:nth-child(1) h4,
-  #Top .section-music-player>div:nth-child(1) a {
-    overflow: hidden;
-    white-space: nowrap;
-    display: none;
-  }
-
-  #Top .section-music-player-timeline {
-    width: 300px;
-    position: relative;
-    right: 0;
-  }
-
-  #Top .section-music-player audio {
-    width: 262px;
-    /* height: 40px; */
-    /* display: none; */
-    right: 0;
-    position: absolute;
-    top: -30px;
-  }
-
   nav #search {
     width: 50%;
     padding: 0;
@@ -206,10 +184,6 @@
     margin: auto;
   }
 
-  .support-chat-mode {
-    transition: var(--transition-3s-ease);
-    height: 97%;
-  }
 
   .avatar-dropdown a li {
     transition: var(--transition-3s-ease);

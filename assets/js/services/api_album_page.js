@@ -254,9 +254,6 @@ const app = {
                     <i class="fa-solid fa-heart"></i>
                   </div>
               </div>
-              <image id="mainColor" src="${
-                song.imagecover
-              }" alt="" style="display:none" />
           `;
       }
     });
@@ -626,7 +623,7 @@ const app = {
       audio.src = this.currentSong.link;
       // mainColor.src = this.currentSong.imagecover;
 
-      const mainColor = document.getElementById("mainColor");
+      const mainColor = new Image();
       // const mainColor = new Image();
       // console.log(mainColor);
 

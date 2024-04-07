@@ -30,3 +30,49 @@
 .page-02 .card-grid img {
   object-fit: cover;
 }
+
+.page-02 .card-simple {
+  background-color: var(--background-thirdly-main);
+  border-radius: var(--border-radius-mmmd);
+  transition: var(--transition-2s-ease);
+  scroll-snap-align: start;
+  margin-right: 10px;
+  padding: 10px;
+}
+
+.page-02 .card-simple figure {
+  border-radius: var(--border-radius-mmmd);
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
+}
+.page-02 .card-simple img {
+  transition: var(--transition-3s-ease);
+  border-radius: var(--border-radius-mmmd);
+  height: 100%;
+  width: 100%;
+}
+
+
+.page-02 .card-simple h3 {
+  transition: var(--transition-3s-ease);
+  margin-top: 6px;
+  font-size: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  line-clamp: 1;
+  width: 200px;
+}
+
+.page-02 .card-simple p a {
+  font-size: 16px;
+  color: var(--color-silver);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  line-clamp: 1;
+  width: 200px;
+}

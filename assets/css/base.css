@@ -1,16 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Niconne&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tilt+Neon&display=swap');
 
 /*========== VAR */
 :root {
-  --font-family: Roboto, sans-serif;
-  
-  --font-family-1: "Josefin Sans", sans-serif;
-  --font-optical-sizing: auto;
-  --font-weight: <weight>;
-  --font-style: normal;
+  --font-family: "Kaushan Script", cursive;
   
   --line-height-1\6: 1.6;
   --line-height: 1.5;
@@ -74,17 +67,6 @@
   --border-radius-full: 9999px;
 
 
-  --box-shadow-sm: 0 1px 0 rgba(31,35,40,0.04);
-  --box-shadow-md: 0 3px 6px rgba(140,149,159,0.15);
-  --box-shadow-lg: 0 1px 0 rgba(31,35,40,0.04);
-  --box-shadow-xlg: 0 12px 28px rgba(140,149,159,0.3);
-
-  --box-shadow-dark-sm: 0 1px 0 rgba(0, 0, 0, 0.04);
-  --box-shadow-dark-md: 0 3px 6px rgba(0, 0, 0, 0.15);
-  --box-shadow-dark-lg: 0 1px 0 rgba(0, 0, 0, 0.04);
-  --box-shadow-dark-xlg: 0 12px 28px rgba(0, 0, 0, 0.3);
-
-
   --padding-default\12-18: 12px 18px;
   --padding-default\15-20: 15px 20px;
 
@@ -98,6 +80,7 @@
 
 /*========== BODY */
 body {
+  scrollbar-width: none;
   font-family: var(--font-family);
   /* background-color: var(--background-main); */
   line-height: 26px;
@@ -116,3 +99,5 @@ html.unselectable * {
 html:not(.rwos) body {
   -webkit-overflow-scrolling: touch;
 }
+
+
