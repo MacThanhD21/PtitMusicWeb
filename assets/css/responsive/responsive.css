@@ -54,28 +54,24 @@
   }
 
   .page-01 #player {
-    height: 100vh !important;
+    height: 52vh !important;
     border-radius: 10px;
   }
 
   .page-01 #player .dashboard {
-    height: 60vh !important;
+    height: 30vh !important;
     width: 100%;
     border-radius: 10px;
   }
 
   .page-01 #player .playlist {
     grid-template-columns: repeat(1, 1fr);
-    height: 42vh !important;
-    top: 400px;
+    height: 22vh !important;
+    top: 210px;
     width: 100%;
   }
 
   .page-01 #player .cd {
-    width: 200px !important;
-    opacity: 1 !important;
-  }
-  .page-01 #section__trending {
     display: none;
   }
 }
