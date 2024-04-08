@@ -1,5 +1,5 @@
 import { songs } from "../data/specifyDataMusic.js";
-
+import { getAverageColor } from "../helpers/getAverageColor.js";
 // console.log(songs);
 
 const $ = document.querySelector.bind(document);
@@ -154,15 +154,37 @@ const handlePlayMusic = () => {
   console.log(Array.from(audio));
   const playBtn = $$(".btnHandleMusic .fa-play");
   const pauseBtn = $$(".btnHandleMusic .fa-pause");
+  const imageElement = $$(".card-playing-horizontal-header img");
+  console.log(imageElement);
   const likeBtn = $$(".likeMusic");
   const downloadBtn = $$(".downloadMusic");
   let cur_index;
   songItems.forEach((song, index) => {
     song.addEventListener("click", (e) => {
+      // console.log(imageElement[index]);
+      const clickedSong = e.currentTarget;
+      console.log(clickedSong);
+      const otherSongs = Array.from(songItems).filter((item) => item !== clickedSong);
+      console.log(otherSongs);
+      otherSongs.forEach((item) => {
+        item.style.background = "#000";
+      });
       if (
         !e.target.classList.contains("fa-heart") &&
         !e.target.classList.contains("fa-download")
       ) {
+        const imgElement = new Image();
+        if (imgElement) {
+          // console.log(imgElement);
+          imgElement.src = imageElement[index].src;
+          imgElement.setAttribute("crossOrigin", "anonymous");
+          imgElement.onload = function () {
+            const { R, G, B } = getAverageColor(imgElement, 4);
+            // console.log(R, G, B);
+            const color = `rgb(${R}, ${G}, ${B})`;
+            song.style.backgroundColor = color;
+          };
+        }
         const audioElement = audio[index];
         const currentPlayingAudio = document.querySelector(".playing audio");
         cur_index = Array.from(audio).indexOf(currentPlayingAudio);

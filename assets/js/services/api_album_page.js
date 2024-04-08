@@ -134,14 +134,14 @@ try {
 
 // Process music playing
 const processCurSongPlaying = () => {
-  console.log("Con cụ mày...");
+  // console.log("Con cụ mày...");
   const audio = $$(".card-playing-horizontal #audio");
   const playBtn = $$(".btnHandleMusic .fa-play");
   const pauseBtn = $$(".btnHandleMusic .fa-pause");
 
   const currentPlayingAudio = document.querySelector(".card-playing-horizontal.playing audio");
-  console.log(currentPlayingAudio);
-  console.log("-------------------------------");
+  // console.log(currentPlayingAudio);
+  // console.log("-------------------------------");
 
   if (currentPlayingAudio) {
     try {

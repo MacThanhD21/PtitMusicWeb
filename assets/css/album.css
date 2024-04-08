@@ -108,6 +108,9 @@
   scroll-snap-align: start;
   justify-content: space-between;
 }
+.card-playing-horizontal.playing{
+  /* background: #103178 !important; */
+}
 
 .card-playing-horizontal .card-playing-horizontal-footer {
   display: flex;
