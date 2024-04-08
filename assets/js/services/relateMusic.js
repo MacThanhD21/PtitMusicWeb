@@ -150,12 +150,12 @@ const handlePlayMusic = () => {
 
   // console.log(songItems);
   const audio = $$(".card-playing-horizontal #audio");
-  console.log(audio);
-  console.log(Array.from(audio));
+  // console.log(audio);
+  // console.log(Array.from(audio));
   const playBtn = $$(".btnHandleMusic .fa-play");
   const pauseBtn = $$(".btnHandleMusic .fa-pause");
   const imageElement = $$(".card-playing-horizontal-header img");
-  console.log(imageElement);
+  // console.log(imageElement);
   const likeBtn = $$(".likeMusic");
   const downloadBtn = $$(".downloadMusic");
   let cur_index;
@@ -163,9 +163,9 @@ const handlePlayMusic = () => {
     song.addEventListener("click", (e) => {
       // console.log(imageElement[index]);
       const clickedSong = e.currentTarget;
-      console.log(clickedSong);
+      // console.log(clickedSong);
       const otherSongs = Array.from(songItems).filter((item) => item !== clickedSong);
-      console.log(otherSongs);
+      // console.log(otherSongs);
       otherSongs.forEach((item) => {
         item.style.background = "#000";
       });
@@ -188,7 +188,7 @@ const handlePlayMusic = () => {
         const audioElement = audio[index];
         const currentPlayingAudio = document.querySelector(".playing audio");
         cur_index = Array.from(audio).indexOf(currentPlayingAudio);
-        console.log(cur_index);
+        // console.log(cur_index);
         if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
           try {
             currentPlayingAudio.pause();
@@ -213,6 +213,12 @@ const handlePlayMusic = () => {
           playBtn[index].style.display = "inline-block";
           pauseBtn[index].style.display = "none";
         }
+        // HandleEvents
+        audioElement.addEventListener("ended", () => {
+          song.classList.remove("playing");
+          playBtn[index].style.display = "inline-block";
+          pauseBtn[index].style.display = "none";
+        });
       }
     });
   });
