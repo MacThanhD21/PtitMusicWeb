@@ -134,20 +134,28 @@ try {
 
 // Process music playing
 const processCurSongPlaying = () => {
+  console.log("Con cụ mày...");
   const audio = $$(".card-playing-horizontal #audio");
   const playBtn = $$(".btnHandleMusic .fa-play");
   const pauseBtn = $$(".btnHandleMusic .fa-pause");
 
-  const currentPlayingAudio = document.querySelector(".playing audio");
+  const currentPlayingAudio = document.querySelector(".card-playing-horizontal.playing audio");
   console.log(currentPlayingAudio);
+  console.log("-------------------------------");
 
   if (currentPlayingAudio) {
-    currentPlayingAudio.pause();
-    currentPlayingAudio.currentTime = 0;
-    currentPlayingAudio.parentElement.classList.remove("playing");
-    const index = Array.from(audio).indexOf(currentPlayingAudio);
-    playBtn[index].style.display = "inline-block";
-    pauseBtn[index].style.display = "none";
+    try {
+      currentPlayingAudio.pause();
+      currentPlayingAudio.currentTime = 0;
+      currentPlayingAudio.parentElement.classList.remove("playing");
+      const index = Array.from(audio).indexOf(currentPlayingAudio);
+      if (index !== -1) {
+        playBtn[index].style.display = "inline-block";
+        pauseBtn[index].style.display = "none";
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   }
 };
 // object app

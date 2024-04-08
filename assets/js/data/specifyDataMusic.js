@@ -7,7 +7,7 @@ const API_SONGS =
 async function fetchData() {
   try {
     let data = await fetchApi(API_SONGS);
-    let trimmedData = data.slice(10, 31);
+    let trimmedData = data.slice(10, 40);
 
     return trimmedData;
   } catch (error) {
