@@ -44,3 +44,4 @@
 //     resultAlbums.style.display = "none"; // Ẩn hộp kết quả nếu input rỗng
 //   }
 // });
+
