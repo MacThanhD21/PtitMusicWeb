@@ -144,6 +144,7 @@ btnGenMusic.addEventListener("click", async function () {
 
 // Function to update UI with song details
 function updateUI(songDetails) {
+  console.log("Updating UI with song details", songDetails);
   // Assuming you have two items with class="genMusicItem__info" and two buttons with class="btn-primary"
   const infoElements = document.querySelectorAll(".genMusicItem__info");
   const playButtons = document.querySelectorAll(".btn-primary");
