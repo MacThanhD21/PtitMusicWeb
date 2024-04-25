@@ -1,57 +1,54 @@
-// Get Data from Suno API
-// Get data from input and send to Suno API
-// Get data from Suno API and display it on the page
-// const data = [
-//   {
-//     id: "371eeb51-5b45-4af4-809c-c2c5c1d3ba84",
-//     title: "Island Sun",
-//     image_url:
-//       "https://cdn1.suno.ai/image_371eeb51-5b45-4af4-809c-c2c5c1d3ba84.png",
-//     lyric:
-//       "[Verse]\nSippin' on sunshine\nParadise in my eyes\nReggae beats flowin'\nFeelin' so alive\nLaid-back grooves takin' over my soul\nCaribbean vibes\nGonna lose control\n[Verse 2]\nPalm trees swayin'\nOn a sandy shore\nReggae rhythm\nCan't ask for more\nMelodies dance\nLike waves in the sea\nIsland vibes\nSet my spirit free\n[Chorus]\nFeel the Island Sun\nIt's the place to be\nLay back and relax\nFeel the reggae melody\nWith the sand beneath your feet\nAnd the ocean breeze\nLet the music take you\nFar across the seas",
-//     audio_url: "https://cdn1.suno.ai/371eeb51-5b45-4af4-809c-c2c5c1d3ba84.mp3",
-//     video_url: "https://cdn1.suno.ai/371eeb51-5b45-4af4-809c-c2c5c1d3ba84.mp4",
-//     created_at: "2024-04-13T03:28:42.707Z",
-//     model_name: "chirp-v3",
-//     status: "complete",
-//     gpt_description_prompt:
-//       "A reggae-infused pop song with laid-back grooves and sunny melodies, bringing the feel-good vibes of the Caribbean islands.",
-//     prompt:
-//       "[Verse]\nSippin' on sunshine\nParadise in my eyes\nReggae beats flowin'\nFeelin' so alive\nLaid-back grooves takin' over my soul\nCaribbean vibes\nGonna lose control\n\n[Verse 2]\nPalm trees swayin'\nOn a sandy shore\nReggae rhythm\nCan't ask for more\nMelodies dance\nLike waves in the sea\nIsland vibes\nSet my spirit free\n\n[Chorus]\nFeel the Island Sun\nIt's the place to be\nLay back and relax\nFeel the reggae melody\nWith the sand beneath your feet\nAnd the ocean breeze\nLet the music take you\nFar across the seas",
-//     type: "gen",
-//     tags: "sunny melodies reggae-infused pop laid-back grooves",
-//   },
-//   {
-//     id: "164611ca-4589-4736-83a7-138e00cdbd72",
-//     title: "Island Sun",
-//     image_url:
-//       "https://cdn1.suno.ai/image_164611ca-4589-4736-83a7-138e00cdbd72.png",
-//     lyric:
-//       "[Verse]\nSippin' on sunshine\nParadise in my eyes\nReggae beats flowin'\nFeelin' so alive\nLaid-back grooves takin' over my soul\nCaribbean vibes\nGonna lose control\n[Verse 2]\nPalm trees swayin'\nOn a sandy shore\nReggae rhythm\nCan't ask for more\nMelodies dance\nLike waves in the sea\nIsland vibes\nSet my spirit free\n[Chorus]\nFeel the Island Sun\nIt's the place to be\nLay back and relax\nFeel the reggae melody\nWith the sand beneath your feet\nAnd the ocean breeze\nLet the music take you\nFar across the seas",
-//     audio_url: "https://cdn1.suno.ai/164611ca-4589-4736-83a7-138e00cdbd72.mp3",
-//     video_url: "https://cdn1.suno.ai/164611ca-4589-4736-83a7-138e00cdbd72.mp4",
-//     created_at: "2024-04-13T03:28:42.707Z",
-//     model_name: "chirp-v3",
-//     status: "complete",
-//     gpt_description_prompt:
-//       "A reggae-infused pop song with laid-back grooves and sunny melodies, bringing the feel-good vibes of the Caribbean islands.",
-//     prompt:
-//       "[Verse]\nSippin' on sunshine\nParadise in my eyes\nReggae beats flowin'\nFeelin' so alive\nLaid-back grooves takin' over my soul\nCaribbean vibes\nGonna lose control\n\n[Verse 2]\nPalm trees swayin'\nOn a sandy shore\nReggae rhythm\nCan't ask for more\nMelodies dance\nLike waves in the sea\nIsland vibes\nSet my spirit free\n\n[Chorus]\nFeel the Island Sun\nIt's the place to be\nLay back and relax\nFeel the reggae melody\nWith the sand beneath your feet\nAnd the ocean breeze\nLet the music take you\nFar across the seas",
-//     type: "gen",
-//     tags: "sunny melodies reggae-infused pop laid-back grooves",
-//   },
-// ];
+import { MusicGenData } from "../data/music_gen_data.js";
+
+// Data Musics
+const data = [
+  {
+    id: "371eeb51-5b45-4af4-809c-c2c5c1d3ba84",
+    title: "Island Sun",
+    image_url:
+      "https://cdn1.suno.ai/image_371eeb51-5b45-4af4-809c-c2c5c1d3ba84.png",
+    lyric:
+      "[Verse]\nSippin' on sunshine\nParadise in my eyes\nReggae beats flowin'\nFeelin' so alive\nLaid-back grooves takin' over my soul\nCaribbean vibes\nGonna lose control\n[Verse 2]\nPalm trees swayin'\nOn a sandy shore\nReggae rhythm\nCan't ask for more\nMelodies dance\nLike waves in the sea\nIsland vibes\nSet my spirit free\n[Chorus]\nFeel the Island Sun\nIt's the place to be\nLay back and relax\nFeel the reggae melody\nWith the sand beneath your feet\nAnd the ocean breeze\nLet the music take you\nFar across the seas",
+    audio_url: "https://cdn1.suno.ai/371eeb51-5b45-4af4-809c-c2c5c1d3ba84.mp3",
+    video_url: "https://cdn1.suno.ai/371eeb51-5b45-4af4-809c-c2c5c1d3ba84.mp4",
+    created_at: "2024-04-13T03:28:42.707Z",
+    model_name: "chirp-v3",
+    status: "complete",
+    gpt_description_prompt:
+      "A reggae-infused pop song with laid-back grooves and sunny melodies, bringing the feel-good vibes of the Caribbean islands.",
+    prompt:
+      "[Verse]\nSippin' on sunshine\nParadise in my eyes\nReggae beats flowin'\nFeelin' so alive\nLaid-back grooves takin' over my soul\nCaribbean vibes\nGonna lose control\n\n[Verse 2]\nPalm trees swayin'\nOn a sandy shore\nReggae rhythm\nCan't ask for more\nMelodies dance\nLike waves in the sea\nIsland vibes\nSet my spirit free\n\n[Chorus]\nFeel the Island Sun\nIt's the place to be\nLay back and relax\nFeel the reggae melody\nWith the sand beneath your feet\nAnd the ocean breeze\nLet the music take you\nFar across the seas",
+    type: "gen",
+    tags: "sunny melodies reggae-infused pop laid-back grooves",
+  },
+  {
+    id: "164611ca-4589-4736-83a7-138e00cdbd72",
+    title: "Island Sun",
+    image_url:
+      "https://cdn1.suno.ai/image_164611ca-4589-4736-83a7-138e00cdbd72.png",
+    lyric:
+      "[Verse]\nSippin' on sunshine\nParadise in my eyes\nReggae beats flowin'\nFeelin' so alive\nLaid-back grooves takin' over my soul\nCaribbean vibes\nGonna lose control\n[Verse 2]\nPalm trees swayin'\nOn a sandy shore\nReggae rhythm\nCan't ask for more\nMelodies dance\nLike waves in the sea\nIsland vibes\nSet my spirit free\n[Chorus]\nFeel the Island Sun\nIt's the place to be\nLay back and relax\nFeel the reggae melody\nWith the sand beneath your feet\nAnd the ocean breeze\nLet the music take you\nFar across the seas",
+    audio_url: "https://cdn1.suno.ai/164611ca-4589-4736-83a7-138e00cdbd72.mp3",
+    video_url: "https://cdn1.suno.ai/164611ca-4589-4736-83a7-138e00cdbd72.mp4",
+    created_at: "2024-04-13T03:28:42.707Z",
+    model_name: "chirp-v3",
+    status: "complete",
+    gpt_description_prompt:
+      "A reggae-infused pop song with laid-back grooves and sunny melodies, bringing the feel-good vibes of the Caribbean islands.",
+    prompt:
+      "[Verse]\nSippin' on sunshine\nParadise in my eyes\nReggae beats flowin'\nFeelin' so alive\nLaid-back grooves takin' over my soul\nCaribbean vibes\nGonna lose control\n\n[Verse 2]\nPalm trees swayin'\nOn a sandy shore\nReggae rhythm\nCan't ask for more\nMelodies dance\nLike waves in the sea\nIsland vibes\nSet my spirit free\n\n[Chorus]\nFeel the Island Sun\nIt's the place to be\nLay back and relax\nFeel the reggae melody\nWith the sand beneath your feet\nAnd the ocean breeze\nLet the music take you\nFar across the seas",
+    type: "gen",
+    tags: "sunny melodies reggae-infused pop laid-back grooves",
+  },
+];
 
 // const audio = document.querySelectorAll("audio");
 const input = document.querySelector(".inner-genmusic input");
 const btnGenMusic = document.querySelector(".inner-genmusic button");
 
-
 input.addEventListener("input", function () {
   console.log(input.value);
 });
-
-// console.log(audio);
 
 // Replace your vercel domain
 const baseUrl = "https://suno-ai-three.vercel.app";
@@ -99,12 +96,11 @@ btnGenMusic.addEventListener("click", async function () {
       wait_audio: false,
     });
 
+    console.log(audioData);
     // Assuming audioData contains the audio URL, update the audio element's source
-    const ids = `${audioData[0].id},${audioData[1].id}`;
+    const ids = `${data[0].id},${data[1].id}`;
     console.log(`ids: ${ids}`);
     
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
-
     setTimeout(async () => {
       const songDetails = await getAudioInformation(ids);
       console.log(songDetails);
@@ -118,8 +114,6 @@ btnGenMusic.addEventListener("click", async function () {
 
 // Function to update UI with song details
 function updateUI(songDetails) {
-
-  // Assuming you have two items with class="genMusicItem__info" and two buttons with class="btn-primary"
   const infoElements = document.querySelectorAll(".item");
 
   // Update each item with song details
@@ -145,16 +139,10 @@ function playAudio() {
   songItems.forEach((song, index) => {
     song.addEventListener("click", (e) => {
       const audioElement = audio[index];
-      // console.log("audioElement" + audioElement);
-      // console.log(audioElement);
-
       const currentPlayingAudio = document.querySelector(".playing audio");
-
-      // console.log("curAudio" + currentPlayingAudio);
 
       // Pause the currently playing audio if it's not the same as the clicked audio
       if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
-        // console.log("Click ");
         currentPlayingAudio.pause();
         currentPlayingAudio.currentTime = 0;
         currentPlayingAudio.parentElement.parentElement.classList.remove("playing");
