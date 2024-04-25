@@ -1,4 +1,4 @@
-import { MusicGenData } from "../data/music_gen_data.js";
+// import { MusicGenData } from "../data/music_gen_data.js";
 
 // Data Musics
 const data = [
@@ -79,8 +79,8 @@ async function getQuotaInformation() {
   const response = await axios.get(url);
   return response.data;
 }
-// Event listener for the button click to generate audio
-btnGenMusic.addEventListener("click", async function () {
+
+async function getMusic(){
   try {
     // Display loading state
     // Assuming you have a loading indicator with id="loading"
@@ -98,18 +98,29 @@ btnGenMusic.addEventListener("click", async function () {
 
     console.log(audioData);
     // Assuming audioData contains the audio URL, update the audio element's source
-    const ids = `${data[0].id},${data[1].id}`;
+    const ids = `${audioData[0].id},${audioData[1].id}`;
     console.log(`ids: ${ids}`);
-    
-    setTimeout(async () => {
-      const songDetails = await getAudioInformation(ids);
-      console.log(songDetails);
-      updateUI(songDetails);
-      loadingIndicator.style.display = "none";
-    }, 1000);
+
+    for (let i = 0; i < 60; i++) {
+      const data = await getAudioInformation(ids);
+      console.log(data);
+      if (data[0].status === "streaming") {
+        console.log(`${data[0].id} ==> ${data[0].audio_url}`);
+        console.log(`${data[1].id} ==> ${data[1].audio_url}`);
+        updateUI(data);
+        loadingIndicator.style.display = "none";
+        break;
+      }
+      // sleep 5s
+      await new Promise((resolve) => setTimeout(resolve, 5000));
+    }
   } catch (error) {
     console.error("Error generating audio:", error);
   }
+};
+// Event listener for the button click to generate audio
+btnGenMusic.addEventListener("click", async function () {
+  getMusic();
 });
 
 // Function to update UI with song details
@@ -145,7 +156,9 @@ function playAudio() {
       if (currentPlayingAudio && currentPlayingAudio !== audioElement) {
         currentPlayingAudio.pause();
         currentPlayingAudio.currentTime = 0;
-        currentPlayingAudio.parentElement.parentElement.classList.remove("playing");
+        currentPlayingAudio.parentElement.parentElement.classList.remove(
+          "playing"
+        );
       }
 
       song.classList.toggle("playing");
