@@ -29,10 +29,6 @@ const popularArtistContainer = $("#popular_artists .card-grid-slider");
 let currentIdxAlbum = 0;
 let currentIdxCate = 0;
 
-// Bài hát hiện tại
-
-const musicPlayer = $(".section-music-player");
-
 // App Object
 const app = {
   isPlaying: false,
