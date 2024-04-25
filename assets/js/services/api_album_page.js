@@ -8,7 +8,7 @@ import { getAverageColor } from "../helpers/getAverageColor.js";
 const sidebar = document.querySelector(".side-bar");
 const toggleBtn1 = document.querySelector(".toggle-btn-1");
 const toggleBtn2 = document.querySelector(".toggle-btn-2");
-const section_music_player = document.querySelector(".section-music-player");
+// const section_music_player = document.querySelector(".section-music-player");
 const main = document.querySelector(".main");
 
 let sidebarExpanded = false;

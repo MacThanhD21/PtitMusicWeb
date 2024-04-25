@@ -2,6 +2,7 @@ import { songs } from "../data/songs.js";
 import { albums } from "../data/albums.js";
 import { artists } from "../data/artists.js";
 import { Categories } from "../data/category.js";
+import { getAverageColor } from "../helpers/getAverageColor.js";
 
 // console.log(songs);
 
@@ -303,11 +304,11 @@ const app = {
       "#treding_container .card-group-grid .card-playing-horizontal"
     );
     const audio = $$("#audio");
-    const btnHandleMusic = $$(".btnHandleMusic");
     const playBtn = $$(".btnHandleMusic .fa-play");
     const pauseBtn = $$(".btnHandleMusic .fa-pause");
     const likeBtn = $$(".likeMusic");
     const downloadBtn = $$(".downloadMusic");
+    const imageElement = $$(".card-playing-horizontal-header img");
 
     songItems.forEach((song, index) => {
       song.addEventListener("click", (e) => {
@@ -315,6 +316,28 @@ const app = {
           !e.target.classList.contains("fa-heart") &&
           !e.target.classList.contains("fa-download")
         ) {
+          // console.log(imageElement[index]);
+          const clickedSong = e.currentTarget;
+          // console.log(clickedSong);
+          const otherSongs = Array.from(songItems).filter(
+            (item) => item !== clickedSong
+          );
+          // console.log(otherSongs);
+          otherSongs.forEach((item) => {
+            item.style.background = "#000";
+          });
+          const imgElement = new Image();
+          if (imgElement) {
+            // console.log(imgElement);
+            imgElement.src = imageElement[index].src;
+            imgElement.setAttribute("crossOrigin", "anonymous");
+            imgElement.onload = function () {
+              const { R, G, B } = getAverageColor(imgElement, 4);
+              // console.log(R, G, B);
+              const color = `rgb(${R}, ${G}, ${B})`;
+              song.style.backgroundColor = color;
+            };
+          }
           const audioElement = audio[index];
           const currentPlayingAudio = document.querySelector(".playing audio");
 
@@ -339,6 +362,13 @@ const app = {
             pauseBtn[index].style.display = "none";
           }
         }
+
+        // Add Event For Song
+        audio[index].addEventListener("ended", () => {
+          song.classList.remove("playing");
+          playBtn[index].style.display = "inline-block";
+          pauseBtn[index].style.display = "none";
+        });
       });
     });
 
