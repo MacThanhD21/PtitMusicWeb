@@ -80,12 +80,10 @@ async function getQuotaInformation() {
   return response.data;
 }
 
-async function getMusic(){
+async function getMusic() {
   try {
     // Display loading state
-    // Assuming you have a loading indicator with id="loading"
     const loadingIndicator = document.querySelector(".loader");
-    // console.log(loadingIndicator);
     loadingIndicator.style.display = "block";
     loadingIndicator.style.transition = "all 0.5s ease-in-out";
 
@@ -96,28 +94,35 @@ async function getMusic(){
       wait_audio: false,
     });
 
-    console.log(audioData);
     // Assuming audioData contains the audio URL, update the audio element's source
     const ids = `${audioData[0].id},${audioData[1].id}`;
-    console.log(`ids: ${ids}`);
 
     for (let i = 0; i < 60; i++) {
       const data = await getAudioInformation(ids);
-      console.log(data);
       if (data[0].status === "streaming" && data[1].status === "streaming") {
-        console.log(`${data[0].id} ==> ${data[0].audio_url}`);
-        console.log(`${data[1].id} ==> ${data[1].audio_url}`);
         updateUI(data);
         loadingIndicator.style.display = "none";
         break;
       }
       // sleep 5s
-      await new Promise((resolve) => setTimeout(resolve, 10000));
+      await new Promise((resolve) => setTimeout(resolve, 5000));
     }
   } catch (error) {
-    console.error("Error generating audio:", error);
+    // Hide loading indicator
+    const loadingIndicator = document.querySelector(".loader");
+    loadingIndicator.style.display = "none";
+
+    // Check if the error status is 402 (Payment Required)
+    if (error.response && error.response.status === 402) {
+      // Display message indicating that credits have run out
+      alert("Bạn đã dùng hết credits, vui lòng nạp VIP để sử dụng tiếp.");
+    } else {
+      // Log other errors to the console
+      console.error("Error generating audio:", error);
+    }
   }
-};
+}
+
 // Event listener for the button click to generate audio
 btnGenMusic.addEventListener("click", async function () {
   getMusic();

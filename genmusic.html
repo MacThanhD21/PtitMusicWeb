@@ -74,13 +74,13 @@
         <div class="col-lg-8 md-6">
           <div class="inner-genmusic mt-4">
             <div class="container-fluid">
-              <form class="d-flex">
+              <form class="d-flex" onsubmit="event.preventDefault();">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Generate</button>
               </form>
             </div>
           </div>
-          <!-- Kết quả -->
+          <div class="loader mt-3"></div>
           <div class="result mt-4">
             <div class="card">
               <div class="card-body">
@@ -126,7 +126,6 @@
 
 
   <script type="module" src="./assets/js/services/api_genmusic.js"></script>
-  <script src="./assets/js/app.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
