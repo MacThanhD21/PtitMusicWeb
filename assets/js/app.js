@@ -36,23 +36,17 @@ document.addEventListener("click", function (event) {
     dropdown.classList.remove("avatarDropdown");
   }
 });
-
-
-
 // SWITCH MODE
 
 function switchMode() {
   document.body.classList.toggle("switchMode");
 }
-
-
 // Toggle the dropdown when clicking on the avatar
 document.getElementById("avatar").addEventListener("click", function (event) {
   const dropdown = document.getElementById("avatarDropdown");
   dropdown.classList.toggle("avatarDropdown");
   event.stopPropagation(); // Prevent the click event from reaching the document level
 });
-
 // Prevent the dropdown from closing when clicking inside the dropdown
 document
   .getElementById("avatarDropdown")
@@ -60,12 +54,6 @@ document
     event.stopPropagation();
   });
 
-// SUPPORT & CHAT MODE
-function supportChatMode() {
-  document
-    .getElementById("supportChatMode")
-    .classList.toggle("supportChatMode");
-}
 
 // ## BACK TOP
 const backTop = document.getElementById("backTop");

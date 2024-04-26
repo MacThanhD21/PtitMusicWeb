@@ -30,101 +30,100 @@
 </style>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
-          alt="logo" width="50" height="50" class="d-inline-block align-text-top">
-        <span class="ms-3 fs-4">PTIT MUSIC</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- GenMusic -->
-  <div class="container mt-5">
-    <div class="row d-flex flex-column align-items-center justify-content-center bd-highlight mb-3">
-      <div class="col-md-8">
-        <div class="text-center">
-          <h1 class="mb-4">GenMusic</h1>
-          <p class="lead">GenMusic is a music generator that can generate music based on your mood. You can
-            choose your mood and the music will be generated based on that mood.</p>
+  <div class="Container">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
+            alt="logo" width="50" height="50" class="d-inline-block align-text-top">
+          <span class="ms-3 fs-4">PTIT MUSIC</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Contact</a>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
 
-      <div class="col-lg-8 md-6">
-        <div class="inner-genmusic mt-4">
-          <input type="text" class="form-control mb-3" placeholder="Drop your feelings here..." title="genmusic">
-          <button class="btn btn-success btn-block">Generate</button>
-          <div class="mt-4 loader"></div>
+    <!-- GenMusic -->
+    <div class="container mt-5">
+      <div class="row d-flex flex-column align-items-center justify-content-center bd-highlight mb-3">
+        <div class="col-md-8">
+          <div class="text-center">
+            <h1 class="mb-4">GenMusic</h1>
+            <p class="lead">GenMusic is a music generator that can generate music based on your mood. You can
+              choose your mood and the music will be generated based on that mood.</p>
+          </div>
         </div>
-        <!-- Kết quả -->
-        <div class="result mt-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Generated Music</h5>
-              <div class="row genMusicItem">
-                <!-- Item 1 -->
-                <div class="col-lg-6 col-md-6 item">
-                  <div class="genMusicItem__img">
-                    <img
-                      src=""
-                      alt="music" width="100" height="100">
+
+        <div class="col-lg-8 md-6">
+          <div class="inner-genmusic mt-4">
+            <input type="text" class="form-control mb-3" placeholder="Drop your feelings here..." title="genmusic">
+            <button type="button" class="btn btn-outline-success">Success</button>
+            <div class="mt-4 loader"></div>
+          </div>
+          <!-- Kết quả -->
+          <div class="result mt-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Generated Music</h5>
+                <div class="row genMusicItem">
+                  <!-- Item 1 -->
+                  <div class="col-lg-6 col-md-6 item">
+                    <div class="genMusicItem__img">
+                      <img src="" alt="music" width="100" height="100">
+                    </div>
+                    <div class="genMusicItem__info">
+                      <h6 class="genMusicItem__title"></h6>
+                      <p class="genMusicItem__author"></p>
+                    </div>
+                    <div class="genMusicItem__action">
+                      <button class="btn btn-primary">Play</button>
+                      <audio src=""></audio>
+                    </div>
                   </div>
-                  <div class="genMusicItem__info">
-                    <h6 class="genMusicItem__title"></h6>
-                    <p class="genMusicItem__author"></p>
-                  </div>
-                  <div class="genMusicItem__action">
-                    <button class="btn btn-primary">Play</button>
-                    <audio src=""></audio>
-                  </div>
-                </div>
-                <!-- Item 2 -->
-                <div class="col-lg-6 col-md-6 item">
-                  <div class="genMusicItem__img">
-                    <img
-                      src=""
-                      alt="music" width="100" height="100">
-                  </div>
-                  <div class="genMusicItem__info">
-                    <h6 class="genMusicItem__title"></h6>
-                    <p class="genMusicItem__author"></p>
-                  </div>
-                  <div class="genMusicItem__action">
-                    <button class="btn btn-primary">Play</button>
-                    <audio src=""></audio>
+                  <!-- Item 2 -->
+                  <div class="col-lg-6 col-md-6 item">
+                    <div class="genMusicItem__img">
+                      <img src="" alt="music" width="100" height="100">
+                    </div>
+                    <div class="genMusicItem__info">
+                      <h6 class="genMusicItem__title"></h6>
+                      <p class="genMusicItem__author"></p>
+                    </div>
+                    <div class="genMusicItem__action">
+                      <button class="btn btn-primary">Play</button>
+                      <audio src=""></audio>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 
 
   <script type="module" src="./assets/js/services/api_genmusic.js"></script>
+  <script src="./assets/js/app.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

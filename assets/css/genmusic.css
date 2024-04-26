@@ -9,6 +9,34 @@ body {
     /* overflow-x: hidden; */
 
 }
+#navbarNav, .navbar-nav {
+    background: none;
+}
+.navbar-toggler {
+    color: #fff !important;
+}
+.navbar-toggler-icon {
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+    background-color: #000;
+}
+* {
+    color: #fff;
+    background: #000;
+    background-size: 800% 800%;
+}
+
+.navbar {
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
 
 .navbarFixed .container .inner-logo {
     width: 40px;
