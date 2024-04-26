@@ -104,7 +104,7 @@ async function getMusic(){
     for (let i = 0; i < 60; i++) {
       const data = await getAudioInformation(ids);
       console.log(data);
-      if (data[0].status === "streaming") {
+      if (data[0].status === "streaming" && data[1].status === "streaming") {
         console.log(`${data[0].id} ==> ${data[0].audio_url}`);
         console.log(`${data[1].id} ==> ${data[1].audio_url}`);
         updateUI(data);
