@@ -1,3 +1,9 @@
+* {
+    color: #fff;
+    background: #000;
+    background-size: 800% 800%;
+}
+
 body {
     /* font-family: 'Poppins', sans-serif; */
     font-size: 16px;
@@ -6,8 +12,6 @@ body {
     background-color: var(--background-main);
     margin: 0;
     padding: 0;
-    /* overflow-x: hidden; */
-
 }
 
 .card { 
@@ -35,11 +39,7 @@ body {
     background-color: #fff;
 
 }
-* {
-    color: #fff;
-    background: #000;
-    background-size: 800% 800%;
-}
+
 
 .navbar {
     padding: 0;
