@@ -142,7 +142,7 @@ nav #search .result-songs ul li .infor-song {
   display: block;
   margin-top: 5px;
   color: red;
-  
+  font-family: monospace;
   font-style:oblique;
   font-size: 30px;
 }
