@@ -10,7 +10,7 @@ console.log(accessToken);
 
 // Nếu không có token, chuyển hướng người dùng đến trang đăng nhập
 if (!accessToken) {
-  window.location.href = '/login.html';
+  window.location.href = '/sign_in.html';
 }
 
 // Lấy phần tử nút logout từ DOM
@@ -23,10 +23,10 @@ logoutButton.addEventListener('click', function () {
     deleteCookie('accessToken');
 
     // Chuyển hướng người dùng đến trang đăng nhập
-    window.location.href = '/login.html';
+    window.location.href = '/sign_in.html';
   } else {
     // Nếu không có cookie, chuyển hướng người dùng đến trang đăng nhập
-    window.location.href = '/login.html';
+    window.location.href = '/sign_in.html';
   }
 });
 

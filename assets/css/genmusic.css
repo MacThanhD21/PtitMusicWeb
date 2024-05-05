@@ -3,13 +3,18 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: var(--text-main);
-  background-color: var(--background-main);
+  background-color: var(--color-soft-7);
   margin: 0;
   padding: 0;
 }
 
+.btn-primary, .btn-danger {
+  background: none;
+}
+
 .card {
   border: none;
+  background: none
 }
 
 .navbar-toggler {
@@ -78,7 +83,7 @@ body {
 }
 
 .genMusicItem__img img {
-  max-width: 100%;
+  max-width: 60%;
   height: auto;
   border: 2px solid mediumvioletred;
   border-radius: 10px;

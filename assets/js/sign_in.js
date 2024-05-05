@@ -2,7 +2,6 @@ const $ = document.querySelector.bind(document);
 
 const loginForm = $('#Sign__in');
 const signUpForm = $('#Sign__up');
-const registerLink = $('.register-link a');
 const backBtn = $('.back-btn');
 
 backBtn.addEventListener('click', function () {
@@ -11,44 +10,6 @@ backBtn.addEventListener('click', function () {
 	loginForm.classList.add('reactive');
 	loginForm.classList.remove('active');
 });
-
-registerLink.addEventListener('click', function (event) {
-  event.preventDefault();
-
-	loginForm.classList.remove('reactive');
-  // Toggle active class between login and sign-up forms
-  loginForm.classList.toggle('active');
-  signUpForm.classList.toggle('active');
-});
-
-
-// const signUp = async (username, password) => {
-//   const response = await fetch('https://ap-southeast-1.aws.data.mongodb-api.com/app/data-pkcss/endpoint/register', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({ username, password }),
-//   });
-
-//   return response.json();
-// }
-
-// signUpForm.addEventListener('submit', async function (event) {
-//   event.preventDefault();
-//   const username = $('#username-signup').value;
-//   const password = $('#password-signup').value;
-
-//   const response = await signUp(username, password);
-//   console.log(response);
-
-//   if (response.status === 'success') {
-//     // Redirect to the login page
-//     signUpForm.classList.remove('active');
-//     loginForm.classList.add('active');
-//   }
-// }
-// );
 
 
 // Hàm lấy giá trị của một cookie cụ thể
@@ -59,14 +20,6 @@ function getCookie(name) {
 
 // Lấy giá trị của cookie 'accessToken'
 const accessToken = getCookie('accessToken');
-// // Kiểm tra xem accessToken có tồn tại hay không
-// if (accessToken) {
-//   // Nếu có, chuyển hướng người dùng đến trang chính (index.html)
-//   window.location.href = '/index.html';
-// } else {
-//   // Nếu không, chuyển hướng người dùng đến trang đăng nhập (login.html)
-//   window.location.href = '/login.html';
-// }
 
 const usernameInput = $('#username');
 const passwordInput = $('#password');
