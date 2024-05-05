@@ -31,7 +31,7 @@
   <!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
   <!-- TITLE -->
 
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -44,6 +44,13 @@
 </head>
 
 <body id="Top" class="page-01 switchMode">
+  <!-- Loader -->
+  <div id="container_loader">
+    <span class="loader"></span>
+  </div>
+  <!-- End Loader -->
+
+  <!-- Side Bar -->
   <section class="side-bar">
     <!-- Section-one -->
     <div class="section-one">
@@ -116,7 +123,9 @@
       </ul>
     </div>
   </section>
+  <!-- End Side Bar -->
 
+  <!-- Main -->
   <section class="main">
     <!-- NAVBAR -->
     <nav id="navbarFixed">
@@ -279,6 +288,23 @@
       </div>
     </a>
   </section>
+  <!-- End Main -->
+
+  <script>
+    // Chờ cho tài liệu HTML được tải xong
+    document.addEventListener("DOMContentLoaded", function () {
+      // Sau 3 giây, ẩn loader
+      setTimeout(hideLoader, 2500);
+    });
+
+    // Hàm ẩn loader
+    function hideLoader() {
+      const loaderContainer = document.getElementById("container_loader");
+      loaderContainer.style.display = "none";
+      loaderContainer.style.transition = "all 0.5s";
+    }
+  </script>
+
 </body>
 
 </html>
