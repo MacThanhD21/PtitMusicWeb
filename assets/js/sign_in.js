@@ -1,16 +1,24 @@
 const $ = document.querySelector.bind(document);
 
-const loginForm = $('#Sign__in');
-const signUpForm = $('#Sign__up');
+const signInForm = $('#Sign__in');
+const registerLink = $('.register-link a');
 const backBtn = $('.back-btn');
 
 backBtn.addEventListener('click', function () {
   // Redirect to the login page
   signUpForm.classList.remove('active');
-	loginForm.classList.add('reactive');
-	loginForm.classList.remove('active');
+	signInForm.classList.add('reactive');
+	signInForm.classList.remove('active');
 });
 
+registerLink.addEventListener('click', function (event) {
+  event.preventDefault();
+
+	signInForm.classList.remove('reactive');
+  // Toggle active class between login and sign-up forms
+  signInForm.classList.toggle('active');
+  signUpForm.classList.toggle('active');
+});
 
 // Hàm lấy giá trị của một cookie cụ thể
 function getCookie(name) {
@@ -20,10 +28,18 @@ function getCookie(name) {
 
 // Lấy giá trị của cookie 'accessToken'
 const accessToken = getCookie('accessToken');
+// // Kiểm tra xem accessToken có tồn tại hay không
+// if (accessToken) {
+//   // Nếu có, chuyển hướng người dùng đến trang chính (index.html)
+//   window.location.href = '/index.html';
+// } else {
+//   // Nếu không, chuyển hướng người dùng đến trang đăng nhập (login.html)
+//   window.location.href = '/login.html';
+// }
 
-const usernameInput = $('#username');
-const passwordInput = $('#password');
-console.log(username, password);
+const usernameInput = $('#username-sign-in');
+const passwordInput = $('#password-sign-in');
+console.log(usernameInput, passwordInput);
 
 // Lắng nghe sự kiện khi người dùng nhập vào ô tên người dùng
 usernameInput.addEventListener('input', function (event) {
@@ -53,7 +69,7 @@ const login = async (user, password) => {
   }
 };
 // Lắng nghe sự kiện submit của form đăng nhập
-loginForm.addEventListener('submit', async function (event) {
+signInForm.addEventListener('submit', async function (event) {
   event.preventDefault(); // Ngăn chặn gửi form mặc định
 
   const user = usernameInput.value;
