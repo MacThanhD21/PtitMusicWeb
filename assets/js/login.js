@@ -132,3 +132,20 @@ function setCookie(name, value, days) {
   const expires = "expires=" + date.toUTCString();
   document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
+
+const passwordIconLock = document.querySelector('.fa-lock');
+const passwordIconUnlock = document.querySelector('.fa-unlock');
+const iconPassword = document.querySelector('.icon-password');
+
+// show/hide password
+iconPassword.addEventListener('click', function () {
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    passwordIconLock.style.display = 'none';
+    passwordIconUnlock.style.display = 'block';
+  } else {
+    passwordInput.type = 'password';
+    passwordIconLock.style.display = 'block';
+    passwordIconUnlock.style.display = 'none';
+  }
+});

@@ -13,9 +13,16 @@ body {
   align-items: center;
   min-height: 100vh;
   background: url("../images/background/login_bg.jpg") no-repeat;
-
   background-position: center;
   background-size: cover;
+}
+.container {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
 }
 
 .wrapper {
@@ -72,17 +79,19 @@ body {
   color: #fff;
   padding: 20px 45px 20px 20px;
 }
-
+.input-box input:focus {
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
 .input-box input::placeholder {
-  color: #fff;
+  color: #38d1ff;
 }
 
 .input-box i {
   position: absolute;
-  right: 20px;
+  right: 25px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .wrapper .remember-forgot {
