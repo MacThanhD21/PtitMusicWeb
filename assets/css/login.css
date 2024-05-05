@@ -12,7 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("https://images.alphacoders.com/135/1350899.png") no-repeat;
+  background: url("../images/background/login_bg.jpg") no-repeat;
 
   background-position: center;
   background-size: cover;
