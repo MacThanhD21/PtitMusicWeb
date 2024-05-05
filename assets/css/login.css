@@ -12,17 +12,36 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("../images/background/login_bg.jpg") no-repeat;
+  background: url("../images/background/login_bg.jpg") center no-repeat ;
   background-position: center;
   background-size: cover;
 }
+
 .container {
-  
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
+  top: -40px;
+}
 
+.container .title_page {
+  /* background: #000; */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.container .title_page h1 {
+  font-size: 36px;
+  color: #8600ff;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .wrapper {
@@ -33,7 +52,7 @@ body {
   padding: 30px 40px;
   border: 2px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -75,13 +94,16 @@ body {
   outline: none;
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 40px;
-  font-size: 16px;
+  font-size: 20px;
   color: #fff;
   padding: 20px 45px 20px 20px;
 }
+
 .input-box input:focus {
   border: 3px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.1s ease-in-out;
 }
+
 .input-box input::placeholder {
   color: #38d1ff;
 }
