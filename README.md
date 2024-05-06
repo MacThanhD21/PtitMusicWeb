@@ -15,8 +15,9 @@
 
 ## Updating Features
 
-- Generate Music by prompt (AI Model)
-- ...
+- Generate Music by prompt (AI Model) - DONE
+- Search in Main page
+- 
 ## 🛠 Skills
 - Language: HTML, CSS, Javascript
 - Library: Boostraps, Jquery
