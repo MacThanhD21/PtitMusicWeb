@@ -30,7 +30,7 @@
 }
 
 /* Navbar */
-.switchMode nav {
+.switchMode #navbarFixed {
   background: linear-gradient(34deg, #000000, #182826, #212d4f, #4d3c5a);
   background-size: 800% 800%;
 

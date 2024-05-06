@@ -13,17 +13,84 @@
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/base.css" />
   <link rel="stylesheet" href="./assets/css/profile.css" />
+  <link rel="stylesheet" href="./assets/css/navbar/navbar.css" />
+  <link rel="stylesheet" href="./assets/css/mode/mode.css" />
+  
+  <link rel="stylesheet" href="./assets/css/avatar/avatar.css" />
   <title>Profile</title>
 </head>
 
 <body>
-  <div class="container-xl px-4 mt-4">
-    <!-- Account page navigation-->
-    <nav class="nav nav-borders">
-      <a class="nav-link active ms-0" href="profile.html">Profile</a>
+  <!-- NAVBAR -->
+  <nav id="navbarFixed">
+    <ul>
+      <div class="inner-logo">
+        <a href="index.html"><img
+            src="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
+            alt="" title="ptit_music" />
+        </a>
+        <a href="index.html">
+          <span class="name__website">PTIT MUSIC</span>
+        </a>
+      </div>
+    </ul>
+    <!-- FORM: SEARCH -->
+    <div id="search">
+      <input id="searchInput" type="search" placeholder="What do you want to play?"
+        aria-placeholder="Search for music" />
+    </div>
+    <!-- End Search -->
+    <ul>
+      <a>
+        <label class="toggle" for="switch">
+          <input onclick="switchMode()" checked="true" id="switch" class="input" type="checkbox" title="switchMode">
+          <div class="icon icon--moon">
+            <svg height="24" width="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path clip-rule="evenodd"
+                d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"
+                fill-rule="evenodd"></path>
+            </svg>
+          </div>
 
-    </nav>
-    <hr class="mt-0 mb-4" />
+          <div class="icon icon--sun">
+            <svg height="24" width="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z">
+              </path>
+            </svg>
+          </div>
+        </label>
+      </a>
+
+      <a href="javascript:void(0)" id="avatar">
+        <div class="container-avatar">
+          <img src="./assets/images/avatar/avatar-1.png" alt="Avatar" />
+        </div>
+      </a>
+
+      <!-- AVATAR DORPDOWN -->
+      <div class="avatar-dropdown" id="avatarDropdown">
+        <a href="profile.html">
+          <li><span class="far fa-user"></span> Profile</li>
+        </a>
+        <a href="javascript:void(0)" onclick="supportChatMode()">
+          <li><span class="far fa-comment"></span> Support</li>
+        </a>
+        <a href="#">
+          <li><span class="far fa-star"></span> Upgrade Plan</li>
+        </a>
+        <hr />
+        <li>
+          <button class="logoutBtn">
+            Log out
+          </button>
+        </li>
+      </div>
+    </ul>
+  </nav>
+  <!-- main -->
+  <div class="main container-xl px-4 mt-4">
+    <!-- Account page navigation-->
     <div class="row">
       <div class="col-xl-4">
         <!-- Profile picture card-->
@@ -32,7 +99,7 @@
           <div class="card-body text-center d-flex flex-column align-items-center" id="right__main">
             <!-- Profile picture image-->
             <div id="avatar__display">
-              <img class="img-account-profile rounded-circle mb-2"
+              <img class="rounded-circle mb-2" id="img-account-profile"
                 src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
             </div>
             <!-- Profile picture help block-->
@@ -64,6 +131,11 @@
                 <label class="small mb-1" for="inputEmailAddress">Email address</label>
                 <input class="form-control" id="inputEmailAddress" type="email" placeholder="name@gmail.com" value=""
                   required />
+              </div>
+              <!-- Form Group (email address)-->
+              <div class="mb-3">
+                <label class="small mb-1" for="inputPassWord">Password</label>
+                <input class="form-control" id="inputPassWord" type="password" placeholder="**********" value="" />
               </div>
 
               <button class="btn btn-primary" type="button" id="save__changes">

@@ -28,28 +28,21 @@ function getCookie(name) {
 
 // Lấy giá trị của cookie 'accessToken'
 const accessToken = getCookie('accessToken');
-// // Kiểm tra xem accessToken có tồn tại hay không
-// if (accessToken) {
-//   // Nếu có, chuyển hướng người dùng đến trang chính (index.html)
-//   window.location.href = '/index.html';
-// } else {
-//   // Nếu không, chuyển hướng người dùng đến trang đăng nhập (login.html)
-//   window.location.href = '/login.html';
-// }
+console.log(accessToken);
 
 const usernameInput = $('#username-sign-in');
 const passwordInput = $('#password-sign-in');
 console.log(usernameInput, passwordInput);
 
 // Lắng nghe sự kiện khi người dùng nhập vào ô tên người dùng
-usernameInput.addEventListener('input', function (event) {
-  console.log(event.target.value);
-});
+// usernameInput.addEventListener('input', function (event) {
+//   console.log(event.target.value);
+// });
 
-// Lắng nghe sự kiện khi người dùng nhập vào ô mật khẩu
-passwordInput.addEventListener('input', function (event) {
-  console.log(event.target.value);
-});
+// // Lắng nghe sự kiện khi người dùng nhập vào ô mật khẩu
+// passwordInput.addEventListener('input', function (event) {
+//   console.log(event.target.value);
+// });
 
 // Hàm đăng nhập
 const login = async (user, password) => {
@@ -77,9 +70,9 @@ signInForm.addEventListener('submit', async function (event) {
 
   try {
     const response = await login(user, password);
-    console.log(response);
+    // console.log(response);
     if (response && response.result._id) {
-      setCookie('allInfores', JSON.stringify(response.result), 1);
+      setCookie('user', JSON.stringify(response.result), 1);
       // Lưu token vào cookie
       setCookie('accessToken', response.result._id, 1); // Thời gian sống của cookie là 1 ngày
 

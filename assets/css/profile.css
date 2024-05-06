@@ -1,10 +1,66 @@
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
   margin-top: 20px;
   background-color: #f2f6fc;
   color: #69707a;
 }
 
+.switchMode {
+  background: -webkit-linear-gradient(to right, #434343, #000000);
+  background: linear-gradient(to right, #434343, #000000);
+  color: var(--color-white);
+}
+.toggle {
+  color: #fff !important;
+}
+/* Navbar */
+.switchMode #navbarFixed {
+  background: linear-gradient(34deg, #000000, #182826, #212d4f, #4d3c5a);
+  background-size: 800% 800%;
+
+  -webkit-animation: Gradient_BG 20s ease infinite;
+  -moz-animation: Gradient_BG 20s ease infinite;
+  animation: Gradient_BG 20s ease infinite;
+}
+
+@-webkit-keyframes Gradient_BG {
+  0%{background-position:0% 94%}
+  50%{background-position:100% 7%}
+  100%{background-position:0% 94%}
+}
+@-moz-keyframes Gradient_BG {
+  0%{background-position:0% 94%}
+  50%{background-position:100% 7%}
+  100%{background-position:0% 94%}
+}
+@keyframes Gradient_BG {
+  0%{background-position:0% 94%}
+  50%{background-position:100% 7%}
+  100%{background-position:0% 94%}
+}
+.switchMode .card {
+  background-color: #78728d;
+}
+
+.switchMode .card-header, label {
+  color: #000;
+}
+
+nav {
+  position: fixed !important;
+}
+
+.main {
+  z-index: 0;
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .text-center {
   display: flex;
   justify-content: center;
@@ -28,7 +84,8 @@ body {
 
 #avatar__display {
   position: relative;
-  width: 60%;
+  width: 180px;
+  height: 180px;
 }
 
 #avatar__display img {
@@ -36,7 +93,7 @@ body {
   border: 2px solid red;
   background-size: cover;
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 50%;
   margin: 0 auto;
 }
@@ -117,86 +174,11 @@ body {
     border: 2px solid red;
     background-size: cover;
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 50%;
     margin: 0 auto;
     transition: all 0.3s ease-in-out;
   }
 }
 
-@media screen and (max-width: 1178px) {
-  #right__main {
-    width:45%;
-    margin: 0 auto;
-  }
 
-  #avatar__display img {
-    position: relative;
-    border: 2px solid red;
-    background-size: cover;
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    margin: 0 auto;
-    transition: all 0.3s ease-in-out;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #right__main {
-    width: 40%;
-    margin: 0 auto;
-  }
-
-  #avatar__display img {
-    position: relative;
-    border: 2px solid red;
-    background-size: cover;
-    width: 80%;
-    height: auto;
-    border-radius: 50%;
-    margin: 0 auto;
-    transition: all 0.3s ease-in-out;
-
-  }
-}
-
-@media screen and (max-width: 480px) {
-  #right__main {
-    width: 35%;
-    margin: 0 auto;
-  }
-
-  #avatar__display img {
-    position: relative;
-    border: 2px solid red;
-    background-size: cover;
-    width: 60%;
-    height: auto;
-    border-radius: 50%;
-    margin: 0 auto;
-    transition: all 0.3s ease-in-out;
-
-  }
-}
-
-@media screen and (max-width: 320px) {
-  #right__main {
-    width: 30%;
-    margin: 0 auto;
-  }
-
-  #avatar__display img {
-    position: relative;
-    border: 2px solid red;
-    background-size: cover;
-    width: 50%;
-    height: auto;
-    border-radius: 50%;
-    margin: 0 auto;
-    transition: all 0.3s ease-in-out;
-  }
-  .btn .btn-primary {
-    font-size: 10px;
-  }
-}
