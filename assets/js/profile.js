@@ -18,12 +18,14 @@ imageUpload.addEventListener("change", function () {
 });
 
 function getCookie(name) {
-  const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-  return cookieValue ? cookieValue.pop() : '';
+  const cookieValue = document.cookie.match(
+    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+  );
+  return cookieValue ? cookieValue.pop() : "";
 }
 
 //Get information of user from cookies
-const userCookieValue =JSON.parse(getCookie("user"));
+const userCookieValue = JSON.parse(getCookie("user"));
 
 if (userCookieValue) {
   // Xử lý giá trị cookie ở đây
@@ -39,7 +41,7 @@ const usernameField = document.getElementById("inputUsername");
 const emailField = document.getElementById("inputEmailAddress");
 const passwordField = document.getElementById("inputPassWord");
 
-console.log(imageField, usernameField, emailField, passwordField);
+// console.log(imageField, usernameField, emailField, passwordField);
 
 if (userCookieValue) {
   imageField.src = userCookieValue.profilePictureUrl;
@@ -50,3 +52,42 @@ if (userCookieValue) {
   console.log("Không tìm thấy cookie");
 }
 
+// update information of user
+// Xử lý sự kiện khi người dùng bấm nút "Lưu thay đổi"
+const saveChangesButton = document.getElementById("save__changes");
+saveChangesButton.addEventListener("click", function () {
+  // Thu thập thông tin mới từ các trường dữ liệu trên giao diện
+  const newImageData = imageField.src; // Giả sử imageField là một thẻ <img>
+  const newUsername = usernameField.value;
+  const newEmail = emailField.value;
+  const newPassword = passwordField.value;
+
+  // Gửi yêu cầu cập nhật thông tin đến máy chủ thông qua AJAX
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "/updateUserInfo", true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        // Cập nhật giao diện sau khi cập nhật thông tin người dùng thành công
+        imageField.src = response.imageData; // Cập nhật hình ảnh
+        usernameField.value = response.username; // Cập nhật tên người dùng
+        emailField.value = response.email; // Cập nhật email
+        passwordField.value = ""; // Xóa mật khẩu khỏi trường nhập
+        alert(response.message); // Hiển thị thông báo thành công
+      } else {
+        console.error("Failed to update user info. Status:", xhr.status);
+        alert("Đã xảy ra lỗi khi cập nhật thông tin người dùng.");
+      }
+    }
+  };
+
+  const requestBody = JSON.stringify({
+    imageData: newImageData,
+    username: newUsername,
+    email: newEmail,
+    password: newPassword,
+  });
+  xhr.send(requestBody);
+});
