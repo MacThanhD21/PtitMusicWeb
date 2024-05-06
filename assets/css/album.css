@@ -9,81 +9,85 @@
 }
 
 .loader {
-  transform: rotateZ(45deg);
-  perspective: 1000px;
-  border-radius: 50%;
-  width: 58px;
-  height: 58px;
-  color: #fff;
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
   position: absolute;
   z-index: 10000;
   top: 50%;
   left: 50%;
 }
-  .loader:before,
-  .loader:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: inherit;
-    height: inherit;
-    border-radius: 50%;
-    transform: rotateX(70deg);
-    animation: 1s spin linear infinite;
-  }
-  .loader:after {
-    color: #FF3D00;
-    transform: rotateY(70deg);
-    animation-delay: .4s;
-  }
+
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+
+.loader:before {
+  animation: ball1 1s infinite;
+  background-color: #fff;
+  box-shadow: 30px 0 0 #ff3d00;
+  margin-bottom: 10px;
+}
+
+.loader:after {
+  animation: ball2 1s infinite;
+  background-color: #ff3d00;
+  box-shadow: 30px 0 0 #fff;
+}
 
 @keyframes rotate {
   0% {
-    transform: translate(-50%, -50%) rotateZ(0deg);
+    transform: rotate(0deg) scale(0.8)
   }
-  100% {
-    transform: translate(-50%, -50%) rotateZ(360deg);
-  }
-}
 
-@keyframes rotateccw {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(-360deg);
-  }
-}
-
-@keyframes spin {
-  0%,
-  100% {
-    box-shadow: .2em 0px 0 0px currentcolor;
-  }
-  12% {
-    box-shadow: .2em .2em 0 0 currentcolor;
-  }
-  25% {
-    box-shadow: 0 .2em 0 0px currentcolor;
-  }
-  37% {
-    box-shadow: -.2em .2em 0 0 currentcolor;
-  }
   50% {
-    box-shadow: -.2em 0 0 0 currentcolor;
+    transform: rotate(360deg) scale(1.2)
   }
-  62% {
-    box-shadow: -.2em -.2em 0 0 currentcolor;
-  }
-  75% {
-    box-shadow: 0px -.2em 0 0 currentcolor;
-  }
-  87% {
-    box-shadow: .2em -.2em 0 0 currentcolor;
+
+  100% {
+    transform: rotate(720deg) scale(0.8)
   }
 }
+
+@keyframes ball1 {
+  0% {
+    box-shadow: 30px 0 0 #ff3d00;
+  }
+
+  50% {
+    box-shadow: 0 0 0 #ff3d00;
+    margin-bottom: 0;
+    transform: translate(15px, 15px);
+  }
+
+  100% {
+    box-shadow: 30px 0 0 #ff3d00;
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #fff;
+  }
+
+  50% {
+    box-shadow: 0 0 0 #fff;
+    margin-top: -20px;
+    transform: translate(15px, 15px);
+  }
+
+  100% {
+    box-shadow: 30px 0 0 #fff;
+    margin-top: 0;
+  }
+}
+
 
 #section__trending {
   margin: 10px auto;
@@ -108,6 +112,7 @@
   scroll-snap-type: x mandatory;
   max-width: 1600px;
 }
+
 #explore>div:first-child h2 {
   font-size: 30px;
 }
@@ -117,12 +122,13 @@
   /* display: none; */
 }
 
-.card-grid-slider::-webkit-scrollbar-thumb {
-}
+.card-grid-slider::-webkit-scrollbar-thumb {}
 
 .card-grid-slider::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Color of the track */
+  background-color: #f1f1f1;
+  /* Color of the track */
 }
+
 /* CARD SIMPLE */
 .card-simple {
   background-color: var(--background-thirdly-main);
@@ -194,7 +200,8 @@
   scroll-snap-align: start;
   justify-content: space-between;
 }
-.card-playing-horizontal.playing{
+
+.card-playing-horizontal.playing {
   /* background: #103178 !important; */
 }
 
@@ -315,6 +322,7 @@
   margin-right: 10px;
   font-size: 26px;
 }
+
 .btnHandleMusic .fa-pause {
   display: none;
 }
