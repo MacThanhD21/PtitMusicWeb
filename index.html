@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/base.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/css/loader/loader.css" />
 
   <!-- IMPORT JS -->
   <!-- <script src="./assets/js/logout.js"></script> -->
@@ -49,6 +50,11 @@
 </head>
 
 <body id="Top" class="switchMode">
+  <!-- Loader -->
+  <div id="container_loader">
+    <span class="loader"></span>
+  </div>
+  <!-- End Loader -->
   <!-- Section Navbar Toggle -->
   <section class="side-bar">
     <!-- Section-one -->
@@ -669,6 +675,20 @@
     </a>
   </section>
   <!-- End Section Main -->
+  <script>
+    // Chờ cho tài liệu HTML được tải xong
+    document.addEventListener("DOMContentLoaded", function () {
+      // Sau 3 giây, ẩn loader
+      setTimeout(hideLoader, 3500);
+    });
+
+    // Hàm ẩn loader
+    function hideLoader() {
+      const loaderContainer = document.getElementById("container_loader");
+      loaderContainer.style.display = "none";
+      loaderContainer.style.transition = "all 0.5s";
+    }
+  </script>
   <!-- Slick Js -->
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
     integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>

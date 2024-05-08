@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./assets/css/reset.css" />
   <link rel="stylesheet" href="./assets/css/base.css" />
   <link rel="stylesheet" href="./assets/css/album.css" />
+  <link rel="stylesheet" href="./assets/css/loader/loader.css" />
   <link rel="stylesheet" href="./assets/css/main/main.css">
   <link rel="stylesheet" href="./assets/css/playmusic/playmusic.css">
   <link rel="stylesheet" href="./assets/css/navbar/navbar.css">
@@ -312,14 +313,17 @@
     // Chờ cho tài liệu HTML được tải xong
     document.addEventListener("DOMContentLoaded", function () {
       // Sau 3 giây, ẩn loader
-      setTimeout(hideLoader, 3500);
+      setTimeout(hideLoader, 3000);
     });
 
     // Hàm ẩn loader
     function hideLoader() {
-      const loaderContainer = document.getElementById("container_loader");
-      loaderContainer.style.display = "none";
-      loaderContainer.style.transition = "all 0.5s";
+      const audioPlaying = document.getElementById("audio");
+      if (audioPlaying.played) {
+        const loaderContainer = document.getElementById("container_loader");
+        loaderContainer.style.display = "none";
+        loaderContainer.style.transition = "all 0.5s";
+      }
     }
   </script>
 
