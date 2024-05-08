@@ -23,6 +23,24 @@
   <link rel="stylesheet" href="./assets/css/noti/noti.css">
   <link rel="stylesheet" href="./assets/css/backTop/backTop.css">
   <!-- IMPORT JS -->
+
+  <script>
+    // Kiểm tra xem có cookie chứa token hay không
+    function getCookie(name) {
+      const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return cookieValue ? cookieValue.pop() : '';
+    }
+
+    // Lấy giá trị của cookie 'accessToken'
+    const accessToken = getCookie('accessToken');
+    console.log(accessToken);
+
+    // Nếu không có token, chuyển hướng người dùng đến trang đăng nhập
+    if (!accessToken) {
+      window.location.href = '/sign_in.html';
+    }
+  </script>
+
   <script defer type="module" src="./assets/js/services/api_album_page.js"></script>
   <script defer type="module" src="./assets/js/services/relateMusic.js"></script>
 

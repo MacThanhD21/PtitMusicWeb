@@ -28,6 +28,24 @@
     href="https://firebasestorage.googleapis.com/v0/b/ptitmusic-57385.appspot.com/o/main_logo.png?alt=media&token=03cfebd8-8068-4fc8-8372-d9c1a3b0aeb5"
     type="image/png" />
 
+
+  <script>
+    // Kiểm tra xem có cookie chứa token hay không
+    function getCookie(name) {
+      const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return cookieValue ? cookieValue.pop() : '';
+    }
+
+    // Lấy giá trị của cookie 'accessToken'
+    const accessToken = getCookie('accessToken');
+    console.log(accessToken);
+
+    // Nếu không có token, chuyển hướng người dùng đến trang đăng nhập
+    if (!accessToken) {
+      window.location.href = '/sign_in.html';
+    }
+  </script>
+
   <!-- TITLE -->
   <title>SINGER</title>
 </head>

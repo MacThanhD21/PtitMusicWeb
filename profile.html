@@ -19,7 +19,23 @@
   <link rel="stylesheet" href="./assets/css/navbar/navbar.css" />
   <link rel="stylesheet" href="./assets/css/mode/mode.css" />
   <link rel="stylesheet" href="./assets/css/avatar/avatar.css" />
-  
+
+  <script>
+    // Kiểm tra xem có cookie chứa token hay không
+    function getCookie(name) {
+      const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+      return cookieValue ? cookieValue.pop() : '';
+    }
+
+    // Lấy giá trị của cookie 'accessToken'
+    const accessToken = getCookie('accessToken');
+    console.log(accessToken);
+
+    // Nếu không có token, chuyển hướng người dùng đến trang đăng nhập
+    if (!accessToken) {
+      window.location.href = '/sign_in.html';
+    }
+  </script>
   <!-- Title -->
   <title>Profile</title>
 </head>
