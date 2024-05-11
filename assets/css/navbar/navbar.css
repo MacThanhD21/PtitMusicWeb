@@ -100,7 +100,7 @@ nav #search .result-songs ul li .infor-song {
 }
 
 
-/* nav #search .result-albums {
+nav #search .result-albums {
   display: none;
   position: absolute;
   right: 0;
@@ -111,7 +111,7 @@ nav #search .result-songs ul li .infor-song {
   border-radius: 10px;
   z-index: 1000;
   top: 250px;
-} */
+}
 
 /* End Search Bar */
 

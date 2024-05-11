@@ -24,7 +24,23 @@
   <link rel="stylesheet" href="./assets/css/noti/noti.css">
   <link rel="stylesheet" href="./assets/css/backTop/backTop.css">
   <!-- IMPORT JS -->
+  <script defer>
+    // Chờ cho tài liệu HTML được tải xong
+    document.addEventListener("DOMContentLoaded", function () {
+      // Sau 3 giây, ẩn loader
+      setTimeout(hideLoader, 3000);
+    });
 
+    // Hàm ẩn loader
+    function hideLoader() {
+      const audioPlaying = document.getElementById("audio");
+      if (audioPlaying.played) {
+        const loaderContainer = document.getElementById("container_loader");
+        loaderContainer.style.display = "none";
+        loaderContainer.style.transition = "all 0.5s";
+      }
+    }
+  </script>
   <script>
     // Kiểm tra xem có cookie chứa token hay không
     function getCookie(name) {
@@ -309,23 +325,7 @@
   </section>
   <!-- End Main -->
 
-  <script>
-    // Chờ cho tài liệu HTML được tải xong
-    document.addEventListener("DOMContentLoaded", function () {
-      // Sau 3 giây, ẩn loader
-      setTimeout(hideLoader, 3000);
-    });
 
-    // Hàm ẩn loader
-    function hideLoader() {
-      const audioPlaying = document.getElementById("audio");
-      if (audioPlaying.played) {
-        const loaderContainer = document.getElementById("container_loader");
-        loaderContainer.style.display = "none";
-        loaderContainer.style.transition = "all 0.5s";
-      }
-    }
-  </script>
 
 </body>
 
